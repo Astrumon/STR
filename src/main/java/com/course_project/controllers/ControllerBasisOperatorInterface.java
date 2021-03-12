@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.course_project.FxmlLoader;
+import com.course_project.data_access.DataSource;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -220,7 +221,8 @@ public class ControllerBasisOperatorInterface {
     void initialize() {
         assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'basisOperatorInterface.fxml'.";
         assert mainTopGridPane != null : "fx:id=\"mainTopGridPane\" was not injected: check your FXML file 'basisOperatorInterface.fxml'.";
-
+        DataSource dataSource = new DataSource();
+        dataSource.setConfig();
 
     }
 }
