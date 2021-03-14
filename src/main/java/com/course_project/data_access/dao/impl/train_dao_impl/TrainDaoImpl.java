@@ -1,6 +1,6 @@
 package com.course_project.data_access.dao.impl.train_dao_impl;
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.train_dao.TrainDao;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;

@@ -1,7 +1,7 @@
 package com.course_project.support;
 
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 
 
 public abstract class Manager {

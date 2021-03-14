@@ -1,6 +1,6 @@
 package com.course_project.data_access.dao.impl.warehouse_dao_impl;
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.warehouse_dao.WarehouseDao;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;

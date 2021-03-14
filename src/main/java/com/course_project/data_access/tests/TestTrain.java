@@ -1,6 +1,6 @@
 package com.course_project.data_access.tests;
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.impl.train_dao_impl.TrainDaoImpl;
 import com.course_project.data_access.dao.impl.train_dao_impl.TrainSetDaoImpl;
 import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;

@@ -25,6 +25,7 @@ com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.class
 com\course_project\controllers\ControllerTableCar$2.class
 com\course_project\data_access\model\train\TrainSet.class
 com\course_project\controllers\ControllerTableTrain.class
+com\course_project\database\DataSource.class
 com\course_project\support\Manager.class
 com\course_project\controllers\ControllerTableStorage$1.class
 com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
@@ -34,7 +35,6 @@ com\course_project\data_access\dao\wagon_dao\WagonDao.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.class
 module-info.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl$NumberGenerator.class
-com\course_project\data_access\DataSource.class
 com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.class
 com\course_project\data_access\tests\TestWarehouse.class
 com\course_project\controllers\ControllerCreateStorage.class

@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.course_project.FxmlLoader;
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

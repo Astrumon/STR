@@ -1,6 +1,6 @@
 package com.course_project.data_access.dao.impl.wagon_dao_impl;
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.wagon_dao.TypePlaceDao;
 import com.course_project.data_access.model.wagon.Place;
 import com.course_project.data_access.model.wagon.TypePlace;

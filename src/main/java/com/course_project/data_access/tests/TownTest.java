@@ -1,7 +1,7 @@
 package com.course_project.data_access.tests;
 
 
-import com.course_project.data_access.DataSource;
+import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.impl.route_dao_impl.TownDaoImpl;
 import com.course_project.data_access.model.route.Town;
 
