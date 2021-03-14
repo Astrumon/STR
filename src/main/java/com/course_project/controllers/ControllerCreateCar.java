@@ -1,19 +1,21 @@
 package com.course_project.controllers;
 
+import com.course_project.data_access.model.wagon.TypePlace;
+import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.database.DataSource;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checkable;
+import com.course_project.support.Checker;
+import com.course_project.support.WagonManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import com.course_project.database.DataSource;
-import com.course_project.data_access.model.wagon.TypePlace;
-import com.course_project.data_access.model.wagon.Wagon;
-import com.course_project.support.AlertGenerator;
-import com.course_project.support.WagonManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerCreateCar {
+public class ControllerCreateCar implements Checkable {
 
     @FXML
     private ResourceBundle resources;
@@ -50,48 +52,84 @@ public class ControllerCreateCar {
 
     @FXML
     void buttonDeleteCarAc(ActionEvent event) {
-        idWagon = Long.parseLong(textFieldNameCar.getText());
+
+        setIdWagon();
 
         if (wagonManager.deleteWagon(idWagon)) {
             AlertGenerator.info("Вагон успішно видалений");
+        } else {
+            AlertGenerator.error("Виникла помилка при видаленні вагону");
         }
+
     }
+
+    private boolean isCorrectWagonNumber() {
+        return !Checker.checkEmptyValue(textFieldNameCar.getText())
+                && Checker.checkPositiveIntValue(textFieldNameCar.getText());
+    }
+
+    public boolean isEmptyFields() {
+        return Checker.checkEmptyValue(textFieldNumberLowerSeats.getText())
+                && Checker.checkEmptyValue(textFieldNumberSittingSeats.getText())
+                && Checker.checkEmptyValue(textFieldNumberTopSeats.getText())
+                && Checker.checkEmptyValue(textFieldNumberVipSeats.getText())
+                && Checker.checkEmptyValue(textFieldNameCar.getText());
+    }
+
+    public boolean isIntegerPositiveNumber() {
+        return Checker.checkPositiveIntValue(textFieldNumberLowerSeats.getText())
+                && Checker.checkPositiveIntValue(textFieldNumberSittingSeats.getText())
+                && Checker.checkPositiveIntValue(textFieldNumberTopSeats.getText())
+                && Checker.checkPositiveIntValue(textFieldNumberVipSeats.getText());
+    }
+
 
     @FXML
     void buttonSaveCarAc(ActionEvent event) {
-        idWagon = Long.parseLong(textFieldNameCar.getText());
+
+        setIdWagon();
+
         int count = 0;
 
+        if (!isEmptyFields() && isIntegerPositiveNumber()) {
 
-        if (wagonManager.getWagons().size() == 0) {
-            create(idWagon);
-            return;
-        } else {
+            if (wagonManager.getWagons().size() == 0) {
+                create(idWagon);
+                return;
+            } else {
+                for (Wagon wagon : wagonManager.getWagons()) {
+                    if (idWagon.equals(wagon.getIdWagon())) {
+                        update(idWagon);
+                        break;
+                    }
 
-
-            for (Wagon wagon : wagonManager.getWagons()) {
-                if (idWagon.equals(wagon.getIdWagon())) {
-                    update(idWagon);
-                    break;
-                }
-
-
-                if (!idWagon.equals(wagon.getIdWagon())) {
-                    count++;
-                    if (count == wagonManager.getWagons().size()) {
-                        create(idWagon);
+                    if (!idWagon.equals(wagon.getIdWagon())) {
+                        count++;
+                        if (count == wagonManager.getWagons().size()) {
+                            create(idWagon);
+                        }
                     }
                 }
             }
+        } else {
+            AlertGenerator.error("Коректно заповніть всі поля");
         }
 
+    }
+
+    private void setIdWagon() {
+        if (isCorrectWagonNumber()) {
+            idWagon = Long.parseLong(textFieldNameCar.getText());
+        } else {
+            AlertGenerator.error("Введіть коректний номер вагону");
+        }
     }
 
     private void update(Long idWagon) {
 
-       if (wagonManager.updateWagon(idWagon, setTypePlace())) {
-           AlertGenerator.info("Інформація о вагоні оновлена");
-       }
+        if (wagonManager.updateWagon(idWagon, setTypePlace())) {
+            AlertGenerator.info("Інформація о вагоні оновлена");
+        }
 
     }
 

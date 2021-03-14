@@ -20,6 +20,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\Mai
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\WagonManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTicket.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\TrainManager.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checkable.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerBasisOperatorInterface.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\FxmlLoader.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
@@ -39,6 +40,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\route\Route.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checker.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\route_dao\RouteDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\warehouse\WarehouseSet.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseDaoImpl.java

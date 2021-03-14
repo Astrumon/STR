@@ -40,6 +40,9 @@ public class TrainManager extends Manager implements UpdatableCountWagons {
     }
 
     public boolean deleteTrain(String nameTrain) {
+        if (trainDao.findByName(nameTrain) == null ) {
+            return false;
+        }
         train.setName(nameTrain);
         return trainDao.deleteByName(train);
     }

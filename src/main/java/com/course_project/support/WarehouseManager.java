@@ -34,6 +34,9 @@ public class WarehouseManager extends Manager implements UpdatableCountWagons{
     }
 
     public boolean deleteWarehouse(String nameWarehouse) {
+        if (nameWarehouse == null) {
+            return false;
+        }
         warehouse.setName(nameWarehouse);
        return warehouseDao.deleteByName(warehouse);
     }

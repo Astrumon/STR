@@ -7,16 +7,13 @@ import java.util.ResourceBundle;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
-import com.course_project.support.AlertGenerator;
-import com.course_project.support.ParseId;
-import com.course_project.support.TrainManager;
-import com.course_project.support.WagonManager;
 
 public class ControllerCreateTrain {
 
@@ -40,26 +37,43 @@ public class ControllerCreateTrain {
 
     private TrainManager trainManager;
 
+    private String nameTrain;
+
 
 
     @FXML
     void buttonDeleteTrainAc(ActionEvent event) {
-        String nameWarehouse = textFieldNameTrain.getText();
-
-        if (trainManager.deleteTrain(nameWarehouse)) {
+        setTrainName();
+        if (trainManager.deleteTrain(nameTrain)) {
             AlertGenerator.info("Потяг успішно видалено");
         } else {
             AlertGenerator.info("Виникла помилка при видаленні потягу");
         }
     }
 
+    private boolean isCorrectTrainName() {
+        return !Checker.checkEmptyValue(textFieldNameTrain.getText())
+                && Checker.checkStringValue(textFieldNameTrain.getText());
+    }
+
+    private void setTrainName() {
+        if (isCorrectTrainName()) {
+            nameTrain = textFieldNameTrain.getText();
+        } else {
+            AlertGenerator.error("Введіть коректну назву потяга");
+        }
+    }
+
     @FXML
     void buttonSaveTrainAc(ActionEvent event) {
-        String nameTrain = textFieldNameTrain.getText();
 
-        createTrain(nameTrain);
-
-        addWagon(nameTrain);
+        if (isCorrectTrainName()) {
+            String nameTrain = textFieldNameTrain.getText();
+            createTrain(nameTrain);
+            addWagon(nameTrain);
+        } else {
+            AlertGenerator.error("Введіть коректну назву потяга");
+        }
     }
 
     private void createTrain(String nameTrain) {

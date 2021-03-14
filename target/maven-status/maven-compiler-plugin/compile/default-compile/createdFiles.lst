@@ -2,6 +2,7 @@ com\course_project\data_access\tests\TestPlace.class
 com\course_project\data_access\dao\train_dao\TrainDao.class
 com\course_project\support\ParseId.class
 com\course_project\FxmlLoader.class
+com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\NumberIDGenerator.class
 com\course_project\data_access\model\wagon\TypePlace.class
@@ -33,6 +34,7 @@ com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
 com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
 com\course_project\controllers\ControllerCreateCar.class
 com\course_project\data_access\dao\wagon_dao\WagonDao.class
+com\course_project\support\Checkable.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.class
 module-info.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl$NumberGenerator.class

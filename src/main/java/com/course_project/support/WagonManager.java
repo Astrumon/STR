@@ -25,26 +25,41 @@ public class WagonManager extends Manager {
 
     }
 
-    public void updateCountWagon(UpdatableCountWagons manager, String name) {
-        manager.updateCountWagons(name);
-    }
     public boolean deleteWagon(Long idWagon) {
-        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
-        String nameTrain = wagonDao.findByIdWagon(idWagon).getTrainName();
-        System.out.println("NW" + nameWarehouse);
-        System.out.println("NT" + nameTrain);
-        if (nameTrain != null) {
-            updateCountWagon(new TrainManager(), nameTrain);
+
+        if (isWagonNull(idWagon)) {
+            return false;
         }
 
-        if (nameWarehouse != null) {
-            updateCountWagon(new WarehouseManager(), nameWarehouse);
-        }
+        updateTrainCountWagon(idWagon);
+        updateWarehouseCountWagon(idWagon);
 
         wagon.setIdWagon(idWagon);
         wagonDao.delete(wagon);
         return deleteWagonPlace(idWagon);
     }
+
+    private boolean isWagonNull(Long idWagon) {
+        return wagonDao.findByIdWagon(idWagon) == null;
+    }
+    public void updateCountWagon(UpdatableCountWagons manager, String name) {
+        manager.updateCountWagons(name);
+    }
+
+    private void updateTrainCountWagon(Long idWagon) {
+        String nameTrain = wagonDao.findByIdWagon(idWagon).getTrainName();
+        if (nameTrain != null) {
+            updateCountWagon(new TrainManager(), nameTrain);
+        }
+    }
+
+    private void updateWarehouseCountWagon(Long idWagon) {
+        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
+        if (nameWarehouse != null) {
+            updateCountWagon(new WarehouseManager(), nameWarehouse);
+        }
+    }
+
 
     private boolean deleteWagonPlace(Long idWagon) {
         return typePlaceDao.deleteByIdWagon(idWagon);

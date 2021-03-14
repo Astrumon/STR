@@ -3,13 +3,10 @@ package com.course_project.controllers;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;
+import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import com.course_project.support.AlertGenerator;
-import com.course_project.support.ParseId;
-import com.course_project.support.WagonManager;
-import com.course_project.support.WarehouseManager;
 
 import java.net.URL;
 import java.util.List;
@@ -41,15 +38,17 @@ public class ControllerCreateStorage {
 
     private WarehouseManager warehouseManager;
 
+    private String warehouseName;
+
     @FXML
     void buttonDeleteStorageAc(ActionEvent event) {
 
-        String nameWarehouse = textFieldNameStorage.getText();
+        setWarehouseName();
 
-        if (warehouseManager.deleteWarehouse(nameWarehouse)) {
+        if (warehouseManager.deleteWarehouse(warehouseName)) {
             AlertGenerator.info("Склад успішно видалено");
         } else {
-            AlertGenerator.info("Виникла помилка при видаленні вагону");
+            AlertGenerator.error("Виникла помилка при видаленні вагону");
         }
     }
 
@@ -95,6 +94,19 @@ public class ControllerCreateStorage {
         }
     }
 
+    private boolean isCorrectWarehouseName() {
+        return !Checker.checkEmptyValue(textFieldNameStorage.getText())
+                && Checker.checkStringValue(textFieldNameStorage.getText());
+    }
+
+    private void setWarehouseName() {
+        if (isCorrectWarehouseName()) {
+            warehouseName = textFieldNameStorage.getText();
+        } else {
+            AlertGenerator.error("Введіть коректну назву складу");
+        }
+    }
+
     private void addWagon(String nameWarehouse) {
 
         Wagon wagon = new Wagon();
@@ -116,11 +128,14 @@ public class ControllerCreateStorage {
 
     @FXML
     void buttonSaveStorageAc(ActionEvent event) {
-        String nameWarehouse = textFieldNameStorage.getText();
 
-        createWarehouse(nameWarehouse);
-
-        addWagon(nameWarehouse);
+        if (isCorrectWarehouseName()) {
+            setWarehouseName();
+            createWarehouse(warehouseName);
+            addWagon(warehouseName);
+        } else {
+            AlertGenerator.error("Введіть коректну назву складу");
+        }
     }
 
 
@@ -146,6 +161,7 @@ public class ControllerCreateStorage {
         }
         listViewCar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+
 
 
 }
