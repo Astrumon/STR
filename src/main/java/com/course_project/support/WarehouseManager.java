@@ -8,7 +8,7 @@ import com.course_project.data_access.model.warehouse.WarehouseSet;
 
 import java.util.List;
 
-public class WarehouseManager extends Manager {
+public class WarehouseManager extends Manager implements UpdatableCountWagons{
 
     public static final int WAREHOUSE_CAPACITY = 100;
 
@@ -52,5 +52,12 @@ public class WarehouseManager extends Manager {
     }
 
 
+    @Override
+    public void updateCountWagons(String name) {
+        Warehouse warehouse = warehouseDao.findByName(name);
 
+        int countWagons = warehouse.getCountWagons();
+        warehouse.setCountWagons(--countWagons);
+        warehouseDao.updateCountWagon(warehouse);
+    }
 }

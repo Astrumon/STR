@@ -94,6 +94,34 @@ public class TrainDaoImpl implements TrainDao {
         return train;
     }
 
+    @Override
+    public Train findByName(String name) {
+        Connection connection = null;
+        Train train = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_NAME);
+            preparedStatement.setString(1, name);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                train = new Train();
+                train.setId(rs.getLong(Train.ID_COLUMN));
+                train.setName(rs.getString(Train.NAME_COLUMN));
+                train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
+                train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
+            }
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+        return train;
+    }
+
     /**
      * Удаление записи с таблицы train по train.id
      * @param train

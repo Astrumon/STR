@@ -27,10 +27,12 @@ public class DataSource {
         config.enforceForeignKeys(true);
         config.setReadOnly(false);
 
+
     }
 
     public DataSource() {
         url = PATH;
+        url = "jdbc:sqlite:C:\\Users\\Xiaomi\\IdeaProjects\\Course_project\\src\\main\\resources\\railway.db";
         config = new SQLiteConfig();
         config.setOpenMode(SQLiteOpenMode.READWRITE);
         config.enforceForeignKeys(true);

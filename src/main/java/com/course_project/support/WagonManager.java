@@ -25,7 +25,22 @@ public class WagonManager extends Manager {
 
     }
 
+    public void updateCountWagon(UpdatableCountWagons manager, String name) {
+        manager.updateCountWagons(name);
+    }
     public boolean deleteWagon(Long idWagon) {
+        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
+        String nameTrain = wagonDao.findByIdWagon(idWagon).getTrainName();
+        System.out.println("NW" + nameWarehouse);
+        System.out.println("NT" + nameTrain);
+        if (nameTrain != null) {
+            updateCountWagon(new TrainManager(), nameTrain);
+        }
+
+        if (nameWarehouse != null) {
+            updateCountWagon(new WarehouseManager(), nameWarehouse);
+        }
+
         wagon.setIdWagon(idWagon);
         wagonDao.delete(wagon);
         return deleteWagonPlace(idWagon);

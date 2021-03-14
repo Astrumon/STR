@@ -29,6 +29,9 @@ public interface WagonDao {
             + Wagon.ID_COUNT_TYPE_PLACE_COLUMN + " = ? "
             + Wagon.COUNT_SEATS_COLUMN + " = ?"
             +" WHERE " + Wagon.ID_COLUMN + " = ?";
+    String SQL_UPDATE_POS = "UPDATE " + Wagon.TABLE_NAME + " SET "
+            + Wagon.POSITION_TRAIN_COLUMN + "= ? WHERE "
+            + Wagon.ID_WAGON_COLUMN + " = ?";
     String SQL_UPDATE_WAREHOUSE_SET = "UPDATE " + Wagon.TABLE_NAME + " SET "
             + Wagon.ID_WAREHOUSE_SET_COLUMN + " = ?, "
             + Wagon.NAME_WAREHOUSE_COLUMN + " = ?  WHERE "
@@ -55,6 +58,8 @@ public interface WagonDao {
     void updateWarehouseSet(WarehouseSet warehouseSet, Long idWarehouseSet);
 
     void updateTrainSet(TrainSet trainSet, Long idTrainSet);
+
+    void updatePosTrain(Wagon wagon);
 
     void delete(Wagon wagon);
 

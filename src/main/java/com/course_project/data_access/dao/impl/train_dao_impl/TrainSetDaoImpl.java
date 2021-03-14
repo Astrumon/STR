@@ -1,5 +1,7 @@
 package com.course_project.data_access.dao.impl.train_dao_impl;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
+import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.train_dao.TrainSetDao;
 import com.course_project.data_access.model.train.Train;
@@ -86,6 +88,10 @@ public class TrainSetDaoImpl implements TrainSetDao {
    private void  updateWagonTrainSetInfo(TrainSet trainSet) {
        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
        trainDao.updateTrainSet(trainSet, trainSet.getId());
+       WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
+       Wagon wagon = wagonDao.findByIdWagon(trainSet.getIdWagon());
+       wagon.setPosTrain(trainSet.getPosWagon());
+       wagonDao.updatePosTrain(wagon);
    }
     /**
      * Метод который служит для добавления информации о вагоне в таблицу train_set
@@ -119,6 +125,7 @@ public class TrainSetDaoImpl implements TrainSetDao {
 
                 updateWagonTrainSetInfo(trainSet);
                 counterWagons(trainName);
+
                 return true;
 
             } catch (SQLException exc) {
@@ -350,4 +357,5 @@ public class TrainSetDaoImpl implements TrainSetDao {
             }
         }
     }
+
 }

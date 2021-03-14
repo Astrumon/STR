@@ -9,6 +9,7 @@ import java.util.List;
 public interface TrainDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Train.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Train.ID_COLUMN + "= ?";
+    String SQL_FIND_BY_NAME = SQL_FIND_ALL + " WHERE " + Train.NAME_COLUMN + "= ?";
     String SQL_INSERT = "INSERT INTO " + Train.TABLE_NAME + "("+ Train.NAME_COLUMN + ", "
             + Train.CAPACITY_COLUMN
             + ") VALUES( ?, ?)";
@@ -27,9 +28,13 @@ public interface TrainDao {
     String SQL_DELETE = "DELETE FROM " + Train.TABLE_NAME + " WHERE " + Train.ID_COLUMN + " = ?";
     String SQL_DELETE_BY_NAME = "DELETE FROM " + Train.TABLE_NAME + " WHERE " + Train.NAME_COLUMN + " = ?";
 
+
+
     List<Train> findAll();
 
     Train findById(Long id);
+
+    Train findByName(String name);
 
     boolean delete(Train train);
 

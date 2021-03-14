@@ -8,7 +8,7 @@ import com.course_project.data_access.model.wagon.Wagon;
 
 import java.util.List;
 
-public class TrainManager extends Manager {
+public class TrainManager extends Manager implements UpdatableCountWagons {
 
     public static final int TRAIN_CAPACITY = 30;
 
@@ -48,4 +48,11 @@ public class TrainManager extends Manager {
         return trainSetDao.findAll();
     }
 
+    @Override
+    public void updateCountWagons(String name) {
+        Train train = trainDao.findByName(name);
+        int countWagon = train.getCountWagon();
+        train.setCountWagon(--countWagon);
+        trainDao.updateCountWagon(train);
+    }
 }

@@ -207,6 +207,27 @@ public class WagonDaoImpl implements WagonDao {
         }
     }
 
+    @Override
+    public void updatePosTrain(Wagon wagon) {
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatementWagon = connection.prepareStatement(SQL_UPDATE_POS);
+            preparedStatementWagon.setInt(1, wagon.getPosTrain());
+            preparedStatementWagon.setLong(2, wagon.getIdWagon());
+            preparedStatementWagon.execute();
+
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+    }
+
     /**
      * Удаление записи с таблицы train по wagon.id
      *
