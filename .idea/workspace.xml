@@ -3,51 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/database/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/route_dao_impl/RouteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/route_dao_impl/RouteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/route_dao_impl/TownDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/route_dao_impl/TownDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/train_dao_impl/TrainDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/train_dao_impl/TrainDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/train_dao_impl/TrainSetDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/train_dao_impl/TrainSetDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/PlaceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/PlaceDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/TypePlaceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/TypePlaceDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/WagonDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/wagon_dao_impl/WagonDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseSetDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseSetDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestPlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestPlace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestWagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestWagon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestWarehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TestWarehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TownTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/data_access/tests/TownTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/database/railway.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/railway.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/support/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/support/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerBasisOperatorInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerBasisOperatorInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/DataSource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/route_dao_impl/RouteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/route_dao_impl/RouteDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/route_dao_impl/TownDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/route_dao_impl/TownDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/train_dao_impl/TrainDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/train_dao_impl/TrainDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/train_dao_impl/TrainSetDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/train_dao_impl/TrainSetDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/PlaceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/PlaceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/TypePlaceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/TypePlaceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/WagonDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/wagon_dao_impl/WagonDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseSetDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/dao/impl/warehouse_dao_impl/WarehouseSetDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestPlace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestPlace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestTrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestWagon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestWagon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestWarehouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TestWarehouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TownTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/data_access/tests/TownTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/support/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/support/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/support/TrainManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/support/TrainManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/support/WagonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/support/WagonManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/support/WarehouseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/support/WarehouseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/course-project.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/course-project.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/course-project/bin/configuration.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/course-project/lib/modules" beforeDir="false" afterPath="$PROJECT_DIR$/target/course-project/lib/modules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateTrain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +47,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1pdQJF3cZ3vKcu3wxfEwrIvBXCw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -160,26 +121,26 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1615510295743" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1615705584174">
+    <state width="1493" height="212" key="GridCell.Tab.0.bottom" timestamp="1615747335812">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1615705584174" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1615705584173">
+    <state width="1493" height="212" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1615747335812" />
+    <state width="1493" height="212" key="GridCell.Tab.0.center" timestamp="1615747335811">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1615705584173" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1615705584173">
+    <state width="1493" height="212" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1615747335811" />
+    <state width="1493" height="212" key="GridCell.Tab.0.left" timestamp="1615747335811">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1615705584173" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1615705584173">
+    <state width="1493" height="212" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1615747335811" />
+    <state width="1493" height="212" key="GridCell.Tab.0.right" timestamp="1615747335811">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1615705584173" />
+    <state width="1493" height="212" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1615747335811" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1615523303371">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

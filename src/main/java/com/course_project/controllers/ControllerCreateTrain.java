@@ -137,7 +137,9 @@ public class ControllerCreateTrain {
         WagonManager wagonManager = new WagonManager();
 
         for (Wagon wagon : wagonManager.getWagons()) {
-            listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+            if (wagon.getTrainName() == null) {
+                listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+            }
         }
         listViewTrain.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }

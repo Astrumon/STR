@@ -140,7 +140,9 @@ public class ControllerCreateStorage {
         WagonManager wagonManager = new WagonManager();
 
         for (Wagon wagon : wagonManager.getWagons()) {
-            listViewCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+            if (wagon.getNameWarehouse() == null) {
+                listViewCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+            }
         }
         listViewCar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
