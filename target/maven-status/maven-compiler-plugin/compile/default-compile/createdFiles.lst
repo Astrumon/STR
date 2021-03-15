@@ -10,6 +10,7 @@ com\course_project\support\AlertGenerator.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\tests\TestTrain.class
+com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\WarehouseManager.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.class
 com\course_project\support\UpdatableCountWagons.class

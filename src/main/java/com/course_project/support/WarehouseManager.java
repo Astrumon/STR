@@ -18,6 +18,8 @@ public class WarehouseManager extends Manager implements UpdatableCountWagons{
 
     private Warehouse warehouse;
 
+    public static Warehouse transfer;
+
     private List<Warehouse> warehouses;
 
 
@@ -27,6 +29,18 @@ public class WarehouseManager extends Manager implements UpdatableCountWagons{
         warehouseSetDao = new WarehouseSetDaoImpl(dataSource);
         warehouse = new Warehouse();
         warehouse.setCapacity(WAREHOUSE_CAPACITY);
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public Warehouse transferWarehouse(Warehouse warehouse) {
+        return warehouse;
     }
 
     public List<Warehouse> getWarehouses() {

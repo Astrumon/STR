@@ -1,5 +1,6 @@
 package com.course_project.controllers;
 
+import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,8 +8,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import com.course_project.support.NumberIDGenerator;
 import com.course_project.support.WarehouseManager;
@@ -23,6 +28,12 @@ public class ControllerTableStorage {
 
     @FXML
     private URL location;
+
+    @FXML
+    private StackPane stackPaneStorage;
+
+    @FXML
+    private AnchorPane anchorPaneTableStorage;
 
     @FXML
     private TableView<Warehouse> tableWarehouse;
@@ -44,6 +55,7 @@ public class ControllerTableStorage {
     @FXML
     void initialize() {
         fillTable();
+        clickToEdit();
     }
 
     public void fillTable() {
@@ -72,7 +84,25 @@ public class ControllerTableStorage {
         tblCountCars.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("countWagons"));
 
         tableWarehouse.setItems(warehouses);
+
     }
 
+    public void clickToEdit() {
+        tableWarehouse.setRowFactory(tv -> {
+            TableRow<Warehouse> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    WarehouseManager.transfer = row.getItem();
+
+                    FxmlLoader object = new FxmlLoader();
+                    Pane view = object.getPage("updateStorage");
+
+                    stackPaneStorage.getChildren().remove(anchorPaneTableStorage);
+                    stackPaneStorage.getChildren().add(view);
+                }
+            });
+            return row;
+        });
+    }
 
 }
