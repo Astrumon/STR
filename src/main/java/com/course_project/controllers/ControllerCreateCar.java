@@ -44,6 +44,9 @@ public class ControllerCreateCar implements Checkable {
     @FXML
     private Button buttonDeleteCar;
 
+    @FXML
+    private CheckBox checkBoxFreightCar;
+
     private DataSource dataSource = new DataSource();
 
     private WagonManager wagonManager = new WagonManager();
