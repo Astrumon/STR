@@ -79,16 +79,16 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\resources" />
-      <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.course_project" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers" />
       <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\resources\com\course_project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\resources" />
+      <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access" />
     </key>
   </component>
   <component name="SvnConfiguration">
