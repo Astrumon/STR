@@ -68,23 +68,26 @@ public class ControllerUpdateStorage {
         assert buttonAddToStorage != null : "fx:id=\"buttonAddToStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
         assert buttonRemoveFromStorage != null : "fx:id=\"buttonRemoveFromStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
 
+        loadWagonsInfoToLstView();
+
+
+       // System.out.println(TransferWarehouse.warehouse);
+    }
+
+    private void loadWagonsInfoToLstView() {
         String nameWarehouse = WarehouseManager.transfer.getName();
         textFieldNameStorage.setText(nameWarehouse);
 
         WagonManager wagonManager = new WagonManager();
         for (Wagon wagon : wagonManager.getWagons()) {
-            System.out.println(wagon);
-            if (wagon.getNameWarehouse() != null && wagon.getNameWarehouse().equals(nameWarehouse)) {
-                lstViewCarInTheStorage.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
-            }
             if (wagon.getNameWarehouse() == null) {
                 lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getId());
+            }else if ( wagon.getNameWarehouse().equals(nameWarehouse)) {
+                lstViewCarInTheStorage.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
             }
-       }
+
+        }
         lstViewCarInTheStorage.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         lstViewFreeCar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-
-       // System.out.println(TransferWarehouse.warehouse);
     }
 }

@@ -22,8 +22,6 @@ public class WarehouseManager extends Manager implements UpdatableCountWagons{
 
     private List<Warehouse> warehouses;
 
-
-
     public WarehouseManager() {
         warehouseDao = new WarehouseDaoImpl(dataSource);
         warehouseSetDao = new WarehouseSetDaoImpl(dataSource);

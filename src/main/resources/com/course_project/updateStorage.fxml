@@ -59,7 +59,7 @@
                 <RowConstraints maxHeight="106.4000305175781" minHeight="10.0" prefHeight="92.79997558593752" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Вільні ваноги">
+                  <Label text="Вільні вагони">
                      <font>
                         <Font size="18.0" />
                      </font>
