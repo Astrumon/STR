@@ -5,6 +5,7 @@ com\course_project\FxmlLoader.class
 com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\NumberIDGenerator.class
+com\course_project\controllers\ControllerUpdateTrain.class
 com\course_project\support\TEST_2.class
 com\course_project\data_access\model\wagon\TypePlace.class
 com\course_project\support\AlertGenerator.class

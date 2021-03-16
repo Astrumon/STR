@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTableTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTableTrain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/createTrain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/createTrain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/tableTrain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/tableTrain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateTrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableTrain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableTrain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableTrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +66,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
