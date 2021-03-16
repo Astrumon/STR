@@ -155,6 +155,27 @@ public class ControllerCreateCar implements Checkable {
     }
 
     @FXML
+    void checkBoxFreightCarAc(ActionEvent event) {
+        if (checkBoxFreightCar.isSelected()){
+            System.out.println("33");
+            textFieldNumberVipSeats.setEditable(false);
+            textFieldNumberTopSeats.setEditable(false);
+            textFieldNumberLowerSeats.setEditable(false);
+            textFieldNumberSittingSeats.setEditable(false);
+            textFieldNumberVipSeats.undo();
+            textFieldNumberTopSeats.undo();
+            textFieldNumberLowerSeats.undo();
+            textFieldNumberSittingSeats.undo();
+        }
+        else if (checkBoxFreightCar.isSelected() == false){
+            textFieldNumberVipSeats.setEditable(true);
+            textFieldNumberTopSeats.setEditable(true);
+            textFieldNumberLowerSeats.setEditable(true);
+            textFieldNumberSittingSeats.setEditable(true);
+        }
+    }
+
+    @FXML
     void initialize() {
         assert textFieldNameCar != null : "fx:id=\"textFieldNameCar\" was not injected: check your FXML file 'createCar.fxml'.";
         assert textFieldNumberVipSeats != null : "fx:id=\"textFieldNumberVipSeats\" was not injected: check your FXML file 'createCar.fxml'.";
@@ -163,7 +184,15 @@ public class ControllerCreateCar implements Checkable {
         assert textFieldNumberSittingSeats != null : "fx:id=\"textFieldNumberSittingSeats\" was not injected: check your FXML file 'createCar.fxml'.";
         assert buttonSaveCar != null : "fx:id=\"buttonSaveCar\" was not injected: check your FXML file 'createCar.fxml'.";
         assert buttonDeleteCar != null : "fx:id=\"buttonDeleteCar\" was not injected: check your FXML file 'createCar.fxml'.";
+        //checkBoxFreightCar.setOnAction(event -> selectedCheckBoxFreightCar());
+        //selectedCheckBoxFreightCar(checkBoxFreightCar);
 
+    }
 
+    public void selectedCheckBoxFreightCar() {
+        if (checkBoxFreightCar.isSelected()){
+            System.out.println("33");
+            textFieldNumberVipSeats.setEditable(false);
+        }
     }
 }
