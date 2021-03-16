@@ -97,20 +97,12 @@ public class ControllerTableCar {
                     Wagon rowData = row.getItem();
                     System.out.println(rowData);
 
-                    /*FxmlLoader object = new FxmlLoader();
-                    Pane view = object.getPage("createCar");
-                    BorderPane borderPane = new BorderPane();
-
-                    borderPane.setId("manePane");
-                    borderPane.setCenter(view);*/
                     //TODO переход на создание/редактирование
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("updateCar");
 
                     stackPaneCar.getChildren().remove(anchorPaneTableCar);
                     stackPaneCar.getChildren().add(view);
-
-
                 }
             });
             return row;
