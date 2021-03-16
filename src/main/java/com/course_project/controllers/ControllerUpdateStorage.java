@@ -87,6 +87,7 @@ public class ControllerUpdateStorage {
             }
 
         }
+        textFieldNameStorage.setEditable(false);
         lstViewCarInTheStorage.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         lstViewFreeCar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }

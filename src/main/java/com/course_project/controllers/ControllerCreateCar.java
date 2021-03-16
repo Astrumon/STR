@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class ControllerCreateCar implements Checkable {
 
@@ -157,15 +158,10 @@ public class ControllerCreateCar implements Checkable {
     @FXML
     void checkBoxFreightCarAc(ActionEvent event) {
         if (checkBoxFreightCar.isSelected()){
-            System.out.println("33");
             textFieldNumberVipSeats.setEditable(false);
             textFieldNumberTopSeats.setEditable(false);
             textFieldNumberLowerSeats.setEditable(false);
             textFieldNumberSittingSeats.setEditable(false);
-            textFieldNumberVipSeats.undo();
-            textFieldNumberTopSeats.undo();
-            textFieldNumberLowerSeats.undo();
-            textFieldNumberSittingSeats.undo();
         }
         else if (checkBoxFreightCar.isSelected() == false){
             textFieldNumberVipSeats.setEditable(true);
@@ -184,15 +180,20 @@ public class ControllerCreateCar implements Checkable {
         assert textFieldNumberSittingSeats != null : "fx:id=\"textFieldNumberSittingSeats\" was not injected: check your FXML file 'createCar.fxml'.";
         assert buttonSaveCar != null : "fx:id=\"buttonSaveCar\" was not injected: check your FXML file 'createCar.fxml'.";
         assert buttonDeleteCar != null : "fx:id=\"buttonDeleteCar\" was not injected: check your FXML file 'createCar.fxml'.";
-        //checkBoxFreightCar.setOnAction(event -> selectedCheckBoxFreightCar());
-        //selectedCheckBoxFreightCar(checkBoxFreightCar);
+        inputRestriction(textFieldNameCar);
+        inputRestriction(textFieldNumberVipSeats);
+        inputRestriction(textFieldNumberTopSeats);
+        inputRestriction(textFieldNumberLowerSeats);
+        inputRestriction(textFieldNumberSittingSeats);
+
+
 
     }
 
-    public void selectedCheckBoxFreightCar() {
-        if (checkBoxFreightCar.isSelected()){
-            System.out.println("33");
-            textFieldNumberVipSeats.setEditable(false);
-        }
+    public void inputRestriction(TextField textField) {
+        Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!p.matcher(newValue).matches()) textField.setText(oldValue);
+        });
     }
 }
