@@ -65,8 +65,20 @@ public class ControllerBasisOperatorInterface {
     private Button buttonCleanTicket;
 
     @FXML
+    private Button buttonOperators;
+
+    @FXML
     private TableView<Wagon> tableCar;
 
+    @FXML
+    void buttonCargoTransportationAc(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonOperatorsAc(ActionEvent event) {
+
+    }
 
     @FXML
     void buttonExit(ActionEvent event) {

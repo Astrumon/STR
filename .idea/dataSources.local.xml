@@ -5,12 +5,5 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
       <schema-mapping />
     </data-source>
-<<<<<<< HEAD
-=======
-    <data-source name="railway [2]" uuid="815a164d-d9ca-409e-a52f-02ba826586b3">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <schema-mapping />
-    </data-source>
->>>>>>> debug
   </component>
 </project>
