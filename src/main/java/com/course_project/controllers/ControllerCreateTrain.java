@@ -10,10 +10,7 @@ import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class ControllerCreateTrain {
 
@@ -34,6 +31,9 @@ public class ControllerCreateTrain {
 
     @FXML
     private ListView<String> listViewTrain;
+
+    @FXML
+    private ChoiceBox<?> choiceBoxTypeTrain;
 
     private TrainManager trainManager;
 

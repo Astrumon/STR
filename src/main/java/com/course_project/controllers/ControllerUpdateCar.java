@@ -82,7 +82,6 @@ public class ControllerUpdateCar {
         assert buttonSaveCar != null : "fx:id=\"buttonSaveCar\" was not injected: check your FXML file 'updateCar.fxml'.";
         assert buttonDeleteCar != null : "fx:id=\"buttonDeleteCar\" was not injected: check your FXML file 'updateCar.fxml'.";
         assert checkBoxFreightCar != null : "fx:id=\"checkBoxFreightCar\" was not injected: check your FXML file 'updateCar.fxml'.";
-        textFieldNameCar.setEditable(false);
         inputRestriction(textFieldNameCar);
         inputRestriction(textFieldNumberVipSeats);
         inputRestriction(textFieldNumberTopSeats);
