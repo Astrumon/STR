@@ -15,6 +15,7 @@ com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\WarehouseManager.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.class
 com\course_project\support\UpdatableCountWagons.class
+com\course_project\controllers\ControllerUpdateCar.class
 com\course_project\data_access\tests\TestWagon.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class

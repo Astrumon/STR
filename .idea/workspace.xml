@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -14,9 +16,15 @@
 =======
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/course_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course_project.iml" afterDir="false" />
+>>>>>>> 070a6a7c0d14da8ea0e9acb3761175da1f8499cd
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 >>>>>>> e0626de53470e75b076218ab68b3254c3351915a
     </list>
+=======
+    <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="" />
+>>>>>>> debug
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,11 +107,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../course_project-master (3)/course_project-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+>>>>>>> debug
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.31059682" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -120,13 +139,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,7 +172,8 @@
       <workItem from="1615577688997" duration="2088000" />
       <workItem from="1615702380852" duration="3530000" />
       <workItem from="1615765869677" duration="4010000" />
-      <workItem from="1615835986912" duration="1287000" />
+      <workItem from="1615835986912" duration="2004000" />
+      <workItem from="1615838140541" duration="1562000" />
     </task>
     <servers />
   </component>
@@ -247,6 +269,10 @@
         </entry>
       </map>
     </option>
+<<<<<<< HEAD
 >>>>>>> e0626de53470e75b076218ab68b3254c3351915a
+=======
+    <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> 070a6a7c0d14da8ea0e9acb3761175da1f8499cd
   </component>
 </project>
