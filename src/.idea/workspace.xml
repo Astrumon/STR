@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b0d8cdb-4bfe-4bc1-b611-39ac0f5c795c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/course_project/createStorage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/course_project/createStorage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/course_project/support/WarehouseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/course_project/support/WarehouseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/awt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/fontmanager.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/freetype.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/java.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/java.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/javajpeg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/javaw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/jawt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/jimage.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/jli.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/jrunscript.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/jsound.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/keytool.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/launch.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/launch.sh.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/lcms.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/mlib_image.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/msvcp140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/net.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/nio.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/prefs.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/server/jvm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/splashscreen.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/ucrtbase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/vcruntime140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/verify.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/bin/zip.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/net.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/java.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/java.security" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/limited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/limited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/limited/exempt_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/security/policy/unlimited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/conf/sound.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/aes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/asm.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/c-libutl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/cldr.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/icu.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/public_suffix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/unicode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.base/zlib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.datatransfer/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.datatransfer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/colorimaging.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/freetype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/giflib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/harfbuzz.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/jpeg.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/lcms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/libpng.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.desktop/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.logging/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.logging/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.prefs/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.prefs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.scripting/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.scripting/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.sql/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.sql/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.transaction.xa/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.transaction.xa/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/bcel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/dom.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/jcup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/xalan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/java.xml/xerces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/jdk.unsupported/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/legal/jdk.unsupported/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/classlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/fontconfig.bfc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/fontconfig.properties.src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/jawt.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/jrt-fs.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/jvm.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/jvm.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/modules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/psfont.properties.ja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/psfontj2d.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/security/blacklisted.certs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/security/cacerts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/security/default.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/security/public_suffix_list.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/tzdb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/lib/tzmappings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/course-project/release" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1po9xKOrx82XZBjkatK6B8ns0l9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b0d8cdb-4bfe-4bc1-b611-39ac0f5c795c" name="Default Changelist" comment="" />
+      <created>1615838820280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615838820280</updated>
+      <workItem from="1615838821535" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1615838833466">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615838833466" />
+  </component>
+</project>
