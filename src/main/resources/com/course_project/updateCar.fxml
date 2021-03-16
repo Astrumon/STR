@@ -114,7 +114,7 @@
                         </Button>
                     </children>
                 </GridPane>
-                <CheckBox fx:id="checkBoxFreightCar" mnemonicParsing="false" text="Вантажний вагон" GridPane.rowIndex="2">
+                <CheckBox fx:id="checkBoxFreightCar" mnemonicParsing="false" onAction="#checkBoxFreightCarAc" text="Вантажний вагон" GridPane.rowIndex="2">
                     <font>
                         <Font size="18.0" />
                     </font>
