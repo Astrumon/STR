@@ -1,5 +1,6 @@
 package com.course_project.controllers;
 
+import com.course_project.FxmlLoader;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -7,7 +8,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.NumberIDGenerator;
@@ -26,6 +30,12 @@ public class ControllerTableCar {
 
     @FXML
     private URL location;
+
+    @FXML
+    private StackPane stackPaneCar;
+
+    @FXML
+    private AnchorPane anchorPaneTableCar;
 
     @FXML
     private TableView<Wagon> tableCar;
@@ -49,6 +59,7 @@ public class ControllerTableCar {
     @FXML
     void initialize() {
         fillTable();
+        clickToEdit();
     }
 
     public void fillTable() {
@@ -78,24 +89,25 @@ public class ControllerTableCar {
         tableCar.setItems(wagons);
     }
 
-//    public void clickToEdit() {
-//        tableCar.setRowFactory(tv -> {
-//            TableRow<Wagon> row = new TableRow<>();
-//            row.setOnMouseClicked(event -> {
-//                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-//                    Wagon rowData = row.getItem();
-//                    System.out.println(rowData);
-////                  FxmlLoader object = new FxmlLoader();
-////                    Pane view = object.getPage("createCar");
-////                   BorderPane borderPane = new BorderPane();
-////                   borderPane.setId("manePane");
-////                   borderPane.setCenter(view);
-//                    //TODO переход на создание/редактирование
-//                }
-//            });
-//            return row;
-//        });
-//    }
+    public void clickToEdit() {
+        tableCar.setRowFactory(tv -> {
+            TableRow<Wagon> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    Wagon rowData = row.getItem();
+                    System.out.println(rowData);
+
+                    //TODO переход на создание/редактирование
+                    FxmlLoader object = new FxmlLoader();
+                    Pane view = object.getPage("updateCar");
+
+                    stackPaneCar.getChildren().remove(anchorPaneTableCar);
+                    stackPaneCar.getChildren().add(view);
+                }
+            });
+            return row;
+        });
+    }
 }
 
 

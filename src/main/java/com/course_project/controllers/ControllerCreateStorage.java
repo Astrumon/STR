@@ -108,10 +108,8 @@ public class ControllerCreateStorage {
     }
 
     private void addWagon(String nameWarehouse) {
-
-        Wagon wagon = new Wagon();
-
         for (String nameWagon : getWagonsFromList()) {
+            Wagon wagon = new Wagon();
             wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
             wagon.setType(Wagon.PASSENGER_TYPE);
             if (warehouseManager.addWagonToWarehouse(nameWarehouse, wagon, findEmptyPos())) {

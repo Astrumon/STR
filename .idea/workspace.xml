@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+>>>>>>> f6bd633efff83d8d44791fe2d3f18ab95ad5b66d
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/course_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course_project.iml" afterDir="false" />
+>>>>>>> 070a6a7c0d14da8ea0e9acb3761175da1f8499cd
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> e0626de53470e75b076218ab68b3254c3351915a
+    </list>
+=======
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="" />
+>>>>>>> debug
+=======
+    <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTableCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTableCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerCreateCar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerTableCar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/createCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/createCar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+    </list>
+>>>>>>> debug
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +91,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="debug" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pdQJF3cZ3vKcu3wxfEwrIvBXCw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -63,7 +112,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -72,10 +120,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Курсовая/Женя_переход по даблклику/course_project-master (3)/course_project-master" />
-    <property name="project.structure.last.edited" value="SDKs" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../course_project-master (3)/course_project-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+>>>>>>> debug
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.31059682" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -90,7 +150,73 @@
       <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\resources" />
       <recent name="C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access" />
     </key>
+<<<<<<< HEAD
+=======
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="javafx-maven-setup" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="javafx-maven-setup" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> master
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -108,16 +234,16 @@
       <workItem from="1615552734154" duration="13612000" />
       <workItem from="1615577688997" duration="2088000" />
       <workItem from="1615702380852" duration="3530000" />
-      <workItem from="1615765869677" duration="4374000" />
-      <workItem from="1615770582753" duration="58000" />
-      <workItem from="1615792174600" duration="1235000" />
-      <workItem from="1615833278374" duration="1805000" />
+      <workItem from="1615765869677" duration="4010000" />
+      <workItem from="1615835986912" duration="2004000" />
+      <workItem from="1615838140541" duration="1562000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="361" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615704485647">
       <screen x="0" y="0" width="1536" height="834" />
@@ -141,31 +267,30 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1615768807080" />
-    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1615792451056">
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1615766746344">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615792451056" />
     <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1615766746344" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1615796643130">
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1615769827636">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615796643130" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1615770639752" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1615796643130">
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1615769827636" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1615769827636">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615796643130" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1615770639752" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1615796643130">
+    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1615769827636" />
+    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1615769827636">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615796643130" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1615770639752" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1615796643130">
+    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
+    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1615769827636" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1615769827636">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615796643130" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1615770639752" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615573358992" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1615769827636" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1615523303371">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -182,18 +307,35 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="478" y="51" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1615511899487" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1615833280218">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1615765873194">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615833280218" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1615770583505" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615577696096" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1615765873194" />
     <state x="463" y="149" width="609" height="536" key="find.popup" timestamp="1615527316937">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="463" y="149" width="609" height="536" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1615527316937" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1615508685613">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1615836630693">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/1920.34.1344.810@0.0.1536.834" timestamp="1615836630693" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1615508685613" />
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+<<<<<<< HEAD
+>>>>>>> e0626de53470e75b076218ab68b3254c3351915a
+=======
+    <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> 070a6a7c0d14da8ea0e9acb3761175da1f8499cd
   </component>
 </project>

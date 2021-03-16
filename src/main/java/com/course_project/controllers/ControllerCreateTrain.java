@@ -105,9 +105,10 @@ public class ControllerCreateTrain {
     }
 
     private void addWagon(String nameTrain) {
-        Wagon wagon = new Wagon();
+
 
         for (String nameWagon : getWagonsFromList()) {
+            Wagon wagon = new Wagon();
             wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
             wagon.setType(Wagon.PASSENGER_TYPE);
             if (trainManager.addWagonToTrain(nameTrain, wagon, findEmptyPos())) {

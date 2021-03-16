@@ -6,6 +6,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\route\Town.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\Place.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\warehouse\Warehouse.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateCar.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\PlaceDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestPlace.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTrain.java
@@ -23,6 +24,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\sup
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checkable.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerBasisOperatorInterface.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\FxmlLoader.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\TEST_2.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestWagon.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\train\TrainSet.java
@@ -47,6 +49,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\WarehouseManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\database\DataSource.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\WagonDao.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\TEST.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\module-info.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\TypePlaceDao.java
