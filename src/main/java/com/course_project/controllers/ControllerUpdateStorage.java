@@ -153,7 +153,7 @@ public class ControllerUpdateStorage {
     private int findEmptyPos() {
         int pos = 0;
         for (WarehouseSet warehouseSet : warehouseManager.getWarehouseSets()) {
-            if (warehouseSet.getIdWagon() == 0) {
+            if (warehouseSet.getIdWagon() == 0 && warehouseSet.getNameWarehouse().equals(warehouseName)) {
                 pos = warehouseSet.getPosition();
                 break;
             }

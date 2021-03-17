@@ -3,6 +3,7 @@ com\course_project\data_access\dao\train_dao\TrainDao.class
 com\course_project\support\ParseId.class
 com\course_project\FxmlLoader.class
 com\course_project\support\Checker.class
+com\course_project\support\TrainCreator.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\NumberIDGenerator.class
 com\course_project\controllers\ControllerUpdateTrain.class
@@ -13,6 +14,8 @@ com\course_project\controllers\ControllerTablePath$1.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\tests\TestTrain.class
+com\course_project\support\WagonCreator.class
+com\course_project\support\WarehouseCreator.class
 com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\TicketManager.class
 com\course_project\support\WarehouseManager.class

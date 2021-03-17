@@ -12,7 +12,9 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTrain.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Manager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableCar.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\TicketManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableStorage.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\TrainCreator.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TownTest.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\NumberIDGenerator.java
@@ -30,6 +32,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestTrain.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\ParseId.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\ticket_dao\TicketDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateStorage.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateTrain.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestWarehouse.java
@@ -48,10 +51,12 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\dat
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\WarehouseManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\database\DataSource.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\WagonDao.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\TicketDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\module-info.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\TypePlaceDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
+C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\Ticket.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\RouteManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateStorage.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateCar.java

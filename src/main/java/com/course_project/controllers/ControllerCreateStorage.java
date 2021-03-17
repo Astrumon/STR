@@ -36,51 +36,28 @@ public class ControllerCreateStorage {
     @FXML
     private TableView<Wagon> tableCar;
 
-    private WarehouseManager warehouseManager;
 
     private String warehouseName;
 
+    private WarehouseCreator warehouseCreator;
 
 
-    private int findEmptyPos() {
-        int pos = 0;
-        for (WarehouseSet warehouseSet : warehouseManager.getWarehouseSets()) {
-            if (warehouseSet.getIdWagon() == 0) {
-                pos = warehouseSet.getPosition();
-                break;
-            }
-        }
-        return pos;
-    }
-
-
-    private void createWarehouse(String nameWarehouse) {
-
-        if (warehouseManager.getWarehouses().size() == 0) {
-            createFirstWarehouse(nameWarehouse);
-        }
-
-        int count = 0;
-        for (Warehouse warehouse : warehouseManager.getWarehouses()) {
-            if (!warehouse.getName().equals(nameWarehouse)) {
-                count++;
-                if (count == warehouseManager.getWarehouses().size()) {
-                    if (warehouseManager.createWarehouse(nameWarehouse)) {
-                        AlertGenerator.info("Склад успішно створено");
-                    } else {
-                        AlertGenerator.error("Виникла помилка при створені складу");
-                    }
-                }
-            }
-        }
-    }
-
-    private void createFirstWarehouse(String nameWarehouse) {
-        if (warehouseManager.createWarehouse(nameWarehouse)) {
-            AlertGenerator.info("Склад успішно створено");
+    @FXML
+    void buttonSaveStorageAc(ActionEvent event) {
+        setWarehouseName();
+            warehouseCreator.setWagonsFromList(getWagonsFromList());
+            warehouseCreator.setNameWarehouse(warehouseName);
+        if (isCorrectWarehouseName()) {
+            setWarehouseName();
+            warehouseCreator.createWarehouse(warehouseName);
+            warehouseCreator.addWagon(warehouseName);
         } else {
-            AlertGenerator.error("Виникла помилка при створені складу");
+            AlertGenerator.error("Введіть коректну назву складу");
         }
+    }
+
+    private List<String> getWagonsFromList() {
+        return listViewCar.getSelectionModel().getSelectedItems();
     }
 
     private boolean isCorrectWarehouseName() {
@@ -96,35 +73,6 @@ public class ControllerCreateStorage {
         }
     }
 
-    private void addWagon(String nameWarehouse) {
-        for (String nameWagon : getWagonsFromList()) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
-            if (warehouseManager.addWagonToWarehouse(nameWarehouse, wagon, findEmptyPos())) {
-                AlertGenerator.info("Вагон успішно додано на склад");
-            } else {
-                AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
-            }
-        }
-    }
-
-    private List<String> getWagonsFromList() {
-        return listViewCar.getSelectionModel().getSelectedItems();
-    }
-
-    @FXML
-    void buttonSaveStorageAc(ActionEvent event) {
-
-        if (isCorrectWarehouseName()) {
-            setWarehouseName();
-            createWarehouse(warehouseName);
-            addWagon(warehouseName);
-        } else {
-            AlertGenerator.error("Введіть коректну назву складу");
-        }
-    }
-
 
     @FXML
     void initialize() {
@@ -133,14 +81,13 @@ public class ControllerCreateStorage {
         assert buttonDeleteStorage != null : "fx:id=\"buttonDeleteStorage\" was not injected: check your FXML file 'createStorage.fxml'.";
         assert listViewCar != null : "fx:id=\"listViewCar\" was not injected: check your FXML file 'createStorage.fxml'.";
 
-        warehouseManager = new WarehouseManager();
+        warehouseCreator = new WarehouseCreator();
 
         loadWagonsInfoToListView();
     }
 
     private void loadWagonsInfoToListView() {
         WagonManager wagonManager = new WagonManager();
-
         for (Wagon wagon : wagonManager.getWagons()) {
             if (wagon.getNameWarehouse() == null) {
                 listViewCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
