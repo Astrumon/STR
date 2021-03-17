@@ -31,9 +31,6 @@ public class WagonManager extends Manager {
             return false;
         }
 
-        updateTrainCountWagon(idWagon);
-        updateWarehouseCountWagon(idWagon);
-
         wagon.setIdWagon(idWagon);
         wagonDao.delete(wagon);
         return deleteWagonPlace(idWagon);
@@ -42,24 +39,6 @@ public class WagonManager extends Manager {
     private boolean isWagonNull(Long idWagon) {
         return wagonDao.findByIdWagon(idWagon) == null;
     }
-    public void updateCountWagon(UpdatableCountWagons manager, String name) {
-        manager.updateCountWagons(name);
-    }
-
-    private void updateTrainCountWagon(Long idWagon) {
-        String nameTrain = wagonDao.findByIdWagon(idWagon).getTrainName();
-        if (nameTrain != null) {
-            updateCountWagon(new TrainManager(), nameTrain);
-        }
-    }
-
-    private void updateWarehouseCountWagon(Long idWagon) {
-//        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
-//        if (nameWarehouse != null) {
-//            updateCountWagon(new WarehouseManager(), nameWarehouse);
-//        }
-    }
-
 
     private boolean deleteWagonPlace(Long idWagon) {
         return typePlaceDao.deleteByIdWagon(idWagon);

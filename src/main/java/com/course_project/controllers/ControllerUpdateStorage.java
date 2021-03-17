@@ -70,6 +70,7 @@ public class ControllerUpdateStorage {
         setWarehouseName();
         deleteWagon(warehouseName);
         updateListView();
+        updateCountWagons();
     }
 
     @FXML
@@ -79,6 +80,7 @@ public class ControllerUpdateStorage {
             setWarehouseName();
             addWagon(warehouseName);
             updateListView();
+            updateCountWagons();
 
         } else {
             AlertGenerator.error("Введіть коректну назву складу");
@@ -108,6 +110,8 @@ public class ControllerUpdateStorage {
         assert buttonRemoveFromStorage != null : "fx:id=\"buttonRemoveFromStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
 
         loadWagonsInfoToLstView();
+        updateCountWagons();
+
 
 
        // System.out.println(TransferWarehouse.warehouse);
@@ -132,6 +136,7 @@ public class ControllerUpdateStorage {
                 AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
             }
         }
+
     }
 
     private void deleteWagon(String nameWarehouse) {
@@ -145,6 +150,7 @@ public class ControllerUpdateStorage {
                 AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
             }
         }
+
     }
 
     private int findEmptyPos() {
@@ -163,10 +169,16 @@ public class ControllerUpdateStorage {
     }
 
     private List<String> getEmployedWagonsFromList() {
+
+
+        return lstViewCarInTheStorage.getSelectionModel().getSelectedItems();
+    }
+
+    public void updateCountWagons() {
         setWarehouseName();
-        List<String> list = lstViewCarInTheStorage.getSelectionModel().getSelectedItems();
+        List<String> list = lstViewCarInTheStorage.getItems();
+        System.out.println("SIZE=" + list.size());
         warehouseManager.updateCountWagons(warehouseName, list.size());
-        return list;
     }
 
 

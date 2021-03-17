@@ -66,30 +66,34 @@ public class WarehouseManager extends Manager {
 
     public boolean deleteWagonFromWarehouse(String nameWarehouse, Wagon wagon) {
 
+
+        Wagon wagonWithoutWarehouse = updateWagonInfoAboutWarehouseSet(wagon);
+        updateWarehouseSetInfoAboutWagon(nameWarehouse, wagonWithoutWarehouse);
+
+        return true;
+    }
+    private Wagon updateWagonInfoAboutWarehouseSet( Wagon wagon) {
         WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
 
         WarehouseSet warehouseSet = new WarehouseSet();
-        Wagon wagon1 = wagonDao.findByIdWagon(wagon.getIdWagon());
+        Wagon wagonWithoutWarehouse = wagonDao.findByIdWagon(wagon.getIdWagon());
         warehouseSet.setIdWarehouse(null);
-        warehouseSet.setIdWagon(wagon1.getIdWagon());
+        warehouseSet.setIdWagon(wagonWithoutWarehouse.getIdWagon());
         warehouseSet.setNameWarehouse(null);
         warehouseSet.setId(null);
-        Long idWarehouseSet = wagon1.getIdWarehouseSet();
-        wagonDao.updateWarehouseSet(warehouseSet, idWarehouseSet);
-        System.out.println(wagon1);
+        wagonDao.updateWarehouseSet(warehouseSet, wagonWithoutWarehouse.getIdWarehouseSet());
 
-        WarehouseSet warehouseSet1 = warehouseSetDao.findByName(nameWarehouse);
-        System.out.println(warehouseSet1);
-        warehouseSet1.setIdWagon(null);
-        warehouseSet1.setId(wagon1.getIdWarehouseSet());
-        warehouseSetDao.updateWagon(warehouseSet1);
-
-
-
-        return true;
-
-
+        return wagonWithoutWarehouse;
     }
+
+    private void updateWarehouseSetInfoAboutWagon(String nameWarehouse, Wagon wagon) {
+        WarehouseSet warehouseSet = warehouseSetDao.findByName(nameWarehouse);
+        warehouseSet.setIdWagon(null);
+        warehouseSet.setId(wagon.getIdWarehouseSet());
+        warehouseSetDao.updateWagon(warehouseSet);
+    }
+
+
 
     public boolean addWagonToWarehouse(String nameWarehouse, Wagon wagon, int position) {
         return warehouseSetDao.addWagon(nameWarehouse, wagon, position);
@@ -99,8 +103,6 @@ public class WarehouseManager extends Manager {
     public void updateCountWagons(String name, int count) {
         Warehouse warehouse = warehouseDao.findByName(name);
 
-       // int countWagons = warehouse.getCountWagons();
-        //warehouse.setCountWagons(--countWagons);
         System.out.println(name + "   " + count);
         warehouse.setCountWagons(count);
         warehouseDao.updateCountWagon(warehouse);
