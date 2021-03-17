@@ -4,9 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-import com.course_project.support.AlertGenerator;
-import com.course_project.support.Checker;
-import com.course_project.support.WagonManager;
+import com.course_project.data_access.model.train.Train;
+import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -57,10 +56,32 @@ public class ControllerUpdateCar {
     void buttonDeleteCarAc(ActionEvent event) {
         setIdWagon();
 
+        updateWagonsCountTrain();
+        updateWagonsCountWarehouse();
+
         if (wagonManager.deleteWagon(idWagon)) {
             AlertGenerator.info("Вагон успішно видалений");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні вагону");
+        }
+    }
+
+    public void updateWagonsCountWarehouse() {
+        if (wagonManager.getWagon(idWagon).getNameWarehouse() != null) {
+            WarehouseManager warehouseManager = new WarehouseManager();
+            String warehouseName = wagonManager.getWagon(idWagon).getNameWarehouse();
+            int countWarehouse = warehouseManager.getWarehouse().getCountWagons();
+            warehouseManager.updateCountWagons(warehouseName, countWarehouse);
+
+        }
+    }
+
+    public void updateWagonsCountTrain() {
+        if (wagonManager.getWagon(idWagon).getTrainName() != null) {
+            TrainManager trainManager = new TrainManager();
+            String trainName = wagonManager.getWagon(idWagon).getTrainName();
+            int count = trainManager.getTrain(trainName).getCountWagon();
+            trainManager.updateCountWagons(trainName, --count);
         }
     }
 

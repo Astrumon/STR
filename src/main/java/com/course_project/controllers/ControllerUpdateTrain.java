@@ -119,7 +119,6 @@ public class ControllerUpdateTrain {
 
        int typeTrain =  trainManager.getTrain(nameTrain).getType();
 
-
         WagonManager wagonManager = new WagonManager();
 
         for (Wagon wagon : wagonManager.getWagons()) {
@@ -173,11 +172,12 @@ public class ControllerUpdateTrain {
     private int findEmptyPos() {
         int pos = 0;
         for (TrainSet trainSet : trainManager.getTrainSets()) {
-            if (trainSet.getIdWagon() == 0) {
+            if (trainSet.getIdWagon() == 0 && trainSet.getName().equals(trainName)) {
                 pos = trainSet.getPosWagon();
                 break;
             }
         }
+        System.out.println("POS: " + pos);
         return pos;
     }
 
