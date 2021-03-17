@@ -163,8 +163,14 @@ public class WagonDaoImpl implements WagonDao {
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatementWagon = connection.prepareStatement(SQL_UPDATE_WAREHOUSE_SET);
-            preparedStatementWagon.setLong(1, idWarehouseSet);
+            if (warehouseSet.getId() == null) {
+                preparedStatementWagon.setNull(1, 0);
+            } else {
+
+                preparedStatementWagon.setLong(1, warehouseSet.getId());
+            }
             preparedStatementWagon.setString(2, warehouseSet.getNameWarehouse());
+            //preparedStatementWagon.setLong(3, warehouseSet.getId());
             preparedStatementWagon.setLong(3, warehouseSet.getIdWagon());
             preparedStatementWagon.execute();
         } catch (SQLException exc) {

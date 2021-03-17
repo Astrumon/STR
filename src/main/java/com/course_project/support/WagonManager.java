@@ -54,10 +54,10 @@ public class WagonManager extends Manager {
     }
 
     private void updateWarehouseCountWagon(Long idWagon) {
-        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
-        if (nameWarehouse != null) {
-            updateCountWagon(new WarehouseManager(), nameWarehouse);
-        }
+//        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
+//        if (nameWarehouse != null) {
+//            updateCountWagon(new WarehouseManager(), nameWarehouse);
+//        }
     }
 
 

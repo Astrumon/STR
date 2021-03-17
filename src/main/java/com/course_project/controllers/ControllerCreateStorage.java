@@ -40,17 +40,6 @@ public class ControllerCreateStorage {
 
     private String warehouseName;
 
-    @FXML
-    void buttonDeleteStorageAc(ActionEvent event) {
-
-        setWarehouseName();
-
-        if (warehouseManager.deleteWarehouse(warehouseName)) {
-            AlertGenerator.info("Склад успішно видалено");
-        } else {
-            AlertGenerator.error("Виникла помилка при видаленні вагону");
-        }
-    }
 
 
     private int findEmptyPos() {
