@@ -68,9 +68,9 @@ public class WarehouseManager extends Manager {
 
 
         Wagon wagonWithoutWarehouse = updateWagonInfoAboutWarehouseSet(wagon);
-        updateWarehouseSetInfoAboutWagon(nameWarehouse, wagonWithoutWarehouse);
+       return updateWarehouseSetInfoAboutWagon(nameWarehouse, wagonWithoutWarehouse);
 
-        return true;
+
     }
     private Wagon updateWagonInfoAboutWarehouseSet( Wagon wagon) {
         WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
@@ -86,11 +86,11 @@ public class WarehouseManager extends Manager {
         return wagonWithoutWarehouse;
     }
 
-    private void updateWarehouseSetInfoAboutWagon(String nameWarehouse, Wagon wagon) {
+    private boolean updateWarehouseSetInfoAboutWagon(String nameWarehouse, Wagon wagon) {
         WarehouseSet warehouseSet = warehouseSetDao.findByName(nameWarehouse);
         warehouseSet.setIdWagon(null);
         warehouseSet.setId(wagon.getIdWarehouseSet());
-        warehouseSetDao.updateWagon(warehouseSet);
+       return warehouseSetDao.updateWagon(warehouseSet);
     }
 
 

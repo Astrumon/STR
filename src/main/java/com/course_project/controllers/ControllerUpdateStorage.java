@@ -47,9 +47,6 @@ public class ControllerUpdateStorage {
 
     private String warehouseName;
 
-
-
-
     private Warehouse warehouse;
 
     private WarehouseManager warehouseManager = new WarehouseManager();
@@ -145,9 +142,9 @@ public class ControllerUpdateStorage {
             wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
             wagon.setType(Wagon.PASSENGER_TYPE);
             if (warehouseManager.deleteWagonFromWarehouse(nameWarehouse, wagon)) {
-                AlertGenerator.info("Вагон успішно додано на склад");
+                AlertGenerator.info("Вагон успішно видалено зі складу");
             } else {
-                AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
+                AlertGenerator.error("Виникла помилка при видалені вагону зі складу");
             }
         }
 

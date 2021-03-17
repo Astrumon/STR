@@ -2,6 +2,7 @@ package com.course_project.support;
 
 import com.course_project.data_access.dao.impl.train_dao_impl.TrainDaoImpl;
 import com.course_project.data_access.dao.impl.train_dao_impl.TrainSetDaoImpl;
+import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
@@ -17,6 +18,8 @@ public class TrainManager extends Manager {
     private TrainSetDaoImpl trainSetDao;
 
     private Train train;
+
+    public static Train transfer;
 
     public TrainManager() {
         trainDao = new TrainDaoImpl(dataSource);
@@ -56,5 +59,32 @@ public class TrainManager extends Manager {
         Train train = trainDao.findByName(name);
         train.setCountWagon(count);
         trainDao.updateCountWagon(train);
+    }
+
+    public boolean deleteWagonFromTrain(String nameTrain, Wagon wagon) {
+        Wagon wagonWithoutWarehouse = updateWagonInfoAboutTrainSet(wagon);
+       return updateTrainSetInfoAboutWagon(nameTrain, wagonWithoutWarehouse);
+    }
+
+    private Wagon updateWagonInfoAboutTrainSet( Wagon wagon) {
+        WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
+
+        TrainSet trainSet = new TrainSet();
+        Wagon wagonWithoutTrain = wagonDao.findByIdWagon(wagon.getIdWagon());
+        trainSet.setIdTrain(null);
+        trainSet.setIdWagon(wagonWithoutTrain.getIdWagon());
+        trainSet.setName(null);
+        trainSet.setId(null);
+        trainSet.setPosWagon(0);
+        wagonDao.updateTrainSet(trainSet, wagonWithoutTrain.getIdWarehouseSet());
+
+        return wagonWithoutTrain;
+    }
+
+    private boolean updateTrainSetInfoAboutWagon(String nameTrain, Wagon wagon) {
+        TrainSet trainSet = trainSetDao.findByName(nameTrain);
+        trainSet.setIdWagon(null);
+        trainSet.setId(wagon.getIdTrainSet());
+       return trainSetDao.updateWagon(trainSet);
     }
 }

@@ -3,6 +3,7 @@ package com.course_project.data_access.dao.train_dao;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.data_access.model.warehouse.WarehouseSet;
 
 import java.util.List;
 
@@ -23,6 +24,9 @@ public interface TrainSetDao {
             + TrainSet.ID_WAGON_COLUMN + " = ?, "
             + TrainSet.ID_TRAIN_COLUMN + " = ? "
             + " WHERE " + TrainSet.ID_COLUMN + " = ?";
+    String SQL_UPDATE_WAGON = "UPDATE " + TrainSet.TABLE_NAME + " SET "
+            + TrainSet.ID_WAGON_COLUMN + " = ? "
+            + " WHERE " + WarehouseSet.ID_COLUMN + " = ?";
     String SQL_DELETE = "DELETE FROM " + TrainSet.TABLE_NAME + " WHERE " + TrainSet.ID_COLUMN + " = ?";
     String SQL_DELETE_BY_TRAIN_NAME = "DELETE FROM " + TrainSet.TABLE_NAME + " WHERE " + TrainSet.NAME_COLUMN + " = ?";
 
@@ -39,6 +43,8 @@ public interface TrainSetDao {
     void insert(TrainSet trainSet);
 
     void update(TrainSet trainSet);
+
+    boolean updateWagon(TrainSet trainSet);
 
     boolean addWagon(String nameTrain, Wagon wagon, int position);
 }

@@ -182,7 +182,7 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
     }
 
     @Override
-    public void updateWagon(WarehouseSet warehouseSet) {
+    public boolean updateWagon(WarehouseSet warehouseSet) {
         Connection connection = null;
 
         try {
@@ -195,8 +195,10 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
             }
             preparedStatement.setLong(2, warehouseSet.getId());
             preparedStatement.execute();
+            return true;
         } catch (SQLException exc) {
             System.out.println(exc);
+            return false;
         } finally {
             try {
                 connection.close();

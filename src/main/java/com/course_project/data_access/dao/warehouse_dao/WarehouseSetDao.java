@@ -42,7 +42,7 @@ public interface WarehouseSetDao {
 
     void deleteByWarehouseName(Warehouse warehouse);
 
-    void updateWagon(WarehouseSet warehouseSet);
+    boolean updateWagon(WarehouseSet warehouseSet);
 
     void update(WarehouseSet warehouseSet);
 

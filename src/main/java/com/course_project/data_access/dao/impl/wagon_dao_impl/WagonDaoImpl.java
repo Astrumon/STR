@@ -196,7 +196,12 @@ public class WagonDaoImpl implements WagonDao {
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatementWagon = connection.prepareStatement(SQL_UPDATE_TRAIN_SET);
-            preparedStatementWagon.setLong(1, idTrainSet);
+            if (trainSet.getId() == null) {
+                preparedStatementWagon.setNull(1, 0);
+            } else {
+
+                preparedStatementWagon.setLong(1, trainSet.getId());
+            }
             preparedStatementWagon.setString(2, trainSet.getName());
             preparedStatementWagon.setInt(3, trainSet.getPosWagon());
             preparedStatementWagon.setLong(4, trainSet.getIdWagon());
