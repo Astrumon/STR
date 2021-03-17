@@ -29,6 +29,7 @@ com\course_project\data_access\dao\train_dao\TrainSetDao.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.class
 com\course_project\data_access\model\train\Train.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.class
+com\course_project\controllers\ControllerTableOperator.class
 com\course_project\controllers\ControllerTableCar$2.class
 com\course_project\data_access\model\train\TrainSet.class
 com\course_project\controllers\ControllerTableTrain.class
@@ -38,6 +39,7 @@ com\course_project\controllers\ControllerTableStorage$1.class
 com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
 com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
 com\course_project\controllers\ControllerCreateCar.class
+com\course_project\controllers\ControllerTableTrucking.class
 com\course_project\data_access\dao\wagon_dao\WagonDao.class
 com\course_project\support\Checkable.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.class

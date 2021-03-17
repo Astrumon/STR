@@ -72,12 +72,24 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCargoTransportationAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("tableTrucking");
+        mainPane.setCenter(view);
 
+        ObservableList<Node> childs = stackPane.getChildren();
+        Node requiredNode = childs.get(childs.indexOf(buttonCreateCar));
+        requiredNode.toFront();
     }
 
     @FXML
     void buttonOperatorsAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("tableOperator");
+        mainPane.setCenter(view);
 
+        ObservableList<Node> childs = stackPane.getChildren();
+        Node requiredNode = childs.get(childs.indexOf(buttonCreateCar));
+        requiredNode.toFront();
     }
 
     @FXML
@@ -87,7 +99,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCar(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tableCar");
         mainPane.setCenter(view);
@@ -99,7 +110,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonPath(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tablePath");
         mainPane.setCenter(view);
@@ -111,7 +121,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonStorage(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tableStorage");
         mainPane.setCenter(view);
@@ -123,7 +132,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonTicket(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tableTicket");
         mainPane.setCenter(view);
@@ -135,7 +143,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonTrain(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tableTrain");
         mainPane.setCenter(view);
@@ -148,7 +155,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCleanCarAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createCar");
         mainPane.setCenter(view);
@@ -161,7 +167,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCleanStorageAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createStorage");
         mainPane.setCenter(view);
@@ -174,7 +179,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCleanTrainAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createTrain");
         mainPane.setCenter(view);
@@ -182,7 +186,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCreateCarAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createCar");
         mainPane.setCenter(view);
@@ -202,7 +205,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCreateStorageAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createStorage");
         mainPane.setCenter(view);
@@ -219,7 +221,6 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCreateTrainAc(ActionEvent event) {
-        System.out.println("You clicked Button1");
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createTrain");
         mainPane.setCenter(view);

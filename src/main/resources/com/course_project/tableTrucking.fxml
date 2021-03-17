@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="stackPaneTrucking" prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerTableTrucking">
+    <children>
+        <AnchorPane fx:id="anchorPaneTableTrucking" prefHeight="520.0" prefWidth="950.0">
+            <children>
+                <TableView fx:id="tableTrucking" layoutX="1.0" layoutY="2.0" prefHeight="520.0" prefWidth="930.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="tblNumber" prefWidth="75.0" text="№" />
+                        <TableColumn fx:id="tblEmail" prefWidth="540.8000640869141" text="Email" />
+                        <TableColumn fx:id="tblStartAndEndPoint" minWidth="0.0" prefWidth="312.7999633789062" text="Початкова і кінечна точка" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
