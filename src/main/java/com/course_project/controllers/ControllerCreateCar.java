@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -48,6 +49,9 @@ public class ControllerCreateCar implements Checkable {
 
     @FXML
     private CheckBox checkBoxFreightCar;
+
+    @FXML
+    private ChoiceBox<String> choiceBoxTypeCar;
 
     private DataSource dataSource = new DataSource();
 
@@ -187,6 +191,10 @@ public class ControllerCreateCar implements Checkable {
         inputRestriction(textFieldNumberSittingSeats);
 
 
+
+    }
+
+    public void aa(){
 
     }
 

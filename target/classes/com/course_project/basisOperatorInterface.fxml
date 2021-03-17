@@ -89,7 +89,7 @@
                <children>
                   <ImageView fitHeight="103.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="/logotype.png" />
+                        <Image url="@/logotype.png" />
                      </image>
                      <GridPane.margin>
                         <Insets left="10.0" />

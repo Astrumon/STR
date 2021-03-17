@@ -20,10 +20,11 @@
             <rowConstraints>
                 <RowConstraints maxHeight="127.99999845027924" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="72.20000000000002" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="359.00002136230466" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="359.00002136230466" minHeight="10.0" prefHeight="156.2" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="294.0000183105469" minHeight="10.0" prefHeight="139.19997558593752" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="359.00002136230466" minHeight="10.0" prefHeight="172.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="294.0000183105469" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <TextField fx:id="textFieldNameTrain" maxWidth="900.0" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="1">
@@ -36,18 +37,23 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label text="Вагони" GridPane.rowIndex="3">
+                <Label text="Вагони" GridPane.rowIndex="4">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="choiceBoxTypeTrain" prefHeight="42.0" prefWidth="194.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="5">
+                <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="choiceBoxTypeTrain" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="6">
                       <font>
                           <Font size="18.0" />
                       </font>
                   </Button>
+            <Label text="Тип потяга" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             </children>
         </GridPane>
     </children>
