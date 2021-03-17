@@ -4,6 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
+import com.course_project.support.WagonManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,9 +49,32 @@ public class ControllerUpdateCar {
     @FXML
     private CheckBox checkBoxFreightCar;
 
+    private WagonManager wagonManager = new WagonManager();
+
+    private Long idWagon;
+
     @FXML
     void buttonDeleteCarAc(ActionEvent event) {
+        setIdWagon();
 
+        if (wagonManager.deleteWagon(idWagon)) {
+            AlertGenerator.info("Вагон успішно видалений");
+        } else {
+            AlertGenerator.error("Виникла помилка при видаленні вагону");
+        }
+    }
+
+    private void setIdWagon() {
+        if (isCorrectWagonNumber()) {
+            idWagon = Long.parseLong(textFieldNameCar.getText());
+        } else {
+            AlertGenerator.error("Введіть коректний номер вагону");
+        }
+    }
+
+    private boolean isCorrectWagonNumber() {
+        return !Checker.checkEmptyValue(textFieldNameCar.getText())
+                && Checker.checkPositiveIntValue(textFieldNameCar.getText());
     }
 
     @FXML
@@ -87,6 +113,9 @@ public class ControllerUpdateCar {
         inputRestriction(textFieldNumberTopSeats);
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
+
+        idWagon = WagonManager.transfer.getIdWagon();
+        textFieldNameCar.setText(idWagon.toString());
     }
 
     public void inputRestriction(TextField textField) {

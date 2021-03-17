@@ -55,18 +55,7 @@ public class ControllerCreateCar implements Checkable {
 
     private Long idWagon;
 
-    @FXML
-    void buttonDeleteCarAc(ActionEvent event) {
 
-        setIdWagon();
-
-        if (wagonManager.deleteWagon(idWagon)) {
-            AlertGenerator.info("Вагон успішно видалений");
-        } else {
-            AlertGenerator.error("Виникла помилка при видаленні вагону");
-        }
-
-    }
 
     private boolean isCorrectWagonNumber() {
         return !Checker.checkEmptyValue(textFieldNameCar.getText())

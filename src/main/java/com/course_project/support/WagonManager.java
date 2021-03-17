@@ -16,6 +16,8 @@ public class WagonManager extends Manager {
 
     private Wagon wagon;
 
+    public static Wagon transfer;
+
     private List<Wagon> wagons;
 
     public WagonManager() {
