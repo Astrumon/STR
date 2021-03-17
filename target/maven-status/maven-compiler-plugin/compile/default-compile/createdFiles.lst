@@ -6,6 +6,7 @@ com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\NumberIDGenerator.class
 com\course_project\controllers\ControllerUpdateTrain.class
+com\course_project\data_access\dao\ticket_dao\TicketDao.class
 com\course_project\data_access\model\wagon\TypePlace.class
 com\course_project\support\AlertGenerator.class
 com\course_project\controllers\ControllerTablePath$1.class
@@ -13,10 +14,12 @@ com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\tests\TestTrain.class
 com\course_project\controllers\ControllerUpdateStorage.class
+com\course_project\support\TicketManager.class
 com\course_project\support\WarehouseManager.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.class
 com\course_project\controllers\ControllerUpdateCar.class
 com\course_project\data_access\tests\TestWagon.class
+com\course_project\data_access\model\Ticket.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class
 com\course_project\data_access\dao\route_dao\RouteDao.class
@@ -47,10 +50,12 @@ com\course_project\data_access\tests\TestWarehouse.class
 com\course_project\controllers\ControllerCreateStorage.class
 com\course_project\controllers\ControllerTableTrain$1.class
 com\course_project\data_access\dao\warehouse_dao\WarehouseDao.class
+com\course_project\data_access\dao\impl\TicketDaoImpl.class
 com\course_project\data_access\tests\TownTest.class
 com\course_project\controllers\ControllerTableTicket.class
 com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.class
 com\course_project\controllers\ControllerTableCar.class
+com\course_project\controllers\ControllerTableTicket$1.class
 com\course_project\controllers\ControllerTableCar$1.class
 com\course_project\controllers\ControllerTableStorage$2.class
 com\course_project\support\TrainManager.class
