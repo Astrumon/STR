@@ -38,6 +38,10 @@ public class WagonManager extends Manager {
         return deleteWagonPlace(idWagon);
     }
 
+    public Wagon getWagon(Long idWagon) {
+       return wagonDao.findByIdWagon(idWagon);
+    }
+
     private boolean isWagonNull(Long idWagon) {
         return wagonDao.findByIdWagon(idWagon) == null;
     }

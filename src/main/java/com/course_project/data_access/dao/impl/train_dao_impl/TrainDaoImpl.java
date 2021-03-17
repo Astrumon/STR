@@ -46,6 +46,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setName(rs.getString(Train.NAME_COLUMN));
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
+                train.setType(rs.getInt(Train.TYPE_COLUMN));
                 trains.add(train);
             }
         } catch (SQLException exc) {
@@ -81,6 +82,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setName(rs.getString(Train.NAME_COLUMN));
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
+                train.setType(rs.getInt(Train.TYPE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -109,6 +111,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setName(rs.getString(Train.NAME_COLUMN));
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
+                train.setType(rs.getInt(Train.TYPE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -200,7 +203,8 @@ public class TrainDaoImpl implements TrainDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, train.getName());
-            preparedStatement.setInt(2, train.getCapacity());
+            preparedStatement.setInt(2, train.getType());
+            preparedStatement.setInt(3, train.getCapacity());
             preparedStatement.execute();
             ResultSet rs = preparedStatement.getGeneratedKeys();
 
@@ -236,7 +240,8 @@ public class TrainDaoImpl implements TrainDao {
             preparedStatement.setString(1, train.getName());
             preparedStatement.setInt(2, train.getCapacity());
             preparedStatement.setInt(3, train.getCountWagon());
-            preparedStatement.setString(4, train.getName());
+            preparedStatement.setInt(4, train.getType());
+            preparedStatement.setString(5, train.getName());
             preparedStatement.execute();
 
             return true;

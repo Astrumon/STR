@@ -10,13 +10,16 @@ public interface TrainDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Train.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Train.ID_COLUMN + "= ?";
     String SQL_FIND_BY_NAME = SQL_FIND_ALL + " WHERE " + Train.NAME_COLUMN + "= ?";
-    String SQL_INSERT = "INSERT INTO " + Train.TABLE_NAME + "("+ Train.NAME_COLUMN + ", "
+    String SQL_INSERT = "INSERT INTO " + Train.TABLE_NAME + "("
+            + Train.NAME_COLUMN + ", "
+            +  Train.TYPE_COLUMN + ", "
             + Train.CAPACITY_COLUMN
-            + ") VALUES( ?, ?)";
+            + ") VALUES( ?, ?, ?)";
     String SQL_UPDATE = "UPDATE " + Train.TABLE_NAME + " SET "
             + Train.NAME_COLUMN + " = ?, "
             +Train.CAPACITY_COLUMN + " = ?, "
-            + Train.COUNT_WAGON_COLUMN + " = ? "
+            + Train.COUNT_WAGON_COLUMN + " = ?, "
+            + Train.TYPE_COLUMN + " = ?"
             + " WHERE " + Train.NAME_COLUMN + " = ?";
     String SQL_UPDATE_COUNT_WAGON = "UPDATE " + Train.TABLE_NAME + " SET "
             + Train.COUNT_WAGON_COLUMN + " = ? WHERE "

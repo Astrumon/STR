@@ -112,15 +112,24 @@ public class ControllerUpdateTrain {
         }
     }
 
+
     private void loadWagonsInfoToLstView() {
         String nameTrain = TrainManager.transfer.getName();
         textFieldNameTrain.setText(nameTrain);
 
+       int typeTrain =  trainManager.getTrain(nameTrain).getType();
+
+
         WagonManager wagonManager = new WagonManager();
+
         for (Wagon wagon : wagonManager.getWagons()) {
             if (wagon.getTrainName() == null) {
-                lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
-            }else if ( wagon.getTrainName().equals(nameTrain)) {
+                if (wagon.getType() == typeTrain) {
+                    lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+                } else {
+                    continue;
+                }
+            }else if ( wagon.getTrainName().equals(nameTrain) ) {
                 lstViewCarConnectedToTheTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
             }
 
@@ -144,11 +153,15 @@ public class ControllerUpdateTrain {
         lstViewFreeCar.getItems().clear();
     }
 
+
     private void addWagon(String nameWarehouse) {
+        WagonManager wagonManager = new WagonManager();
         for (String nameWagon : getFreeWagonsFromList()) {
             Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
+            Long idWagon = ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME);
+            System.out.println("TYPE WAGON = " + wagonManager.getWagon(idWagon).getType());
+            wagon.setIdWagon(idWagon);
+            wagon.setType(wagonManager.getWagon(idWagon).getType());
             if (trainManager.addWagonToTrain(nameWarehouse, wagon, findEmptyPos())) {
                 AlertGenerator.info("Вагон успішно додано на склад");
             } else {

@@ -60,12 +60,12 @@ public class TrainSetDaoImpl implements TrainSetDao {
                 count++;
             }
         }
+        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
 
-        Train train = new Train();
+        Train train = trainDao.findByName(trainName);
         train.setName(trainName);
         train.setCountWagon(count);
 
-        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
         trainDao.update(train);
     }
 
@@ -107,7 +107,7 @@ public class TrainSetDaoImpl implements TrainSetDao {
         Connection connection = null;
         assert wagon != null;
 
-        String trainNameOfWagon = wagon.getNameWarehouse();
+        String trainNameOfWagon = wagon.getTrainName();
 
         wagon.setTrainName(trainName);
         TrainSet trainSet = getFilledTrainSet(wagon, position);

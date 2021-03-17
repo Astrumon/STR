@@ -28,18 +28,30 @@ public class TrainManager extends Manager {
         train.setCapacity(TRAIN_CAPACITY);
     }
 
+    public Train getTrain(String name) {
+        return trainDao.findByName(name);
+    }
+
 
     public List<Train> getTrains() {
         return trainDao.findAll();
     }
 
-    public boolean createTrain(String nameTrain) {
+    public boolean createTrain(String nameTrain, int typeTrain) {
+        System.out.println("TYPE MNG: " + typeTrain);
         train.setName(nameTrain);
+        train.setType(typeTrain);
         return trainDao.insert(train);
     }
 
     public boolean addWagonToTrain(String nameTrain, Wagon wagon, int position) {
-        return trainSetDao.addWagon(nameTrain, wagon, position);
+        int trainType = trainDao.findByName(nameTrain).getType();
+        System.out.println("WAGONTYPE " + wagon.getType() + " TRAINTYPE " + trainType);
+
+        if (wagon.getType() == trainType) {
+            return trainSetDao.addWagon(nameTrain, wagon, position);
+        }
+        return false;
     }
 
     public boolean deleteTrain(String nameTrain) {
