@@ -103,10 +103,10 @@ public class ControllerCreateCar implements Checkable {
                 return;
             } else {
                 for (Wagon wagon : wagonManager.getWagons()) {
-                    if (idWagon.equals(wagon.getIdWagon())) {
-                        update(idWagon);
-                        break;
-                    }
+//                    if (idWagon.equals(wagon.getIdWagon())) {
+//                        update(idWagon);
+//                        break;
+//                    }
 
                     if (!idWagon.equals(wagon.getIdWagon())) {
                         count++;
@@ -116,7 +116,9 @@ public class ControllerCreateCar implements Checkable {
                     }
                 }
             }
-        } else {
+        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
+            create(idWagon);
+        }  else {
             AlertGenerator.error("Коректно заповніть всі поля");
         }
 
@@ -139,9 +141,23 @@ public class ControllerCreateCar implements Checkable {
     }
 
     private void create(Long idWagon) {
-        if (wagonManager.createWagon(idWagon, setTypePlace())) {
-            AlertGenerator.info("Вагон успішно створений");
+
+        if (checkBoxFreightCar.isSelected()) {
+            if (wagonManager.createCargoWagon(idWagon)) {
+                AlertGenerator.info("Грузовий вагон успішно створено");
+            } else {
+                AlertGenerator.error("Виникла помилка при створенні грузового вагону");
+            }
+        } else {
+
+            if (wagonManager.createPassengerWagon(idWagon, setTypePlace())) {
+                AlertGenerator.info("Пасажирський вагон успішно створено");
+            } else {
+                AlertGenerator.error("Виникла помилка при створенні пасажирського вагону");
+            }
         }
+
+
     }
 
     private TypePlace setTypePlace() {

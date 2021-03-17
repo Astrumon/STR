@@ -44,11 +44,18 @@ public class WagonManager extends Manager {
         return typePlaceDao.deleteByIdWagon(idWagon);
     }
 
-    public boolean createWagon(Long idWagon, TypePlace typePlace) {
+    public boolean createPassengerWagon(Long idWagon, TypePlace typePlace) {
         wagon.setIdWagon(idWagon);
         wagon.setType(1);
         wagonDao.insert(wagon);
         return wagonDao.setTypePlace(wagon, typePlace);
+    }
+
+    public boolean createCargoWagon(Long idWagon) {
+        wagon.setIdWagon(idWagon);
+        wagon.setType(Wagon.CARGO_TYPE);
+        wagonDao.insert(wagon);
+        return true;
     }
 
     public boolean updateWagon(Long idWagon, TypePlace typePlace) {
