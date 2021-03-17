@@ -8,6 +8,7 @@ com\course_project\support\NumberIDGenerator.class
 com\course_project\controllers\ControllerUpdateTrain.class
 com\course_project\data_access\model\wagon\TypePlace.class
 com\course_project\support\AlertGenerator.class
+com\course_project\controllers\ControllerTablePath$1.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\tests\TestTrain.class
@@ -19,6 +20,7 @@ com\course_project\data_access\tests\TestWagon.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class
 com\course_project\data_access\dao\route_dao\RouteDao.class
+com\course_project\support\RouteManager.class
 com\course_project\data_access\dao\route_dao\TownDao.class
 com\course_project\Main.class
 com\course_project\data_access\model\route\Route.class

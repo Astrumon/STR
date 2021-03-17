@@ -12,6 +12,7 @@ module com.course_project {
     opens com.course_project.data_access.model.train to javafx.base;
     opens com.course_project.data_access.model.warehouse to javafx.base;
     opens com.course_project.data_access.model.wagon to javafx.base;
+    opens com.course_project.data_access.model.route to javafx.base;
 
 
    exports com.course_project.controllers to javafx.fxml;

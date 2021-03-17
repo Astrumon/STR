@@ -5,15 +5,14 @@ public class Route {
     public static final String FROM_TOWN_COLUMN = "from_town";
     public static final String TO_TOWN_COLUMN = "to_town";
     public static final String ID_COLUMN = "id";
-    public static final String PRICE_COLUMN = "price";
+    public static final String ID_ROUTE_COLUMN = "id_route";
     public static final String TIME_START_COLUMN = "time_start";
     public static final String TIME_END_COLUMN = "time_end";
     public static final String ALL_TICKETS_COLUMN = "all_tickets";
     public static final String SOLD_TICKETS_COLUMN = "sold_tickets";
 
-    private Long id;
+    private Long id, idRoute;
     private String toTown, fromTown, timeStart, timeEnd;
-    private int price;
     private int allTickets, soldTickets;
 
     public Long getId() {
@@ -56,12 +55,12 @@ public class Route {
         this.timeEnd = timeEnd;
     }
 
-    public int getPrice() {
-        return price;
+    public Long getIdRoute() {
+        return idRoute;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setIdRoute(Long idRoute) {
+        this.idRoute = idRoute;
     }
 
     public int getAllTickets() {
@@ -86,7 +85,7 @@ public class Route {
                 + ", fromTown= " + this.fromTown
                 + ", timeStart= " + this.timeStart
                 + ", timeEnd= " + this.timeEnd
-                + ", price= " + this.price
+                + ", idRoute= " + this.idRoute
                 + ", allTickets= " + this.allTickets
                 + ", soldTickets= " + this.soldTickets
                 + "]";
