@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -28,11 +29,12 @@
 >>>>>>> debug
 =======
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
+=======
+    <list default="true" id="362b26e9-51f8-47ed-8f89-66b35b5fcf33" name="Default Changelist" comment="">
+>>>>>>> debug
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/a.java" beforeDir="false" />
     </list>
 >>>>>>> debug
     <option name="SHOW_DIALOG" value="false" />
