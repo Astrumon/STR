@@ -8,14 +8,13 @@ import com.course_project.data_access.model.train.Train;
 import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-=======
+
 import javafx.scene.control.*;
->>>>>>> debug
+
 
 public class ControllerUpdateCar {
 
@@ -121,13 +120,13 @@ public class ControllerUpdateCar {
         inputRestriction(textFieldNumberTopSeats);
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
-<<<<<<< HEAD
+
 
         idWagon = WagonManager.transfer.getIdWagon();
         textFieldNameCar.setText(idWagon.toString());
-=======
+
         //TypeCarAc();
->>>>>>> debug
+
     }
 
     /*public void TypeCarAc(){

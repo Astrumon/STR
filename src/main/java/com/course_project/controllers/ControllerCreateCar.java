@@ -57,21 +57,21 @@ public class ControllerCreateCar implements Checkable {
     @FXML
     void buttonSaveCarAc(ActionEvent event) {
 
-        setIdWagon();
-        wagonCreator.setIdWagon(idWagon);
-        wagonCreator.setStatus(checkBoxFreightCar.isSelected());
-
-        if (!checkBoxFreightCar.isSelected()) {
-            wagonCreator.setTypePlace(setTypePlace());
-        }
-
-        if (!isEmptyFields() && isIntegerPositiveNumber()) {
-            wagonCreator.createWagon();
-        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
-            wagonCreator.createWagon();
-        }  else {
-            AlertGenerator.error("Коректно заповніть всі поля");
-        }
+//        setIdWagon();
+//        wagonCreator.setIdWagon(idWagon);
+//        wagonCreator.setStatus(checkBoxFreightCar.isSelected());
+//
+//        if (!checkBoxFreightCar.isSelected()) {
+//            wagonCreator.setTypePlace(setTypePlace());
+//        }
+//
+//        if (!isEmptyFields() && isIntegerPositiveNumber()) {
+//            wagonCreator.createWagon();
+//        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
+//            wagonCreator.createWagon();
+//        }  else {
+//            AlertGenerator.error("Коректно заповніть всі поля");
+//        }
 
     }
 
