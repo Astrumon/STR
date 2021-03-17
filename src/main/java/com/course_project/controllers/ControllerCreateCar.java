@@ -3,10 +3,7 @@ package com.course_project.controllers;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.database.DataSource;
-import com.course_project.support.AlertGenerator;
-import com.course_project.support.Checkable;
-import com.course_project.support.Checker;
-import com.course_project.support.WagonManager;
+import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -55,7 +52,59 @@ public class ControllerCreateCar implements Checkable {
 
     private Long idWagon;
 
+    private WagonCreator wagonCreator;
 
+
+
+    @FXML
+    void buttonSaveCarAc(ActionEvent event) {
+
+        setIdWagon();
+        wagonCreator.setIdWagon(idWagon);
+        wagonCreator.setStatus(checkBoxFreightCar.isSelected());
+
+        if (!checkBoxFreightCar.isSelected()) {
+            wagonCreator.setTypePlace(setTypePlace());
+        }
+
+        if (!isEmptyFields() && isIntegerPositiveNumber()) {
+            wagonCreator.createWagon();
+        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
+            wagonCreator.createWagon();
+        }  else {
+            AlertGenerator.error("Коректно заповніть всі поля");
+        }
+
+    }
+
+
+    private void setIdWagon() {
+        if (isCorrectWagonNumber()) {
+            idWagon = Long.parseLong(textFieldNameCar.getText());
+        } else {
+            AlertGenerator.error("Введіть коректний номер вагону");
+        }
+    }
+
+    private void update(Long idWagon) {
+
+        if (wagonManager.updateWagon(idWagon, setTypePlace())) {
+            AlertGenerator.info("Інформація о вагоні оновлена");
+        }
+
+    }
+
+
+    private TypePlace setTypePlace() {
+
+        TypePlace typePlace = new TypePlace();
+        typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
+        typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
+        typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
+        typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
+
+        return typePlace;
+    }
 
     private boolean isCorrectWagonNumber() {
         return !Checker.checkEmptyValue(textFieldNameCar.getText())
@@ -75,89 +124,6 @@ public class ControllerCreateCar implements Checkable {
                 && Checker.checkPositiveIntValue(textFieldNumberSittingSeats.getText())
                 && Checker.checkPositiveIntValue(textFieldNumberTopSeats.getText())
                 && Checker.checkPositiveIntValue(textFieldNumberVipSeats.getText());
-    }
-
-
-    @FXML
-    void buttonSaveCarAc(ActionEvent event) {
-
-        setIdWagon();
-
-        int count = 0;
-
-        if (!isEmptyFields() && isIntegerPositiveNumber()) {
-
-            if (wagonManager.getWagons().size() == 0) {
-                create(idWagon);
-                return;
-            } else {
-                for (Wagon wagon : wagonManager.getWagons()) {
-//                    if (idWagon.equals(wagon.getIdWagon())) {
-//                        update(idWagon);
-//                        break;
-//                    }
-
-                    if (!idWagon.equals(wagon.getIdWagon())) {
-                        count++;
-                        if (count == wagonManager.getWagons().size()) {
-                            create(idWagon);
-                        }
-                    }
-                }
-            }
-        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
-            create(idWagon);
-        }  else {
-            AlertGenerator.error("Коректно заповніть всі поля");
-        }
-
-    }
-
-    private void setIdWagon() {
-        if (isCorrectWagonNumber()) {
-            idWagon = Long.parseLong(textFieldNameCar.getText());
-        } else {
-            AlertGenerator.error("Введіть коректний номер вагону");
-        }
-    }
-
-    private void update(Long idWagon) {
-
-        if (wagonManager.updateWagon(idWagon, setTypePlace())) {
-            AlertGenerator.info("Інформація о вагоні оновлена");
-        }
-
-    }
-
-    private void create(Long idWagon) {
-
-        if (checkBoxFreightCar.isSelected()) {
-            if (wagonManager.createCargoWagon(idWagon)) {
-                AlertGenerator.info("Грузовий вагон успішно створено");
-            } else {
-                AlertGenerator.error("Виникла помилка при створенні грузового вагону");
-            }
-        } else {
-
-            if (wagonManager.createPassengerWagon(idWagon, setTypePlace())) {
-                AlertGenerator.info("Пасажирський вагон успішно створено");
-            } else {
-                AlertGenerator.error("Виникла помилка при створенні пасажирського вагону");
-            }
-        }
-
-
-    }
-
-    private TypePlace setTypePlace() {
-
-        TypePlace typePlace = new TypePlace();
-        typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
-        typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
-        typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
-        typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
-
-        return typePlace;
     }
 
     @FXML
@@ -190,6 +156,8 @@ public class ControllerCreateCar implements Checkable {
         inputRestriction(textFieldNumberTopSeats);
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
+
+        wagonCreator = new WagonCreator();
 
 
 

@@ -26,8 +26,6 @@ public class DataSource {
         config.setOpenMode(SQLiteOpenMode.READWRITE);
         config.enforceForeignKeys(true);
         config.setReadOnly(false);
-
-
     }
 
     public DataSource() {
