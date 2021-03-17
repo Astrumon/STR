@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +18,7 @@
             <rowConstraints>
                 <RowConstraints maxHeight="127.99999845027924" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="91.4" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="359.00002136230466" minHeight="10.0" prefHeight="130.99999389648437" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="359.00002136230466" minHeight="10.0" prefHeight="104.60000610351562" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="205.0000061035156" minHeight="10.0" prefHeight="103.00004882812493" vgrow="SOMETIMES" />
@@ -55,12 +54,12 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="textFieldNumberVipSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="1">
+                        <TextField fx:id="textFieldNumberVipSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.rowIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </TextField>
-                        <TextField fx:id="textFieldNumberTopSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="textFieldNumberTopSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -77,12 +76,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField fx:id="textFieldNumberLowerSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="1">
+                        <TextField fx:id="textFieldNumberLowerSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.rowIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </TextField>
-                        <TextField fx:id="textFieldNumberSittingSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="textFieldNumberSittingSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -120,11 +119,11 @@
                         </Button>
                     </children>
                 </GridPane>
-                <CheckBox fx:id="checkBoxFreightCar" mnemonicParsing="false" onAction="#checkBoxFreightCarAc" text="Вантажний вагон" GridPane.rowIndex="2">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
+            <Label fx:id="labelTypeCar" text="Тип вагона:" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             </children>
         </GridPane>
     </children>

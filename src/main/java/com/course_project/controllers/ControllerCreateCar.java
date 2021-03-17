@@ -45,12 +45,6 @@ public class ControllerCreateCar implements Checkable {
     private Button buttonSaveCar;
 
     @FXML
-    private Button buttonDeleteCar;
-
-    @FXML
-    private CheckBox checkBoxFreightCar;
-
-    @FXML
     private ChoiceBox<String> choiceBoxTypeCar;
 
     private DataSource dataSource = new DataSource();
@@ -160,22 +154,6 @@ public class ControllerCreateCar implements Checkable {
     }
 
     @FXML
-    void checkBoxFreightCarAc(ActionEvent event) {
-        if (checkBoxFreightCar.isSelected()){
-            textFieldNumberVipSeats.setEditable(false);
-            textFieldNumberTopSeats.setEditable(false);
-            textFieldNumberLowerSeats.setEditable(false);
-            textFieldNumberSittingSeats.setEditable(false);
-        }
-        else if (checkBoxFreightCar.isSelected() == false){
-            textFieldNumberVipSeats.setEditable(true);
-            textFieldNumberTopSeats.setEditable(true);
-            textFieldNumberLowerSeats.setEditable(true);
-            textFieldNumberSittingSeats.setEditable(true);
-        }
-    }
-
-    @FXML
     void initialize() {
         assert textFieldNameCar != null : "fx:id=\"textFieldNameCar\" was not injected: check your FXML file 'createCar.fxml'.";
         assert textFieldNumberVipSeats != null : "fx:id=\"textFieldNumberVipSeats\" was not injected: check your FXML file 'createCar.fxml'.";
@@ -183,19 +161,60 @@ public class ControllerCreateCar implements Checkable {
         assert textFieldNumberLowerSeats != null : "fx:id=\"textFieldNumberLowerSeats\" was not injected: check your FXML file 'createCar.fxml'.";
         assert textFieldNumberSittingSeats != null : "fx:id=\"textFieldNumberSittingSeats\" was not injected: check your FXML file 'createCar.fxml'.";
         assert buttonSaveCar != null : "fx:id=\"buttonSaveCar\" was not injected: check your FXML file 'createCar.fxml'.";
-        assert buttonDeleteCar != null : "fx:id=\"buttonDeleteCar\" was not injected: check your FXML file 'createCar.fxml'.";
         inputRestriction(textFieldNameCar);
         inputRestriction(textFieldNumberVipSeats);
         inputRestriction(textFieldNumberTopSeats);
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
-
+        textFieldNumberVipSeats.setEditable(false);
+        textFieldNumberTopSeats.setEditable(false);
+        textFieldNumberLowerSeats.setEditable(false);
+        textFieldNumberSittingSeats.setEditable(false);
+        choiceBoxTypeCar.getItems().addAll("Лежачий", "Сидячий", "Вантажний");
+        choiceBoxTypeCar.setOnAction(actionEvent -> choiceBoxTypeCarAc());
 
 
     }
 
-    public void aa(){
-
+    public void choiceBoxTypeCarAc(){
+        if (choiceBoxTypeCar.getValue() == "Лежачий"){
+            textFieldNumberSittingSeats.undo();
+            textFieldNumberVipSeats.setEditable(true);
+            textFieldNumberTopSeats.setEditable(true);
+            textFieldNumberLowerSeats.setEditable(true);
+            textFieldNumberSittingSeats.setEditable(false);
+            textFieldNumberVipSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
+            textFieldNumberTopSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
+            textFieldNumberLowerSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
+            textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+        }
+        else if (choiceBoxTypeCar.getValue() == "Сидячий"){
+            textFieldNumberVipSeats.undo();
+            textFieldNumberTopSeats.undo();
+            textFieldNumberLowerSeats.undo();
+            textFieldNumberVipSeats.setEditable(false);
+            textFieldNumberTopSeats.setEditable(false);
+            textFieldNumberLowerSeats.setEditable(false);
+            textFieldNumberSittingSeats.setEditable(true);
+            textFieldNumberVipSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberTopSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberSittingSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
+        }
+        else if (choiceBoxTypeCar.getValue() == "Вантажний"){
+            textFieldNumberVipSeats.undo();
+            textFieldNumberTopSeats.undo();
+            textFieldNumberLowerSeats.undo();
+            textFieldNumberSittingSeats.undo();
+            textFieldNumberVipSeats.setEditable(false);
+            textFieldNumberTopSeats.setEditable(false);
+            textFieldNumberLowerSeats.setEditable(false);
+            textFieldNumberSittingSeats.setEditable(false);
+            textFieldNumberVipSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberTopSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+            textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
+        }
     }
 
     public void inputRestriction(TextField textField) {

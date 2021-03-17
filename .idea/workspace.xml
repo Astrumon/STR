@@ -7,8 +7,9 @@
     <list default="true" id="e6327ecd-155a-443b-a187-589dbd3a685d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerCreateCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerUpdateCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/createCar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/createTrain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/createTrain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/updateCar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/course_project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -136,7 +140,7 @@
       <workItem from="1615702380852" duration="3530000" />
       <workItem from="1615765869677" duration="4010000" />
       <workItem from="1615835986912" duration="317000" />
-      <workItem from="1616010893473" duration="755000" />
+      <workItem from="1616010893473" duration="9772000" />
     </task>
     <servers />
   </component>
