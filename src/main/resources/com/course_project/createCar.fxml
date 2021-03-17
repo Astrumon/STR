@@ -56,12 +56,12 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldNumberVipSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="1">
+                  <TextField fx:id="textFieldNumberVipSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="textFieldNumberTopSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="textFieldNumberTopSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -78,12 +78,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="textFieldNumberLowerSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="1">
+                  <TextField fx:id="textFieldNumberLowerSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="textFieldNumberSittingSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="textFieldNumberSittingSeats" maxWidth="425.0" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -105,7 +105,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="choiceBoxTypeCar" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="choiceBoxTypeCar" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0; -fx-font-size: 18" GridPane.rowIndex="3" />
             <Label text="Тип вагона" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
