@@ -75,6 +75,7 @@ public class WarehouseSet {
              + ", idWagon= " + this.idWagon
              + ", №" + this.position
              + ", id_warehouse= " + this.idWarehouse
+             + ", id= " + this.getId()
              +" ]";
     }
 }

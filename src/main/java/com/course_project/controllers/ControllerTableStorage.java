@@ -85,6 +85,7 @@ public class ControllerTableStorage {
 
         tableWarehouse.setItems(warehouses);
 
+
     }
 
     public void clickToEdit() {

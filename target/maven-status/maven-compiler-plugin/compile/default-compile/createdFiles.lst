@@ -6,7 +6,6 @@ com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\NumberIDGenerator.class
 com\course_project\controllers\ControllerUpdateTrain.class
-com\course_project\support\TEST_2.class
 com\course_project\data_access\model\wagon\TypePlace.class
 com\course_project\support\AlertGenerator.class
 com\course_project\data_access\model\wagon\Place.class
@@ -15,7 +14,6 @@ com\course_project\data_access\tests\TestTrain.class
 com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\WarehouseManager.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.class
-com\course_project\support\UpdatableCountWagons.class
 com\course_project\controllers\ControllerUpdateCar.class
 com\course_project\data_access\tests\TestWagon.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
@@ -24,7 +22,6 @@ com\course_project\data_access\dao\route_dao\RouteDao.class
 com\course_project\data_access\dao\route_dao\TownDao.class
 com\course_project\Main.class
 com\course_project\data_access\model\route\Route.class
-com\course_project\support\TEST.class
 com\course_project\data_access\dao\train_dao\TrainSetDao.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.class
 com\course_project\data_access\model\train\Train.class
