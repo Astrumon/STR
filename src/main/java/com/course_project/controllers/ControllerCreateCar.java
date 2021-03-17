@@ -57,22 +57,26 @@ public class ControllerCreateCar implements Checkable {
     @FXML
     void buttonSaveCarAc(ActionEvent event) {
 
-//        setIdWagon();
-//        wagonCreator.setIdWagon(idWagon);
-//        wagonCreator.setStatus(checkBoxFreightCar.isSelected());
-//
-//        if (!checkBoxFreightCar.isSelected()) {
-//            wagonCreator.setTypePlace(setTypePlace());
-//        }
-//
-//        if (!isEmptyFields() && isIntegerPositiveNumber()) {
-//            wagonCreator.createWagon();
-//        } else if (checkBoxFreightCar.isSelected() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
-//            wagonCreator.createWagon();
-//        }  else {
-//            AlertGenerator.error("Коректно заповніть всі поля");
-//        }
+        setIdWagon();
+        wagonCreator.setIdWagon(idWagon);
+        wagonCreator.setStatus(isCargo());
 
+        if (!isCargo()) {
+            wagonCreator.setTypePlace(setTypePlace());
+        }
+
+        if (!isEmptyFields() && isIntegerPositiveNumber()) {
+            wagonCreator.createWagon();
+        } else if (isCargo() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
+            wagonCreator.createWagon();
+        }  else {
+            AlertGenerator.error("Коректно заповніть всі поля");
+        }
+
+    }
+
+    private boolean isCargo() {
+        return choiceBoxTypeCar.getValue().equals("Вантажний");
     }
 
 
@@ -96,10 +100,18 @@ public class ControllerCreateCar implements Checkable {
     private TypePlace setTypePlace() {
 
         TypePlace typePlace = new TypePlace();
-        typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
-        typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
-        typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
-        typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
+        if (choiceBoxTypeCar.getValue().equals("Лежачий")) {
+            typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
+            typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
+            typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
+            return typePlace;
+        }
+
+        if (choiceBoxTypeCar.getValue().equals("Сидячий")) {
+            typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
+            return typePlace;
+        }
+
 
         return typePlace;
     }
@@ -110,18 +122,36 @@ public class ControllerCreateCar implements Checkable {
     }
 
     public boolean isEmptyFields() {
-        return Checker.checkEmptyValue(textFieldNumberLowerSeats.getText())
-                && Checker.checkEmptyValue(textFieldNumberSittingSeats.getText())
-                && Checker.checkEmptyValue(textFieldNumberTopSeats.getText())
-                && Checker.checkEmptyValue(textFieldNumberVipSeats.getText())
-                && Checker.checkEmptyValue(textFieldNameCar.getText());
+
+        if (choiceBoxTypeCar.getValue().equals("Лежачий")) {
+            return Checker.checkEmptyValue(textFieldNumberLowerSeats.getText())
+                    && Checker.checkEmptyValue(textFieldNumberTopSeats.getText())
+                    && Checker.checkEmptyValue(textFieldNumberVipSeats.getText())
+                    && Checker.checkEmptyValue(textFieldNameCar.getText());
+        }
+
+        if (choiceBoxTypeCar.getValue().equals("Сидячий")) {
+            return Checker.checkEmptyValue(textFieldNumberSittingSeats.getText())
+                    && Checker.checkEmptyValue(textFieldNameCar.getText());
+        }
+
+        return false;
     }
 
     public boolean isIntegerPositiveNumber() {
-        return Checker.checkPositiveIntValue(textFieldNumberLowerSeats.getText())
-                && Checker.checkPositiveIntValue(textFieldNumberSittingSeats.getText())
-                && Checker.checkPositiveIntValue(textFieldNumberTopSeats.getText())
-                && Checker.checkPositiveIntValue(textFieldNumberVipSeats.getText());
+        if (choiceBoxTypeCar.getValue().equals("Лежачий")) {
+            return Checker.checkPositiveIntValue(textFieldNumberLowerSeats.getText())
+                    && Checker.checkPositiveIntValue(textFieldNumberTopSeats.getText())
+                    && Checker.checkPositiveIntValue(textFieldNumberVipSeats.getText())
+                    && Checker.checkPositiveIntValue(textFieldNameCar.getText());
+        }
+
+        if (choiceBoxTypeCar.getValue().equals("Сидячий")) {
+            return Checker.checkPositiveIntValue(textFieldNumberSittingSeats.getText())
+                    && Checker.checkPositiveIntValue(textFieldNameCar.getText());
+        }
+
+        return false;
     }
 
     @FXML
@@ -150,7 +180,7 @@ public class ControllerCreateCar implements Checkable {
     }
 
     public void choiceBoxTypeCarAc(){
-        if (choiceBoxTypeCar.getValue() == "Лежачий"){
+        if (choiceBoxTypeCar.getValue().equals("Лежачий")){
             textFieldNumberSittingSeats.undo();
             textFieldNumberVipSeats.setEditable(true);
             textFieldNumberTopSeats.setEditable(true);
@@ -161,7 +191,7 @@ public class ControllerCreateCar implements Checkable {
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
         }
-        else if (choiceBoxTypeCar.getValue() == "Сидячий"){
+        else if (choiceBoxTypeCar.getValue().equals("Сидячий")){
             textFieldNumberVipSeats.undo();
             textFieldNumberTopSeats.undo();
             textFieldNumberLowerSeats.undo();
@@ -174,7 +204,7 @@ public class ControllerCreateCar implements Checkable {
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
         }
-        else if (choiceBoxTypeCar.getValue() == "Вантажний"){
+        else if (choiceBoxTypeCar.getValue().equals("Вантажний")){
             textFieldNumberVipSeats.undo();
             textFieldNumberTopSeats.undo();
             textFieldNumberLowerSeats.undo();
