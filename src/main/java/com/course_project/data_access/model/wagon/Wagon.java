@@ -139,7 +139,7 @@ public class Wagon {
         this.trainName = trainName;
     }
 
-    private String defineType(int type) {
+    public String defineType(int type) {
         String result = "";
         switch (type) {
             case PASSENGER_TYPE :result = " passenger ";
