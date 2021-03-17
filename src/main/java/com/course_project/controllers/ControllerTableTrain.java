@@ -84,9 +84,8 @@ public class ControllerTableTrain {
             TableRow<Train> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    Train rowData = row.getItem();
-                    System.out.println(rowData);
-                    //TODO переход на создание/редактирование
+                    TrainManager.transfer = row.getItem();
+
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("updateTrain");
 

@@ -1,13 +1,16 @@
 package com.course_project.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.*;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -33,14 +36,20 @@ public class ControllerCreateTrain {
     private ListView<String> listViewTrain;
 
     @FXML
-    private ChoiceBox<?> choiceBoxTypeTrain;
+    private ChoiceBox<String> choiceBoxTypeTrain;
 
     private TrainManager trainManager;
 
     private String nameTrain;
 
+    private int typeTrain;
+    private Wagon wagon = new Wagon();
 
 
+    @FXML
+    void test(ActionEvent event) {
+        System.out.println("TEST");
+    }
     @FXML
     void buttonDeleteTrainAc(ActionEvent event) {
         setTrainName();
@@ -77,8 +86,9 @@ public class ControllerCreateTrain {
     }
 
     private void createTrain(String nameTrain) {
+        System.out.println("TYPE: " + typeTrain );
         if (trainManager.getTrains().size() == 0) {
-            createFirstTrain(nameTrain);
+            createFirstTrain(nameTrain, typeTrain);
         }
 
         int count = 0;
@@ -86,7 +96,7 @@ public class ControllerCreateTrain {
             if (!train.getName().equals(nameTrain)) {
                 count++;
                 if (count == trainManager.getTrains().size()) {
-                    if (trainManager.createTrain(nameTrain)) {
+                    if (trainManager.createTrain(nameTrain, typeTrain)) {
                         AlertGenerator.info("Потяг успішно створено");
                     } else {
                         AlertGenerator.error("Виникла помилка при створені потягу");
@@ -96,8 +106,9 @@ public class ControllerCreateTrain {
         }
     }
 
-    private void createFirstTrain(String nameTrain) {
-        if (trainManager.createTrain(nameTrain)) {
+    private void createFirstTrain(String nameTrain, int typeTrain) {
+        System.out.println("TYPE: " + typeTrain );
+        if (trainManager.createTrain(nameTrain, typeTrain)) {
             AlertGenerator.info("Потяг успішно створено");
         } else {
             AlertGenerator.error("Виникла помилка при створені потягу");
@@ -106,11 +117,15 @@ public class ControllerCreateTrain {
 
     private void addWagon(String nameTrain) {
 
+        WagonManager wagonManager = new WagonManager();
 
         for (String nameWagon : getWagonsFromList()) {
+            Long idWagon = ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME);
+            System.out.println("TYPE WAGON = " + wagonManager.getWagon(idWagon).getType());
             Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
+            wagon.setIdWagon(idWagon);
+            wagon.setType(wagonManager.getWagon(idWagon).getType());
+
             if (trainManager.addWagonToTrain(nameTrain, wagon, findEmptyPos())) {
                 AlertGenerator.info("Вагон успішно приєднано до потягу");
             } else {
@@ -142,20 +157,62 @@ public class ControllerCreateTrain {
         assert buttonSaveTrain != null : "fx:id=\"buttonSaveTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
         assert buttonDeleteTrain != null : "fx:id=\"buttonDeleteTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
         assert listViewTrain != null : "fx:id=\"listViewTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
+        assert choiceBoxTypeTrain != null : "fx:id=\"choiceBoxTypeTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
 
         trainManager = new TrainManager();
+        checkBoxInit();
+
 
         loadWagonsInfoToListView();
     }
 
+    public void checkBoxInit() {
+        choiceBoxTypeTrain.setValue(wagon.defineType(Wagon.PASSENGER_TYPE));
+        choiceBoxTypeTrain.getItems().add(wagon.defineType(Wagon.PASSENGER_TYPE));
+        choiceBoxTypeTrain.getItems().add(wagon.defineType(Wagon.CARGO_TYPE));
+    }
+
+
     private void loadWagonsInfoToListView() {
         WagonManager wagonManager = new WagonManager();
 
-        for (Wagon wagon : wagonManager.getWagons()) {
-            if (wagon.getTrainName() == null) {
-                listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+
+            if (choiceBoxTypeTrain.getValue().equals(wagon.defineType(Train.PASSENGER_TYPE))) {
+                typeTrain = Train.PASSENGER_TYPE;
+                //System.out.println("TYPE: " + typeTrain );
+                for (Wagon wagon : wagonManager.getWagons()) {
+                    if (wagon.getTrainName() == null && wagon.getType() == Wagon.PASSENGER_TYPE) {
+                        listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+                    }
+                }
             }
-        }
+
+                choiceBoxTypeTrain.valueProperty().addListener((obc, oldItem, newItem) -> {
+                    if (newItem.equals(wagon.defineType(Wagon.PASSENGER_TYPE))) {
+                        typeTrain = Train.PASSENGER_TYPE;
+                       // System.out.println("TYPE: " + typeTrain );
+                        listViewTrain.getItems().clear();
+                        for (Wagon wagon : wagonManager.getWagons()) {
+                            if (wagon.getTrainName() == null && wagon.getType() == Wagon.PASSENGER_TYPE) {
+                                listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+                            }
+                        }
+                    } else {
+                        typeTrain = Train.CARGO_TYPE;
+                        //System.out.println("TYPE: " + typeTrain );
+                        listViewTrain.getItems().clear();
+                        for (Wagon wagon : wagonManager.getWagons()) {
+                            if (wagon.getTrainName() == null && wagon.getType() == Wagon.CARGO_TYPE) {
+                                listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
+                            }
+                        }
+                    }
+                });
+
+
+
         listViewTrain.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+
+
 }

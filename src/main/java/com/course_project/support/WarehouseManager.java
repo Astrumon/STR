@@ -1,14 +1,16 @@
 package com.course_project.support;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
 import com.course_project.data_access.dao.impl.warehouse_dao_impl.WarehouseDaoImpl;
 import com.course_project.data_access.dao.impl.warehouse_dao_impl.WarehouseSetDaoImpl;
+import com.course_project.data_access.dao.wagon_dao.WagonDao;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;
 
 import java.util.List;
 
-public class WarehouseManager extends Manager implements UpdatableCountWagons{
+public class WarehouseManager extends Manager {
 
     public static final int WAREHOUSE_CAPACITY = 100;
 
@@ -62,17 +64,47 @@ public class WarehouseManager extends Manager implements UpdatableCountWagons{
         return warehouseDao.insert(warehouse);
     }
 
+    public boolean deleteWagonFromWarehouse(String nameWarehouse, Wagon wagon) {
+
+
+        Wagon wagonWithoutWarehouse = updateWagonInfoAboutWarehouseSet(wagon);
+       return updateWarehouseSetInfoAboutWagon(nameWarehouse, wagonWithoutWarehouse);
+
+
+    }
+    private Wagon updateWagonInfoAboutWarehouseSet( Wagon wagon) {
+        WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
+
+        WarehouseSet warehouseSet = new WarehouseSet();
+        Wagon wagonWithoutWarehouse = wagonDao.findByIdWagon(wagon.getIdWagon());
+        warehouseSet.setIdWarehouse(null);
+        warehouseSet.setIdWagon(wagonWithoutWarehouse.getIdWagon());
+        warehouseSet.setNameWarehouse(null);
+        warehouseSet.setId(null);
+        wagonDao.updateWarehouseSet(warehouseSet, wagonWithoutWarehouse.getIdWarehouseSet());
+
+        return wagonWithoutWarehouse;
+    }
+
+    private boolean updateWarehouseSetInfoAboutWagon(String nameWarehouse, Wagon wagon) {
+        WarehouseSet warehouseSet = warehouseSetDao.findByName(nameWarehouse);
+        warehouseSet.setIdWagon(null);
+        warehouseSet.setId(wagon.getIdWarehouseSet());
+       return warehouseSetDao.updateWagon(warehouseSet);
+    }
+
+
+
     public boolean addWagonToWarehouse(String nameWarehouse, Wagon wagon, int position) {
         return warehouseSetDao.addWagon(nameWarehouse, wagon, position);
     }
 
 
-    @Override
-    public void updateCountWagons(String name) {
+    public void updateCountWagons(String name, int count) {
         Warehouse warehouse = warehouseDao.findByName(name);
 
-        int countWagons = warehouse.getCountWagons();
-        warehouse.setCountWagons(--countWagons);
+        System.out.println(name + "   " + count);
+        warehouse.setCountWagons(count);
         warehouseDao.updateCountWagon(warehouse);
     }
 }

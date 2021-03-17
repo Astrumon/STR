@@ -94,9 +94,8 @@ public class ControllerTableCar {
             TableRow<Wagon> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    Wagon rowData = row.getItem();
-                    System.out.println(rowData);
 
+                    WagonManager.transfer = row.getItem();
                     //TODO переход на создание/редактирование
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("updateCar");

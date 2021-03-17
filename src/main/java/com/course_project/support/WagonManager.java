@@ -16,6 +16,8 @@ public class WagonManager extends Manager {
 
     private Wagon wagon;
 
+    public static Wagon transfer;
+
     private List<Wagon> wagons;
 
     public WagonManager() {
@@ -31,45 +33,35 @@ public class WagonManager extends Manager {
             return false;
         }
 
-        updateTrainCountWagon(idWagon);
-        updateWarehouseCountWagon(idWagon);
-
         wagon.setIdWagon(idWagon);
         wagonDao.delete(wagon);
         return deleteWagonPlace(idWagon);
     }
 
+    public Wagon getWagon(Long idWagon) {
+       return wagonDao.findByIdWagon(idWagon);
+    }
+
     private boolean isWagonNull(Long idWagon) {
         return wagonDao.findByIdWagon(idWagon) == null;
     }
-    public void updateCountWagon(UpdatableCountWagons manager, String name) {
-        manager.updateCountWagons(name);
-    }
-
-    private void updateTrainCountWagon(Long idWagon) {
-        String nameTrain = wagonDao.findByIdWagon(idWagon).getTrainName();
-        if (nameTrain != null) {
-            updateCountWagon(new TrainManager(), nameTrain);
-        }
-    }
-
-    private void updateWarehouseCountWagon(Long idWagon) {
-        String nameWarehouse = wagonDao.findByIdWagon(idWagon).getNameWarehouse();
-        if (nameWarehouse != null) {
-            updateCountWagon(new WarehouseManager(), nameWarehouse);
-        }
-    }
-
 
     private boolean deleteWagonPlace(Long idWagon) {
         return typePlaceDao.deleteByIdWagon(idWagon);
     }
 
-    public boolean createWagon(Long idWagon, TypePlace typePlace) {
+    public boolean createPassengerWagon(Long idWagon, TypePlace typePlace) {
         wagon.setIdWagon(idWagon);
         wagon.setType(1);
         wagonDao.insert(wagon);
         return wagonDao.setTypePlace(wagon, typePlace);
+    }
+
+    public boolean createCargoWagon(Long idWagon) {
+        wagon.setIdWagon(idWagon);
+        wagon.setType(Wagon.CARGO_TYPE);
+        wagonDao.insert(wagon);
+        return true;
     }
 
     public boolean updateWagon(Long idWagon, TypePlace typePlace) {

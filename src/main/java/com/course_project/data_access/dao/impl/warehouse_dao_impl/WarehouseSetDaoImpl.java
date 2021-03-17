@@ -181,6 +181,33 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
         }
     }
 
+    @Override
+    public boolean updateWagon(WarehouseSet warehouseSet) {
+        Connection connection = null;
+
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_WAGON);
+            if (warehouseSet.getIdWagon() == null) {
+                preparedStatement.setNull(1, 0);
+            } else {
+                preparedStatement.setLong(1, warehouseSet.getIdWagon());
+            }
+            preparedStatement.setLong(2, warehouseSet.getId());
+            preparedStatement.execute();
+            return true;
+        } catch (SQLException exc) {
+            System.out.println(exc);
+            return false;
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+    }
+
     /**
      * Обновляет запись в таблице warehouse_set информацией об объекте warehouseSet
      *

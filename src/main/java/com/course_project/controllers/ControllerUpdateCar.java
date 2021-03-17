@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import com.course_project.data_access.model.train.Train;
+import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,9 +48,54 @@ public class ControllerUpdateCar {
     @FXML
     private CheckBox checkBoxFreightCar;
 
+    private WagonManager wagonManager = new WagonManager();
+
+    private Long idWagon;
+
     @FXML
     void buttonDeleteCarAc(ActionEvent event) {
+        setIdWagon();
 
+        updateWagonsCountTrain();
+        updateWagonsCountWarehouse();
+
+        if (wagonManager.deleteWagon(idWagon)) {
+            AlertGenerator.info("Вагон успішно видалений");
+        } else {
+            AlertGenerator.error("Виникла помилка при видаленні вагону");
+        }
+    }
+
+    public void updateWagonsCountWarehouse() {
+        if (wagonManager.getWagon(idWagon).getNameWarehouse() != null) {
+            WarehouseManager warehouseManager = new WarehouseManager();
+            String warehouseName = wagonManager.getWagon(idWagon).getNameWarehouse();
+            int countWarehouse = warehouseManager.getWarehouse().getCountWagons();
+            warehouseManager.updateCountWagons(warehouseName, countWarehouse);
+
+        }
+    }
+
+    public void updateWagonsCountTrain() {
+        if (wagonManager.getWagon(idWagon).getTrainName() != null) {
+            TrainManager trainManager = new TrainManager();
+            String trainName = wagonManager.getWagon(idWagon).getTrainName();
+            int count = trainManager.getTrain(trainName).getCountWagon();
+            trainManager.updateCountWagons(trainName, --count);
+        }
+    }
+
+    private void setIdWagon() {
+        if (isCorrectWagonNumber()) {
+            idWagon = Long.parseLong(textFieldNameCar.getText());
+        } else {
+            AlertGenerator.error("Введіть коректний номер вагону");
+        }
+    }
+
+    private boolean isCorrectWagonNumber() {
+        return !Checker.checkEmptyValue(textFieldNameCar.getText())
+                && Checker.checkPositiveIntValue(textFieldNameCar.getText());
     }
 
     @FXML
@@ -87,6 +134,9 @@ public class ControllerUpdateCar {
         inputRestriction(textFieldNumberTopSeats);
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
+
+        idWagon = WagonManager.transfer.getIdWagon();
+        textFieldNameCar.setText(idWagon.toString());
     }
 
     public void inputRestriction(TextField textField) {

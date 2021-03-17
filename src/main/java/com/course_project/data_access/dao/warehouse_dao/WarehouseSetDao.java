@@ -16,6 +16,9 @@ public interface WarehouseSetDao {
             + WarehouseSet.ID_WAGON_COLUMN + " = ?, "
             + WarehouseSet.ID_WAREHOUES_COLUMN + " = ?"
             + " WHERE " + WarehouseSet.ID_COLUMN + " = ?";
+    String SQL_UPDATE_WAGON = "UPDATE " + WarehouseSet.TABLE_NAME + " SET "
+            + WarehouseSet.ID_WAGON_COLUMN + " = ? "
+            + " WHERE " + WarehouseSet.ID_COLUMN + " = ?";
     String SQL_DELETE = "DELETE FROM " + WarehouseSet.TABLE_NAME + " WHERE "
             + WarehouseSet.ID_COLUMN + " = ?";
     String SQL_DELETE_BY_NAME = "DELETE FROM " + WarehouseSet.TABLE_NAME + " WHERE "
@@ -38,6 +41,8 @@ public interface WarehouseSetDao {
     void delete(WarehouseSet warehouseSet);
 
     void deleteByWarehouseName(Warehouse warehouse);
+
+    boolean updateWagon(WarehouseSet warehouseSet);
 
     void update(WarehouseSet warehouseSet);
 

@@ -2,6 +2,7 @@ package com.course_project.data_access.dao.impl.train_dao_impl;
 
 import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
 import com.course_project.data_access.model.warehouse.Warehouse;
+import com.course_project.data_access.model.warehouse.WarehouseSet;
 import com.course_project.database.DataSource;
 import com.course_project.data_access.dao.train_dao.TrainSetDao;
 import com.course_project.data_access.model.train.Train;
@@ -59,12 +60,12 @@ public class TrainSetDaoImpl implements TrainSetDao {
                 count++;
             }
         }
+        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
 
-        Train train = new Train();
+        Train train = trainDao.findByName(trainName);
         train.setName(trainName);
         train.setCountWagon(count);
 
-        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
         trainDao.update(train);
     }
 
@@ -106,7 +107,7 @@ public class TrainSetDaoImpl implements TrainSetDao {
         Connection connection = null;
         assert wagon != null;
 
-        String trainNameOfWagon = wagon.getNameWarehouse();
+        String trainNameOfWagon = wagon.getTrainName();
 
         wagon.setTrainName(trainName);
         TrainSet trainSet = getFilledTrainSet(wagon, position);
@@ -349,6 +350,33 @@ public class TrainSetDaoImpl implements TrainSetDao {
 
         } catch (SQLException exc) {
             System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+    }
+
+    @Override
+    public boolean updateWagon(TrainSet trainSet) {
+        Connection connection = null;
+
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_WAGON);
+            if (trainSet.getIdWagon() == null) {
+                preparedStatement.setNull(1, 0);
+            } else {
+                preparedStatement.setLong(1, trainSet.getIdWagon());
+            }
+            preparedStatement.setLong(2, trainSet.getId());
+            preparedStatement.execute();
+            return true;
+        } catch (SQLException exc) {
+            System.out.println(exc);
+            return false;
         } finally {
             try {
                 connection.close();
