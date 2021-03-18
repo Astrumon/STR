@@ -5,14 +5,16 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
-import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.*;
+import com.course_project.support.creator.WagonCreator;
+import com.course_project.support.manager.TrainManager;
+import com.course_project.support.manager.WagonManager;
+import com.course_project.support.manager.WarehouseManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -72,16 +74,17 @@ public class ControllerUpdateCar {
         }
     }
 
+    //TODO перенести
     public void updateWagonsCountWarehouse() {
         if (wagonManager.getWagon(idWagon).getNameWarehouse() != null) {
             WarehouseManager warehouseManager = new WarehouseManager();
             String warehouseName = wagonManager.getWagon(idWagon).getNameWarehouse();
             int countWarehouse = warehouseManager.getWarehouse().getCountWagons();
             warehouseManager.updateCountWagons(warehouseName, countWarehouse);
-
         }
     }
 
+    //TODO перенести
     public void updateWagonsCountTrain() {
         if (wagonManager.getWagon(idWagon).getTrainName() != null) {
             TrainManager trainManager = new TrainManager();

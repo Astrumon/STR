@@ -8,6 +8,8 @@ import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;
 import com.course_project.support.*;
+import com.course_project.support.manager.WagonManager;
+import com.course_project.support.manager.WarehouseManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

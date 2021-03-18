@@ -1,9 +1,13 @@
-package com.course_project.support;
+package com.course_project.support.creator;
 
 import com.course_project.controllers.ControllerTableCar;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.ParseId;
+import com.course_project.support.manager.TrainManager;
+import com.course_project.support.manager.WagonManager;
 
 import java.util.List;
 

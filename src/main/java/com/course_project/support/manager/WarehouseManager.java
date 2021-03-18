@@ -1,9 +1,8 @@
-package com.course_project.support;
+package com.course_project.support.manager;
 
 import com.course_project.data_access.dao.impl.wagon_dao_impl.WagonDaoImpl;
 import com.course_project.data_access.dao.impl.warehouse_dao_impl.WarehouseDaoImpl;
 import com.course_project.data_access.dao.impl.warehouse_dao_impl.WarehouseSetDaoImpl;
-import com.course_project.data_access.dao.wagon_dao.WagonDao;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;

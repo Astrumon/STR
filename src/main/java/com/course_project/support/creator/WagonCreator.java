@@ -1,10 +1,9 @@
-package com.course_project.support;
+package com.course_project.support.creator;
 
-import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
-
-import java.util.List;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.manager.WagonManager;
 
 public class WagonCreator {
     private WagonManager wagonManager;

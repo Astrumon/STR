@@ -1,4 +1,4 @@
-package com.course_project.support;
+package com.course_project.support.manager;
 
 
 import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;

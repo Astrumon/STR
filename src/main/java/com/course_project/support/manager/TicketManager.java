@@ -1,9 +1,7 @@
-package com.course_project.support;
+package com.course_project.support.manager;
 
 import com.course_project.data_access.dao.impl.TicketDaoImpl;
-import com.course_project.data_access.dao.impl.route_dao_impl.RouteDaoImpl;
 import com.course_project.data_access.model.Ticket;
-import com.course_project.data_access.model.route.Route;
 
 import java.util.List;
 

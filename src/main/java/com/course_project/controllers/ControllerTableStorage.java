@@ -16,7 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import com.course_project.support.NumberIDGenerator;
-import com.course_project.support.WarehouseManager;
+import com.course_project.support.manager.WarehouseManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,8 +49,6 @@ public class ControllerTableStorage {
 
     private ObservableList<Warehouse> warehouses;
 
-    private WarehouseManager warehouseManager;
-
 
     @FXML
     void initialize() {
@@ -59,11 +57,10 @@ public class ControllerTableStorage {
     }
 
     public void fillTable() {
-        warehouseManager = new WarehouseManager();
+        WarehouseManager warehouseManager = new WarehouseManager();
 
         warehouses = tableWarehouse.getItems();
         warehouses.addAll(warehouseManager.getWarehouses());
-        //tblName.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("name"));
 
         tblName.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
@@ -84,8 +81,6 @@ public class ControllerTableStorage {
         tblCountCars.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("countWagons"));
 
         tableWarehouse.setItems(warehouses);
-
-
     }
 
     public void clickToEdit() {
@@ -97,7 +92,6 @@ public class ControllerTableStorage {
 
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("updateStorage");
-
                     stackPaneStorage.getChildren().remove(anchorPaneTableStorage);
                     stackPaneStorage.getChildren().add(view);
                 }

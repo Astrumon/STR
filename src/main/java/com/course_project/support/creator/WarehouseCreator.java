@@ -1,9 +1,12 @@
-package com.course_project.support;
+package com.course_project.support.creator;
 
 import com.course_project.controllers.ControllerTableCar;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.ParseId;
+import com.course_project.support.manager.WarehouseManager;
 
 import java.util.List;
 

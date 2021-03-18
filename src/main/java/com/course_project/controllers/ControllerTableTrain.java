@@ -2,7 +2,6 @@ package com.course_project.controllers;
 
 import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.train.Train;
-import com.course_project.data_access.model.wagon.Wagon;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -16,7 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import com.course_project.support.NumberIDGenerator;
-import com.course_project.support.TrainManager;
+import com.course_project.support.manager.TrainManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,9 +47,7 @@ public class ControllerTableTrain {
     @FXML
     private TableColumn tblCountWagons;
 
-    private ObservableList<Train> trains;
-
-    private TrainManager trainManager;
+    private ObservableList trains;
 
     @FXML
     void initialize() {
@@ -59,9 +56,10 @@ public class ControllerTableTrain {
     }
 
     public void fillTable() {
-        trainManager = new TrainManager();
+        TrainManager trainManager = new TrainManager();
 
         trains = tableTrain.getItems();
+
         trains.addAll(trainManager.getTrains());
 
         tblName.setCellValueFactory(new PropertyValueFactory<Train, String>("name"));
@@ -75,7 +73,6 @@ public class ControllerTableTrain {
 
         tblCountWagons.setCellValueFactory(new PropertyValueFactory<Train, String>("countWagon"));
 
-
         tableTrain.setItems(trains);
     }
 
@@ -88,7 +85,6 @@ public class ControllerTableTrain {
 
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("updateTrain");
-
                     stackPaneTrain.getChildren().remove(anchorPaneTableTrain);
                     stackPaneTrain.getChildren().add(view);
                 }
