@@ -31,8 +31,8 @@ public class WarehouseManager extends Manager {
         warehouse.setCapacity(WAREHOUSE_CAPACITY);
     }
 
-    public Warehouse getWarehouse() {
-        return warehouse;
+    public Warehouse getWarehouse(String warehouseName) {
+        return warehouseDao.findByName(warehouseName);
     }
 
     public void setWarehouse(Warehouse warehouse) {

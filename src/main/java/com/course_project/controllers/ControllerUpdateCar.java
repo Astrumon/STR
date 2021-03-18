@@ -62,8 +62,8 @@ public class ControllerUpdateCar {
     void buttonDeleteCarAc(ActionEvent event) {
         setIdWagon();
 
-        updateWagonsCountTrain();
         updateWagonsCountWarehouse();
+        updateWagonsCountTrain();
 
         if (wagonManager.deleteWagon(idWagon)) {
             AlertGenerator.info("Вагон успішно видалений");
@@ -73,16 +73,18 @@ public class ControllerUpdateCar {
     }
 
     public void updateWagonsCountWarehouse() {
+        setIdWagon();
         if (wagonManager.getWagon(idWagon).getNameWarehouse() != null) {
             WarehouseManager warehouseManager = new WarehouseManager();
             String warehouseName = wagonManager.getWagon(idWagon).getNameWarehouse();
-            int countWarehouse = warehouseManager.getWarehouse().getCountWagons();
-            warehouseManager.updateCountWagons(warehouseName, countWarehouse);
+            int countWarehouse = warehouseManager.getWarehouse(warehouseName).getCountWagons();
+            warehouseManager.updateCountWagons(warehouseName, --countWarehouse);
 
         }
     }
 
     public void updateWagonsCountTrain() {
+        setIdWagon();
         if (wagonManager.getWagon(idWagon).getTrainName() != null) {
             TrainManager trainManager = new TrainManager();
             String trainName = wagonManager.getWagon(idWagon).getTrainName();

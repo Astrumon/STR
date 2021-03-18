@@ -2,6 +2,7 @@ package com.course_project.controllers;
 
 import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.warehouse.Warehouse;
+import com.course_project.support.WagonManager;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -87,6 +88,7 @@ public class ControllerTableStorage {
 
 
     }
+
 
     public void clickToEdit() {
         tableWarehouse.setRowFactory(tv -> {
