@@ -18,7 +18,13 @@ public class WagonManager extends Manager {
 
     public static Wagon transfer;
 
+    public TypePlaceDaoImpl getTypePlaceDao() {
+        return typePlaceDao;
+    }
 
+    public void setTypePlaceDao(TypePlaceDaoImpl typePlaceDao) {
+        this.typePlaceDao = typePlaceDao;
+    }
 
     private List<Wagon> wagons;
 

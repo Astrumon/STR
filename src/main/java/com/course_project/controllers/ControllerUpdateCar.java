@@ -12,6 +12,7 @@ import com.course_project.support.creator.WagonCreator;
 import com.course_project.support.manager.TrainManager;
 import com.course_project.support.manager.WagonManager;
 import com.course_project.support.manager.WarehouseManager;
+import com.course_project.support.updater.WagonUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -56,43 +57,23 @@ public class ControllerUpdateCar {
     @FXML
     private Label labelTypeCar;
 
-    private WagonManager wagonManager = new WagonManager();
+    private WagonUpdater wagonUpdater = new WagonUpdater();
 
     private Long idWagon;
 
     @FXML
     void buttonDeleteCarAc(ActionEvent event) {
+
         setIdWagon();
-
-        updateWagonsCountTrain();
-        updateWagonsCountWarehouse();
-
-        if (wagonManager.deleteWagon(idWagon)) {
+        wagonUpdater.updateWagonsCountWarehouse(idWagon);
+        wagonUpdater.updateWagonsCountTrain(idWagon);
+        if (wagonUpdater.deleteWagon(idWagon)) {
             AlertGenerator.info("Вагон успішно видалений");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні вагону");
         }
     }
 
-    //TODO перенести
-    public void updateWagonsCountWarehouse() {
-        if (wagonManager.getWagon(idWagon).getNameWarehouse() != null) {
-            WarehouseManager warehouseManager = new WarehouseManager();
-            String warehouseName = wagonManager.getWagon(idWagon).getNameWarehouse();
-            int countWarehouse = warehouseManager.getWarehouse().getCountWagons();
-            warehouseManager.updateCountWagons(warehouseName, countWarehouse);
-        }
-    }
-
-    //TODO перенести
-    public void updateWagonsCountTrain() {
-        if (wagonManager.getWagon(idWagon).getTrainName() != null) {
-            TrainManager trainManager = new TrainManager();
-            String trainName = wagonManager.getWagon(idWagon).getTrainName();
-            int count = trainManager.getTrain(trainName).getCountWagon();
-            trainManager.updateCountWagons(trainName, --count);
-        }
-    }
 
     private void setIdWagon() {
         if (isCorrectWagonNumber()) {
@@ -109,21 +90,25 @@ public class ControllerUpdateCar {
 
     @FXML
     void buttonSaveCarAc(ActionEvent event) {
-        WagonCreator wagonCreator = new WagonCreator();
         setIdWagon();
-        TypePlaceDaoImpl typePlaceDao = new TypePlaceDaoImpl(wagonManager.dataSource);
-        TypePlace typePlace = typePlaceDao.findByIdWagon(idWagon);
+        TypePlace typePlace = wagonUpdater.getTypePlace(idWagon);
+        wagonUpdater.updateWagon(idWagon, getCountSeatsByTypePlace(typePlace));
+    }
+
+
+    private TypePlace getCountSeatsByTypePlace(TypePlace typePlace) {
         if (WagonManager.transfer.getType() == Wagon.SEATING_TYPE) {
             typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
+            return typePlace;
         }
 
         if (WagonManager.transfer.getType() == Wagon.LYING_TYPE) {
             typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
             typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
             typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
+            return typePlace;
         }
-
-        wagonCreator.updateWagon(idWagon, typePlace);
+        return typePlace;
     }
 
 
@@ -146,9 +131,7 @@ public class ControllerUpdateCar {
 
         idWagon = WagonManager.transfer.getIdWagon();
         textFieldNameCar.setText(idWagon.toString());
-
         TypeCarAc();
-
     }
 
     public void TypeCarAc(){

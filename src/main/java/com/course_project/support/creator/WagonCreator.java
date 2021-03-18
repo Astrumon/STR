@@ -51,11 +51,6 @@ public class WagonCreator {
 
         int count = 0;
         for (Wagon wagon : wagonManager.getWagons()) {
-//                    if (idWagon.equals(wagon.getIdWagon())) {
-//                        update(idWagon);
-//                        break;
-//                    }
-
             if (!idWagon.equals(wagon.getIdWagon())) {
                 count++;
                 if (count == wagonManager.getWagons().size()) {
@@ -65,23 +60,7 @@ public class WagonCreator {
         }
     }
 
-    //TODO убрать
-    public void updateWagon(Long idWagon, TypePlace typePlace) {
-        for (Wagon wagon : wagonManager.getWagons()) {
-                    if (idWagon.equals(wagon.getIdWagon())) {
-                        update(idWagon, typePlace);
-                        break;
-                    }
-        }
-    }
 
-    private void update(Long idWagon, TypePlace typePlace) {
-
-        if (wagonManager.updateWagon(idWagon, typePlace)) {
-            AlertGenerator.info("Інформація о вагоні оновлена");
-        }
-
-    }
 
     private void create(Long idWagon, int typeWagon) {
 
