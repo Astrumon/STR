@@ -52,6 +52,8 @@ public class ControllerCreateCar implements Checkable {
 
     private WagonCreator wagonCreator;
 
+    private int typeWagon;
+
 
 
     @FXML
@@ -66,9 +68,9 @@ public class ControllerCreateCar implements Checkable {
         }
 
         if (!isEmptyFields() && isIntegerPositiveNumber()) {
-            wagonCreator.createWagon();
+            wagonCreator.createWagon(typeWagon);
         } else if (isCargo() && !Checker.checkEmptyValue(textFieldNameCar.getText())) {
-            wagonCreator.createWagon();
+            wagonCreator.createWagon(typeWagon);
         }  else {
             AlertGenerator.error("Коректно заповніть всі поля");
         }
@@ -88,6 +90,8 @@ public class ControllerCreateCar implements Checkable {
         }
     }
 
+
+    //TODO вынести в другой метод
     private void update(Long idWagon) {
 
         if (wagonManager.updateWagon(idWagon, setTypePlace())) {
@@ -101,6 +105,7 @@ public class ControllerCreateCar implements Checkable {
 
         TypePlace typePlace = new TypePlace();
         if (choiceBoxTypeCar.getValue().equals("Лежачий")) {
+            typeWagon = Wagon.LYING_TYPE;
             typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
             typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
             typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
@@ -108,11 +113,13 @@ public class ControllerCreateCar implements Checkable {
         }
 
         if (choiceBoxTypeCar.getValue().equals("Сидячий")) {
+            typeWagon = Wagon.SEATING_TYPE;
             typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
             return typePlace;
         }
 
 
+        typeWagon = Wagon.CARGO_TYPE;
         return typePlace;
     }
 
@@ -181,6 +188,7 @@ public class ControllerCreateCar implements Checkable {
 
     public void choiceBoxTypeCarAc(){
         if (choiceBoxTypeCar.getValue().equals("Лежачий")){
+            typeWagon = Wagon.LYING_TYPE;
             textFieldNumberSittingSeats.undo();
             textFieldNumberVipSeats.setEditable(true);
             textFieldNumberTopSeats.setEditable(true);
@@ -192,6 +200,7 @@ public class ControllerCreateCar implements Checkable {
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
         }
         else if (choiceBoxTypeCar.getValue().equals("Сидячий")){
+            typeWagon = Wagon.SEATING_TYPE;
             textFieldNumberVipSeats.undo();
             textFieldNumberTopSeats.undo();
             textFieldNumberLowerSeats.undo();
@@ -205,6 +214,7 @@ public class ControllerCreateCar implements Checkable {
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
         }
         else if (choiceBoxTypeCar.getValue().equals("Вантажний")){
+            typeWagon = Wagon.CARGO_TYPE;
             textFieldNumberVipSeats.undo();
             textFieldNumberTopSeats.undo();
             textFieldNumberLowerSeats.undo();

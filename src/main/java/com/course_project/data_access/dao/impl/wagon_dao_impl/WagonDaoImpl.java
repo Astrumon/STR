@@ -333,7 +333,7 @@ public class WagonDaoImpl implements WagonDao {
     @Override
     public boolean setTypePlace(Wagon wagon, TypePlace typePlace) {
         Connection connection = null;
-        if (wagon.getType() == Wagon.PASSENGER_TYPE) {
+        if (wagon.checkType(wagon.getType()) == Wagon.PASSENGER_TYPE) {
             TypePlaceDaoImpl typePlaceDao = new TypePlaceDaoImpl(dataSource);
             typePlace.setIdWagon(wagon.getIdWagon());
             typePlaceDao.insert(typePlace);

@@ -17,6 +17,10 @@ public class Wagon {
 
     public static final int PASSENGER_TYPE = 1;
     public static final int CARGO_TYPE = 2;
+    public static final int LYING_TYPE = 3;
+    public static final int SEATING_TYPE = 4;
+
+
 
     private String trainName;
     private Long id, idTrainSet, idWarehouseSet;
@@ -87,14 +91,16 @@ public class Wagon {
     }
 
     public void setType(int type) {
-        checkType(type);
+        this.type = type;
     }
 
-    private void checkType(int type) {
-       if (!(type > 2)) {
+    public int checkType(int type) {
+       if (type == CARGO_TYPE) {
            this.type = type;
+           return CARGO_TYPE;
        } else {
            this.type = PASSENGER_TYPE;
+           return PASSENGER_TYPE;
        }
     }
 
@@ -142,10 +148,10 @@ public class Wagon {
     public String defineType(int type) {
         String result = "";
         switch (type) {
-            case PASSENGER_TYPE :result = " passenger ";
-            break;
+
             case CARGO_TYPE : result = " cargo ";
             break;
+            default: result = " passenger ";
         }
 
         return result;

@@ -4,7 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
 import com.course_project.data_access.model.train.Train;
+import com.course_project.data_access.model.wagon.TypePlace;
+import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -103,8 +106,24 @@ public class ControllerUpdateCar {
 
     @FXML
     void buttonSaveCarAc(ActionEvent event) {
+        WagonCreator wagonCreator = new WagonCreator();
+        setIdWagon();
+        TypePlaceDaoImpl typePlaceDao = new TypePlaceDaoImpl(wagonManager.dataSource);
+        TypePlace typePlace = typePlaceDao.findByIdWagon(idWagon);
+        if (WagonManager.transfer.getType() == Wagon.SEATING_TYPE) {
+            typePlace.setCountSeats(Integer.parseInt(textFieldNumberSittingSeats.getText()));
+        }
 
+        if (WagonManager.transfer.getType() == Wagon.LYING_TYPE) {
+            typePlace.setCountLow(Integer.parseInt(textFieldNumberLowerSeats.getText()));
+            typePlace.setCountMiddle(Integer.parseInt(textFieldNumberTopSeats.getText()));
+            typePlace.setCountVip(Integer.parseInt(textFieldNumberVipSeats.getText()));
+        }
+
+        wagonCreator.updateWagon(idWagon, typePlace);
     }
+
+
 
     @FXML
     void initialize() {
@@ -125,12 +144,12 @@ public class ControllerUpdateCar {
         idWagon = WagonManager.transfer.getIdWagon();
         textFieldNameCar.setText(idWagon.toString());
 
-        //TypeCarAc();
+        TypeCarAc();
 
     }
 
-    /*public void TypeCarAc(){
-        if (){
+    public void TypeCarAc(){
+        if (WagonManager.transfer.getType() == Wagon.LYING_TYPE){
             labelTypeCar.setText("Тип вагона: Лежачий");
             textFieldNumberVipSeats.setEditable(true);
             textFieldNumberTopSeats.setEditable(true);
@@ -141,7 +160,7 @@ public class ControllerUpdateCar {
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
         }
-        else if (){
+        else if (WagonManager.transfer.getType() == Wagon.SEATING_TYPE){
             labelTypeCar.setText("Тип вагона: Сидячий");
             textFieldNumberVipSeats.setEditable(false);
             textFieldNumberTopSeats.setEditable(false);
@@ -152,7 +171,7 @@ public class ControllerUpdateCar {
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
         }
-        else if (){
+        else if (WagonManager.transfer.getType() == Wagon.CARGO_TYPE){
             labelTypeCar.setText("Тип вагона: Вантажний");
             textFieldNumberVipSeats.setEditable(false);
             textFieldNumberTopSeats.setEditable(false);
@@ -163,7 +182,7 @@ public class ControllerUpdateCar {
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
         }
-    }*/
+    }
 
     public void inputRestriction(TextField textField) {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");

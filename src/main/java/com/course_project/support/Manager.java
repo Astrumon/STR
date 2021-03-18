@@ -5,5 +5,5 @@ import com.course_project.database.DataSource;
 
 
 public abstract class Manager {
-    DataSource dataSource = new DataSource();
+   public DataSource dataSource = new DataSource();
 }

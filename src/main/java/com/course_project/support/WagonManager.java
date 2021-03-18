@@ -18,6 +18,8 @@ public class WagonManager extends Manager {
 
     public static Wagon transfer;
 
+
+
     private List<Wagon> wagons;
 
     public WagonManager() {
@@ -50,9 +52,9 @@ public class WagonManager extends Manager {
         return typePlaceDao.deleteByIdWagon(idWagon);
     }
 
-    public boolean createPassengerWagon(Long idWagon, TypePlace typePlace) {
+    public boolean createPassengerWagon(Long idWagon, TypePlace typePlace, int typeWagon) {
         wagon.setIdWagon(idWagon);
-        wagon.setType(1);
+        wagon.setType(typeWagon);
         wagonDao.insert(wagon);
         return wagonDao.setTypePlace(wagon, typePlace);
     }

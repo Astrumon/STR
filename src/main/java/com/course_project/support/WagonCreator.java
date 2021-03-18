@@ -1,5 +1,6 @@
 package com.course_project.support;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 
@@ -43,10 +44,10 @@ public class WagonCreator {
     }
 
 
-    public void createWagon() {
+    public void createWagon(int typeWagon) {
 
         if (wagonManager.getWagons().size() == 0) {
-            create(idWagon);
+            create(idWagon, typeWagon);
         }
 
         int count = 0;
@@ -59,13 +60,31 @@ public class WagonCreator {
             if (!idWagon.equals(wagon.getIdWagon())) {
                 count++;
                 if (count == wagonManager.getWagons().size()) {
-                    create(idWagon);
+                    create(idWagon, typeWagon);
                 }
             }
         }
     }
 
-    private void create(Long idWagon) {
+    //TODO убрать
+    public void updateWagon(Long idWagon, TypePlace typePlace) {
+        for (Wagon wagon : wagonManager.getWagons()) {
+                    if (idWagon.equals(wagon.getIdWagon())) {
+                        update(idWagon, typePlace);
+                        break;
+                    }
+        }
+    }
+
+    private void update(Long idWagon, TypePlace typePlace) {
+
+        if (wagonManager.updateWagon(idWagon, typePlace)) {
+            AlertGenerator.info("Інформація о вагоні оновлена");
+        }
+
+    }
+
+    private void create(Long idWagon, int typeWagon) {
 
         if (status) {
             if (wagonManager.createCargoWagon(idWagon)) {
@@ -75,7 +94,7 @@ public class WagonCreator {
             }
         } else {
 
-            if (wagonManager.createPassengerWagon(idWagon, typePlace)) {
+            if (wagonManager.createPassengerWagon(idWagon, typePlace, typeWagon)) {
                 AlertGenerator.info("Пасажирський вагон успішно створено");
             } else {
                 AlertGenerator.error("Виникла помилка при створенні пасажирського вагону");

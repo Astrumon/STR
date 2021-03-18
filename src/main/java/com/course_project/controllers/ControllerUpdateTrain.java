@@ -123,7 +123,7 @@ public class ControllerUpdateTrain {
 
         for (Wagon wagon : wagonManager.getWagons()) {
             if (wagon.getTrainName() == null) {
-                if (wagon.getType() == typeTrain) {
+                if (wagon.checkType(wagon.getType()) == typeTrain) {
                     lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
                 } else {
                     continue;
@@ -190,10 +190,11 @@ public class ControllerUpdateTrain {
     }
 
     private void deleteWagon(String nameWarehouse) {
+        WagonManager wagonManager = new WagonManager();
         for (String nameWagon : getEmployedWagonsFromList()) {
             Wagon wagon = new Wagon();
             wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
+            wagon.setType(wagonManager.getWagon(wagon.getIdWagon()).getType());
             if (trainManager.deleteWagonFromTrain(nameWarehouse, wagon)) {
                 AlertGenerator.info("Вагон успішно видалено з потягу");
             } else {

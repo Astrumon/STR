@@ -48,7 +48,7 @@ public class TrainManager extends Manager {
         int trainType = trainDao.findByName(nameTrain).getType();
         System.out.println("WAGONTYPE " + wagon.getType() + " TRAINTYPE " + trainType);
 
-        if (wagon.getType() == trainType) {
+        if (wagon.checkType(wagon.getType()) == trainType) {
             return trainSetDao.addWagon(nameTrain, wagon, position);
         }
         return false;

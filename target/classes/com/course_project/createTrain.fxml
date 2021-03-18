@@ -35,15 +35,11 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-<<<<<<< HEAD
+
                 <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="4" />
             <ChoiceBox fx:id="choiceBoxTypeTrain"  prefHeight="42.0" prefWidth="194.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="2" />
                   <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="5">
-=======
-                <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="5" />
-            <ChoiceBox fx:id="choiceBoxTypeTrain" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="3" />
-                  <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="6">
->>>>>>> debug
+
                       <font>
                           <Font size="18.0" />
                       </font>
