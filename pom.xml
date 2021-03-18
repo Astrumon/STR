@@ -53,6 +53,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.5</version>
                 <configuration>
+
                     <mainClass>com.course_project.Main</mainClass>
                     <launcher>launch.sh</launcher>
                     <compress>2</compress>
