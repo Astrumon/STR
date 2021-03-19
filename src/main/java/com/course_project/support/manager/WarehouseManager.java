@@ -60,12 +60,12 @@ public class WarehouseManager extends Manager {
 
     public boolean createWarehouse(String nameWarehouse) {
         warehouse.setName(nameWarehouse);
-        return warehouseDao.insert(warehouse);
+        boolean result =  warehouseDao.insert(warehouse);
+        createWarehousePositions(warehouse);
+        return result;
     }
 
     public boolean deleteWagonFromWarehouse(String nameWarehouse, Wagon wagon) {
-
-
         Wagon wagonWithoutWarehouse = updateWagonInfoAboutWarehouseSet(wagon);
        return updateWarehouseSetInfoAboutWagon(nameWarehouse, wagonWithoutWarehouse);
 
@@ -93,17 +93,83 @@ public class WarehouseManager extends Manager {
     }
 
 
-
     public boolean addWagonToWarehouse(String nameWarehouse, Wagon wagon, int position) {
-        return warehouseSetDao.addWagon(nameWarehouse, wagon, position);
+        boolean result;
+        String warehouseNameOfWagon = wagon.getNameWarehouse();
+        wagon.setNameWarehouse(nameWarehouse);
+        WarehouseSet warehouseSet = getFilledWarehouseSet(wagon, position);
+
+        if (isEmptyWarehouseName(warehouseNameOfWagon) && warehouseSet.getIdWarehouse() != null) {
+            result = warehouseSetDao.addWagon(nameWarehouse, wagon, position);
+
+            updateWagonWarehouseSetInfo(warehouseSet);
+            counterWagons(nameWarehouse);
+            return result;
+        } else  {
+            return false;
+        }
     }
 
+    public WarehouseSet getFilledWarehouseSet(Wagon wagon, int position) {
+
+        WarehouseSet wSet = new WarehouseSet();
+        for (WarehouseSet warehouseSet : warehouseSetDao.findAll()) {
+
+            if (warehouseSet.getNameWarehouse().equals(wagon.getNameWarehouse()) && samePosition(warehouseSet, position) && warehouseSet.getIdWagon() == 0) {
+                wSet = warehouseSet;
+                wSet.setIdWagon(wagon.getIdWagon());
+                wSet.setPosition(position);
+                break;
+            }
+        }
+
+        return wSet;
+    }
+
+    private boolean samePosition(WarehouseSet warehouseSet, int position) {
+        return warehouseSet.getPosition() == position;
+    }
+
+    private boolean isEmptyWarehouseName(String nameWarehouse) {
+        return nameWarehouse == null;
+    }
+
+    private void updateWagonWarehouseSetInfo(WarehouseSet warehouseSet) {
+        WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
+        wagonDao.updateWarehouseSet(warehouseSet, warehouseSet.getId());
+    }
+
+
+
+
+    private void counterWagons(String warehouseName) {
+        int count = 0;
+
+        for (WarehouseSet warehouseSet : warehouseSetDao.findAll()) {
+            if (warehouseSet.getIdWagon() != 0 && warehouseSet.getNameWarehouse().equals(warehouseName)) {
+                count++;
+            }
+        }
+
+        updateCountWagons(warehouseName, count);
+    }
 
     public void updateCountWagons(String name, int count) {
         Warehouse warehouse = warehouseDao.findByName(name);
-
-        System.out.println(name + "   " + count);
         warehouse.setCountWagons(count);
         warehouseDao.updateCountWagon(warehouse);
     }
+
+
+    private void createWarehousePositions(Warehouse warehouse) {
+        WarehouseSetDaoImpl warehouseSetDao = new WarehouseSetDaoImpl(dataSource);
+        for (int i = 1; i <= warehouse.getCapacity(); i++) {
+            warehouseSetDao.insert(new WarehouseSet(warehouse.getName(), i, warehouse.getId()));
+        }
+    }
+
+
+
+
+
 }

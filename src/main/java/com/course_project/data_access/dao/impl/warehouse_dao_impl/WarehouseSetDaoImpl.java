@@ -6,6 +6,7 @@ import com.course_project.data_access.dao.warehouse_dao.WarehouseSetDao;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.data_access.model.warehouse.Warehouse;
 import com.course_project.data_access.model.warehouse.WarehouseSet;
+import com.course_project.support.manager.WarehouseManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -235,70 +236,6 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
         }
     }
 
-
-    /**
-     * Метод для проверки названия склада в котором находится вагон
-     *
-     * @param nameWarehouse
-     * @return
-     */
-    private boolean isEmptyWarehouseName(String nameWarehouse) {
-        return nameWarehouse == null;
-    }
-
-    /**
-     * Метод для проверки позиции вагона на складе
-     *
-     * @param warehouseSet
-     * @param position
-     * @return
-     */
-    private boolean samePosition(WarehouseSet warehouseSet, int position) {
-        return warehouseSet.getPosition() == position;
-    }
-
-
-    private void counterWagons(String warehouseName) {
-
-        WarehouseSetDaoImpl warehouseSetDao = new WarehouseSetDaoImpl(dataSource);
-
-        int count = 0;
-
-        for (WarehouseSet warehouseSet : warehouseSetDao.findAll()) {
-            if (warehouseSet.getIdWagon() != 0 && warehouseSet.getNameWarehouse().equals(warehouseName)) {
-                count++;
-            }
-        }
-
-        Warehouse warehouse = new Warehouse();
-        warehouse.setName(warehouseName);
-        warehouse.setCountWagons(count);
-
-        WarehouseDaoImpl warehouseDao = new WarehouseDaoImpl(dataSource);
-        warehouseDao.updateCountWagon(warehouse);
-    }
-
-    private WarehouseSet getFilledWarehouseSet(Wagon wagon, int position) {
-
-        WarehouseSetDaoImpl warehouseSetDao = new WarehouseSetDaoImpl(dataSource);
-        WarehouseSet wSet = new WarehouseSet();
-        for (WarehouseSet warehouseSet : warehouseSetDao.findAll()) {
-
-            if (warehouseSet.getNameWarehouse().equals(wagon.getNameWarehouse()) && samePosition(warehouseSet, position) && warehouseSet.getIdWagon() == 0) {
-                wSet = warehouseSet;
-                wSet.setIdWagon(wagon.getIdWagon());
-                wSet.setPosition(position);
-                break;
-            }
-        }
-
-        return wSet;
-    }
-
-    private void updateWagonWarehouseSetInfo(WarehouseSet warehouseSet) {
-        WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
-        wagonDao.updateWarehouseSet(warehouseSet, warehouseSet.getId());
-    }
     /**
      * Метод который служит для добавления информации о вагоне в таблицу warehouse_set
      * Информация о складе так же записывается в таблицу wagon
@@ -313,12 +250,9 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
 
         Connection connection = null;
 
-        String warehouseNameOfWagon = wagon.getNameWarehouse();
+        WarehouseManager warehouseManager = new WarehouseManager();
+        WarehouseSet warehouseSet = warehouseManager.getFilledWarehouseSet(wagon, position);
 
-        wagon.setNameWarehouse(warehouseName);
-        WarehouseSet warehouseSet = getFilledWarehouseSet(wagon, position);
-
-        if (isEmptyWarehouseName(warehouseNameOfWagon) && warehouseSet.getIdWarehouse() != null) {
             try {
                 connection = dataSource.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD_WAGON);
@@ -327,8 +261,6 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
                 preparedStatement.setLong(3, warehouseSet.getPosition());
                 preparedStatement.execute();
 
-                updateWagonWarehouseSetInfo(warehouseSet);
-                counterWagons(warehouseName);
                 return true;
 
             } catch (SQLException exc) {
@@ -341,10 +273,6 @@ public class WarehouseSetDaoImpl implements WarehouseSetDao {
                     System.out.println(exc);
                 }
             }
-        } else {
-            System.out.println("position is taken");
-            return false;
-        }
     }
 
     /**

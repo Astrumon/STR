@@ -72,10 +72,6 @@ public class WagonManager extends Manager {
 
     private static class NumberGenerator {
         static int number = 1;
-
-        public static int generate(int type) {
-            return Integer.parseInt(type + "" + number);
-        }
     }
 
     public boolean createCargoWagon(Long idWagon) {
