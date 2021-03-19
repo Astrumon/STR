@@ -10,6 +10,7 @@ import com.course_project.data_access.model.warehouse.WarehouseSet;
 import com.course_project.support.*;
 import com.course_project.support.manager.WagonManager;
 import com.course_project.support.manager.WarehouseManager;
+import com.course_project.support.updater.WarehouseUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -49,15 +50,12 @@ public class ControllerUpdateStorage {
 
     private String warehouseName;
 
-    private Warehouse warehouse;
-
-    private WarehouseManager warehouseManager = new WarehouseManager();
+    private WarehouseUpdater warehouseUpdater = new WarehouseUpdater();
 
     @FXML
     void buttonDeleteStorageAc(ActionEvent event) {
         setWarehouseName();
-
-        if (warehouseManager.deleteWarehouse(warehouseName)) {
+        if (warehouseUpdater.delete(warehouseName)) {
             AlertGenerator.info("Склад успішно видалено");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні вагону");
@@ -67,9 +65,9 @@ public class ControllerUpdateStorage {
     @FXML
     void buttonDeleteWagonFromStorage() {
         setWarehouseName();
-        deleteWagon(warehouseName);
+       warehouseUpdater.deleteWagon(warehouseName, getEmployedWagonsFromList());
         updateListView();
-        updateCountWagons();
+        warehouseUpdater.updateCountWagons(warehouseName, lstViewCarInTheStorage.getItems().size());
     }
 
     @FXML
@@ -77,27 +75,14 @@ public class ControllerUpdateStorage {
         if (isCorrectWarehouseName()) {
 
             setWarehouseName();
-            addWagon(warehouseName);
+            warehouseUpdater.addWagon(warehouseName, getFreeWagonsFromList());
             updateListView();
-            updateCountWagons();
+            warehouseUpdater.updateCountWagons(warehouseName, lstViewCarInTheStorage.getItems().size());
 
         } else {
             AlertGenerator.error("Введіть коректну назву складу");
         }
     }
-
-    public void updateListView() {
-        clearListView();
-        loadWagonsInfoToLstView();
-    }
-
-    public void clearListView() {
-        lstViewCarInTheStorage.getItems().clear();
-        lstViewFreeCar.getItems().clear();
-    }
-
-
-
 
     @FXML
     void initialize() {
@@ -109,78 +94,9 @@ public class ControllerUpdateStorage {
         assert buttonRemoveFromStorage != null : "fx:id=\"buttonRemoveFromStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
 
         loadWagonsInfoToLstView();
-        updateCountWagons();
-
-
-
-       // System.out.println(TransferWarehouse.warehouse);
-    }
-
-    private void setWarehouseName() {
-        if (isCorrectWarehouseName()) {
-            warehouseName = textFieldNameStorage.getText();
-        } else {
-            AlertGenerator.error("Введіть коректну назву складу");
-        }
-    }
-
-    private void addWagon(String nameWarehouse) {
-        for (String nameWagon : getFreeWagonsFromList()) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
-            if (warehouseManager.addWagonToWarehouse(nameWarehouse, wagon, findEmptyPos())) {
-                AlertGenerator.info("Вагон успішно додано на склад");
-            } else {
-                AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
-            }
-        }
-
-    }
-
-    private void deleteWagon(String nameWarehouse) {
-        for (String nameWagon : getEmployedWagonsFromList()) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
-            if (warehouseManager.deleteWagonFromWarehouse(nameWarehouse, wagon)) {
-                AlertGenerator.info("Вагон успішно видалено зі складу");
-            } else {
-                AlertGenerator.error("Виникла помилка при видалені вагону зі складу");
-            }
-        }
-
-    }
-
-    private int findEmptyPos() {
-        int pos = 0;
-        for (WarehouseSet warehouseSet : warehouseManager.getWarehouseSets()) {
-            if (warehouseSet.getIdWagon() == 0 && warehouseSet.getNameWarehouse().equals(warehouseName)) {
-                pos = warehouseSet.getPosition();
-                break;
-            }
-        }
-        return pos;
-    }
-
-    private List<String> getFreeWagonsFromList() {
-        return lstViewFreeCar.getSelectionModel().getSelectedItems();
-    }
-
-    private List<String> getEmployedWagonsFromList() {
-
-
-        return lstViewCarInTheStorage.getSelectionModel().getSelectedItems();
-    }
-
-    public void updateCountWagons() {
         setWarehouseName();
-        List<String> list = lstViewCarInTheStorage.getItems();
-        System.out.println("SIZE=" + list.size());
-        warehouseManager.updateCountWagons(warehouseName, list.size());
+        warehouseUpdater.updateCountWagons(warehouseName, lstViewCarInTheStorage.getItems().size());
     }
-
-
 
     private void loadWagonsInfoToLstView() {
         String nameWarehouse = WarehouseManager.transfer.getName();
@@ -199,8 +115,34 @@ public class ControllerUpdateStorage {
         lstViewFreeCar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
+    private void setWarehouseName() {
+        if (isCorrectWarehouseName()) {
+            warehouseName = textFieldNameStorage.getText();
+        } else {
+            AlertGenerator.error("Введіть коректну назву складу");
+        }
+    }
+
+    private List<String> getFreeWagonsFromList() {
+        return lstViewFreeCar.getSelectionModel().getSelectedItems();
+    }
+
+    private List<String> getEmployedWagonsFromList() {
+        return lstViewCarInTheStorage.getSelectionModel().getSelectedItems();
+    }
+
     private boolean isCorrectWarehouseName() {
         return !Checker.checkEmptyValue(textFieldNameStorage.getText())
                 && Checker.checkStringValue(textFieldNameStorage.getText());
+    }
+
+    private void updateListView() {
+        clearListView();
+        loadWagonsInfoToLstView();
+    }
+
+    private void clearListView() {
+        lstViewCarInTheStorage.getItems().clear();
+        lstViewFreeCar.getItems().clear();
     }
 }
