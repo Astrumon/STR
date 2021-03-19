@@ -38,21 +38,96 @@ public class TrainManager extends Manager {
     }
 
     public boolean createTrain(String nameTrain, int typeTrain) {
-        System.out.println("TYPE MNG: " + typeTrain);
         train.setName(nameTrain);
         train.setType(typeTrain);
-        return trainDao.insert(train);
+        boolean result =  trainDao.insert(train);
+
+        createTrainSetPosition(train);
+        return result;
     }
 
+    private void createTrainSetPosition(Train train) {
+        for (int i = 1; i <= train.getCapacity(); i++) {
+            trainSetDao.insert(new TrainSet(train.getName(), i, train.getId()));
+        }
+    }
+
+
     public boolean addWagonToTrain(String nameTrain, Wagon wagon, int position) {
+        boolean result;
         int trainType = trainDao.findByName(nameTrain).getType();
-        System.out.println("WAGONTYPE " + wagon.getType() + " TRAINTYPE " + trainType);
 
         if (wagon.checkType(wagon.getType()) == trainType) {
-            return trainSetDao.addWagon(nameTrain, wagon, position);
+            String trainNameOfWagon = wagon.getTrainName();
+            wagon.setTrainName(nameTrain);
+            TrainSet trainSet = getFilledTrainSet(wagon, position);
+
+            if (isEmptyTrainName(trainNameOfWagon) && trainSet.getId() != null) {
+                result = trainSetDao.addWagon(nameTrain, wagon, position);
+
+                updateWagonTrainSetInfo(trainSet);
+                counterWagons(nameTrain);
+                return result;
+            } else {
+                return false;
+            }
+
         }
         return false;
     }
+
+    private boolean samePosition(TrainSet trainSet, int position) {
+        return trainSet.getPosWagon() == position;
+    }
+
+    private boolean isEmptyTrainName(String  nameTrain) {
+        return nameTrain == null;
+    }
+
+    private void counterWagons(String trainName) {
+
+        TrainSetDaoImpl trainSetDao = new TrainSetDaoImpl(dataSource);
+
+        int count = 0;
+
+        for (TrainSet trainSet : trainSetDao.findAll()) {
+            if (trainSet.getIdWagon() != 0 && trainSet.getName().equals(trainName)) {
+                count++;
+            }
+        }
+        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
+
+        Train train = trainDao.findByName(trainName);
+        train.setName(trainName);
+        train.setCountWagon(count);
+
+        trainDao.update(train);
+    }
+
+    public TrainSet getFilledTrainSet(Wagon wagon, int position) {
+        TrainSet tSet = new TrainSet();
+        for (TrainSet trainSet : trainSetDao.findAll()) {
+
+            if (trainSet.getName().equals(wagon.getTrainName()) && samePosition(trainSet, position) && trainSet.getIdWagon() == 0) {
+                tSet = trainSet;
+                tSet.setIdWagon(wagon.getIdWagon());
+                tSet.setPosWagon(position);
+                break;
+            }
+        }
+
+        return tSet;
+    }
+
+
+   private void  updateWagonTrainSetInfo(TrainSet trainSet) {
+       TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
+       trainDao.updateTrainSet(trainSet, trainSet.getId());
+       WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
+       Wagon wagon = wagonDao.findByIdWagon(trainSet.getIdWagon());
+       wagon.setPosTrain(trainSet.getPosWagon());
+       wagonDao.updatePosTrain(wagon);
+   }
 
     public boolean deleteTrain(String nameTrain) {
         if (trainDao.findByName(nameTrain) == null ) {
