@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.List;
@@ -41,6 +42,9 @@ public class ControllerUpdateTrain {
 
     @FXML
     private Button buttonRemoveFromTrain;
+
+    @FXML
+    private GridPane updateTrainPane;
 
     private String trainName;
 
