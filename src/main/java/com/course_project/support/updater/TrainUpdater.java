@@ -19,9 +19,6 @@ public class TrainUpdater extends Updater{
         return trainManager;
     }
 
-    public void setTrainManager(TrainManager trainManager) {
-        this.trainManager = trainManager;
-    }
 
     public TrainUpdater() {
         trainManager = new TrainManager();

@@ -166,11 +166,9 @@ public class WagonDaoImpl implements WagonDao {
             if (warehouseSet.getId() == null) {
                 preparedStatementWagon.setNull(1, 0);
             } else {
-
                 preparedStatementWagon.setLong(1, warehouseSet.getId());
             }
             preparedStatementWagon.setString(2, warehouseSet.getNameWarehouse());
-            //preparedStatementWagon.setLong(3, warehouseSet.getId());
             preparedStatementWagon.setLong(3, warehouseSet.getIdWagon());
             preparedStatementWagon.execute();
         } catch (SQLException exc) {
@@ -266,44 +264,6 @@ public class WagonDaoImpl implements WagonDao {
 
     }
 
-    /**
-     * Создаёт места (записи в таблице place) определенного типа
-     *
-     * @param typePlace POJO объект таблицы count_type_place
-     * @param type - тип места 1 - VIP, 2 - MIDDLE, 3 - LOW, 4 - SEATS
-     */
-    private void createTypePlace(TypePlace typePlace, int type) {
-        PlaceDaoImpl placeDao = new PlaceDaoImpl(dataSource);
-
-        Place place = new Place();
-        place.setType(type);
-        place.setIdWagon(typePlace.getIdWagon());
-        place.setIdCountType(typePlace.getIdTypePlace());
-
-        for (int i = 1; i <= typePlace.defineType(type); i++) {
-
-            place.setNumber(NumberGenerator.number++);
-            placeDao.insert(place);
-            if (i == typePlace.getAllPlace()) {
-                NumberGenerator.number = 1;
-            }
-        }
-    }
-
-    /**
-     * Создание мест для вагона
-     * @param idCountTypePlace
-     */
-    protected void createPlace(Long idCountTypePlace) {
-        TypePlaceDaoImpl typePlaceDao = new TypePlaceDaoImpl(dataSource);
-        TypePlace typePlace = typePlaceDao.findById(idCountTypePlace);
-
-        createTypePlace(typePlace, TypePlace.VIP);
-        createTypePlace(typePlace, TypePlace.MIDDLE);
-        createTypePlace(typePlace, TypePlace.LOW);
-        createTypePlace(typePlace, TypePlace.SEATS);
-    }
-
     @Override
     public void setCountSeats(TypePlace typePlace) {
         Connection connection = null;
@@ -333,13 +293,6 @@ public class WagonDaoImpl implements WagonDao {
     @Override
     public boolean setTypePlace(Wagon wagon, TypePlace typePlace) {
         Connection connection = null;
-        if (wagon.checkType(wagon.getType()) == Wagon.PASSENGER_TYPE) {
-            TypePlaceDaoImpl typePlaceDao = new TypePlaceDaoImpl(dataSource);
-            typePlace.setIdWagon(wagon.getIdWagon());
-            typePlaceDao.insert(typePlace);
-
-            WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
-            wagonDao.setCountSeats(typePlace);
             try {
                 connection = dataSource.getConnection();
                 try {
@@ -347,7 +300,6 @@ public class WagonDaoImpl implements WagonDao {
                     preparedStatementWagon.setLong(1, typePlace.getIdTypePlace());
                     preparedStatementWagon.setLong(2, typePlace.getIdWagon());
                     preparedStatementWagon.execute();
-                    createPlace(typePlace.getIdTypePlace());
                 } catch (NullPointerException exc) {
                     System.out.println(exc + " duplicate id_type_place");
                     return false;
@@ -363,11 +315,8 @@ public class WagonDaoImpl implements WagonDao {
                 }
             }
             return true;
-        } else {
-            System.out.println("CARGO");
-            return false;
         }
-    }
+
 
 
     /**
@@ -391,7 +340,6 @@ public class WagonDaoImpl implements WagonDao {
             while (rs.next()) {
                 id = rs.getLong(1);
                 wagon.setId(id);
-
             }
 
         } catch (SQLException exc) {
@@ -439,18 +387,5 @@ public class WagonDaoImpl implements WagonDao {
         }
 
     }
-
-    /**
-     * Данный класс позволяет генерировать номер места вагона в зависимости от его типа
-     * 11(первый индекс числа отвечает за тип места, второй за его количество)
-     */
-    private static class NumberGenerator {
-        static int number = 1;
-
-        public static int generate(int type) {
-            return Integer.parseInt(type + "" + number);
-        }
-    }
-
 
 }

@@ -169,7 +169,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
             preparedStatement.execute();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
-
             while (resultSet.next()) {
                 id = resultSet.getLong(1);
                 typePlace.setIdTypePlace(id);
@@ -195,12 +194,10 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
     @Override
     public boolean update(TypePlace typePlace) {
         Connection connection = null;
-        WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
 
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);
-
 
             preparedStatement.setInt(1, typePlace.getCountVip());
             preparedStatement.setInt(2, typePlace.getCountMiddle());
@@ -209,15 +206,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
             preparedStatement.setLong(5, typePlace.getIdWagon());
             preparedStatement.execute();
 
-            wagonDao.setCountSeats(typePlace);
-
-            PlaceDaoImpl placeDao = new PlaceDaoImpl(dataSource);
-            Place place = new Place();
-            place.setIdWagon(typePlace.getIdWagon());
-            placeDao.delete(place);
-
-            typePlace.setIdTypePlace(findByIdWagon(typePlace.getIdWagon()).getIdTypePlace());
-            wagonDao.createPlace(typePlace.getIdTypePlace());
             return true;
         } catch (SQLException exc) {
             System.out.println(exc);

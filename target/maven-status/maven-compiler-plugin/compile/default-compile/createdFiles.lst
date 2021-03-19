@@ -1,5 +1,6 @@
 com\course_project\data_access\tests\TestPlace.class
 com\course_project\data_access\dao\train_dao\TrainDao.class
+com\course_project\support\manager\WagonManager$NumberGenerator.class
 com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\updater\WagonUpdater.class
@@ -66,7 +67,6 @@ com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
 com\course_project\controllers\ControllerTableTrucking.class
 com\course_project\support\Checkable.class
 com\course_project\support\creator\RouteCreator.class
-com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl$NumberGenerator.class
 com\course_project\support\manager\RouteManager.class
 com\course_project\controllers\ControllerCreateStorage.class
 com\course_project\support\manager\TrainManager.class
