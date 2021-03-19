@@ -56,7 +56,7 @@ public class WagonUpdater {
        return wagonManager.getTypePlaceDao().findByIdWagon(idWagon);
     }
 
-    public boolean deleteWagon(Long idWagon) {
+    public boolean delete(Long idWagon) {
         return wagonManager.deleteWagon(idWagon);
     }
 }

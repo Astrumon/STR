@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerUpdateTrain">
     <children>
-        <GridPane prefHeight="520.0" prefWidth="950.0">
+        <GridPane  fx:id="updateTrainPane" prefHeight="520.0" prefWidth="950.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>

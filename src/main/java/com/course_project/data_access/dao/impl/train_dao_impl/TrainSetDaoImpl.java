@@ -8,6 +8,7 @@ import com.course_project.data_access.dao.train_dao.TrainSetDao;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.support.manager.TrainManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,75 +26,11 @@ public class TrainSetDaoImpl implements TrainSetDao {
      * Конструктор для подключения к базе данных
      * @param dataSource
      */
+    //TODO
     public TrainSetDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-
-    /**
-     * Метод для проверки позиции вагона в поезде
-     * @param trainSet
-     * @param position
-     * @return
-     */
-    private boolean samePosition(TrainSet trainSet, int position) {
-        return trainSet.getPosWagon() == position;
-    }
-
-    /**
-     * Метод для проверки имени поезда у вагона
-     * @param nameTrain
-     * @return
-     */
-    private boolean isEmptyTrainName(String  nameTrain) {
-        return nameTrain == null;
-    }
-
-    private void counterWagons(String trainName) {
-
-        TrainSetDaoImpl trainSetDao = new TrainSetDaoImpl(dataSource);
-
-        int count = 0;
-
-        for (TrainSet trainSet : trainSetDao.findAll()) {
-            if (trainSet.getIdWagon() != 0 && trainSet.getName().equals(trainName)) {
-                count++;
-            }
-        }
-        TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
-
-        Train train = trainDao.findByName(trainName);
-        train.setName(trainName);
-        train.setCountWagon(count);
-
-        trainDao.update(train);
-    }
-
-    private TrainSet getFilledTrainSet(Wagon wagon, int position) {
-
-        TrainSetDaoImpl trainSetDaoSetDao = new TrainSetDaoImpl(dataSource);
-        TrainSet tSet = new TrainSet();
-        for (TrainSet trainSet : trainSetDaoSetDao.findAll()) {
-
-            if (trainSet.getName().equals(wagon.getTrainName()) && samePosition(trainSet, position) && trainSet.getIdWagon() == 0) {
-                tSet = trainSet;
-                tSet.setIdWagon(wagon.getIdWagon());
-                tSet.setPosWagon(position);
-                break;
-            }
-        }
-
-        return tSet;
-    }
-
-   private void  updateWagonTrainSetInfo(TrainSet trainSet) {
-       TrainDaoImpl trainDao = new TrainDaoImpl(dataSource);
-       trainDao.updateTrainSet(trainSet, trainSet.getId());
-       WagonDaoImpl wagonDao = new WagonDaoImpl(dataSource);
-       Wagon wagon = wagonDao.findByIdWagon(trainSet.getIdWagon());
-       wagon.setPosTrain(trainSet.getPosWagon());
-       wagonDao.updatePosTrain(wagon);
-   }
     /**
      * Метод который служит для добавления информации о вагоне в таблицу train_set
      * Информация о поезде так же записывается в таблицу wagon
@@ -107,14 +44,9 @@ public class TrainSetDaoImpl implements TrainSetDao {
         Connection connection = null;
         assert wagon != null;
 
-        String trainNameOfWagon = wagon.getTrainName();
+        TrainManager trainManager = new TrainManager();
+        TrainSet trainSet = trainManager.getFilledTrainSet(wagon, position);
 
-        wagon.setTrainName(trainName);
-        TrainSet trainSet = getFilledTrainSet(wagon, position);
-
-
-
-        if (isEmptyTrainName(trainNameOfWagon) && trainSet.getId() != null) {
             try {
                 connection = dataSource.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD_WAGON);
@@ -122,11 +54,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
                 preparedStatement.setString(2, trainSet.getName());
                 preparedStatement.setInt(3, trainSet.getPosWagon());
                 preparedStatement.execute();
-
-
-                updateWagonTrainSetInfo(trainSet);
-                counterWagons(trainName);
-
                 return true;
 
             } catch (SQLException exc) {
@@ -139,13 +66,7 @@ public class TrainSetDaoImpl implements TrainSetDao {
                     System.out.println(exc);
                 }
             }
-        } else {
-            System.out.println("position is taken");
-            return false;
         }
-
-    }
-
 
     /**
      * Выборка всей информации из таблицы train_set

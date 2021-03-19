@@ -181,16 +181,6 @@ public class WarehouseDaoImpl implements WarehouseDao {
         }
     }
 
-    /**
-     * Создания в таблице warehouse_set записей с информацией про состав заданого склада
-     * @param warehouse
-     */
-    private void createWarehousePositions(Warehouse warehouse) {
-        WarehouseSetDaoImpl warehouseSetDao = new WarehouseSetDaoImpl(dataSource);
-        for (int i = 1; i <= warehouse.getCapacity(); i++) {
-            warehouseSetDao.insert(new WarehouseSet(warehouse.getName(), i, warehouse.getId()));
-        }
-    }
 
     /**
      * Вставка записи информации про склад в таблицу warehouse.
@@ -209,7 +199,6 @@ public class WarehouseDaoImpl implements WarehouseDao {
             while (rs.next()) {
                 warehouse.setId(rs.getLong(1));
             }
-            createWarehousePositions(warehouse);
             return true;
         } catch (SQLException exc) {
             System.out.println(exc);

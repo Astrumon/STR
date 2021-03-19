@@ -177,21 +177,8 @@ public class TrainDaoImpl implements TrainDao {
         }
     }
 
-
-    /**
-     * Создания в таблице train_set записей с информацией про состав заданого поезда
-     * @param train
-     */
-    private void createTrainSetPosition(Train train) {
-        TrainSetDaoImpl trainSetDao = new TrainSetDaoImpl(dataSource);
-        for (int i = 1; i <= train.getCapacity(); i++) {
-            trainSetDao.insert(new TrainSet(train.getName(), i, train.getId()));
-        }
-    }
-
     /**
      * Вставка записи информации про поезд в таблицу train.
-     * вызов функции createTrainSetPosition(Train train)
      * @param train
      */
     @Override
@@ -212,7 +199,6 @@ public class TrainDaoImpl implements TrainDao {
                 train.setId(rs.getLong(1));
             }
 
-            createTrainSetPosition(train);
             return true;
         } catch (SQLException exc) {
             System.out.println(exc);

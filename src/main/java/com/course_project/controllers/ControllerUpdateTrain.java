@@ -1,21 +1,21 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-
-import com.course_project.data_access.model.train.Train;
-import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
-import com.course_project.support.*;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
 import com.course_project.support.manager.TrainManager;
-import com.course_project.support.manager.WagonManager;
+import com.course_project.support.updater.TrainUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ControllerUpdateTrain {
 
@@ -43,20 +43,21 @@ public class ControllerUpdateTrain {
     @FXML
     private Button buttonRemoveFromTrain;
 
+    @FXML
+    private GridPane updateTrainPane;
+
     private String trainName;
 
-    private Train train;
-
-    private TrainManager trainManager = new TrainManager();
+    private TrainUpdater trainUpdater = new TrainUpdater();
 
     @FXML
     void buttonAddToTrainAc(ActionEvent event) {
         if (isCorrectWarehouseName()) {
 
             setTrainName();
-            addWagon(trainName);
+            trainUpdater.addWagon(trainName, getFreeWagonsFromList());
             updateListView();
-            updateCountWagons();
+            trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
 
         } else {
             AlertGenerator.error("Введіть коректну назву потяга");
@@ -67,8 +68,7 @@ public class ControllerUpdateTrain {
     void buttonDeleteTrainAc(ActionEvent event) {
 
         setTrainName();
-
-        if (trainManager.deleteTrain(trainName)) {
+        if (trainUpdater.delete(trainName)) {
             AlertGenerator.info("Потяг успішно видалено");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні потягу");
@@ -78,9 +78,9 @@ public class ControllerUpdateTrain {
     @FXML
     void buttonRemoveFromTrainAc(ActionEvent event) {
         setTrainName();
-        deleteWagon(trainName);
+        trainUpdater.deleteWagon(trainName, getEmployedWagonsFromList());
         updateListView();
-        updateCountWagons();
+        trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
     }
 
     @FXML
@@ -93,16 +93,9 @@ public class ControllerUpdateTrain {
         assert buttonRemoveFromTrain != null : "fx:id=\"buttonRemoveFromTrain\" was not injected: check your FXML file 'updateTrain.fxml'.";
 
         loadWagonsInfoToLstView();
-        updateCountWagons();
-    }
-
-
-
-    public void updateCountWagons() {
         setTrainName();
-        List<String> list = lstViewCarConnectedToTheTrain.getItems();
-        System.out.println("SIZE=" + list.size());
-        trainManager.updateCountWagons(trainName, list.size());
+        trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
+
     }
 
     private void setTrainName() {
@@ -118,18 +111,16 @@ public class ControllerUpdateTrain {
         String nameTrain = TrainManager.transfer.getName();
         textFieldNameTrain.setText(nameTrain);
 
-       int typeTrain =  trainManager.getTrain(nameTrain).getType();
+        int typeTrain = trainUpdater.getTrainManager().getTrain(nameTrain).getType();
 
-        WagonManager wagonManager = new WagonManager();
-
-        for (Wagon wagon : wagonManager.getWagons()) {
+        for (Wagon wagon : trainUpdater.getWagonManager().getWagons()) {
             if (wagon.getTrainName() == null) {
                 if (wagon.checkType(wagon.getType()) == typeTrain) {
                     lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
                 } else {
                     continue;
                 }
-            }else if ( wagon.getTrainName().equals(nameTrain) ) {
+            } else if (wagon.getTrainName().equals(nameTrain)) {
                 lstViewCarConnectedToTheTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
             }
 
@@ -143,44 +134,16 @@ public class ControllerUpdateTrain {
                 && Checker.checkStringValue(textFieldNameTrain.getText());
     }
 
-    public void updateListView() {
+    private void updateListView() {
         clearListView();
         loadWagonsInfoToLstView();
     }
 
-    public void clearListView() {
+    private void clearListView() {
         lstViewCarConnectedToTheTrain.getItems().clear();
         lstViewFreeCar.getItems().clear();
     }
 
-
-    private void addWagon(String nameWarehouse) {
-        WagonManager wagonManager = new WagonManager();
-        for (String nameWagon : getFreeWagonsFromList()) {
-            Wagon wagon = new Wagon();
-            Long idWagon = ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME);
-            System.out.println("TYPE WAGON = " + wagonManager.getWagon(idWagon).getType());
-            wagon.setIdWagon(idWagon);
-            wagon.setType(wagonManager.getWagon(idWagon).getType());
-            if (trainManager.addWagonToTrain(nameWarehouse, wagon, findEmptyPos())) {
-                AlertGenerator.info("Вагон успішно додано на склад");
-            } else {
-                AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
-            }
-        }
-
-    }
-    private int findEmptyPos() {
-        int pos = 0;
-        for (TrainSet trainSet : trainManager.getTrainSets()) {
-            if (trainSet.getIdWagon() == 0 && trainSet.getName().equals(trainName)) {
-                pos = trainSet.getPosWagon();
-                break;
-            }
-        }
-        System.out.println("POS: " + pos);
-        return pos;
-    }
 
     private List<String> getFreeWagonsFromList() {
         return lstViewFreeCar.getSelectionModel().getSelectedItems();
@@ -189,21 +152,4 @@ public class ControllerUpdateTrain {
     private List<String> getEmployedWagonsFromList() {
         return lstViewCarConnectedToTheTrain.getSelectionModel().getSelectedItems();
     }
-
-    private void deleteWagon(String nameWarehouse) {
-        WagonManager wagonManager = new WagonManager();
-        for (String nameWagon : getEmployedWagonsFromList()) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(wagonManager.getWagon(wagon.getIdWagon()).getType());
-            if (trainManager.deleteWagonFromTrain(nameWarehouse, wagon)) {
-                AlertGenerator.info("Вагон успішно видалено з потягу");
-            } else {
-                AlertGenerator.error("Виникла помилка при видалені вагону з потягу");
-            }
-        }
-
-    }
-
-
 }

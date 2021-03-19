@@ -4,14 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.*;
-import com.course_project.support.creator.WagonCreator;
-import com.course_project.support.manager.TrainManager;
 import com.course_project.support.manager.WagonManager;
-import com.course_project.support.manager.WarehouseManager;
 import com.course_project.support.updater.WagonUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,7 +63,7 @@ public class ControllerUpdateCar {
         setIdWagon();
         wagonUpdater.updateWagonsCountWarehouse(idWagon);
         wagonUpdater.updateWagonsCountTrain(idWagon);
-        if (wagonUpdater.deleteWagon(idWagon)) {
+        if (wagonUpdater.delete(idWagon)) {
             AlertGenerator.info("Вагон успішно видалений");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні вагону");
