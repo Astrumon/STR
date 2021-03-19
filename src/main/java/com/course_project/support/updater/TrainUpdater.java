@@ -29,6 +29,7 @@ public class TrainUpdater extends Updater{
     }
 
     public void updateCountWagons(String trainName, int count) {
+
         trainManager.updateCountWagons(trainName, count);
     }
 

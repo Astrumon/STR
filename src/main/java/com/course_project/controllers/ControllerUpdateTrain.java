@@ -93,7 +93,9 @@ public class ControllerUpdateTrain {
         assert buttonRemoveFromTrain != null : "fx:id=\"buttonRemoveFromTrain\" was not injected: check your FXML file 'updateTrain.fxml'.";
 
         loadWagonsInfoToLstView();
+        setTrainName();
         trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
+
     }
 
     private void setTrainName() {
