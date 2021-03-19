@@ -9,7 +9,7 @@ import com.course_project.support.manager.WarehouseManager;
 
 import java.util.List;
 
-public class WarehouseUpdater {
+public class WarehouseUpdater extends Updater {
 
     private WarehouseManager warehouseManager;
 
@@ -36,10 +36,8 @@ public class WarehouseUpdater {
 
     public void deleteWagon(String nameWarehouse, List<String> employedWagonsFromList) {
         for (String nameWagon : employedWagonsFromList) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
-            if (warehouseManager.deleteWagonFromWarehouse(nameWarehouse, wagon)) {
+
+            if (warehouseManager.deleteWagonFromWarehouse(nameWarehouse, getWagonWithIdAndType(nameWagon))) {
                 AlertGenerator.info("Вагон успішно видалено зі складу");
             } else {
                 AlertGenerator.error("Виникла помилка при видалені вагону зі складу");
@@ -51,10 +49,8 @@ public class WarehouseUpdater {
 
     public void addWagon(String warehouseName, List<String> freeWagonsFromList) {
         for (String nameWagon : freeWagonsFromList) {
-            Wagon wagon = new Wagon();
-            wagon.setIdWagon(ParseId.getLongId(nameWagon, ControllerTableCar.WAGON_PREFIX_NAME));
-            wagon.setType(Wagon.PASSENGER_TYPE);
-            if (warehouseManager.addWagonToWarehouse(warehouseName, wagon, findEmptyPos(warehouseName))) {
+
+            if (warehouseManager.addWagonToWarehouse(warehouseName, getWagonWithIdAndType(nameWagon), findEmptyPos(warehouseName))) {
                 AlertGenerator.info("Вагон успішно додано на склад");
             } else {
                 AlertGenerator.error("Виникла помилка при додаванні вагону на склад");

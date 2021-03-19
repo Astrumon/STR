@@ -102,8 +102,7 @@ public class ControllerUpdateStorage {
         String nameWarehouse = WarehouseManager.transfer.getName();
         textFieldNameStorage.setText(nameWarehouse);
 
-        WagonManager wagonManager = new WagonManager();
-        for (Wagon wagon : wagonManager.getWagons()) {
+        for (Wagon wagon : warehouseUpdater.getWagonManager().getWagons()) {
             if (wagon.getNameWarehouse() == null) {
                 lstViewFreeCar.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
             }else if ( wagon.getNameWarehouse().equals(nameWarehouse)) {

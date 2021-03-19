@@ -59,6 +59,7 @@ com\course_project\data_access\dao\route_dao\RouteDao.class
 com\course_project\support\creator\WarehouseCreator.class
 com\course_project\Main.class
 com\course_project\data_access\dao\train_dao\TrainSetDao.class
+com\course_project\support\updater\Updater.class
 com\course_project\controllers\ControllerTableTrain.class
 com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
 com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
