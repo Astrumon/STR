@@ -34,7 +34,11 @@
 >>>>>>> debug
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerBasisOperatorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTablePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/course_project/controllers/ControllerTablePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/basisOperatorInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/basisOperatorInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/course_project/tablePath.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/course_project/tablePath.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerBasisOperatorInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/course_project/controllers/ControllerBasisOperatorInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
 >>>>>>> debug
     <option name="SHOW_DIALOG" value="false" />
@@ -122,6 +126,7 @@
     <property name="aspect.path.notification.shown" value="true" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../course_project-master (3)/course_project-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -137,6 +142,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
 >>>>>>> debug
 =======
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../семестр 8 (4)/Курсач/Course Project" />
+>>>>>>> debug
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />

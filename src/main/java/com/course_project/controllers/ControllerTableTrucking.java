@@ -44,4 +44,10 @@ public class ControllerTableTrucking {
         assert tblStartAndEndPoint != null : "fx:id=\"tblStartAndEndPoint\" was not injected: check your FXML file 'tableTrucking.fxml'.";
 
     }
+    //TODO переход на создание/редактирование
+    /*FxmlLoader object = new FxmlLoader();
+    Pane view = object.getPage("updateTrucking");
+
+    stackPaneTrucking.getChildren().remove(anchorPaneTableTrucking);
+    stackPaneTrucking.getChildren().add(view);*/
 }

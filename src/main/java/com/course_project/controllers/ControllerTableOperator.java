@@ -44,4 +44,11 @@ public class ControllerTableOperator {
         assert tblPassword != null : "fx:id=\"tblPassword\" was not injected: check your FXML file 'tableOperator.fxml'.";
 
     }
+
+    //TODO переход на создание/редактирование
+    /*FxmlLoader object = new FxmlLoader();
+    Pane view = object.getPage("updateOperator");
+
+    stackPaneOperator.getChildren().remove(anchorPaneTableOperator);
+    stackPaneOperator.getChildren().add(view);*/
 }

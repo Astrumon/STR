@@ -7,6 +7,7 @@ com\course_project\support\updater\WagonUpdater.class
 com\course_project\data_access\dao\ticket_dao\TicketDao.class
 com\course_project\support\AlertGenerator.class
 com\course_project\controllers\ControllerTablePath$1.class
+com\course_project\controllers\ControllerCreateOperator.class
 com\course_project\support\updater\WarehouseUpdater.class
 com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\creator\WagonCreator.class
@@ -31,6 +32,7 @@ com\course_project\support\creator\TicketCreator.class
 module-info.class
 com\course_project\support\creator\TrainCreator.class
 com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.class
+com\course_project\controllers\ControllerUpdateOperator.class
 com\course_project\data_access\tests\TestWarehouse.class
 com\course_project\controllers\ControllerTableTrain$1.class
 com\course_project\data_access\tests\TownTest.class
@@ -60,12 +62,14 @@ com\course_project\data_access\dao\route_dao\RouteDao.class
 com\course_project\support\creator\WarehouseCreator.class
 com\course_project\Main.class
 com\course_project\data_access\dao\train_dao\TrainSetDao.class
+com\course_project\controllers\ControllerUpdatePath.class
 com\course_project\support\updater\Updater.class
 com\course_project\controllers\ControllerTableTrain.class
 com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
 com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
 com\course_project\controllers\ControllerTableTrucking.class
 com\course_project\support\Checkable.class
+com\course_project\controllers\ControllerUpdateTrucking.class
 com\course_project\support\creator\RouteCreator.class
 com\course_project\support\manager\RouteManager.class
 com\course_project\controllers\ControllerCreateStorage.class
@@ -79,5 +83,6 @@ com\course_project\support\updater\RouteUpdater.class
 com\course_project\support\manager\WagonManager.class
 com\course_project\data_access\model\warehouse\WarehouseSet.class
 com\course_project\support\updater\TicketUpdater.class
+com\course_project\controllers\ControllerCreatePath.class
 com\course_project\controllers\ControllerTableStorage.class
 com\course_project\controllers\ControllerBasisOperatorInterface.class

@@ -13,7 +13,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
+import com.course_project.FxmlLoader;
+import javafx.scene.layout.Pane;
 
 public class ControllerTablePath {
 
@@ -22,6 +26,12 @@ public class ControllerTablePath {
 
     @FXML
     private URL location;
+
+    @FXML
+    private StackPane stackPanePath;
+
+    @FXML
+    private AnchorPane anchorPaneTablePath;
 
     @FXML
     private TableView<Route> tablePath;
@@ -122,4 +132,10 @@ public class ControllerTablePath {
 //        });
     }
 
+    //TODO переход на создание/редактирование
+    /*FxmlLoader object = new FxmlLoader();
+    Pane view = object.getPage("updatePath");
+
+    stackPanePath.getChildren().remove(anchorPaneTablePath);
+    stackPanePath.getChildren().add(view);*/
 }

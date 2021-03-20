@@ -11,10 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import com.course_project.data_access.model.wagon.Wagon;
 
 public class ControllerBasisOperatorInterface {
@@ -68,6 +65,15 @@ public class ControllerBasisOperatorInterface {
     private Button buttonOperators;
 
     @FXML
+    private Button buttonCreateOperator;
+
+    @FXML
+    private Button buttonCleanOperator;
+
+    @FXML
+    private AnchorPane anchorPaneInStackPane;
+
+    @FXML
     private TableView<Wagon> tableCar;
 
     @FXML
@@ -77,7 +83,7 @@ public class ControllerBasisOperatorInterface {
         mainPane.setCenter(view);
 
         ObservableList<Node> childs = stackPane.getChildren();
-        Node requiredNode = childs.get(childs.indexOf(buttonCreateCar));
+        Node requiredNode = childs.get(childs.indexOf(anchorPaneInStackPane));
         requiredNode.toFront();
     }
 
@@ -88,7 +94,7 @@ public class ControllerBasisOperatorInterface {
         mainPane.setCenter(view);
 
         ObservableList<Node> childs = stackPane.getChildren();
-        Node requiredNode = childs.get(childs.indexOf(buttonCreateCar));
+        Node requiredNode = childs.get(childs.indexOf(buttonCreateOperator));
         requiredNode.toFront();
     }
 
@@ -137,7 +143,7 @@ public class ControllerBasisOperatorInterface {
         mainPane.setCenter(view);
 
         ObservableList<Node> childs = stackPane.getChildren();
-        Node requiredNode = childs.get(childs.indexOf(buttonCreateTicket));
+        Node requiredNode = childs.get(childs.indexOf(anchorPaneInStackPane));
         requiredNode.toFront();
     }
 
@@ -162,7 +168,9 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCleanPathAc(ActionEvent event) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createPath");
+        mainPane.setCenter(view);
     }
 
     @FXML
@@ -185,6 +193,13 @@ public class ControllerBasisOperatorInterface {
     }
 
     @FXML
+    void buttonCleanOperatorAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createOperator");
+        mainPane.setCenter(view);
+    }
+
+    @FXML
     void buttonCreateCarAc(ActionEvent event) {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("createCar");
@@ -200,7 +215,13 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCreatePathAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createPath");
+        mainPane.setCenter(view);
 
+        ObservableList<Node> childs = stackPane.getChildren();
+        Node requiredNode = childs.get(childs.indexOf(buttonCleanPath));
+        requiredNode.toFront();
     }
 
     @FXML
@@ -227,6 +248,17 @@ public class ControllerBasisOperatorInterface {
 
         ObservableList<Node> childs = stackPane.getChildren();
         Node requiredNode = childs.get(childs.indexOf(buttonCleanTrain));
+        requiredNode.toFront();
+    }
+
+    @FXML
+    void buttonCreateOperatorAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createOperator");
+        mainPane.setCenter(view);
+
+        ObservableList<Node> childs = stackPane.getChildren();
+        Node requiredNode = childs.get(childs.indexOf(buttonCleanOperator));
         requiredNode.toFront();
     }
 
