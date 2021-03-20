@@ -3,7 +3,6 @@ package com.course_project.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-<<<<<<< HEAD
 import com.course_project.data_access.model.route.Route;
 import com.course_project.support.NumberIDGenerator;
 import com.course_project.support.manager.RouteManager;
@@ -15,11 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
-=======
 import com.course_project.FxmlLoader;
-import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
->>>>>>> debug
 
 public class ControllerTablePath {
 
@@ -109,7 +105,6 @@ public class ControllerTablePath {
 
 
     }
-<<<<<<< HEAD
 
     public void clickToEdit() {
 //        tableWarehouse.setRowFactory(tv -> {
@@ -129,12 +124,10 @@ public class ControllerTablePath {
 //        });
     }
 
-=======
     //TODO переход на создание/редактирование
     /*FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("updatePath");
 
     stackPaneCar.getChildren().remove(anchorPaneTablePath);
     stackPaneCar.getChildren().add(view);*/
->>>>>>> debug
 }
