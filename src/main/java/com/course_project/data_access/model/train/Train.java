@@ -9,15 +9,24 @@ public class Train {
     public static final String COUNT_WAGON_COLUMN = "count_wagon";
     public static final String CAPACITY_COLUMN = "capacity";
     public static final String TYPE_COLUMN = "type";
+    public static final String ID_ROUTE_COLUMN = "id_route";
 
 
     public static final int PASSENGER_TYPE = Wagon.PASSENGER_TYPE;
     public static final int CARGO_TYPE = Wagon.CARGO_TYPE;
 
-    private Long id;
+    private Long id, idRoute;
     private String name;
     private int countWagon, capacity;
     private int type;
+
+    public Long getIdRoute() {
+        return idRoute;
+    }
+
+    public void setIdRoute(Long idRoute) {
+        this.idRoute = idRoute;
+    }
 
     public Train() {
 
@@ -92,6 +101,7 @@ public class Train {
         return "Train[name= " +  this.name
                 + ", type= " + defineType(this.type)
                 + ", capacity= " + this.capacity
+                + ", idRoute= " + this.idRoute
                 + ", countWagon= " + this.countWagon + "]";
     }
 }

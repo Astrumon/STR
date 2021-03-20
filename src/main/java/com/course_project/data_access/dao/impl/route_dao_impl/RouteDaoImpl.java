@@ -34,6 +34,7 @@ public class RouteDaoImpl implements RouteDao {
                 route.setTimeEnd(resultSet.getString(Route.TIME_END_COLUMN));
                 route.setAllTickets(resultSet.getInt(Route.ALL_TICKETS_COLUMN));
                 route.setSoldTickets(resultSet.getInt(Route.SOLD_TICKETS_COLUMN));
+                route.setTrainName(resultSet.getString(Route.TRAIN_NAME_COLUMN));
                 routes.add(route);
             }
         } catch (SQLException exc) {
@@ -67,6 +68,7 @@ public class RouteDaoImpl implements RouteDao {
                 route.setTimeEnd(resultSet.getString(Route.TIME_END_COLUMN));
                 route.setAllTickets(resultSet.getInt(Route.ALL_TICKETS_COLUMN));
                 route.setSoldTickets(resultSet.getInt(Route.SOLD_TICKETS_COLUMN));
+                route.setTrainName(resultSet.getString(Route.TRAIN_NAME_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -115,6 +117,7 @@ public class RouteDaoImpl implements RouteDao {
             preparedStatement.setLong(5, route.getIdRoute());
             preparedStatement.setInt(6, route.getAllTickets());
             preparedStatement.setInt(7, route.getSoldTickets());
+            preparedStatement.setString(8, route.getTrainName());
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {
@@ -148,6 +151,7 @@ public class RouteDaoImpl implements RouteDao {
             preparedStatement.setInt(6, route.getAllTickets());
             preparedStatement.setInt(7, route.getSoldTickets());
             preparedStatement.setLong(8, route.getId());
+            preparedStatement.setString(9, route.getTrainName());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {
