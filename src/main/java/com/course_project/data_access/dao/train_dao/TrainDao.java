@@ -19,7 +19,8 @@ public interface TrainDao {
             + Train.NAME_COLUMN + " = ?, "
             +Train.CAPACITY_COLUMN + " = ?, "
             + Train.COUNT_WAGON_COLUMN + " = ?, "
-            + Train.TYPE_COLUMN + " = ?"
+            + Train.TYPE_COLUMN + " = ?,"
+            + Train.ID_ROUTE_COLUMN + " = ?"
             + " WHERE " + Train.NAME_COLUMN + " = ?";
     String SQL_UPDATE_COUNT_WAGON = "UPDATE " + Train.TABLE_NAME + " SET "
             + Train.COUNT_WAGON_COLUMN + " = ? WHERE "
@@ -28,6 +29,9 @@ public interface TrainDao {
             + Wagon.ID_TRAIN_SET_COLUMN + " = ?, "
             + Wagon.TRAIN_NAME_COLUMN + " = ?  WHERE "
             + Wagon.ID_WAGON_COLUMN + " = ?";
+    String SQL_UPDATE_ROUTE = "UPDATE " + Train.TABLE_NAME + " SET "
+            + Train.ID_ROUTE_COLUMN + " = ? WHERE "
+            + Train.NAME_COLUMN + " = ?";
     String SQL_DELETE = "DELETE FROM " + Train.TABLE_NAME + " WHERE " + Train.ID_COLUMN + " = ?";
     String SQL_DELETE_BY_NAME = "DELETE FROM " + Train.TABLE_NAME + " WHERE " + Train.NAME_COLUMN + " = ?";
 
@@ -46,6 +50,7 @@ public interface TrainDao {
     boolean insert(Train train);
 
     boolean update(Train train);
+
 
     void updateCountWagon(Train train);
 
