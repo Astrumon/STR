@@ -194,7 +194,9 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCleanOperatorAc(ActionEvent event) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createOperator");
+        mainPane.setCenter(view);
     }
 
     @FXML
@@ -251,7 +253,13 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     void buttonCreateOperatorAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("createOperator");
+        mainPane.setCenter(view);
 
+        ObservableList<Node> childs = stackPane.getChildren();
+        Node requiredNode = childs.get(childs.indexOf(buttonCleanOperator));
+        requiredNode.toFront();
     }
 
     @FXML

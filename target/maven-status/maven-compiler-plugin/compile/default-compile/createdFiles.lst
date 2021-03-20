@@ -7,6 +7,7 @@ com\course_project\support\updater\WagonUpdater.class
 com\course_project\data_access\dao\ticket_dao\TicketDao.class
 com\course_project\support\AlertGenerator.class
 com\course_project\controllers\ControllerTablePath$1.class
+com\course_project\controllers\ControllerCreateOperator.class
 com\course_project\support\updater\WarehouseUpdater.class
 com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\creator\WagonCreator.class
@@ -31,6 +32,7 @@ com\course_project\support\creator\TicketCreator.class
 module-info.class
 com\course_project\support\creator\TrainCreator.class
 com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.class
+com\course_project\controllers\ControllerUpdateOperator.class
 com\course_project\data_access\tests\TestWarehouse.class
 com\course_project\controllers\ControllerTableTrain$1.class
 com\course_project\data_access\tests\TownTest.class
