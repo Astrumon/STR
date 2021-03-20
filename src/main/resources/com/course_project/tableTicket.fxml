@@ -3,18 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerTableTicket">
+<StackPane fx:id="stackPaneTicket" prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerTableTicket">
     <children>
-        <TableView fx:id="tableTicket" prefHeight="520.0" prefWidth="930.0">
-            <columns>
-                <TableColumn fx:id="tblNumber" prefWidth="48.79995822906494" text="№" />
-                <TableColumn fx:id="tblFirstPoint" prefWidth="212.00007247924805" text="Початкова точка" />
-                <TableColumn fx:id="tblLastPoint" minWidth="0.0" prefWidth="221.5999755859375" text="Кінцева точка" />
-                <TableColumn fx:id="tblPrice" minWidth="0.0" prefWidth="84.80001831054688" text="Ціна" />
-                <TableColumn fx:id="tblLinen" minWidth="0.0" prefWidth="98.4000244140625" text="Білизна" />
-                <TableColumn fx:id="tblSendTime" minWidth="0.0" prefWidth="133.60003662109375" text="Час відправлення" />
-                <TableColumn fx:id="tblArriveTime" minWidth="0.0" prefWidth="127.19992675781248" text="Час прибуття" />
-            </columns>
-        </TableView>
+        <AnchorPane fx:id="anchorPaneTableTicket" prefHeight="520.0" prefWidth="950.0">
+            <children>
+                <TableView fx:id="tableTicket" prefHeight="520.0" prefWidth="930.0">
+                    <columns>
+                        <TableColumn fx:id="tblNumber" prefWidth="48.79995822906494" text="№" />
+                        <TableColumn fx:id="tblFirstPoint" prefWidth="212.00007247924805" text="Початкова точка" />
+                        <TableColumn fx:id="tblLastPoint" minWidth="0.0" prefWidth="221.5999755859375" text="Кінцева точка" />
+                        <TableColumn fx:id="tblPrice" minWidth="0.0" prefWidth="84.80001831054688" text="Ціна" />
+                        <TableColumn fx:id="tblLinen" minWidth="0.0" prefWidth="98.4000244140625" text="Білизна" />
+                        <TableColumn fx:id="tblSendTime" minWidth="0.0" prefWidth="133.60003662109375" text="Час відправлення" />
+                        <TableColumn fx:id="tblArriveTime" minWidth="0.0" prefWidth="127.19992675781248" text="Час прибуття" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
     </children>
-</AnchorPane>
+</StackPane>

@@ -73,7 +73,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="datePicker1" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="datePicker1" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0; -fx-font-size: 18;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="textFieldPrice1" maxWidth="187.0" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
@@ -128,7 +128,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <DatePicker fx:id="datePicker2" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="datePicker2" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0; -fx-font-size: 18;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
                 </GridPane>
                 <Button fx:id="buttonSavePath" mnemonicParsing="false" onAction="#buttonSavePathAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="5">

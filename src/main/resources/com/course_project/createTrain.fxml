@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerCreateTrain">
+<AnchorPane prefHeight="520.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerCreateTrain">
     <children>
         <GridPane prefHeight="520.0" prefWidth="950.0">
             <columnConstraints>
@@ -36,9 +43,9 @@
                     </font>
                 </Label>
 
-                <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="choiceBoxTypeTrain"  prefHeight="42.0" prefWidth="194.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="5">
+                <ListView fx:id="listViewTrain" maxHeight="146.0" maxWidth="900.0" prefHeight="146.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4;" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="choiceBoxTypeTrain" prefHeight="42.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0; -fx-font-size: 18;" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonSaveTrain" maxWidth="900.0" mnemonicParsing="false" onAction="#buttonSaveTrainAc" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Зберегти" GridPane.rowIndex="6">
 
                       <font>
                           <Font size="18.0" />

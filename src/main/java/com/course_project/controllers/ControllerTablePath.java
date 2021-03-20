@@ -128,6 +128,6 @@ public class ControllerTablePath {
     /*FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("updatePath");
 
-    stackPaneCar.getChildren().remove(anchorPaneTablePath);
-    stackPaneCar.getChildren().add(view);*/
+    stackPanePath.getChildren().remove(anchorPaneTablePath);
+    stackPanePath.getChildren().add(view);*/
 }

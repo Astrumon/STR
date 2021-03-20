@@ -1,140 +1,78 @@
-<<<<<<< HEAD
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\route_dao\TownDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\AlertGenerator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\WarehouseManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\train\Train.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableOperator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\TypePlace.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\route\Town.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\Place.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\WarehouseUpdater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\warehouse\Warehouse.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateCar.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\PlaceDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestPlace.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\RouteManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTrain.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\TicketManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableCar.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\creator\RouteCreator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableStorage.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\creator\WagonCreator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TownTest.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\NumberIDGenerator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\warehouse_dao\WarehouseDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\Main.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\creator\WarehouseCreator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTicket.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\TrainManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checkable.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerBasisOperatorInterface.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\FxmlLoader.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestWagon.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\TrainUpdater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\train\TrainSet.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestTrain.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\ParseId.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\ticket_dao\TicketDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateStorage.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateTrain.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\tests\TestWarehouse.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTablePath.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\Updater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateTrain.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\Wagon.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\creator\TrainCreator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\route\Route.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\WagonUpdater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checker.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\route_dao\RouteDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\warehouse\WarehouseSet.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\RouteUpdater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\database\DataSource.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\creator\TicketCreator.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\WagonDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\WagonManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\TicketDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\module-info.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTrucking.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\TypePlaceDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\Ticket.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\TicketUpdater.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\Manager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateStorage.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateCar.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.java
-=======
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\creator\WarehouseCreator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\Main.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\UpdatableCountWagons.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateTrain.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\Manager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\Manager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableTrain.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\NumberIDGenerator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\TEST.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\WagonUpdater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TownTest.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\route_dao\RouteDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestTrain.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateStorage.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\PlaceDao.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\WagonManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\creator\WagonCreator.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\TrainUpdater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\FxmlLoader.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\wagon\Place.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerCreateTrain.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerCreatePath.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdatePath.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\TypePlaceDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestPlace.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\WagonDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableTrucking.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\TrainManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\database\DataSource.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\route\Route.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\TEST_2.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\Updater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerBasisOperatorInterface.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerCreateCar.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\Ticket.java
 D:\KPI\Course Project\course_project\src\main\java\module-info.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\Checkable.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\TicketUpdater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\warehouse\Warehouse.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\WarehouseManager.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateTrucking.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\TicketDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\creator\TicketCreator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\wagon\TypePlace.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\route_dao\TownDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\warehouse_dao\WarehouseDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\Checker.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\creator\RouteCreator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTablePath.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\route\Town.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestWarehouse.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\TrainManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateCar.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\ParseId.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\RouteUpdater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\warehouse\WarehouseSet.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableTicket.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableOperator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestWagon.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\RouteManager.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\WarehouseManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\train\TrainSet.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\creator\TrainCreator.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\TicketManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerCreateStorage.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableStorage.java
-D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\WagonManager.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\WarehouseUpdater.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\ticket_dao\TicketDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\AlertGenerator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\wagon\Wagon.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableCar.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\train\Train.java
->>>>>>> debug

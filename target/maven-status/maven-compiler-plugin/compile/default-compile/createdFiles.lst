@@ -67,6 +67,7 @@ com\course_project\data_access\dao\warehouse_dao\WarehouseSetDao.class
 com\course_project\data_access\dao\wagon_dao\TypePlaceDao.class
 com\course_project\controllers\ControllerTableTrucking.class
 com\course_project\support\Checkable.class
+com\course_project\controllers\ControllerUpdateTrucking.class
 com\course_project\support\creator\RouteCreator.class
 com\course_project\support\manager\RouteManager.class
 com\course_project\controllers\ControllerCreateStorage.class
