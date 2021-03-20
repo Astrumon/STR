@@ -15,7 +15,7 @@ import org.sqlite.SQLiteConfig;
 import org.sqlite.SQLiteOpenMode;
 
 public class DataSource {
-    public final static String PATH = "jdbc:sqlite::resource:rail_way.db";
+    public final static String PATH = "jdbc:sqlite::resource:railway.db";
 
     private String url;
     private SQLiteConfig config;
