@@ -51,7 +51,7 @@ public interface TrainDao {
 
     boolean update(Train train);
 
-
+    void updateRoute(Train train);
     void updateCountWagon(Train train);
 
     void updateTrainSet(TrainSet trainSet, Long idTrainSet);
