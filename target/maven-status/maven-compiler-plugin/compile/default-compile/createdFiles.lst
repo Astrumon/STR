@@ -26,6 +26,7 @@ com\course_project\Main.class
 com\course_project\data_access\model\route\Route.class
 com\course_project\support\TEST.class
 com\course_project\data_access\dao\train_dao\TrainSetDao.class
+com\course_project\controllers\ControllerUpdatePath.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.class
 com\course_project\data_access\model\train\Train.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.class
@@ -61,6 +62,7 @@ com\course_project\controllers\ControllerTablePath.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseDaoImpl.class
 com\course_project\data_access\model\warehouse\WarehouseSet.class
 com\course_project\data_access\model\wagon\Wagon.class
+com\course_project\controllers\ControllerCreatePath.class
 com\course_project\controllers\ControllerTableStorage.class
 com\course_project\data_access\model\warehouse\Warehouse.class
 com\course_project\support\WagonManager.class
