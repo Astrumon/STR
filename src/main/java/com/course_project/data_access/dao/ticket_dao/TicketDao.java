@@ -16,7 +16,9 @@ public interface TicketDao {
             + "," + Ticket.TIME_START_COLUMN
             + "," + Ticket.LINEN_COLUMN
             + "," + Ticket.PRICE_COLUMN
-            + ") VALUES(?, ?, ?, ?, ?, ?)";
+            + "," + Ticket.STATUS_COLUMN
+            + "," + Ticket.ID_ROUTE_COLUMN
+            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
     String SQL_UPDATE = "UPDATE " + Ticket.TABLE_NAME + " SET "
             + Ticket.FROM_TOWN_COLUMN + " = ?, "
             + Ticket.TO_TOWN_COLUMN + " = ?, "
@@ -24,6 +26,8 @@ public interface TicketDao {
             + Ticket.TIME_END_COLUMN + " = ?, "
             + Ticket.LINEN_COLUMN + " = ?, "
             + Ticket.PRICE_COLUMN + " = ?,"
+            + Ticket.STATUS_COLUMN + " = ?,"
+            + Ticket.ID_ROUTE_COLUMN + " = ?,"
             + Ticket.ID_TICKET_COLUMN + " = ? WHERE " + Ticket.ID_COLUMN + " = ?";
 
     List<Ticket> findByAll();

@@ -11,6 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -66,6 +67,7 @@ public class ControllerTablePath {
     @FXML
     void initialize() {
         fillTable();
+        clickToEdit();
     }
 
     public void fillTable() {
@@ -76,9 +78,9 @@ public class ControllerTablePath {
           routes.addAll(routeManager.getRoutes());
 
 
-          tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
+          tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
 
-          tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
+          tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
 
           tblTimeSend.setCellValueFactory(new PropertyValueFactory<Route, String>("timeStart"));
 
@@ -115,27 +117,21 @@ public class ControllerTablePath {
     }
 
     public void clickToEdit() {
-//        tableWarehouse.setRowFactory(tv -> {
-//            TableRow<Warehouse> row = new TableRow<>();
-//            row.setOnMouseClicked(event -> {
-//                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-//                    WarehouseManager.transfer = row.getItem();
-//
-//                    FxmlLoader object = new FxmlLoader();
-//                    Pane view = object.getPage("updateStorage");
-//
-//                    stackPaneStorage.getChildren().remove(anchorPaneTableStorage);
-//                    stackPaneStorage.getChildren().add(view);
-//                }
-//            });
-//            return row;
-//        });
+        tablePath.setRowFactory(tv -> {
+            TableRow<Route> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    RouteManager.transfer = row.getItem();
+
+                    FxmlLoader object = new FxmlLoader();
+                    Pane view = object.getPage("updatePath");
+
+                    stackPanePath.getChildren().remove(anchorPaneTablePath);
+                    stackPanePath.getChildren().add(view);
+                }
+            });
+            return row;
+        });
     }
 
-    //TODO переход на создание/редактирование
-    /*FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("updatePath");
-
-    stackPanePath.getChildren().remove(anchorPaneTablePath);
-    stackPanePath.getChildren().add(view);*/
 }

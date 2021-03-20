@@ -34,6 +34,8 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setTimeEnd(resultSet.getString(Ticket.TIME_END_COLUMN));
                 ticket.setLinen(resultSet.getBoolean(Ticket.LINEN_COLUMN));
                 ticket.setPrice(resultSet.getInt(Ticket.PRICE_COLUMN));
+                ticket.setStatus(resultSet.getInt(Ticket.STATUS_COLUMN));
+                ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
                 tickets.add(ticket);
             }
         } catch (SQLException exc) {
@@ -67,6 +69,8 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setTimeEnd(resultSet.getString(Ticket.TIME_END_COLUMN));
                 ticket.setLinen(resultSet.getBoolean(Ticket.LINEN_COLUMN));
                 ticket.setPrice(resultSet.getInt(Ticket.PRICE_COLUMN));
+                ticket.setStatus(resultSet.getInt(Ticket.STATUS_COLUMN));
+                ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -115,6 +119,8 @@ public class TicketDaoImpl implements TicketDao {
             preparedStatement.setLong(5, ticket.getIdTicket());
             preparedStatement.setBoolean(6, ticket.isLinen());
             preparedStatement.setInt(7, ticket.getPrice());
+            preparedStatement.setInt(8, ticket.getStatus());
+            preparedStatement.setLong(9, ticket.getIdRoute());
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {
@@ -147,7 +153,9 @@ public class TicketDaoImpl implements TicketDao {
             preparedStatement.setLong(5, ticket.getIdTicket());
             preparedStatement.setBoolean(6, ticket.isLinen());
             preparedStatement.setInt(7, ticket.getPrice());
-            preparedStatement.setLong(8, ticket.getId());
+            preparedStatement.setInt(8, ticket.getStatus());
+            preparedStatement.setLong(9, ticket.getIdRoute());
+            preparedStatement.setLong(10, ticket.getId());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {

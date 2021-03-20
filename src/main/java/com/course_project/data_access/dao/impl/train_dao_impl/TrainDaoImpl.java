@@ -296,4 +296,25 @@ public class TrainDaoImpl implements TrainDao {
             }
         }
     }
+
+    @Override
+    public void updateRoute(Train train) {
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_ROUTE);
+            preparedStatement.setLong(1, train.getIdRoute());
+            preparedStatement.setString(2, train.getName());
+            preparedStatement.execute();
+
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+    }
 }
