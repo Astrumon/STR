@@ -16,7 +16,9 @@ public interface RouteDao {
             + "," + Route.ID_ROUTE_COLUMN
             + "," + Route.ALL_TICKETS_COLUMN
             + "," + Route.SOLD_TICKETS_COLUMN
-            + ") VALUES(?, ?, ?, ?, ?, ?, ?)";
+            + "," + Route.PRICE_COLUMN
+            + "," + Route.TRAIN_NAME_COLUMN
+            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String SQL_UPDATE = "UPDATE " + Route.TABLE_NAME + " SET "
             + Route.FROM_TOWN_COLUMN + " = ?, "
             + Route.TO_TOWN_COLUMN + " = ?, "
@@ -24,7 +26,9 @@ public interface RouteDao {
             + Route.TIME_END_COLUMN + " = ?, "
             + Route.SOLD_TICKETS_COLUMN + " = ?,"
             + Route.ALL_TICKETS_COLUMN + " = ?, "
-            + Route.ID_ROUTE_COLUMN + " = ? WHERE " + Route.ID_COLUMN + " = ?";
+            + Route.ID_ROUTE_COLUMN + " = ?, "
+            + Route.PRICE_COLUMN + " = ?, "
+            + Route.TRAIN_NAME_COLUMN + " = ? WHERE " + Route.ID_COLUMN + " = ?";
 
     List<Route> findByAll();
 

@@ -10,10 +10,28 @@ public class Route {
     public static final String TIME_END_COLUMN = "time_end";
     public static final String ALL_TICKETS_COLUMN = "all_tickets";
     public static final String SOLD_TICKETS_COLUMN = "sold_tickets";
+    public static final String TRAIN_NAME_COLUMN = "train_name";
+    public static final String PRICE_COLUMN = "price";
 
     private Long id, idRoute;
-    private String toTown, fromTown, timeStart, timeEnd;
-    private int allTickets, soldTickets;
+    private String toTown, fromTown, timeStart, timeEnd, trainName;
+    private int allTickets, soldTickets, price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getTrainName() {
+        return trainName;
+    }
+
+    public void setTrainName(String trainName) {
+        this.trainName = trainName;
+    }
 
     public Long getId() {
         return id;
@@ -88,6 +106,8 @@ public class Route {
                 + ", idRoute= " + this.idRoute
                 + ", allTickets= " + this.allTickets
                 + ", soldTickets= " + this.soldTickets
+                + ", trainName= " + this.trainName
+                + ", price= " + this.price
                 + "]";
     }
 }

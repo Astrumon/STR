@@ -163,4 +163,8 @@ public class TrainManager extends Manager {
         trainSet.setId(wagon.getIdTrainSet());
        return trainSetDao.updateWagon(trainSet);
     }
+
+    public void updateIdRoute(Train train) {
+        trainDao.updateRoute(train);
+    }
 }

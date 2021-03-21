@@ -34,8 +34,6 @@ public class ControllerCreateTrain {
     @FXML
     private ChoiceBox<String> choiceBoxTypeTrain;
 
-    private TrainManager trainManager;
-
     private int typeTrain;
 
     private Wagon wagon = new Wagon();
@@ -87,7 +85,6 @@ public class ControllerCreateTrain {
         assert listViewTrain != null : "fx:id=\"listViewTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
         assert choiceBoxTypeTrain != null : "fx:id=\"choiceBoxTypeTrain\" was not injected: check your FXML file 'createTrain.fxml'.";
 
-        trainManager = new TrainManager();
         checkBoxInit();
         loadWagonsInfoToListView();
 

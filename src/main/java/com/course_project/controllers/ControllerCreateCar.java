@@ -91,17 +91,6 @@ public class ControllerCreateCar implements Checkable {
         }
     }
 
-
-    //TODO вынести в другой метод
-    private void update(Long idWagon) {
-
-        if (wagonManager.updateWagon(idWagon, setTypePlace())) {
-            AlertGenerator.info("Інформація о вагоні оновлена");
-        }
-
-    }
-
-
     private TypePlace setTypePlace() {
 
         TypePlace typePlace = new TypePlace();

@@ -10,7 +10,7 @@ public class Checker {
     }
 
     public static boolean checkStringValue(String value) {
-        return !checkPositiveIntValue(value) && value.matches("[\\p{L}| ]+");
+        return value.matches("[\\p{L}| a-zA-Z0-9]+");
     }
 
     public static boolean checkPositiveValue(Integer value) {

@@ -45,9 +45,7 @@ public class TrainCreator {
         return trainManager;
     }
 
-    public void setTrainManager(TrainManager trainManager) {
-        this.trainManager = trainManager;
-    }
+
 
     public List<String> getWagonsFromList() {
         return wagonsFromList;

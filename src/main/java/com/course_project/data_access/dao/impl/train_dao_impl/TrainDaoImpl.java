@@ -47,6 +47,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
                 train.setType(rs.getInt(Train.TYPE_COLUMN));
+                train.setIdRoute(rs.getLong(Train.ID_ROUTE_COLUMN));
                 trains.add(train);
             }
         } catch (SQLException exc) {
@@ -83,6 +84,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
                 train.setType(rs.getInt(Train.TYPE_COLUMN));
+                train.setIdRoute(rs.getLong(Train.ID_ROUTE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -112,6 +114,7 @@ public class TrainDaoImpl implements TrainDao {
                 train.setCapacity(rs.getInt(Train.CAPACITY_COLUMN));
                 train.setCountWagon(rs.getInt(Train.COUNT_WAGON_COLUMN));
                 train.setType(rs.getInt(Train.TYPE_COLUMN));
+                train.setIdRoute(rs.getLong(Train.ID_ROUTE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -227,7 +230,8 @@ public class TrainDaoImpl implements TrainDao {
             preparedStatement.setInt(2, train.getCapacity());
             preparedStatement.setInt(3, train.getCountWagon());
             preparedStatement.setInt(4, train.getType());
-            preparedStatement.setString(5, train.getName());
+            preparedStatement.setLong(5, train.getIdRoute());
+            preparedStatement.setString(6, train.getName());
             preparedStatement.execute();
 
             return true;
@@ -279,6 +283,27 @@ public class TrainDaoImpl implements TrainDao {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_COUNT_WAGON);
             preparedStatement.setInt(1, train.getCountWagon());
+            preparedStatement.setString(2, train.getName());
+            preparedStatement.execute();
+
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+    }
+
+    @Override
+    public void updateRoute(Train train) {
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_ROUTE);
+            preparedStatement.setLong(1, train.getIdRoute());
             preparedStatement.setString(2, train.getName());
             preparedStatement.execute();
 

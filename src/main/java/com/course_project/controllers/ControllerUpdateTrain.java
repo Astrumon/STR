@@ -52,16 +52,10 @@ public class ControllerUpdateTrain {
 
     @FXML
     void buttonAddToTrainAc(ActionEvent event) {
-        if (isCorrectWarehouseName()) {
-
-            setTrainName();
-            trainUpdater.addWagon(trainName, getFreeWagonsFromList());
-            updateListView();
-            trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
-
-        } else {
-            AlertGenerator.error("Введіть коректну назву потяга");
-        }
+        setTrainName();
+        trainUpdater.addWagon(trainName, getFreeWagonsFromList());
+        updateListView();
+        trainUpdater.updateCountWagons(trainName, lstViewCarConnectedToTheTrain.getItems().size());
     }
 
     @FXML
