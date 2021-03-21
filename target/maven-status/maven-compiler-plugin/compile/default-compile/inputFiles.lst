@@ -7,6 +7,7 @@ D:\KPI\Course Project\course_project\src\main\java\com\course_project\controller
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\NumberIDGenerator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\updater\WagonUpdater.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerCreateOperator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TownTest.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\route_dao\RouteDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestTrain.java
@@ -58,6 +59,7 @@ D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\up
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\warehouse\WarehouseSet.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableTicket.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableOperator.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateOperator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestWagon.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.java
