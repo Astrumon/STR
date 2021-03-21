@@ -45,6 +45,7 @@ com\course_project\controllers\ControllerTableCar$1.class
 com\course_project\controllers\ControllerTableStorage$2.class
 com\course_project\controllers\ControllerTablePath.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseDaoImpl.class
+com\course_project\support\manager\Manager.class
 com\course_project\data_access\model\wagon\Wagon.class
 com\course_project\data_access\model\warehouse\Warehouse.class
 com\course_project\data_access\dao\route_dao\RouteSetDao.class

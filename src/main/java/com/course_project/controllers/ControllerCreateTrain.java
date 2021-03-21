@@ -62,9 +62,7 @@ public class ControllerCreateTrain {
     private void setTrainName() {
         if (isCorrectTrainName()) {
             trainName = textFieldNameTrain.getText();
-        } else {
-            AlertGenerator.error("Введіть коректну назву складу");
-        }
+        } 
     }
 
 
@@ -123,6 +121,7 @@ public class ControllerCreateTrain {
         WagonManager wagonManager = new WagonManager();
         System.out.println("TYPE WAGON: " + type);
         listViewTrain.getItems().clear();
+        typeTrain = type;
         for (Wagon wagon : wagonManager.getWagons()) {
             if (wagon.getTrainName() == null && wagon.checkType(wagon.getType()) == type) {
                 listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
