@@ -99,4 +99,6 @@ public class ControllerUpdatePath {
         lablePrice1.setVisible(false);
         textFieldPrice1.setVisible(false);
     }
+
+
 }

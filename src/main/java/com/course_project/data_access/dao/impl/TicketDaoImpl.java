@@ -116,11 +116,10 @@ public class TicketDaoImpl implements TicketDao {
             preparedStatement.setString(2, ticket.getToTown());
             preparedStatement.setString(3, ticket.getTimeEnd());
             preparedStatement.setString(4, ticket.getTimeStart());
-            preparedStatement.setLong(5, ticket.getIdTicket());
-            preparedStatement.setBoolean(6, ticket.isLinen());
-            preparedStatement.setInt(7, ticket.getPrice());
-            preparedStatement.setInt(8, ticket.getStatus());
-            preparedStatement.setLong(9, ticket.getIdRoute());
+            preparedStatement.setBoolean(5, ticket.isLinen());
+            preparedStatement.setInt(6, ticket.getPrice());
+            preparedStatement.setInt(7, ticket.getStatus());
+            preparedStatement.setLong(8, ticket.getIdRoute());
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {

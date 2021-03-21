@@ -3,6 +3,7 @@ package com.course_project.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.support.NumberIDGenerator;
@@ -13,8 +14,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
 public class ControllerTableTicket {
@@ -67,9 +70,9 @@ public class ControllerTableTicket {
         tickets.addAll(ticketManager.getTickets());
 
 
-        tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
+        tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
 
-        tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
+        tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
 
         tblSendTime.setCellValueFactory(new PropertyValueFactory<Route, String>("timeStart"));
 
@@ -87,21 +90,21 @@ public class ControllerTableTicket {
         });
     }
 
-    public void clickToEdit() {
-//        tableWarehouse.setRowFactory(tv -> {
-//            TableRow<Warehouse> row = new TableRow<>();
+//    public void clickToEdit() {
+//        tableTicket.setRowFactory(tv -> {
+//            TableRow<Ticket> row = new TableRow<>();
 //            row.setOnMouseClicked(event -> {
 //                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-//                    WarehouseManager.transfer = row.getItem();
+//                    TicketManager.transfer = row.getItem();
 //
 //                    FxmlLoader object = new FxmlLoader();
 //                    Pane view = object.getPage("updateStorage");
 //
-//                    stackPaneStorage.getChildren().remove(anchorPaneTableStorage);
+//                    stackPaneStorage.getChildren().remove();
 //                    stackPaneStorage.getChildren().add(view);
 //                }
 //            });
 //            return row;
 //        });
-    }
+//    }
 }

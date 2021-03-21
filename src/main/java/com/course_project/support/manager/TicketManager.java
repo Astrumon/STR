@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TicketManager extends Manager {
     private TicketDaoImpl ticketDao;
+    public static Ticket transfer;
 
     private Ticket ticket;
 
@@ -23,11 +24,11 @@ public class TicketManager extends Manager {
         return ticketDao.findByAll();
     }
 
-    public boolean createRoute(Ticket ticket) {
+    public boolean createTicket(Ticket ticket) {
         return ticketDao.insert(ticket);
     }
 
-    public boolean deleteRoute(Ticket ticket) {
+    public boolean deleteTicket(Ticket ticket) {
 
         return ticketDao.delete(ticket);
     }
