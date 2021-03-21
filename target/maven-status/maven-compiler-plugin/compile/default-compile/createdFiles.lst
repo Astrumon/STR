@@ -8,9 +8,11 @@ com\course_project\data_access\dao\ticket_dao\TicketDao.class
 com\course_project\support\AlertGenerator.class
 com\course_project\controllers\ControllerTablePath$1.class
 com\course_project\controllers\ControllerCreateOperator.class
+com\course_project\controllers\ControllerTableOperator$1.class
 com\course_project\support\updater\WarehouseUpdater.class
 com\course_project\controllers\ControllerUpdateStorage.class
 com\course_project\support\creator\WagonCreator.class
+com\course_project\support\manager\OperatorManager.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\WagonDaoImpl.class
 com\course_project\controllers\ControllerUpdateCar.class
 com\course_project\data_access\model\Ticket.class
@@ -54,9 +56,11 @@ com\course_project\controllers\ControllerUpdateTrain.class
 com\course_project\data_access\model\wagon\TypePlace.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
+com\course_project\data_access\model\Operator.class
 com\course_project\data_access\tests\TestTrain.class
 com\course_project\data_access\model\route\RouteSet.class
 com\course_project\support\manager\WarehouseManager.class
+com\course_project\data_access\dao\impl\OperatorDaoImpl.class
 com\course_project\data_access\tests\TestWagon.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class
@@ -73,6 +77,7 @@ com\course_project\controllers\ControllerTableTrucking.class
 com\course_project\support\Checkable.class
 com\course_project\controllers\ControllerUpdateTrucking.class
 com\course_project\support\creator\RouteCreator.class
+com\course_project\data_access\dao\OperatorDao.class
 com\course_project\support\manager\RouteManager.class
 com\course_project\controllers\ControllerCreateStorage.class
 com\course_project\support\manager\TrainManager.class

@@ -1,12 +1,27 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.course_project.FxmlLoader;
+import com.course_project.data_access.model.Operator;
+import com.course_project.data_access.model.route.Route;
+import com.course_project.support.NumberIDGenerator;
+import com.course_project.support.manager.OperatorManager;
+import com.course_project.support.manager.TicketManager;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
+
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ControllerTableOperator {
 
@@ -23,16 +38,20 @@ public class ControllerTableOperator {
     private AnchorPane anchorPaneTableOperator;
 
     @FXML
-    private TableView<?> tableOperator;
+    private TableView<Operator> tableOperator;
 
     @FXML
-    private TableColumn<?, ?> tblNumber;
+    private TableColumn tblNumber;
 
     @FXML
-    private TableColumn<?, ?> tblLogin;
+    private TableColumn tblLogin;
 
     @FXML
-    private TableColumn<?, ?> tblPassword;
+    private TableColumn tblPassword;
+
+    private OperatorManager operatorManager;
+
+    private ObservableList<Operator> operators;
 
     @FXML
     void initialize() {
@@ -43,6 +62,49 @@ public class ControllerTableOperator {
         assert tblLogin != null : "fx:id=\"tblLogin\" was not injected: check your FXML file 'tableOperator.fxml'.";
         assert tblPassword != null : "fx:id=\"tblPassword\" was not injected: check your FXML file 'tableOperator.fxml'.";
 
+        fillTable();
+        clickToEdit();
+    }
+
+    public void fillTable() {
+        operatorManager = new OperatorManager();
+
+
+
+        operators = tableOperator.getItems();
+        operators.addAll(operatorManager.getOperators());
+
+
+        tblLogin.setCellValueFactory(new PropertyValueFactory<Route, String>("login"));
+
+        tblPassword.setCellValueFactory(new PropertyValueFactory<Route, String>("password"));
+
+
+
+        tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
+            @Override
+            public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
+                return new SimpleIntegerProperty(NumberIDGenerator.generate(operators, cellDataFeatures));
+            }
+        });
+    }
+
+    public void clickToEdit() {
+        tableOperator.setRowFactory(tv -> {
+            TableRow<Operator> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    OperatorManager.transfer = row.getItem();
+
+                    FxmlLoader object = new FxmlLoader();
+                    Pane view = object.getPage("updateOperator");
+
+                    stackPaneOperator.getChildren().remove(anchorPaneTableOperator);
+                    stackPaneOperator.getChildren().add(view);
+                }
+            });
+            return row;
+        });
     }
 
     //TODO переход на создание/редактирование
