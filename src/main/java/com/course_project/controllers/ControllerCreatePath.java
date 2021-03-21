@@ -71,32 +71,17 @@ public class ControllerCreatePath {
 
     @FXML
     void buttonNextPointAc(ActionEvent event) {
-        int price;
-
         if (isCorrectNameFromTown() && isCorrectNameToTown()) {
             if (counterClicker == 0) {
                 if (!isSameTown() && !isEmptyTrainName()) {
-                    firstCreateTownRoute();
-                    firstCreateTimeRoute();
-                    firstCreateDate();
-                    routeCreator.setIdRouteToTrain(train.getName());
-                    price = Integer.parseInt(textFieldPrice2.getText());
-                    routeCreator.setRouteSet(routeSet);
-                    routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
-
+                    firstTime();
                     ++counterClicker;
                 } else {
                     AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
                 }
             } else if (counterClicker >= 1) {
                 if (!isSameTown() && !isEmptyTrainName()) {
-                    nextCreateTownRoute();
-                    nextCreateTimeRoute();
-                    nextCreateDate();
-                    price = Integer.parseInt(textFieldPrice2.getText());
-                    routeCreator.setRouteSet(routeSet);
-                    routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
-
+                    nextTime();
                     ++counterClicker;
                 } else {
                     AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
@@ -109,6 +94,27 @@ public class ControllerCreatePath {
         if (choiceBoxNameTrain.getItems().size() != 1) {
             choiceBoxNameTrain.getItems().setAll(routeCreator.getTrainWithoutRoute());
         }
+    }
+
+    private void firstTime() {
+        int price;
+        firstCreateTownRoute();
+        firstCreateTimeRoute();
+        firstCreateDate();
+        routeCreator.setIdRouteToTrain(train.getName());
+        price = Integer.parseInt(textFieldPrice2.getText());
+        routeCreator.setRouteSet(routeSet);
+        routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
+    }
+
+    private void nextTime() {
+        int price;
+        nextCreateTownRoute();
+        nextCreateTimeRoute();
+        nextCreateDate();
+        price = Integer.parseInt(textFieldPrice2.getText());
+        routeCreator.setRouteSet(routeSet);
+        routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
     }
 
 
@@ -138,6 +144,12 @@ public class ControllerCreatePath {
 
     @FXML
     void buttonSavePathAc(ActionEvent event) {
+        if (counterClicker == 0) {
+            firstTime();
+        } else {
+            nextTime();
+        }
+
         routeCreator.create(routeCreator.getFillRoute(train.getName()));
         clearFields();
         choiceBoxNameTrain.setValue(null);
