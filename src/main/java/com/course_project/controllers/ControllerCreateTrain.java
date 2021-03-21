@@ -121,10 +121,10 @@ public class ControllerCreateTrain {
 
     private void showWagons(int type) {
         WagonManager wagonManager = new WagonManager();
-        typeTrain = type;
+        System.out.println("TYPE WAGON: " + type);
         listViewTrain.getItems().clear();
         for (Wagon wagon : wagonManager.getWagons()) {
-            if (wagon.getTrainName() == null && wagon.getType() == type) {
+            if (wagon.getTrainName() == null && wagon.checkType(wagon.getType()) == type) {
                 listViewTrain.getItems().addAll(ControllerTableCar.WAGON_PREFIX_NAME + wagon.getIdWagon());
             }
         }
