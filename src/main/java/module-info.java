@@ -5,6 +5,7 @@ module com.course_project {
 
     requires sqlite.jdbc;
     requires java.sql;
+    requires com.jfoenix;
 
 
     opens com.course_project to javafx.fxml;

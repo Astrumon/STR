@@ -1,5 +1,7 @@
 package com.course_project.controllers;
 
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.support.AlertGenerator;
@@ -22,31 +24,25 @@ public class ControllerCreatePath {
     private URL location;
 
     @FXML
+    private JFXTimePicker timePicker1;
+
+    @FXML
+    private JFXDatePicker datePicker1;
+
+    @FXML
+    private JFXTimePicker timePicker2;
+
+    @FXML
+    private JFXDatePicker datePicker2;
+
+    @FXML
     private TextField textFieldPoint1;
 
     @FXML
-    private TextField textFieldTime1;
-
-    @FXML
-    private Label lablePrice1;
-
-    @FXML
-    private DatePicker datePicker1;
-
-    @FXML
-    private TextField textFieldPrice1;
-
-    @FXML
-    private TextField textFieldPrice2;
-
-    @FXML
-    private TextField textFieldTime2;
+    private TextField textFieldPrice;
 
     @FXML
     private TextField textFieldPoint2;
-
-    @FXML
-    private DatePicker datePicker2;
 
     @FXML
     private Button buttonSavePath;
@@ -99,7 +95,7 @@ public class ControllerCreatePath {
         firstCreateTimeRoute();
         firstCreateDate();
         routeCreator.setIdRouteToTrain(train.getName());
-        price = Integer.parseInt(textFieldPrice2.getText());
+        price = Integer.parseInt(textFieldPrice.getText());
         routeCreator.setRouteSet(routeSet);
         routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
     }
@@ -109,7 +105,7 @@ public class ControllerCreatePath {
         nextCreateTownRoute();
         nextCreateTimeRoute();
         nextCreateDate();
-        price = Integer.parseInt(textFieldPrice2.getText());
+        price = Integer.parseInt(textFieldPrice.getText());
         routeCreator.setRouteSet(routeSet);
         routeCreator.create(routeCreator.getFillRouteSet(train.getName(), price));
     }
@@ -135,11 +131,6 @@ public class ControllerCreatePath {
     }
 
     @FXML
-    void buttonPreviousPointAc(ActionEvent event) {
-
-    }
-
-    @FXML
     void buttonSavePathAc(ActionEvent event) {
         if (counterClicker == 0) {
             firstTime();
@@ -156,29 +147,19 @@ public class ControllerCreatePath {
     private void clearFields() {
         textFieldPoint1.clear();
         textFieldPoint2.clear();
-        textFieldPrice1.clear();
-        textFieldPrice2.clear();
-        textFieldTime1.clear();
-        textFieldTime2.clear();
+        textFieldPrice.clear();
+        timePicker1.getEditor().clear();
+        timePicker2.getEditor().clear();
         datePicker1.getEditor().clear();
     }
 
     @FXML
     void initialize() {
         assert textFieldPoint1 != null : "fx:id=\"textFieldPint1\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert textFieldTime1 != null : "fx:id=\"textFieldTime1\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert lablePrice1 != null : "fx:id=\"lablePrice1\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert datePicker1 != null : "fx:id=\"datePicker1\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert textFieldPrice1 != null : "fx:id=\"textFieldPrice1\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert textFieldPrice2 != null : "fx:id=\"textFieldPrice2\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert textFieldTime2 != null : "fx:id=\"textFieldTime2\" was not injected: check your FXML file 'createPath.fxml'.";
         assert textFieldPoint2 != null : "fx:id=\"textFieldPint2\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert datePicker2 != null : "fx:id=\"datePicker2\" was not injected: check your FXML file 'createPath.fxml'.";
         assert buttonSavePath != null : "fx:id=\"buttonSavePath\" was not injected: check your FXML file 'createPath.fxml'.";
         assert buttonNextPoint != null : "fx:id=\"buttonNextPoint\" was not injected: check your FXML file 'createPath.fxml'.";
         assert choiceBoxNameTrain != null : "fx:id=\"choiceBoxNameTrain\" was not injected: check your FXML file 'createPath.fxml'.";
-        lablePrice1.setVisible(false);
-        textFieldPrice1.setVisible(false);
 
         routeCreator = new RouteCreator();
         routeCreator.generateIdRoute();
@@ -227,19 +208,19 @@ public class ControllerCreatePath {
     }
 
     private void firstCreateTimeRoute() {
-        routeSet.setSendTime(textFieldTime1.getText());
-        previousValueOfToTime = textFieldTime2.getText();
-        routeSet.setArriveTime(textFieldTime2.getText());
-        textFieldTime2.clear();
-        textFieldTime1.setText(previousValueOfToTime);
+        /*routeSet.setSendTime(timePicker1.getEditor().getText());
+        previousValueOfToTime = timePicker2.getEditor().getText();
+        routeSet.setArriveTime(timePicker2.getEditor().getText());
+        timePicker2.getEditor().clear();
+        timePicker1.getEditor().setText(previousValueOfToTime);*/
     }
 
     private void nextCreateTimeRoute() {
-        routeSet.setSendTime(previousValueOfToTime);
-        routeSet.setArriveTime(textFieldTime2.getText());
-        previousValueOfToTime = textFieldTime2.getText();
-        textFieldTime1.setText(previousValueOfToTime);
-        textFieldTime2.clear();
+        /*routeSet.setSendTime(previousValueOfToTime);
+        routeSet.setArriveTime(timePicker2.getEditor().getText());
+        previousValueOfToTime = timePicker2.getEditor().getText();
+        timePicker1.getEditor().setText(previousValueOfToTime);
+        timePicker2.getEditor().clear();*/
     }
 
     private void firstCreateDate() {
