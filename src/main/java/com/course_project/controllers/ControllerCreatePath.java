@@ -55,9 +55,6 @@ public class ControllerCreatePath {
     private Button buttonNextPoint;
 
     @FXML
-    private Button buttonPreviousPoint;
-
-    @FXML
     private ChoiceBox<String> choiceBoxNameTrain;
 
     private RouteCreator routeCreator;
@@ -179,7 +176,6 @@ public class ControllerCreatePath {
         assert datePicker2 != null : "fx:id=\"datePicker2\" was not injected: check your FXML file 'createPath.fxml'.";
         assert buttonSavePath != null : "fx:id=\"buttonSavePath\" was not injected: check your FXML file 'createPath.fxml'.";
         assert buttonNextPoint != null : "fx:id=\"buttonNextPoint\" was not injected: check your FXML file 'createPath.fxml'.";
-        assert buttonPreviousPoint != null : "fx:id=\"buttonPreviousPoint\" was not injected: check your FXML file 'createPath.fxml'.";
         assert choiceBoxNameTrain != null : "fx:id=\"choiceBoxNameTrain\" was not injected: check your FXML file 'createPath.fxml'.";
         lablePrice1.setVisible(false);
         textFieldPrice1.setVisible(false);
