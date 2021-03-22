@@ -19,6 +19,9 @@ public class TicketManager extends Manager {
     public Ticket getTicket(Long idTicket) {
         return ticketDao.findById(idTicket);
     }
+    public Ticket getTicketByIdRoute(Long idRoute) {
+        return ticketDao.findByIdRoute(idRoute);
+    }
 
     public List<Ticket> getTickets() {
         return ticketDao.findByAll();

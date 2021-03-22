@@ -1,5 +1,9 @@
 package com.course_project.support;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Checker {
 
     public static boolean checkPositiveIntValue(String value) {
@@ -19,6 +23,23 @@ public class Checker {
 
     public static boolean checkEmptyValue(String value) {
         return value.isEmpty();
+    }
+
+    public static boolean isValidTime(String curDate) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+        timeFormat.setLenient(false);
+
+        Date parsedDate = null;
+
+        try {
+            parsedDate = timeFormat.parse(curDate);
+        } catch (ParseException e) {
+            System.out.println(e);
+        }
+
+
+        return parsedDate != null;
     }
 
 }

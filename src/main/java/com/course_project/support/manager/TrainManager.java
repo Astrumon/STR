@@ -164,7 +164,7 @@ public class TrainManager extends Manager {
        return trainSetDao.updateWagon(trainSet);
     }
 
-    public void updateIdRoute(Train train) {
-        trainDao.updateRoute(train);
+    public boolean updateIdRoute(Train train) {
+       return trainDao.updateRoute(train);
     }
 }

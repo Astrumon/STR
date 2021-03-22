@@ -1,14 +1,24 @@
 package com.course_project.controllers;
 
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTimePicker;
-import java.net.URL;
-import java.util.ResourceBundle;
+
+import com.course_project.data_access.model.route.Route;
+import com.course_project.data_access.model.route.RouteSet;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
+import com.course_project.support.manager.RouteManager;
+import com.course_project.support.updater.RouteUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.w3c.dom.ls.LSOutput;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ControllerUpdatePath {
 
@@ -18,18 +28,7 @@ public class ControllerUpdatePath {
     @FXML
     private URL location;
 
-    /*@FXML
-    private JFXTimePicker timePicker1;
 
-    @FXML
-    private JFXDatePicker datePicker1;
-
-    @FXML
-    private JFXTimePicker timePicker2;
-
-    @FXML
-    private JFXDatePicker datePicker2;
-    */
     @FXML
     private TextField textFieldPoint1;
 
@@ -52,7 +51,7 @@ public class ControllerUpdatePath {
     private Button buttonReviewPath;
 
     @FXML
-    private ChoiceBox<?> choiceBoxNameTrain;
+    private ChoiceBox<String> choiceBoxNameTrain;
 
     @FXML
     private Button buttonSavePath;
@@ -61,18 +60,33 @@ public class ControllerUpdatePath {
     private Button buttonDeletePath;
 
     @FXML
+    private DatePicker datePicker1;
+
+    @FXML
+    private DatePicker datePicker2;
+
+    @FXML
+    private TextField textFieldTime1;
+    @FXML
+    private TextField textFieldTime2;
+
+    private Route route;
+    private RouteUpdater routeUpdater;
+
+
+    @FXML
     void buttonAddNewPointAc(ActionEvent event) {
 
     }
 
     @FXML
     void buttonReviewPathAc(ActionEvent event) {
-
+        AlertGenerator.tableRoute(routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1));
     }
 
     @FXML
     void buttonDeletePathAc(ActionEvent event) {
-
+        routeUpdater.delete(route);
     }
 
     @FXML
@@ -88,7 +102,67 @@ public class ControllerUpdatePath {
     @FXML
     void buttonSavePathAc(ActionEvent event) {
 
+
+       Route route = getUpdatedRoute();
+
+        System.out.println(route);
+
+
+        //TODO update route, update routeSet
     }
+
+
+    private Route getUpdatedRoute() {
+        Route route = this.route;
+
+        if (routeUpdater.isValidPrice(textFieldPrice.getText())) {
+            route.setPrice(Integer.parseInt(textFieldPrice.getText()));
+        }
+
+        if (routeUpdater.isValidPoint(textFieldPoint1.getText())) {
+            route.setFromTown(textFieldPoint1.getText());
+        }
+
+        if (routeUpdater.isValidPoint(textFieldPoint2.getText())) {
+            route.setToTown(textFieldPoint2.getText());
+        }
+
+        RouteSet firstRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(0);
+        String dateSend = firstRouteSet.getDateSend();
+        if (routeUpdater.isValidDate(datePicker1.getValue().toString())) {
+            firstRouteSet.setDateSend(datePicker1.getValue().toString());
+        }
+
+        int size = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1;
+        RouteSet lastRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(size);
+        String dateArrive = lastRouteSet.getDateArrive();
+        if (routeUpdater.isValidDate(datePicker2.getValue().toString())) {
+            lastRouteSet.setDateSend(datePicker2.getValue().toString());
+        }
+        System.out.println(firstRouteSet);
+        System.out.println(lastRouteSet);
+
+        if (routeUpdater.isValidTime(textFieldTime1.getText())) {
+            route.setTimeStart(textFieldTime1.getText());
+        }
+
+        if (routeUpdater.isValidTime(textFieldTime2.getText())) {
+            route.setTimeStart(textFieldTime2.getText());
+        }
+
+        return route;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     void initialize() {
@@ -99,6 +173,28 @@ public class ControllerUpdatePath {
         assert choiceBoxNameTrain != null : "fx:id=\"choiceBoxNameTrain\" was not injected: check your FXML file 'updatePath.fxml'.";
         assert buttonSavePath != null : "fx:id=\"buttonSavePath\" was not injected: check your FXML file 'updatePath.fxml'.";
         assert buttonDeletePath != null : "fx:id=\"buttonDeletePath\" was not injected: check your FXML file 'updatePath.fxml'.";
+
+        route = RouteManager.transfer;
+        routeUpdater = new RouteUpdater();
+
+         fillFields();
+    }
+
+    private void fillFields() {
+
+        List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
+
+        choiceBoxNameTrain.setValue(route.getTrainName());
+        textFieldPoint1.setText(route.getFromTown());
+        textFieldPoint2.setText(route.getToTown());
+        textFieldPrice.setText(String.valueOf(route.getPrice()));
+        textFieldTime1.setText(route.getTimeStart());
+        textFieldTime2.setText(route.getTimeEnd());
+        LocalDate date1 = LocalDate.parse(routeSets.get(0).getDateSend());
+        LocalDate date2 = LocalDate.parse(routeSets.get(routeSets.size()-1).getDateArrive());
+
+        datePicker1.setValue(date1);
+        datePicker2.setValue(date2);
     }
 
 

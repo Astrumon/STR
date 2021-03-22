@@ -17,10 +17,11 @@ public interface RouteSetDao {
             + "," + RouteSet.SEND_TIME_COLUMN
             + "," + RouteSet.ARRIVE_TIME_COLUMN
             + "," + RouteSet.PRICE_COLUMN
-            + "," + RouteSet.DATE_COLUMN
+            + "," + RouteSet.DATE_SEND_COLUMN
+            + "," + RouteSet.DATE_ARRIVE_COLUMN
             + "," + RouteSet.TRAIN_NAME_COLUMN
             + "," + RouteSet.ID_ROUTE_COLUMN
-            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String SQL_UPDATE = "UPDATE " + RouteSet.TABLE_NAME + " SET "
             + RouteSet.FROM_TOWN_COLUMN + " = ?, "
             + RouteSet.TO_TOWN_COLUMN + " = ?, "
@@ -28,7 +29,8 @@ public interface RouteSetDao {
             + RouteSet.ARRIVE_TIME_COLUMN + " = ?, "
             + RouteSet.PRICE_COLUMN + " = ?,"
             + RouteSet.ID_ROUTE_COLUMN + " = ?, "
-            + RouteSet.DATE_COLUMN + " = ?,"
+            + RouteSet.DATE_SEND_COLUMN + " = ?,"
+            + RouteSet.DATE_ARRIVE_COLUMN + " = ?,"
             + RouteSet.TRAIN_NAME_COLUMN + " = ? WHERE " + RouteSet.ID_COLUMN + " = ?";
 
     List<RouteSet> findByAll();

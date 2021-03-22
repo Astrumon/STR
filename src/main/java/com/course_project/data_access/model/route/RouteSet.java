@@ -10,10 +10,11 @@ public class RouteSet {
     public static final String ARRIVE_TIME_COLUMN = "arrive_time";
     public static final String TRAIN_NAME_COLUMN = "train_name";
     public static final String PRICE_COLUMN = "price";
-    public static final String DATE_COLUMN = "date";
+    public static final String DATE_SEND_COLUMN = "date_send";
+    public static final String DATE_ARRIVE_COLUMN = "date_arrive";
 
     private Long id, idRoute;
-    private String date, fromTown, toTown, sendTime, arriveTime, trainName;
+    private String dateSend, dateArrive, fromTown, toTown, sendTime, arriveTime, trainName;
     private int price;
 
     public Long getId() {
@@ -32,12 +33,20 @@ public class RouteSet {
         this.idRoute = idRoute;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateSend() {
+        return dateSend;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateSend(String dateSend) {
+        this.dateSend = dateSend;
+    }
+
+    public String getDateArrive() {
+        return dateArrive;
+    }
+
+    public void setDateArrive(String dateArrive) {
+        this.dateArrive = dateArrive;
     }
 
     public String getFromTown() {
@@ -98,7 +107,8 @@ public class RouteSet {
                 + ", sendTime= " + this.sendTime
                 + ", arriveTime= " + this.arriveTime
                 + ", price= " + this.price
-                + ", date= " + this.date
+                + ", dateSend= " + this.dateSend
+                + ", dateArrive= " + this.dateArrive
                 + "]";
     }
 }

@@ -23,7 +23,7 @@ public class TicketCreator {
 
     public void fillTicket(Route route) {
         System.out.println("ROUTETEST: " + route);
-        ticket.setIdRoute(route.getId());
+        ticket.setIdRoute(route.getIdRoute());
         ticket.setStatus(Ticket.STATUS_FREE);
         ticket.setLinen(false);
         ticket.setFromTown(route.getFromTown());

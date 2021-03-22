@@ -298,17 +298,23 @@ public class TrainDaoImpl implements TrainDao {
     }
 
     @Override
-    public void updateRoute(Train train) {
+    public boolean updateRoute(Train train) {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_ROUTE);
-            preparedStatement.setLong(1, train.getIdRoute());
+            if (train.getIdRoute() == null) {
+                preparedStatement.setNull(1, 0);
+            } else {
+                preparedStatement.setLong(1, train.getIdRoute());
+            }
+
             preparedStatement.setString(2, train.getName());
             preparedStatement.execute();
-
+            return true;
         } catch (SQLException exc) {
             System.out.println(exc);
+            return false;
         } finally {
             try {
                 connection.close();

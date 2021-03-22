@@ -9,6 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.course_project.data_access.dao.route_dao.RouteSetDao.SQL_FIND_BY_ID_ROUTE;
+
 public class TicketDaoImpl implements TicketDao {
     private DataSource dataSource;
 
@@ -85,12 +87,46 @@ public class TicketDaoImpl implements TicketDao {
     }
 
     @Override
+    public Ticket findByIdRoute(Long idRoute) {
+        Connection connection = null;
+        Ticket ticket = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_ID_ROUTE);
+            preparedStatement.setLong(1, idRoute);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                ticket = new Ticket();
+                ticket.setId(resultSet.getLong(Ticket.ID_COLUMN));
+                ticket.setFromTown(resultSet.getString(Ticket.FROM_TOWN_COLUMN));
+                ticket.setToTown(resultSet.getString(Ticket.TO_TOWN_COLUMN));
+                ticket.setIdTicket(resultSet.getLong(Ticket.ID_TICKET_COLUMN));
+                ticket.setTimeStart(resultSet.getString(Ticket.TIME_START_COLUMN));
+                ticket.setTimeEnd(resultSet.getString(Ticket.TIME_END_COLUMN));
+                ticket.setLinen(resultSet.getBoolean(Ticket.LINEN_COLUMN));
+                ticket.setPrice(resultSet.getInt(Ticket.PRICE_COLUMN));
+                ticket.setStatus(resultSet.getInt(Ticket.STATUS_COLUMN));
+                ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
+            }
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            }catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+        return ticket;
+    }
+
+    @Override
     public boolean delete(Ticket ticket) {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);
-            preparedStatement.setLong(1, ticket.getId());
+            preparedStatement.setLong(1, ticket.getIdRoute());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {

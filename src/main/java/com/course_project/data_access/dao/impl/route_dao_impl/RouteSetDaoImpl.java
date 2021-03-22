@@ -36,7 +36,8 @@ public class RouteSetDaoImpl implements RouteSetDao {
                 routeSet.setArriveTime(resultSet.getString(RouteSet.ARRIVE_TIME_COLUMN));
                 routeSet.setPrice(resultSet.getInt(RouteSet.PRICE_COLUMN));
                 routeSet.setTrainName(resultSet.getString(RouteSet.TRAIN_NAME_COLUMN));
-                routeSet.setDate(resultSet.getString(RouteSet.DATE_COLUMN));
+                routeSet.setDateSend(resultSet.getString(RouteSet.DATE_SEND_COLUMN));
+                routeSet.setDateArrive(resultSet.getString(RouteSet.DATE_ARRIVE_COLUMN));
                 routeSets.add(routeSet);
             }
         } catch (SQLException exc) {
@@ -70,7 +71,8 @@ public class RouteSetDaoImpl implements RouteSetDao {
                 routeSet.setArriveTime(resultSet.getString(RouteSet.ARRIVE_TIME_COLUMN));
                 routeSet.setPrice(resultSet.getInt(RouteSet.PRICE_COLUMN));
                 routeSet.setTrainName(resultSet.getString(RouteSet.TRAIN_NAME_COLUMN));
-                routeSet.setDate(resultSet.getString(RouteSet.DATE_COLUMN));
+                routeSet.setDateSend(resultSet.getString(RouteSet.DATE_SEND_COLUMN));
+                routeSet.setDateArrive(resultSet.getString(RouteSet.DATE_ARRIVE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -103,7 +105,8 @@ public class RouteSetDaoImpl implements RouteSetDao {
                 routeSet.setArriveTime(resultSet.getString(RouteSet.ARRIVE_TIME_COLUMN));
                 routeSet.setPrice(resultSet.getInt(RouteSet.PRICE_COLUMN));
                 routeSet.setTrainName(resultSet.getString(RouteSet.TRAIN_NAME_COLUMN));
-                routeSet.setDate(resultSet.getString(RouteSet.DATE_COLUMN));
+                routeSet.setDateSend(resultSet.getString(RouteSet.DATE_SEND_COLUMN));
+                routeSet.setDateArrive(resultSet.getString(RouteSet.DATE_ARRIVE_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -123,7 +126,7 @@ public class RouteSetDaoImpl implements RouteSetDao {
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);
-            preparedStatement.setLong(1, routeSet.getId());
+            preparedStatement.setLong(1, routeSet.getIdRoute());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {
@@ -150,9 +153,10 @@ public class RouteSetDaoImpl implements RouteSetDao {
             preparedStatement.setString(3, routeSet.getSendTime());
             preparedStatement.setString(4, routeSet.getArriveTime());
             preparedStatement.setInt(5, routeSet.getPrice());
-            preparedStatement.setString(6, routeSet.getDate());
-            preparedStatement.setString(7, routeSet.getTrainName());
-            preparedStatement.setLong(8, routeSet.getIdRoute());
+            preparedStatement.setString(6, routeSet.getDateSend());
+            preparedStatement.setString(7, routeSet.getDateArrive());
+            preparedStatement.setString(8, routeSet.getTrainName());
+            preparedStatement.setLong(9, routeSet.getIdRoute());
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {
@@ -184,8 +188,9 @@ public class RouteSetDaoImpl implements RouteSetDao {
             preparedStatement.setString(4, routeSet.getArriveTime());
             preparedStatement.setInt(5, routeSet.getPrice());
             preparedStatement.setLong(6, routeSet.getIdRoute());
-            preparedStatement.setString(8, routeSet.getDate());
-            preparedStatement.setString(7, routeSet.getTrainName());
+            preparedStatement.setString(6, routeSet.getDateSend());
+            preparedStatement.setString(7, routeSet.getDateArrive());
+            preparedStatement.setString(8, routeSet.getTrainName());
             preparedStatement.setLong(9, routeSet.getId());
             preparedStatement.execute();
             return true;

@@ -90,7 +90,7 @@ public class RouteDaoImpl implements RouteDao {
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);
-            preparedStatement.setLong(1, route.getId());
+            preparedStatement.setLong(1, route.getIdRoute());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {
