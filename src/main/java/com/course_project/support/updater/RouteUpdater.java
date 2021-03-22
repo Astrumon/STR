@@ -100,8 +100,8 @@ public class RouteUpdater {
         if (!routeManager.updateRouteSet(routeSet)) {
             AlertGenerator.error("Виникла помилка при зміні даних");
         } else {
-
-          routeManager.updateRoute(updateRoute(routeSet));
+            //TODO TICKETUPDATE
+            routeManager.updateRoute(updateRoute(routeSet));
         }
 //            AlertGenerator.info("Зміни в маршруті успішно внесені");
 
@@ -112,7 +112,7 @@ public class RouteUpdater {
     private Route updateRoute(RouteSet routeSet) {
         Route route = new Route();
         route.setTrainName(routeSet.getTrainName());
-        route.setIdRoute(routeSet.getIdRoute()-1);
+        route.setIdRoute(routeSet.getIdRoute() - 1);
         int count = 0;
 
         int price = 0;
@@ -125,7 +125,7 @@ public class RouteUpdater {
                 route.setTimeStart(routeSet.getSendTime());
             }
 
-            if (count == routeManager.getRouteSetsByRouteId(routeSet.getIdRoute()).size()-1) {
+            if (count == routeManager.getRouteSetsByRouteId(routeSet.getIdRoute()).size() - 1) {
                 route.setToTown(routeSet.getToTown());
                 route.setTimeEnd(routeSet.getArriveTime());
             }
@@ -134,7 +134,6 @@ public class RouteUpdater {
         route.setPrice(price);
         return route;
     }
-
 
 
 }
