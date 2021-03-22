@@ -26,9 +26,8 @@ public interface RouteDao {
             + Route.TIME_END_COLUMN + " = ?, "
             + Route.SOLD_TICKETS_COLUMN + " = ?,"
             + Route.ALL_TICKETS_COLUMN + " = ?, "
-            + Route.ID_ROUTE_COLUMN + " = ?, "
             + Route.PRICE_COLUMN + " = ?, "
-            + Route.TRAIN_NAME_COLUMN + " = ? WHERE " + Route.ID_COLUMN + " = ?";
+            + Route.TRAIN_NAME_COLUMN + " = ? WHERE " + Route.ID_ROUTE_COLUMN + " = ?";
 
     List<Route> findByAll();
 

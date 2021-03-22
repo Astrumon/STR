@@ -152,10 +152,9 @@ public class RouteDaoImpl implements RouteDao {
             preparedStatement.setString(4, route.getTimeEnd());
             preparedStatement.setInt(5, route.getSoldTickets());
             preparedStatement.setInt(6, route.getAllTickets());
-            preparedStatement.setLong(7, route.getIdRoute());
-            preparedStatement.setInt(8, route.getPrice());
-            preparedStatement.setString(9, route.getTrainName());
-            preparedStatement.setLong(10, route.getId());
+            preparedStatement.setInt(7, route.getPrice());
+            preparedStatement.setString(8, route.getTrainName());
+            preparedStatement.setLong(9, route.getIdRoute());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {

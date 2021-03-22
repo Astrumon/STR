@@ -30,7 +30,7 @@ public interface RouteSetDao {
             + RouteSet.PRICE_COLUMN + " = ?,"
             + RouteSet.ID_ROUTE_COLUMN + " = ?, "
             + RouteSet.DATE_SEND_COLUMN + " = ?,"
-            + RouteSet.DATE_ARRIVE_COLUMN + " = ?,"
+            + RouteSet.DATE_ARRIVE_COLUMN + " = ?, "
             + RouteSet.TRAIN_NAME_COLUMN + " = ? WHERE " + RouteSet.ID_COLUMN + " = ?";
 
     List<RouteSet> findByAll();
@@ -39,11 +39,11 @@ public interface RouteSetDao {
 
     RouteSet findByIdRoute(Long idRoute);
 
-    boolean delete(RouteSet route);
+    boolean delete(RouteSet routeSet);
 
-    boolean insert(RouteSet route);
+    boolean insert(RouteSet routeSet);
 
-    boolean update(RouteSet route);
+    boolean update(RouteSet routeSet);
 
 
 }

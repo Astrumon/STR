@@ -4,6 +4,7 @@ import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
+import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
 
@@ -15,16 +16,16 @@ public class RouteUpdater {
     private TicketUpdater ticketUpdater;
 
 
-    public RouteManager getRouteManager() {
-        return routeManager;
-    }
-
     public RouteUpdater() {
         routeManager = new RouteManager();
         ticketManager = new TicketManager();
         route = new Route();
         routeSet = new RouteSet();
         ticketUpdater = new TicketUpdater();
+    }
+
+    public RouteManager getRouteManager() {
+        return routeManager;
     }
 
     public void delete(Route route) {
@@ -93,9 +94,46 @@ public class RouteUpdater {
         }
     }
 
+    public void updateRouteSet(RouteSet routeSet) {
+        System.out.println("routeUpdater: " + routeSet);
+        RouteCreator routeCreator = new RouteCreator();
+        if (!routeManager.updateRouteSet(routeSet)) {
+            AlertGenerator.error("Виникла помилка при зміні даних");
+        } else {
 
+          routeManager.updateRoute(updateRoute(routeSet));
+        }
+//            AlertGenerator.info("Зміни в маршруті успішно внесені");
 
+//            AlertGenerator.error("Виникла помилка при зміні даних");
 
+    }
+
+    private Route updateRoute(RouteSet routeSet) {
+        Route route = new Route();
+        route.setTrainName(routeSet.getTrainName());
+        route.setIdRoute(routeSet.getIdRoute()-1);
+        int count = 0;
+
+        int price = 0;
+        for (RouteSet value : routeManager.getRouteSetsByRouteId(routeSet.getIdRoute())) {
+            count++;
+            price += routeSet.getPrice();
+
+            if (count == 1) {
+                route.setFromTown(routeSet.getFromTown());
+                route.setTimeStart(routeSet.getSendTime());
+            }
+
+            if (count == routeManager.getRouteSetsByRouteId(routeSet.getIdRoute()).size()-1) {
+                route.setToTown(routeSet.getToTown());
+                route.setTimeEnd(routeSet.getArriveTime());
+            }
+        }
+
+        route.setPrice(price);
+        return route;
+    }
 
 
 

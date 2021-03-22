@@ -178,6 +178,7 @@ public class RouteSetDaoImpl implements RouteSetDao {
 
     @Override
     public boolean update(RouteSet routeSet) {
+
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
@@ -188,10 +189,10 @@ public class RouteSetDaoImpl implements RouteSetDao {
             preparedStatement.setString(4, routeSet.getArriveTime());
             preparedStatement.setInt(5, routeSet.getPrice());
             preparedStatement.setLong(6, routeSet.getIdRoute());
-            preparedStatement.setString(6, routeSet.getDateSend());
-            preparedStatement.setString(7, routeSet.getDateArrive());
-            preparedStatement.setString(8, routeSet.getTrainName());
-            preparedStatement.setLong(9, routeSet.getId());
+            preparedStatement.setString(7, routeSet.getDateSend());
+            preparedStatement.setString(8, routeSet.getDateArrive());
+            preparedStatement.setString(9, routeSet.getTrainName());
+            preparedStatement.setLong(10, routeSet.getId());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {
@@ -206,6 +207,8 @@ public class RouteSetDaoImpl implements RouteSetDao {
         }
 
     }
+
+
 
 
 }

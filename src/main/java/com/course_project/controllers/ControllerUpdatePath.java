@@ -70,6 +70,8 @@ public class ControllerUpdatePath {
     @FXML
     private TextField textFieldTime2;
 
+    private int count;
+
     private Route route;
     private RouteUpdater routeUpdater;
 
@@ -91,66 +93,74 @@ public class ControllerUpdatePath {
 
     @FXML
     void buttonNextPointAc(ActionEvent event) {
-
+        if (count != routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1) {
+            ++count;
+            fillFields(count);
+        }
     }
 
     @FXML
     void buttonPreviousPointAc(ActionEvent event) {
+        if (count != 0) {
+            --count;
+            fillFields(count);
+        }
 
     }
 
     @FXML
     void buttonSavePathAc(ActionEvent event) {
-
-
-       Route route = getUpdatedRoute();
-
-        System.out.println(route);
+       RouteSet routeSet = getUpdatedRouteSet();
+       routeUpdater.updateRouteSet(routeSet);
 
 
         //TODO update route, update routeSet
     }
 
 
-    private Route getUpdatedRoute() {
-        Route route = this.route;
+    private RouteSet getUpdatedRouteSet() {
+       List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
 
+        int index = count;
+        System.out.println("BEFORE" + routeSets.get(index));
         if (routeUpdater.isValidPrice(textFieldPrice.getText())) {
-            route.setPrice(Integer.parseInt(textFieldPrice.getText()));
+            routeSets.get(index).setPrice(Integer.parseInt(textFieldPrice.getText()));
         }
 
         if (routeUpdater.isValidPoint(textFieldPoint1.getText())) {
-            route.setFromTown(textFieldPoint1.getText());
+            routeSets.get(index).setFromTown(textFieldPoint1.getText());
         }
 
         if (routeUpdater.isValidPoint(textFieldPoint2.getText())) {
-            route.setToTown(textFieldPoint2.getText());
+            routeSets.get(index).setToTown(textFieldPoint2.getText());
         }
 
-        RouteSet firstRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(0);
-        String dateSend = firstRouteSet.getDateSend();
+//        RouteSet firstRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(0);
+//        String dateSend = firstRouteSet.getDateSend();
         if (routeUpdater.isValidDate(datePicker1.getValue().toString())) {
-            firstRouteSet.setDateSend(datePicker1.getValue().toString());
+            routeSets.get(index).setDateSend(datePicker1.getValue().toString());
         }
 
-        int size = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1;
-        RouteSet lastRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(size);
-        String dateArrive = lastRouteSet.getDateArrive();
+//        int size = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1;
+//        RouteSet lastRouteSet = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).get(size);
+//        String dateArrive = lastRouteSet.getDateArrive();
         if (routeUpdater.isValidDate(datePicker2.getValue().toString())) {
-            lastRouteSet.setDateSend(datePicker2.getValue().toString());
+            routeSets.get(index).setDateArrive(datePicker2.getValue().toString());
         }
-        System.out.println(firstRouteSet);
-        System.out.println(lastRouteSet);
+//        System.out.println(firstRouteSet);
+//        System.out.println(lastRouteSet);
 
         if (routeUpdater.isValidTime(textFieldTime1.getText())) {
-            route.setTimeStart(textFieldTime1.getText());
+            routeSets.get(index).setSendTime(textFieldTime1.getText());
         }
 
         if (routeUpdater.isValidTime(textFieldTime2.getText())) {
-            route.setTimeStart(textFieldTime2.getText());
+            routeSets.get(index).setArriveTime(textFieldTime2.getText());
         }
 
-        return route;
+        System.out.println("AFTER" + routeSets.get(index));
+
+        return routeSets.get(index);
     }
 
 
@@ -174,24 +184,26 @@ public class ControllerUpdatePath {
         assert buttonSavePath != null : "fx:id=\"buttonSavePath\" was not injected: check your FXML file 'updatePath.fxml'.";
         assert buttonDeletePath != null : "fx:id=\"buttonDeletePath\" was not injected: check your FXML file 'updatePath.fxml'.";
 
+        count = 0;
         route = RouteManager.transfer;
         routeUpdater = new RouteUpdater();
 
-         fillFields();
+         fillFields(count);
     }
 
-    private void fillFields() {
+    private void fillFields(int count) {
 
         List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
 
+
         choiceBoxNameTrain.setValue(route.getTrainName());
-        textFieldPoint1.setText(route.getFromTown());
-        textFieldPoint2.setText(route.getToTown());
-        textFieldPrice.setText(String.valueOf(route.getPrice()));
-        textFieldTime1.setText(route.getTimeStart());
-        textFieldTime2.setText(route.getTimeEnd());
-        LocalDate date1 = LocalDate.parse(routeSets.get(0).getDateSend());
-        LocalDate date2 = LocalDate.parse(routeSets.get(routeSets.size()-1).getDateArrive());
+        textFieldPoint1.setText(routeSets.get(count).getFromTown());
+        textFieldPoint2.setText(routeSets.get(count).getToTown());
+        textFieldPrice.setText(String.valueOf(routeSets.get(count).getPrice()));
+        textFieldTime1.setText(routeSets.get(count).getSendTime());
+        textFieldTime2.setText(routeSets.get(count).getArriveTime());
+        LocalDate date1 = LocalDate.parse(routeSets.get(count).getDateSend());
+        LocalDate date2 = LocalDate.parse(routeSets.get(count).getDateArrive());
 
         datePicker1.setValue(date1);
         datePicker2.setValue(date2);

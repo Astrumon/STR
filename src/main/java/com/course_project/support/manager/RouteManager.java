@@ -80,4 +80,13 @@ public class RouteManager extends Manager {
         }
         return result;
     }
+
+    public boolean updateRouteSet(RouteSet routeSet) {
+      return routeSetDao.update(routeSet);
+    }
+
+    public boolean updateRoute(Route route) {
+        System.out.println("ROUT: " + route);
+       return routeDao.update(route);
+    }
 }
