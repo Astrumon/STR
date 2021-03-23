@@ -80,7 +80,6 @@ public class RouteCreator {
 
     public void create(Route route) {
         if (routeManager.createRoute(route)) {
-            System.out.println("T " + route);
             ticketCreator.createTicket(ticketCreator.fillTicket(route));
             AlertGenerator.info("Маршрут успішно створено");
         } else {

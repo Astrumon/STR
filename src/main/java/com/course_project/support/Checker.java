@@ -3,6 +3,7 @@ package com.course_project.support;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.commons.validator.routines.EmailValidator;
 
 public class Checker {
 
@@ -40,6 +41,10 @@ public class Checker {
 
 
         return parsedDate != null;
+    }
+
+    public static boolean checkValidEmail(String value) {
+        return EmailValidator.getInstance().isValid(value);
     }
 
 }

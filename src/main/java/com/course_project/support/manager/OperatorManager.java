@@ -10,6 +10,8 @@ public class OperatorManager extends Manager {
     private OperatorDaoImpl operatorDao;
     private Operator operator;
 
+    public static String login;
+
     public OperatorManager() {
         operatorDao = new OperatorDaoImpl(dataSource);
         operator = new Operator();

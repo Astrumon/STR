@@ -30,7 +30,6 @@ public class RouteUpdater {
 
     public void delete(Route route) {
         if (routeManager.deleteRoute(route) & deleteRouteSet(route.getIdRoute()) & deleteRouteFromTrain(route.getTrainName(), route.getIdRoute()) & deleteTicket(route.getIdRoute())) {
-
             AlertGenerator.info("Шлях успішно видалений");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні шляху");
@@ -59,7 +58,7 @@ public class RouteUpdater {
                 && Checker.checkPositiveIntValue(currentPrice)) {
             return true;
         } else {
-            AlertGenerator.error("Ціна вказана невірно або цей запис вже існує");
+            AlertGenerator.error("Ціна вказана невірно");
             return false;
         }
 
@@ -70,7 +69,7 @@ public class RouteUpdater {
                 && Checker.checkStringValue(currentValue)) {
             return true;
         } else {
-            AlertGenerator.error("Точка вказана невірно або цей запис вже існує");
+            AlertGenerator.error("Точка вказана невірно");
             return false;
         }
     }
@@ -79,7 +78,7 @@ public class RouteUpdater {
         if (!Checker.checkEmptyValue(currentDate)) {
             return true;
         } else {
-            AlertGenerator.error("Дата вказана невірно або цей запис вже існує");
+            AlertGenerator.error("Дата вказана невірно");
             return false;
         }
     }

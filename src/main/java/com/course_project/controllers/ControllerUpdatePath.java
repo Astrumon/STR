@@ -4,7 +4,6 @@ package com.course_project.controllers;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.support.AlertGenerator;
-import com.course_project.support.Checker;
 import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.updater.RouteUpdater;
@@ -14,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import org.w3c.dom.ls.LSOutput;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -174,7 +172,7 @@ public class ControllerUpdatePath {
     void buttonNextPointAc(ActionEvent event) {
         if (count != routeSetSize) {
             ++count;
-            fillFields(count);
+            initData(count);
         }
         if (count == routeSetSize) {
             buttonAddNewPoint.setVisible(true);
@@ -185,7 +183,7 @@ public class ControllerUpdatePath {
     void buttonPreviousPointAc(ActionEvent event) {
         if (count != 0) {
             --count;
-            fillFields(count);
+            initData(count);
         }
 
         if (count != routeSetSize) {
@@ -255,17 +253,6 @@ public class ControllerUpdatePath {
         return routeSets.get(index);
     }
 
-
-
-
-
-
-
-
-
-
-
-
     @FXML
     void initialize() {
         assert textFieldPoint1 != null : "fx:id=\"textFieldPint1\" was not injected: check your FXML file 'updatePath.fxml'.";
@@ -286,14 +273,12 @@ public class ControllerUpdatePath {
         }
 
 
-         fillFields(count);
+         initData(count);
     }
 
-    private void fillFields(int count) {
+    private void initData(int count) {
 
         List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
-
-
         choiceBoxNameTrain.setValue(route.getTrainName());
         textFieldPoint1.setText(routeSets.get(count).getFromTown());
         textFieldPoint2.setText(routeSets.get(count).getToTown());

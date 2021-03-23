@@ -3,8 +3,10 @@ package com.course_project.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.course_project.Admin;
 import com.course_project.FxmlLoader;
 import com.course_project.database.DataSource;
+import com.course_project.support.manager.OperatorManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -285,6 +287,16 @@ public class ControllerBasisOperatorInterface {
         assert mainTopGridPane != null : "fx:id=\"mainTopGridPane\" was not injected: check your FXML file 'basisOperatorInterface.fxml'.";
         DataSource dataSource = new DataSource();
         dataSource.setConfig();
+
+        lableUserName.setText("Адміністратор");
+        if (OperatorManager.login != null) {
+            buttonOperators.setVisible(false);
+            lableUserName.setText("Оператор: " + OperatorManager.login);
+        }  else if (Admin.status){
+            buttonOperators.setVisible(true);
+        }
+
+
 
     }
 }
