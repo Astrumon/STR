@@ -183,14 +183,13 @@ public class TicketDaoImpl implements TicketDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);
             preparedStatement.setString(1, ticket.getFromTown());
             preparedStatement.setString(2, ticket.getToTown());
-            preparedStatement.setString(3, ticket.getTimeEnd());
-            preparedStatement.setString(4, ticket.getTimeStart());
-            preparedStatement.setLong(5, ticket.getIdTicket());
-            preparedStatement.setBoolean(6, ticket.isLinen());
-            preparedStatement.setInt(7, ticket.getPrice());
-            preparedStatement.setInt(8, ticket.getStatus());
-            preparedStatement.setLong(9, ticket.getIdRoute());
-            preparedStatement.setLong(10, ticket.getId());
+            preparedStatement.setString(3, ticket.getTimeStart());
+            preparedStatement.setString(4, ticket.getTimeEnd());
+            preparedStatement.setBoolean(5, ticket.isLinen());
+            preparedStatement.setInt(6, ticket.getPrice());
+            preparedStatement.setInt(7, ticket.getStatus());
+            preparedStatement.setLong(8, ticket.getIdRoute());
+            preparedStatement.setLong(9, ticket.getId());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {

@@ -35,4 +35,8 @@ public class TicketManager extends Manager {
 
         return ticketDao.delete(ticket);
     }
+
+    public boolean updateTicket(Ticket ticket) {
+        return ticketDao.update(ticket);
+    }
 }

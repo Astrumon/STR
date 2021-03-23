@@ -28,8 +28,8 @@ public interface TicketDao {
             + Ticket.LINEN_COLUMN + " = ?, "
             + Ticket.PRICE_COLUMN + " = ?,"
             + Ticket.STATUS_COLUMN + " = ?,"
-            + Ticket.ID_ROUTE_COLUMN + " = ?,"
-            + Ticket.ID_TICKET_COLUMN + " = ? WHERE " + Ticket.ID_COLUMN + " = ?";
+            + Ticket.ID_ROUTE_COLUMN + " = ?"
+            + " WHERE " + Ticket.ID_COLUMN + " = ?";
 
     List<Ticket> findByAll();
 

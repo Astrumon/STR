@@ -81,8 +81,7 @@ public class RouteCreator {
     public void create(Route route) {
         if (routeManager.createRoute(route)) {
             System.out.println("T " + route);
-            ticketCreator.fillTicket(route);
-            ticketCreator.createTicket(ticketCreator.getTicket());
+            ticketCreator.createTicket(ticketCreator.fillTicket(route));
             AlertGenerator.info("Маршрут успішно створено");
         } else {
             AlertGenerator.error("Виникла помилка при створені маршрута");

@@ -167,13 +167,9 @@ public class ControllerCreatePath {
         clearFields();
         choiceBoxNameTrain.setValue(null);
         getBackScene();
-
-
-
     }
 
     private void getBackScene() {
-
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("tablePath");
         stackPanePathCreate.getChildren().remove(anchorPaneCreatePath);
@@ -204,8 +200,6 @@ public class ControllerCreatePath {
 
         train = new Train();
         routeSet = new RouteSet();
-
-
 
         textFieldTime1.setText("00:00");
         textFieldTime2.setText("00:00");

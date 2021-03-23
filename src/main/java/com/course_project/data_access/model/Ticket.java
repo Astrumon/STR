@@ -102,7 +102,7 @@ public class Ticket {
     }
 
     public String toString() {
-        return "Route[ id= " + this.id
+        return "Ticket[ id= " + this.id
                 + ", toTown= " + this.toTown
                 + ", fromTown= " + this.fromTown
                 + ", timeStart= " + this.timeStart

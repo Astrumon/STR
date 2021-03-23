@@ -33,11 +33,18 @@ public class AlertGenerator {
     }
 
     public static void tableRoute(List<RouteSet> routeSets) {
-        alert.setAlertType(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         VBox dialogPaneContent = new VBox();
-        alert.setTitle("Повний маршрут для потяга: " + routeSets.get(1).getTrainName());
+        alert.setTitle("Повний маршрут для потяга: " + routeSets.get(0).getTrainName());
         Label label = new Label("Повний маршрут");
 
+        dialogPaneContent.getChildren().addAll(label, getTableWithRouteSet(routeSets));
+
+        alert.getDialogPane().setContent(dialogPaneContent);
+        alert.showAndWait();
+    }
+
+    private static TableView getTableWithRouteSet(List<RouteSet> routeSets) {
         ObservableList<RouteSet> routeSets1 = FXCollections.observableArrayList(routeSets);
         TableView<RouteSet> tableView = new TableView<RouteSet>(routeSets1);
         tableView.setPrefHeight(500);
@@ -71,9 +78,8 @@ public class AlertGenerator {
         price.setCellValueFactory(new PropertyValueFactory<RouteSet, Integer>("price"));
         tableView.getColumns().add(price);
 
-        dialogPaneContent.getChildren().addAll(label, tableView);
-
-        alert.getDialogPane().setContent(dialogPaneContent);
-        alert.showAndWait();
+        return tableView;
     }
 }
+
+

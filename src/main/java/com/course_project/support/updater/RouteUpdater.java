@@ -1,10 +1,10 @@
 package com.course_project.support.updater;
 
+import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
-import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
 
@@ -95,13 +95,24 @@ public class RouteUpdater {
     }
 
     public void updateRouteSet(RouteSet routeSet) {
-        System.out.println("routeUpdater: " + routeSet);
-        RouteCreator routeCreator = new RouteCreator();
+
         if (!routeManager.updateRouteSet(routeSet)) {
             AlertGenerator.error("Виникла помилка при зміні даних");
         } else {
             //TODO TICKETUPDATE
-            routeManager.updateRoute(updateRoute(routeSet));
+            Route route = getUpdatedRoute(routeSet);
+            if (routeManager.updateRoute(route)) {
+                Ticket ticket = ticketManager.getTicketByIdRoute(routeSet.getIdRoute()-1);
+                ticket.setFromTown(route.getFromTown());
+                ticket.setToTown(route.getToTown());
+                ticket.setPrice(route.getPrice());
+                ticket.setTimeStart(route.getTimeStart());
+                ticket.setTimeEnd(route.getTimeEnd());
+                System.out.println("TICKET " + ticket);
+                if (ticketManager.updateTicket(ticket)) {
+                    AlertGenerator.info("Зміни успішно внесені");
+                }
+            }
         }
 //            AlertGenerator.info("Зміни в маршруті успішно внесені");
 
@@ -109,7 +120,7 @@ public class RouteUpdater {
 
     }
 
-    private Route updateRoute(RouteSet routeSet) {
+    private Route getUpdatedRoute(RouteSet routeSet) {
         Route route = new Route();
         route.setTrainName(routeSet.getTrainName());
         route.setIdRoute(routeSet.getIdRoute() - 1);
@@ -117,17 +128,19 @@ public class RouteUpdater {
 
         int price = 0;
         for (RouteSet value : routeManager.getRouteSetsByRouteId(routeSet.getIdRoute())) {
+            System.out.println("TEST routeset " + value);
             count++;
             price += routeSet.getPrice();
 
             if (count == 1) {
-                route.setFromTown(routeSet.getFromTown());
-                route.setTimeStart(routeSet.getSendTime());
+                route.setFromTown(value.getFromTown());
+                route.setTimeStart(value.getSendTime());
             }
 
-            if (count == routeManager.getRouteSetsByRouteId(routeSet.getIdRoute()).size() - 1) {
-                route.setToTown(routeSet.getToTown());
-                route.setTimeEnd(routeSet.getArriveTime());
+            if (count == routeManager.getRouteSetsByRouteId(routeSet.getIdRoute()).size()) {
+                System.out.println("SIZE: count= " + count + " index= " + value);
+                route.setToTown(value.getToTown());
+                route.setTimeEnd(value.getArriveTime());
             }
         }
 

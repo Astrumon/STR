@@ -21,7 +21,7 @@ public class TicketCreator {
         return ticketManager;
     }
 
-    public void fillTicket(Route route) {
+    public Ticket fillTicket(Route route) {
         System.out.println("ROUTETEST: " + route);
         ticket.setIdRoute(route.getIdRoute());
         ticket.setStatus(Ticket.STATUS_FREE);
@@ -32,6 +32,7 @@ public class TicketCreator {
         ticket.setTimeStart(route.getTimeStart());
         ticket.setTimeEnd(route.getTimeEnd());
         ticket.setPrice(route.getPrice());
+        return ticket;
     }
 
     public Ticket getTicket() {
