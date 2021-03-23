@@ -1,6 +1,7 @@
 com\course_project\data_access\tests\TestPlace.class
 com\course_project\data_access\dao\train_dao\TrainDao.class
 com\course_project\support\manager\WagonManager$NumberGenerator.class
+com\course_project\controllers\ControllerUserTrucking.class
 com\course_project\support\Checker.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\updater\WagonUpdater.class
@@ -21,6 +22,7 @@ com\course_project\data_access\model\route\Route.class
 com\course_project\support\updater\TrainUpdater.class
 com\course_project\data_access\dao\impl\route_dao_impl\RouteSetDaoImpl.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.class
+com\course_project\controllers\ControllerUserTableTicket.class
 com\course_project\data_access\model\train\Train.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.class
 com\course_project\controllers\ControllerTableOperator.class
@@ -91,6 +93,7 @@ com\course_project\controllers\ControllerTableTicket.class
 com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.class
 com\course_project\support\updater\RouteUpdater.class
 com\course_project\support\manager\WagonManager.class
+com\course_project\controllers\ControllerUserBuyTicket.class
 com\course_project\data_access\model\warehouse\WarehouseSet.class
 com\course_project\support\updater\TicketUpdater.class
 com\course_project\controllers\ControllerCreatePath.class

@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
 import com.course_project.data_access.model.wagon.Wagon;
@@ -32,6 +33,9 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     private GridPane mainTopGridPane;
+
+    @FXML
+    private Label lableUserName;
 
     @FXML
     private StackPane stackPane;

@@ -4,12 +4,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.course_project.FxmlLoader;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class ControllerBasisUserInterface {
@@ -40,7 +43,9 @@ public class ControllerBasisUserInterface {
 
     @FXML
     void buttonCargoTransportationAc(ActionEvent event) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("userTrucking");
+        mainPane.setCenter(view);
     }
 
     @FXML
@@ -53,7 +58,9 @@ public class ControllerBasisUserInterface {
 
     @FXML
     void buttonTicketAc(ActionEvent event) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("userTableTicket");
+        mainPane.setCenter(view);
     }
 
     @FXML

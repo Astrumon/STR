@@ -84,7 +84,7 @@
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ImageView>
-                  <Label text="Оператор: Галина" GridPane.rowIndex="1">
+                  <Label fx:id="lableUserName" text="Оператор: Галина" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

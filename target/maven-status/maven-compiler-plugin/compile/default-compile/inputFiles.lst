@@ -4,6 +4,7 @@ D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_acces
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateTrain.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\Manager.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUserTableTicket.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTableTrain.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\NumberIDGenerator.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
@@ -58,6 +59,7 @@ D:\KPI\Course Project\course_project\src\main\java\com\course_project\controller
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerTablePath.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\model\route\Town.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestWarehouse.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUserTrucking.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUpdateCar.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\ParseId.java
@@ -72,6 +74,7 @@ D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_acces
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\tests\TestWagon.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.java
+D:\KPI\Course Project\course_project\src\main\java\com\course_project\controllers\ControllerUserBuyTicket.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\RouteManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\support\manager\WarehouseManager.java
 D:\KPI\Course Project\course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\RouteDaoImpl.java
