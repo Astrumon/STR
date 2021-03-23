@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
@@ -23,6 +25,9 @@ public class ControllerBasisOperatorInterface {
     private URL location;
 
     @FXML
+    private AnchorPane anchorPaneBasisOperatorInterface;
+
+    @FXML
     private BorderPane mainPane;
 
     @FXML
@@ -30,6 +35,9 @@ public class ControllerBasisOperatorInterface {
 
     @FXML
     private StackPane stackPane;
+
+    @FXML
+    private Button buttonExit;
 
     @FXML
     private Button buttonCreateStorage;
@@ -99,8 +107,13 @@ public class ControllerBasisOperatorInterface {
     }
 
     @FXML
-    void buttonExit(ActionEvent event) {
-
+    void buttonExitAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Parent root = object.getPage("basisUserInterface");
+        Scene scene = buttonExit.getScene();
+        StackPane mainStackPane = (StackPane) scene.getRoot();
+        mainStackPane.getChildren().remove(anchorPaneBasisOperatorInterface);
+        mainStackPane.getChildren().add(root);
     }
 
     @FXML

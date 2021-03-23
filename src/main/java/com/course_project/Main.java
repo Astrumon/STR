@@ -10,11 +10,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("basisOperatorInterface.fxml"));//com/course_project/UI/interface/basisOperatorInterface.fxml
+        Parent root = FXMLLoader.load(getClass().getResource("basisUserInterface.fxml"));//com/course_project/UI/interface/basisUserInterface.fxml
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1100, 700));
         primaryStage.show();
-        System.out.println("test");
+        primaryStage.setResizable(false);
     }
 
 

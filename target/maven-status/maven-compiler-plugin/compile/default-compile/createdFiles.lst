@@ -26,11 +26,13 @@ com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.class
 com\course_project\controllers\ControllerTableOperator.class
 com\course_project\controllers\ControllerTableCar$2.class
 com\course_project\data_access\model\train\TrainSet.class
+com\course_project\controllers\ControllerBasisUserInterface.class
 com\course_project\database\DataSource.class
 com\course_project\controllers\ControllerTableStorage$1.class
 com\course_project\controllers\ControllerCreateCar.class
 com\course_project\data_access\dao\wagon_dao\WagonDao.class
 com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.class
+com\course_project\controllers\ControllerLoginAccount.class
 com\course_project\support\creator\TicketCreator.class
 module-info.class
 com\course_project\support\creator\TrainCreator.class
