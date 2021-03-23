@@ -317,6 +317,41 @@ public class WagonDaoImpl implements WagonDao {
             return true;
         }
 
+    @Override
+    public List<Wagon> findByTrainName(String trainName) {
+        Connection connection = null;
+
+        List<Wagon> wagons = new ArrayList<>();
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_TRAIN_NAME_WAGON);
+            preparedStatement.setString(1, trainName);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+               Wagon wagon = new Wagon();
+                wagon.setId(rs.getLong(Wagon.ID_COLUMN));
+                wagon.setIdWagon(rs.getLong(Wagon.ID_WAGON_COLUMN));
+                wagon.setNameWarehouse(rs.getString(Wagon.NAME_WAREHOUSE_COLUMN));
+                wagon.setPosTrain(rs.getInt(Wagon.POSITION_TRAIN_COLUMN));
+                wagon.setIdTrainSet(rs.getLong(Wagon.ID_TRAIN_SET_COLUMN));
+                wagon.setIdWarehouseSet(rs.getLong(Wagon.ID_WAREHOUSE_SET_COLUMN));
+                wagon.setIdCountTypePlace(rs.getLong(Wagon.ID_COUNT_TYPE_PLACE_COLUMN));
+                wagon.setCountSeats(rs.getInt(Wagon.COUNT_SEATS_COLUMN));
+                wagon.setType(rs.getInt(Wagon.TYPE_COLUMN));
+                wagon.setTrainName(rs.getString(Wagon.TRAIN_NAME_COLUMN));
+                wagons.add(wagon);
+            }
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+        return wagons;
+    }
 
 
     /**

@@ -9,33 +9,28 @@ import com.course_project.support.Checker;
 import com.course_project.support.creator.RouteCreator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
 
 public class ControllerCreatePath {
 
     @FXML
+    DatePicker datePicker2;
+    @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
-
-
     @FXML
     private DatePicker datePicker1;
-
-    @FXML DatePicker datePicker2;
-
     @FXML
     private StackPane stackPanePathCreate;
 
@@ -76,33 +71,25 @@ public class ControllerCreatePath {
     private String previouesValueOfDate = "";
     private int counterClicker = 0;
 
-    private boolean isCorrectTime() {
-        return Checker.isValidTime(textFieldTime1.getText()) && Checker.isValidTime(textFieldTime2.getText());
-    }
+
     @FXML
     void buttonNextPointAc(ActionEvent event) {
-        if (isCorrectNameFromTown() && isCorrectNameToTown() ) {
-            if (isCorrectTime()) {
-                if (counterClicker == 0) {
-                    if (!isSameTown() && !isEmptyTrainName()) {
-                        firstTime();
-                        ++counterClicker;
-                    } else {
-                        AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
-                    }
-                } else if (counterClicker >= 1) {
-                    if (!isSameTown() && !isEmptyTrainName()) {
-                        nextTime();
-                        ++counterClicker;
-                    } else {
-                        AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
-                    }
+        if (checkFields()) {
+            if (counterClicker == 0) {
+                if (!isSameTown() && !isEmptyTrainName()) {
+                    firstTime();
+                    ++counterClicker;
+                } else {
+                    AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
                 }
-            } else {
-                AlertGenerator.error("Невірний формат часу (00:00)");
+            } else if (counterClicker >= 1) {
+                if (!isSameTown() && !isEmptyTrainName()) {
+                    nextTime();
+                    ++counterClicker;
+                } else {
+                    AlertGenerator.error("Назви точок відправлень не повинні бути однаковими ");
+                }
             }
-        } else {
-            AlertGenerator.error("Невірно заповнені поля");
         }
 
         if (choiceBoxNameTrain.getItems().size() != 1) {
@@ -132,7 +119,6 @@ public class ControllerCreatePath {
     }
 
 
-
     private boolean isSameTown() {
         return textFieldPoint1.getText().equals(textFieldPoint2.getText());
     }
@@ -141,32 +127,21 @@ public class ControllerCreatePath {
         return train.getName() == null;
     }
 
-    private boolean isCorrectNameFromTown() {
-        return !Checker.checkEmptyValue(textFieldPoint1.getText())
-                && Checker.checkStringValue(textFieldPoint1.getText());
-    }
-
-    private boolean isCorrectNameToTown() {
-        return !Checker.checkEmptyValue(textFieldPoint2.getText())
-                && Checker.checkStringValue(textFieldPoint2.getText());
-    }
 
     @FXML
     void buttonSavePathAc(ActionEvent event) {
-        if (isCorrectNameFromTown() && isCorrectNameToTown() ) {
-            if (counterClicker == 0) {
-                firstTime();
-            } else if (!textFieldTime2.getText().isEmpty() && !textFieldPoint2.getText().isEmpty() && !datePicker2.getEditor().getText().isEmpty()) {
-                nextTime();
-            }
-        } else {
-            AlertGenerator.error("ERROR");
-        }
+            if (checkFields()) {
+                if (counterClicker == 0) {
+                    firstTime();
+                } else if (!textFieldTime2.getText().isEmpty() && !textFieldPoint2.getText().isEmpty() && !datePicker2.getEditor().getText().isEmpty()) {
+                    nextTime();
+                }
 
-        routeCreator.create(routeCreator.getFillRoute(train.getName()));
-        clearFields();
-        choiceBoxNameTrain.setValue(null);
-        getBackScene();
+                routeCreator.create(routeCreator.getFillRoute(train.getName()));
+                clearFields();
+                choiceBoxNameTrain.setValue(null);
+                getBackScene();
+            }
     }
 
     private void getBackScene() {
@@ -181,9 +156,10 @@ public class ControllerCreatePath {
         textFieldPoint1.clear();
         textFieldPoint2.clear();
         textFieldPrice.clear();
-
-        textFieldPrice.clear();
+        textFieldTime2.setText("00:00");
+        textFieldTime1.setText("00:00");
         datePicker1.getEditor().clear();
+        datePicker2.getEditor().clear();
     }
 
     @FXML
@@ -200,9 +176,6 @@ public class ControllerCreatePath {
 
         train = new Train();
         routeSet = new RouteSet();
-
-        textFieldTime1.setText("00:00");
-        textFieldTime2.setText("00:00");
         choiceBoxInit();
         getInfoFromBox();
 
@@ -215,9 +188,9 @@ public class ControllerCreatePath {
     }
 
     private void setTrainFromBox(String name) {
+
         clearFields();
-        textFieldTime2.setText("00:00");
-        textFieldTime1.setText("00:00");
+
         counterClicker = 0;
         ++RouteCreator.idRoute;
         train = routeCreator.getTrainManager().getTrain(name);
@@ -231,54 +204,68 @@ public class ControllerCreatePath {
     }
 
     private void firstCreateTownRoute() {
-        routeSet.setFromTown(textFieldPoint1.getText());
-        previousValueOfToTown = textFieldPoint2.getText();
-        routeSet.setToTown(textFieldPoint2.getText());
-        textFieldPoint2.clear();
-        textFieldPoint1.setText(previousValueOfToTown);
+            routeSet.setFromTown(textFieldPoint1.getText());
+            previousValueOfToTown = textFieldPoint2.getText();
+            routeSet.setToTown(textFieldPoint2.getText());
+            textFieldPoint2.clear();
+            textFieldPoint1.setText(previousValueOfToTown);
     }
 
     private void nextCreateTownRoute() {
-        routeSet.setFromTown(previousValueOfToTown);
-        routeSet.setToTown(textFieldPoint2.getText());
-        previousValueOfToTown = textFieldPoint2.getText();
-        textFieldPoint1.setText(previousValueOfToTown);
-        textFieldPoint2.clear();
+            routeSet.setFromTown(previousValueOfToTown);
+            routeSet.setToTown(textFieldPoint2.getText());
+            previousValueOfToTown = textFieldPoint2.getText();
+            textFieldPoint1.setText(previousValueOfToTown);
+            textFieldPoint2.clear();
     }
 
     private void firstCreateTimeRoute() {
-        routeSet.setSendTime(textFieldTime1.getText());
-        previousValueOfToTime = textFieldTime2.getText();
-        routeSet.setArriveTime(textFieldTime2.getText());
-        textFieldTime2.setText("00:00");
-        textFieldTime1.setText(previousValueOfToTime);
+            routeSet.setSendTime(textFieldTime1.getText());
+            previousValueOfToTime = textFieldTime2.getText();
+            routeSet.setArriveTime(textFieldTime2.getText());
+            textFieldTime2.setText("00:00");
+            textFieldTime1.setText(previousValueOfToTime);
     }
 
     private void nextCreateTimeRoute() {
-        routeSet.setSendTime(previousValueOfToTime);
-        routeSet.setArriveTime(textFieldTime2.getText());
-        previousValueOfToTime = textFieldTime2.getText();
-        textFieldTime1.setText(previousValueOfToTime);
-        textFieldTime2.setText("00:00");
+
+            routeSet.setSendTime(previousValueOfToTime);
+            routeSet.setArriveTime(textFieldTime2.getText());
+            previousValueOfToTime = textFieldTime2.getText();
+            textFieldTime1.setText(previousValueOfToTime);
+            textFieldTime2.setText("00:00");
     }
 
     private void firstCreateDate() {
-        routeSet.setDateSend(datePicker1.getValue().toString());
-        previouesValueOfDate = datePicker2.getValue().toString();
-        routeSet.setDateArrive(datePicker2.getValue().toString());
-        LocalDate date = LocalDate.parse(previouesValueOfDate);
-        datePicker1.setValue(date);
-        datePicker2.setValue(null);
+
+            routeSet.setDateSend(datePicker1.getValue().toString());
+            previouesValueOfDate = datePicker2.getValue().toString();
+            routeSet.setDateArrive(datePicker2.getValue().toString());
+            LocalDate date = LocalDate.parse(previouesValueOfDate);
+            datePicker1.setValue(date);
+            datePicker2.setValue(null);
 
     }
 
     private void nextCreateDate() {
-        routeSet.setDateSend(previouesValueOfDate);
-        routeSet.setDateArrive(datePicker2.getValue().toString());
-        previouesValueOfDate = datePicker2.getValue().toString();
-        LocalDate date = LocalDate.parse(previouesValueOfDate);
-        datePicker1.setValue(date);
-        datePicker2.setValue(null);
+            routeSet.setDateSend(previouesValueOfDate);
+            routeSet.setDateArrive(datePicker2.getValue().toString());
+            previouesValueOfDate = datePicker2.getValue().toString();
+            LocalDate date = LocalDate.parse(previouesValueOfDate);
+            datePicker1.setValue(date);
+            datePicker2.setValue(null);
+    }
+
+    public boolean checkFields() {
+
+        return routeCreator.isValidPoint(textFieldPoint1.getText())
+                && routeCreator.isValidPoint(textFieldPoint1.getText())
+                && routeCreator.isValidPoint(textFieldPoint2.getText())
+                && !datePicker1.getEditor().getText().isEmpty()
+                && !datePicker2.getEditor().getText().isEmpty()
+                && routeCreator.isValidTime(textFieldTime1.getText())
+                && routeCreator.isValidTime(textFieldTime2.getText())
+                && routeCreator.isValidPrice(textFieldPrice.getText());
     }
 
 

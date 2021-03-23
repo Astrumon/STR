@@ -98,7 +98,7 @@ public class RouteUpdater {
         if (!routeManager.updateRouteSet(routeSet)) {
             AlertGenerator.error("Виникла помилка при зміні даних");
         } else {
-            //TODO TICKETUPDATE
+
             Route route = getUpdatedRoute(routeSet);
             if (routeManager.updateRoute(route)) {
                 Ticket ticket = ticketManager.getTicketByIdRoute(routeSet.getIdRoute()-1);
@@ -107,6 +107,8 @@ public class RouteUpdater {
                 ticket.setPrice(route.getPrice());
                 ticket.setTimeStart(route.getTimeStart());
                 ticket.setTimeEnd(route.getTimeEnd());
+                ticket.setDateSend(routeSet.getDateSend());
+                ticket.setDateArrive(routeSet.getDateArrive());
                 System.out.println("TICKET " + ticket);
                 if (ticketManager.updateTicket(ticket)) {
                     AlertGenerator.info("Зміни успішно внесені");

@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface PlaceDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Place.TABLE_NAME;
-    String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Place.ID_PLACE_COLUMN;
+    String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Place.ID_PLACE_COLUMN + " = ?";
+    String SQL_FIND_BY_ID_WAGON = SQL_FIND_ALL + " WHERE " + Place.ID_WAGON_COLUMN + " = ?";
     String SQL_INSERT = "INSERT INTO " + Place.TABLE_NAME
             + "(" + Place.ID_WAGON_COLUMN
             + "," + Place.NUMBER_COLUMN
@@ -36,6 +37,8 @@ public interface PlaceDao {
     void insert(Place place);
 
     void updateStatus(int number, int status);
+
+    List<Place> findByIdWagon(Long idWagon);
 
 
 }

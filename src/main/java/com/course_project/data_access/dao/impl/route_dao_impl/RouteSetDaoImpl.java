@@ -1,6 +1,7 @@
 package com.course_project.data_access.dao.impl.route_dao_impl;
 
 import com.course_project.data_access.dao.route_dao.RouteSetDao;
+import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.database.DataSource;
@@ -206,6 +207,43 @@ public class RouteSetDaoImpl implements RouteSetDao {
             }
         }
 
+    }
+
+    @Override
+    public List<RouteSet> findByFromToDate(RouteSet routeSet) {
+        Connection connection = null;
+        List<RouteSet> routeSets = new ArrayList<RouteSet>();
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_FROM_TO_DATE);
+            preparedStatement.setString(1, routeSet.getFromTown());
+            preparedStatement.setString(2, routeSet.getToTown());
+            preparedStatement.setString(3, routeSet.getDateSend());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                RouteSet fillRouteSet = new RouteSet();
+                fillRouteSet.setId(resultSet.getLong(RouteSet.ID_COLUMN));
+                fillRouteSet.setFromTown(resultSet.getString(RouteSet.FROM_TOWN_COLUMN));
+                fillRouteSet.setToTown(resultSet.getString(RouteSet.TO_TOWN_COLUMN));
+                fillRouteSet.setIdRoute(resultSet.getLong(RouteSet.ID_ROUTE_COLUMN));
+                fillRouteSet.setSendTime(resultSet.getString(RouteSet.SEND_TIME_COLUMN));
+                fillRouteSet.setArriveTime(resultSet.getString(RouteSet.ARRIVE_TIME_COLUMN));
+                fillRouteSet.setPrice(resultSet.getInt(RouteSet.PRICE_COLUMN));
+                fillRouteSet.setTrainName(resultSet.getString(RouteSet.TRAIN_NAME_COLUMN));
+                fillRouteSet.setDateSend(resultSet.getString(RouteSet.DATE_SEND_COLUMN));
+                fillRouteSet.setDateArrive(resultSet.getString(RouteSet.DATE_ARRIVE_COLUMN));
+                routeSets.add(fillRouteSet);
+            }
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            }catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+        return routeSets;
     }
 
 

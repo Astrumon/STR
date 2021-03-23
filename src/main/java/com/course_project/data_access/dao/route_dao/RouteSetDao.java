@@ -1,6 +1,7 @@
 package com.course_project.data_access.dao.route_dao;
 
 
+import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.RouteSet;
 
 import java.util.List;
@@ -11,6 +12,10 @@ public interface RouteSetDao {
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + RouteSet.ID_COLUMN + " = ?";
     String SQL_FIND_BY_ID_ROUTE = SQL_FIND_ALL + " WHERE " + RouteSet.ID_ROUTE_COLUMN + " = ?";
     String SQL_DELETE = "DELETE FROM " + RouteSet.TABLE_NAME + " WHERE " + RouteSet.ID_ROUTE_COLUMN + " = ?";
+    String SQL_FIND_BY_FROM_TO_DATE = SQL_FIND_ALL + " WHERE "
+            + RouteSet.FROM_TOWN_COLUMN + " = ? AND "
+            + RouteSet.TO_TOWN_COLUMN  + " = ? AND "
+            + RouteSet.DATE_SEND_COLUMN + " = ?";
     String SQL_INSERT = "INSERT INTO " + RouteSet.TABLE_NAME
             + "(" + RouteSet.FROM_TOWN_COLUMN
             + "," + RouteSet.TO_TOWN_COLUMN
@@ -44,6 +49,8 @@ public interface RouteSetDao {
     boolean insert(RouteSet routeSet);
 
     boolean update(RouteSet routeSet);
+
+    List<RouteSet> findByFromToDate(RouteSet RouteSet);
 
 
 }

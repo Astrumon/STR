@@ -9,6 +9,11 @@ public interface TicketDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Ticket.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Ticket.ID_COLUMN + " = ?";
     String SQL_FIND_BY_ID_ROUTE = SQL_FIND_ALL + " WHERE " + Ticket.ID_ROUTE_COLUMN + " = ?";
+    String SQL_FIND_BY_FROM_TO_DATE = SQL_FIND_ALL + " WHERE "
+            + Ticket.FROM_TOWN_COLUMN + " = ? AND "
+            + Ticket.TO_TOWN_COLUMN + " = ? AND "
+            + Ticket.DATE_SEND_COLUMN;
+
     String SQL_DELETE = "DELETE FROM " + Ticket.TABLE_NAME + " WHERE " + Ticket.ID_ROUTE_COLUMN + " = ?";
     String SQL_INSERT = "INSERT INTO " + Ticket.TABLE_NAME
             + "(" + Ticket.FROM_TOWN_COLUMN
@@ -19,7 +24,9 @@ public interface TicketDao {
             + "," + Ticket.PRICE_COLUMN
             + "," + Ticket.STATUS_COLUMN
             + "," + Ticket.ID_ROUTE_COLUMN
-            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            + "," + Ticket.DATE_SEND_COLUMN
+            + "," + Ticket.DATE_ARRIVE_COLUMN
+            + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String SQL_UPDATE = "UPDATE " + Ticket.TABLE_NAME + " SET "
             + Ticket.FROM_TOWN_COLUMN + " = ?, "
             + Ticket.TO_TOWN_COLUMN + " = ?, "
@@ -28,7 +35,9 @@ public interface TicketDao {
             + Ticket.LINEN_COLUMN + " = ?, "
             + Ticket.PRICE_COLUMN + " = ?,"
             + Ticket.STATUS_COLUMN + " = ?,"
-            + Ticket.ID_ROUTE_COLUMN + " = ?"
+            + Ticket.ID_ROUTE_COLUMN + " = ?, "
+            + Ticket.DATE_SEND_COLUMN + " = ?, "
+            + Ticket.DATE_ARRIVE_COLUMN + " = ?"
             + " WHERE " + Ticket.ID_COLUMN + " = ?";
 
     List<Ticket> findByAll();
@@ -42,4 +51,6 @@ public interface TicketDao {
     boolean insert(Ticket ticket);
 
     boolean update(Ticket ticket);
+
+    List<Ticket> findByFromToDate(Ticket ticket);
 }

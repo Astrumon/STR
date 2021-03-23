@@ -4,6 +4,7 @@ import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TrainManager;
 
@@ -14,8 +15,7 @@ public class RouteCreator {
     public static Long idRoute;
     private RouteManager routeManager;
     private TrainManager trainManager;
-    private String previousValueOfToTown;
-    private String previousValueOfToTime;
+
 
     private RouteSet routeSet;
     private TicketCreator ticketCreator;
@@ -33,14 +33,6 @@ public class RouteCreator {
 
     public void setRouteSet(RouteSet routeSet) {
         this.routeSet = routeSet;
-    }
-
-    public String getPreviousValueOfToTown() {
-        return previousValueOfToTown;
-    }
-
-    public String getPreviousValueOfToTime() {
-        return previousValueOfToTime;
     }
 
     public TrainManager getTrainManager() {
@@ -89,6 +81,7 @@ public class RouteCreator {
 
     public RouteSet getFillRouteSet(String trainName, int price) {
         routeSet.setIdRoute(RouteCreator.idRoute);
+
         routeSet.setPrice(price);
         routeSet.setTrainName(trainName);
         return routeSet;
@@ -138,4 +131,44 @@ public class RouteCreator {
         }
         return last;
     }
+
+    public boolean isValidPoint(String currentValue) {
+        if (!Checker.checkEmptyValue(currentValue)
+                && Checker.checkStringValue(currentValue)) {
+            return true;
+        } else {
+            AlertGenerator.error("Точка вказана невірно");
+            return false;
+        }
+    }
+
+    public boolean isValidDate(String currentDate) {
+        System.out.println("CURRENTDATE: " + currentDate);
+        if (!Checker.checkEmptyValue(currentDate)) {
+            return true;
+        } else {
+            AlertGenerator.error("Дата вказана невірно");
+            return false;
+        }
+    }
+
+    public boolean isValidTime(String currentDate) {
+        if (!Checker.checkEmptyValue(currentDate) && Checker.isValidTime(currentDate)) {
+            return true;
+        } else {
+            AlertGenerator.error("Час вказан невірно");
+            return false;
+        }
+    }
+
+    public boolean isValidPrice(String price) {
+        if (!Checker.checkEmptyValue(price) && Checker.checkPositiveIntValue(price)) {
+            return true;
+        } else {
+            AlertGenerator.error("Час вказан невірно");
+            return false;
+        }
+    }
+
+
 }

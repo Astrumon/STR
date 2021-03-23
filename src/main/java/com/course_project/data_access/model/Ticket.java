@@ -12,14 +12,32 @@ public class Ticket {
     public static final String LINEN_COLUMN = "linen";
     public static final String STATUS_COLUMN = "status";
     public static final String ID_ROUTE_COLUMN = "id_route";
+    public static final String DATE_SEND_COLUMN = "date_send";
+    public static final String DATE_ARRIVE_COLUMN = "date_arrive";
 
     public static final int STATUS_FREE = 0;
     public static final int STATUS_SOLD = 1;
 
     private Long id, idTicket, idRoute;
-    private String toTown, fromTown, timeStart, timeEnd;
+    private String toTown, fromTown, timeStart, timeEnd, dateSend, dateArrive;
     private int price, status;
     private boolean linen;
+
+    public String getDateSend() {
+        return dateSend;
+    }
+
+    public void setDateSend(String dateSend) {
+        this.dateSend = dateSend;
+    }
+
+    public String getDateArrive() {
+        return dateArrive;
+    }
+
+    public void setDateArrive(String dateArrive) {
+        this.dateArrive = dateArrive;
+    }
 
     public Long getIdRoute() {
         return idRoute;
@@ -111,6 +129,8 @@ public class Ticket {
                 + ", linen= " + this.linen
                 + ", status= " + this.status
                 + ", idRoute= " + this.idRoute
+                + ", dateSend= " + this.dateSend
+                + ", dateArrive= " + this.dateArrive
                 + "]";
     }
 }

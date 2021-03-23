@@ -22,6 +22,7 @@ com\course_project\data_access\dao\route_dao\TownDao.class
 com\course_project\data_access\model\route\Route.class
 com\course_project\support\updater\TrainUpdater.class
 com\course_project\data_access\dao\impl\route_dao_impl\RouteSetDaoImpl.class
+com\course_project\controllers\ControllerUserTableTicket$1.class
 com\course_project\data_access\dao\impl\warehouse_dao_impl\WarehouseSetDaoImpl.class
 com\course_project\controllers\ControllerUserTableTicket.class
 com\course_project\support\creator\CargoCreator.class
@@ -64,6 +65,7 @@ com\course_project\FxmlLoader.class
 com\course_project\support\NumberIDGenerator.class
 com\course_project\controllers\ControllerUpdateTrain.class
 com\course_project\data_access\model\wagon\TypePlace.class
+com\course_project\controllers\ControllerUserTableTicket$2.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\model\Operator.class

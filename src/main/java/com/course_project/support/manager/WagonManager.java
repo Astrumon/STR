@@ -46,6 +46,10 @@ public class WagonManager extends Manager {
         return wagonDao.findByIdWagon(idWagon);
     }
 
+   public List<Wagon> getWagonsByTrainName(String trainName) {
+        return wagonDao.findByTrainName(trainName);
+   }
+
     private boolean isWagonNull(Long idWagon) {
         return wagonDao.findByIdWagon(idWagon) == null;
     }
@@ -127,5 +131,9 @@ public class WagonManager extends Manager {
 
     public List<Wagon> getWagons() {
         return wagonDao.findAll();
+    }
+
+    public List<Place> getPlacesByIdWagon(Long idWagon) {
+        return placeDao.findByIdWagon(idWagon);
     }
 }

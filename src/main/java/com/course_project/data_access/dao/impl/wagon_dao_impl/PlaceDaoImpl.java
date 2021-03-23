@@ -220,4 +220,36 @@ public class PlaceDaoImpl implements PlaceDao {
             System.out.println("invalid data: number = " + number + " status = " + status);
         }
     }
+
+    @Override
+    public List<Place> findByIdWagon(Long idWagon) {
+        Connection connection = null;
+        List<Place> places = new ArrayList<>();
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_ID_WAGON);
+            preparedStatement.setLong(1, idWagon);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Place place = new Place();
+                place.setIdPlace(resultSet.getLong(Place.ID_PLACE_COLUMN));
+                place.setIdWagon(resultSet.getLong(Place.ID_WAGON_COLUMN));
+                place.setNumber(resultSet.getInt(Place.NUMBER_COLUMN));
+                place.setType(resultSet.getInt(Place.TYPE_COLUMN));
+                place.setStatus(resultSet.getInt(Place.STATUS_COLUMN));
+                place.setIdCountType(resultSet.getLong(Place.ID_COUNT_TYPE_COLUMN));
+                places.add(place);
+            }
+        } catch (SQLException exc) {
+            System.out.println(exc);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
+        return places;
+    }
 }

@@ -89,4 +89,8 @@ public class RouteManager extends Manager {
         System.out.println("ROUT: " + route);
        return routeDao.update(route);
     }
+
+    public List<RouteSet> getRouteSetsByFromToDate(RouteSet routeSet) {
+        return routeSetDao.findByFromToDate(routeSet);
+    }
 }

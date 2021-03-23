@@ -11,6 +11,7 @@ public interface WagonDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Wagon.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Wagon.ID_COLUMN + "= ?";
     String SQL_FIND_BY_ID_WAGON = SQL_FIND_ALL + " WHERE " + Wagon.ID_WAGON_COLUMN + "= ?";
+    String SQL_FIND_BY_TRAIN_NAME_WAGON = SQL_FIND_ALL + " WHERE " + Wagon.TRAIN_NAME_COLUMN + "= ?";
     String SQL_INSERT = "INSERT INTO " + Wagon.TABLE_NAME
             + "("  + Wagon.ID_WAGON_COLUMN
             + "," + Wagon.TYPE_COLUMN
@@ -69,4 +70,5 @@ public interface WagonDao {
 
     boolean setTypePlace(Wagon wagon, TypePlace typePlace);
 
+    List<Wagon> findByTrainName(String name);
 }

@@ -81,6 +81,10 @@ public class ControllerUpdatePath {
     void buttonAddNewPointAc(ActionEvent event) {
 
         if (countClickAddButton == 0) {
+
+            buttonSavePath.setVisible(false);
+            buttonNextPoint.setDisable(true);
+            buttonPreviousPoint.setDisable(true);
             textFieldPoint1.setText(textFieldPoint2.getText());
             datePicker1.setValue(datePicker2.getValue());
             textFieldTime1.setText(textFieldTime2.getText());
@@ -91,7 +95,10 @@ public class ControllerUpdatePath {
 
             buttonAddNewPoint.setText("Зберегти нову точку");
             ++countClickAddButton;
-        } else if (countClickAddButton >= 1){
+        } else if (countClickAddButton == 1){
+            buttonNextPoint.setDisable(false);
+            buttonPreviousPoint.setDisable(false);
+            buttonSavePath.setVisible(true);
             RouteCreator routeCreator = new RouteCreator();
 
             RouteSet routeSet = getFilledRouteSetForAddBtn();

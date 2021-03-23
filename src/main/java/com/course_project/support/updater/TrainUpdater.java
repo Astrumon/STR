@@ -43,9 +43,9 @@ public class TrainUpdater extends Updater{
     public void addWagon(String trainName, List<String> freeWagonsFromList) {
         for (String nameWagon : freeWagonsFromList) {
             if (trainManager.addWagonToTrain(trainName, getWagonWithIdAndType(nameWagon), findEmptyPos(trainName))) {
-                AlertGenerator.info("Вагон успішно додано на склад");
+                AlertGenerator.info("Вагон успішно додано до потяга");
             } else {
-                AlertGenerator.error("Виникла помилка при додаванні вагону на склад");
+                AlertGenerator.error("Виникла помилка при додаванні вагону до потягу");
             }
         }
     }
