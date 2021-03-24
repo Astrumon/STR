@@ -5,7 +5,7 @@ module com.course_project {
 
     requires sqlite.jdbc;
     requires java.sql;
-    requires commons.validator;
+
 
 
     opens com.course_project to javafx.fxml;

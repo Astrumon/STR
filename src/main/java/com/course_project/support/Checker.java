@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.validator.routines.EmailValidator;
 
 public class Checker {
 
@@ -42,12 +41,14 @@ public class Checker {
             System.out.println(e);
         }
 
-
         return parsedDate != null;
     }
 
     public static boolean checkValidEmail(String value) {
-        return EmailValidator.getInstance().isValid(value);
+        String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+        Pattern pattern = Pattern.compile(EMAIL_REGEX, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(value);
+        return matcher.matches();
     }
 
     public static boolean checkValidNumber(String number) {

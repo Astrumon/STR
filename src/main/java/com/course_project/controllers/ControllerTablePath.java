@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.course_project.data_access.model.route.Route;
 import com.course_project.support.NumberIDGenerator;
+import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -58,7 +59,7 @@ public class ControllerTablePath {
     @FXML
     private TableColumn tblAllTickets;
 
-    private RouteManager routeManager;
+    private RouteManager routeManager = new RouteManager();
 
     private ObservableList<Route> routes;
 
@@ -72,7 +73,6 @@ public class ControllerTablePath {
 
     public void fillTable() {
 
-          routeManager = new RouteManager();
 
           routes = tablePath.getItems();
           routes.addAll(routeManager.getRoutes());

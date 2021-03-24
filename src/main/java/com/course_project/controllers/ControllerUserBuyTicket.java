@@ -8,6 +8,7 @@ import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
+import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
 import com.course_project.support.manager.WagonManager;
@@ -58,6 +59,9 @@ public class ControllerUserBuyTicket {
     private int countSoldTicket = 0;
     private String number;
     private String email;
+    private RouteCreator routeCreator = new RouteCreator();
+    int freeTicket = 0;
+    int soldTicket = 0;
 
     @FXML
     void buttonBuyTicketAc(ActionEvent event) throws InterruptedException {
@@ -71,6 +75,9 @@ public class ControllerUserBuyTicket {
 
         if (checkFieldEmailNumber()) {
             buyPlace();
+            Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
+            route.setSoldTickets(soldTicket);
+            routeManager.updateRoute(route);
         }
     }
 
@@ -99,11 +106,14 @@ public class ControllerUserBuyTicket {
         List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
         int i = 0;
         int j = 0;
+
         System.out.println(wagons.size()-1);
         for (Wagon wagon : wagons) {
             ++i;
             for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
                 ++j;
+
+
                 if (place.getStatus() == Place.FREE && place.getType() == type) {
                     System.out.println("index place " + j + "index wagon " + i);
                         place.setStatus(Place.TAKEN);
@@ -112,12 +122,18 @@ public class ControllerUserBuyTicket {
                                 + " Номер вагону: " + place.getIdWagon() + " Назва потягу: "
                                 + wagon.getTrainName() + " Вартість квитка = "
                                 + routeSet.getPrice() + " Час відправки: " + routeSet.getSendTime());
-                        ++countSoldTicket;
-                    Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
-                    route.setSoldTickets(countSoldTicket);
-                    routeManager.updateRoute(route);
+//                        ++countSoldTicket;
+//                    Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
+//                    route.setSoldTickets(countSoldTicket);
+//                    routeManager.updateRoute(route);
+
                     //wait(2000);
                     return;
+                }
+                if (place.getStatus() == Place.FREE) {
+                    freeTicket++;
+                } else {
+                    soldTicket++;
                 }
             }
         }
