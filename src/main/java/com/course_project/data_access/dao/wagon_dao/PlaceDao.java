@@ -17,8 +17,9 @@ public interface PlaceDao {
     String SQL_UPDATE = "UPDATE " + Place.TABLE_NAME + " SET "
             + Place.ID_WAGON_COLUMN + " = ?, "
             + Place.NUMBER_COLUMN + " = ?, "
-            + Place.TYPE_COLUMN + " ?, "
-            + Place.STATUS_COLUMN + " ? "
+            + Place.TYPE_COLUMN + "= ?, "
+            + Place.ID_COUNT_TYPE_COLUMN + "= ?, "
+            + Place.STATUS_COLUMN + "= ? "
             + " WHERE " + Place.ID_PLACE_COLUMN + " = ?";
     String SQL_UPDATE_STATUS = "UPDATE " + Place.TABLE_NAME + " SET "
             + Place.STATUS_COLUMN + " = ? "
@@ -32,7 +33,7 @@ public interface PlaceDao {
 
     void delete(Place place);
 
-    void update(Place place);
+    boolean update(Place place);
 
     void insert(Place place);
 

@@ -22,11 +22,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -106,9 +102,6 @@ public class ControllerUserTableTicket {
         routeSets = tableUserTicket.getItems();
         routeSets.addAll(listRouteSets);
 
-        List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSets.get(0).getTrainName());
-        places = wagonManager.getPlacesByIdWagon(wagons.get(0).getIdWagon());
-        System.out.println(places);
         tblFirstPoint.setCellValueFactory(new PropertyValueFactory<RouteSet, String>("fromTown"));
 
         tblLastPoint.setCellValueFactory(new PropertyValueFactory<RouteSet, String>("toTown"));
@@ -116,9 +109,6 @@ public class ControllerUserTableTicket {
         tblSendTime.setCellValueFactory(new PropertyValueFactory<RouteSet, String>("sendTime"));
 
         tblArriveTime.setCellValueFactory(new PropertyValueFactory<RouteSet, String>("arriveTime"));
-
-       // tblFreePlaces.setCellValueFactory(new PropertyValueFactory<Route, String>("soldTickets"));
-
 
         tblFreePlaces.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
@@ -137,9 +127,6 @@ public class ControllerUserTableTicket {
             }
 
         });
-
-
-
 
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
@@ -165,8 +152,6 @@ public class ControllerUserTableTicket {
         }
 
         if (!datePicker.getEditor().getText().isEmpty()) {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//            String formattedValue = (datePicker.getValue()).format(formatter);
             routeSet.setDateSend(datePicker.getValue().toString());
         } else {
             AlertGenerator.error("Невірно вказана дата");
@@ -189,12 +174,25 @@ public class ControllerUserTableTicket {
         assert tblFreePlaces != null : "fx:id=\"tblFreePlaces\" was not injected: check your FXML file 'userTableTicket.fxml'.";
         assert tblSendTime != null : "fx:id=\"tblSendTime\" was not injected: check your FXML file 'userTableTicket.fxml'.";
         assert tblArriveTime != null : "fx:id=\"tblArriveTime\" was not injected: check your FXML file 'userTableTicket.fxml'.";
-
+        clickToEdit();
     }
 
-    /*FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("userBuyTicket");
+    public void clickToEdit() {
+        tableUserTicket.setRowFactory(tv -> {
+            TableRow<RouteSet> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    RouteManager.transferRouteSet = row.getItem();
 
-    stackPaneUserTableTicket.getChildren().remove(anchorPaneUserTableTicket);
-    stackPaneUserTableTicket.getChildren().add(view);*/
+                    FxmlLoader object = new FxmlLoader();
+                    Pane view = object.getPage("userBuyTicket");
+
+                    stackPaneUserTableTicket.getChildren().remove(anchorPaneUserTableTicket);
+                    stackPaneUserTableTicket.getChildren().add(view);
+                }
+            });
+            return row;
+        });
+    }
+
 }

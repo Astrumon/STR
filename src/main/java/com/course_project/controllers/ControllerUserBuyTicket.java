@@ -1,13 +1,27 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.course_project.data_access.model.Ticket;
+import com.course_project.data_access.model.route.Route;
+import com.course_project.data_access.model.route.RouteSet;
+import com.course_project.data_access.model.wagon.Place;
+import com.course_project.data_access.model.wagon.TypePlace;
+import com.course_project.data_access.model.wagon.Wagon;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
+import com.course_project.support.manager.RouteManager;
+import com.course_project.support.manager.TicketManager;
+import com.course_project.support.manager.WagonManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class ControllerUserBuyTicket {
 
@@ -21,7 +35,7 @@ public class ControllerUserBuyTicket {
     private ChoiceBox<?> choiceBoxTypeCar;
 
     @FXML
-    private ChoiceBox<?> choiceBoxTypePlace;
+    private ChoiceBox<String> choiceBoxTypePlace;
 
     @FXML
     private CheckBox checkBoxBedLinen;
@@ -32,9 +46,81 @@ public class ControllerUserBuyTicket {
     @FXML
     private Button buttonBuyTicket;
 
-    @FXML
-    void buttonBuyTicketAc(ActionEvent event) {
+    private RouteSet routeSet;
 
+    private int type;
+
+    private boolean linen = false;
+
+    private WagonManager wagonManager;
+    private TicketManager ticketManager = new TicketManager();
+    private RouteManager routeManager = new RouteManager();
+    private int countSoldTicket = 0;
+    private String number;
+    private String email;
+
+    @FXML
+    void buttonBuyTicketAc(ActionEvent event) throws InterruptedException {
+        if (checkBoxBedLinen.isSelected()) {
+            System.out.println("idRoute: " + (routeSet.getIdRoute()-1));
+          Ticket ticket = ticketManager.getTicketByIdRoute(routeSet.getIdRoute()-1);
+          ticket.setLinen(true);
+          ticketManager.updateTicket(ticket);
+        }
+
+
+        if (checkFieldEmailNumber()) {
+            buyPlace();
+        }
+    }
+
+    private boolean checkFieldEmailNumber() {
+        String firstLetter = textFieldEmailOrPhoneNumber.getText().substring(0, 1);
+        if (firstLetter.equals("+")) {
+            if (Checker.checkValidNumber(textFieldEmailOrPhoneNumber.getText())) {
+                number = textFieldEmailOrPhoneNumber.getText();
+                return true;
+            } else {
+                AlertGenerator.error("Некоректний номер");
+            }
+        } else {
+            if (Checker.checkValidEmail(textFieldEmailOrPhoneNumber.getText())) {
+                email = textFieldEmailOrPhoneNumber.getText();
+                return true;
+            } else {
+                AlertGenerator.error("Некоректна пошта");
+                return false;
+            }
+        }
+        return false;
+    }
+
+    private void buyPlace() throws InterruptedException {
+        List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
+        int i = 0;
+        int j = 0;
+        System.out.println(wagons.size()-1);
+        for (Wagon wagon : wagons) {
+            ++i;
+            for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
+                ++j;
+                if (place.getStatus() == Place.FREE && place.getType() == type) {
+                    System.out.println("index place " + j + "index wagon " + i);
+                        place.setStatus(Place.TAKEN);
+                        wagonManager.setStatusPlace(place);
+                        AlertGenerator.info("Номер місця: " + place.getNumber()
+                                + " Номер вагону: " + place.getIdWagon() + " Назва потягу: "
+                                + wagon.getTrainName() + " Вартість квитка = "
+                                + routeSet.getPrice() + " Час відправки: " + routeSet.getSendTime());
+                        ++countSoldTicket;
+                    Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
+                    route.setSoldTickets(countSoldTicket);
+                    routeManager.updateRoute(route);
+                    //wait(2000);
+                    return;
+                }
+            }
+        }
     }
 
     @FXML
@@ -44,6 +130,42 @@ public class ControllerUserBuyTicket {
         assert checkBoxBedLinen != null : "fx:id=\"checkBoxBedLinen\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert textFieldEmailOrPhoneNumber != null : "fx:id=\"textFieldEmailOrPhoneNumber\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert buttonBuyTicket != null : "fx:id=\"buttonBuyTicket\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
+        routeSet = RouteManager.transferRouteSet;
+        wagonManager = new WagonManager();
+        fillChoiceBox();
+        getInfoFromBox();
+        System.out.println(type);
 
+    }
+
+    private void setType(String value) {
+        switch (value) {
+            case "Сидяче місце":
+                type = TypePlace.SEATS;
+                break;
+            case "Верхнє місце":
+                type = TypePlace.MIDDLE;
+                break;
+            case "Нижнє місце":
+                type = TypePlace.LOW;
+                break;
+            case "VIP місце":
+                type = TypePlace.VIP;
+                break;
+        }
+    }
+
+    private void fillChoiceBox() {
+        choiceBoxTypePlace.getItems().add("Сидяче місце");
+        choiceBoxTypePlace.getItems().add("Верхнє місце");
+        choiceBoxTypePlace.getItems().add("Нижнє місце");
+        choiceBoxTypePlace.getItems().add("VIP місце");
+    }
+
+    private void getInfoFromBox() {
+        choiceBoxTypePlace.valueProperty().addListener((obc, oldItem, newItem) -> {
+            setType(newItem);
+            System.out.println(type);
+        });
     }
 }

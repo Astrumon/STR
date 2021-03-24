@@ -136,4 +136,8 @@ public class WagonManager extends Manager {
     public List<Place> getPlacesByIdWagon(Long idWagon) {
         return placeDao.findByIdWagon(idWagon);
     }
+
+    public boolean setStatusPlace(Place place) {
+       return placeDao.update(place);
+    }
 }

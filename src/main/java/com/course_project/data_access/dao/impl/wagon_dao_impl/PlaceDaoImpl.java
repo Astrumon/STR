@@ -128,7 +128,7 @@ public class PlaceDaoImpl implements PlaceDao {
      * @param place
      */
     @Override
-    public void update(Place place) {
+    public boolean update(Place place) {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
@@ -137,11 +137,14 @@ public class PlaceDaoImpl implements PlaceDao {
             preparedStatement.setLong(1, place.getIdWagon());
             preparedStatement.setInt(2, place.getNumber());
             preparedStatement.setInt(3, place.getType());
-            preparedStatement.setInt(4, place.getStatus());
-            preparedStatement.setLong(5, place.getIdPlace());
+            preparedStatement.setLong(4, place.getIdCountType());
+            preparedStatement.setInt(5, place.getStatus());
+            preparedStatement.setLong(6, place.getIdPlace());
             preparedStatement.execute();
+            return true;
         } catch (SQLException exc) {
             System.out.println(exc);
+            return false;
         } finally {
             try {
                 connection.close();

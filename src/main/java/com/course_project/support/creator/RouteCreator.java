@@ -3,10 +3,13 @@ package com.course_project.support.creator;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.train.Train;
+import com.course_project.data_access.model.wagon.Place;
+import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TrainManager;
+import com.course_project.support.manager.WagonManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +18,8 @@ public class RouteCreator {
     public static Long idRoute;
     private RouteManager routeManager;
     private TrainManager trainManager;
+    private WagonManager wagonManager;
+
 
 
     private RouteSet routeSet;
@@ -24,6 +29,7 @@ public class RouteCreator {
         routeManager = new RouteManager();
         trainManager = new TrainManager();
         ticketCreator = new TicketCreator();
+        wagonManager = new WagonManager();
         routeSet = new RouteSet();
     }
 
@@ -118,7 +124,25 @@ public class RouteCreator {
             }
 
         }
+
+        List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
+        int freeTicket = 0;
+        int soldTicket = 0;
+        int allTicket = 0;
+        for (Wagon wagon : wagons) {
+            for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
+                allTicket++;
+                if (place.getStatus() == Place.FREE) {
+                    freeTicket++;
+                } else {
+                    soldTicket++;
+                }
+            }
+        }
+        route.setAllTickets(allTicket);
+        route.setSoldTickets(soldTicket);
         route.setPrice(price);
+
         return route;
     }
 

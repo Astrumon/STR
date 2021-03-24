@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RouteDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Route.TABLE_NAME;
-    String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Route.ID_COLUMN + " = ?";
+    String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Route.ID_ROUTE_COLUMN + " = ?";
     String SQL_DELETE = "DELETE FROM " + Route.TABLE_NAME + " WHERE " + Route.ID_ROUTE_COLUMN + " = ?";
     String SQL_INSERT = "INSERT INTO " + Route.TABLE_NAME
             + "(" + Route.FROM_TOWN_COLUMN

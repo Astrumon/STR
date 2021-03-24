@@ -20,6 +20,7 @@ public class TicketManager extends Manager {
         return ticketDao.findById(idTicket);
     }
     public Ticket getTicketByIdRoute(Long idRoute) {
+        System.out.println(ticketDao.findByIdRoute(idRoute));
         return ticketDao.findByIdRoute(idRoute);
     }
 

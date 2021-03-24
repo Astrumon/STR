@@ -11,6 +11,7 @@ import java.util.List;
 
 public class RouteManager extends Manager {
     public static Route transfer;
+    public static RouteSet transferRouteSet;
     private RouteDaoImpl routeDao;
     private RouteSetDaoImpl routeSetDao;
     private TrainManager trainManager;

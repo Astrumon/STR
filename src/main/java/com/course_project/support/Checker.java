@@ -3,6 +3,9 @@ package com.course_project.support;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.validator.routines.EmailValidator;
 
 public class Checker {
@@ -45,6 +48,17 @@ public class Checker {
 
     public static boolean checkValidEmail(String value) {
         return EmailValidator.getInstance().isValid(value);
+    }
+
+    public static boolean checkValidNumber(String number) {
+//        Pattern pattern = Pattern.compile("^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$");
+//        Matcher matcher = pattern.matcher(number);
+
+        Pattern pattern = Pattern.compile("^\\+38\\d{10}$");
+        Matcher matcher = pattern.matcher(number);
+
+
+        return matcher.matches();
     }
 
 }
