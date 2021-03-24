@@ -103,6 +103,7 @@ public class ControllerUserBuyTicket {
     }
 
     private void buyPlace() throws InterruptedException {
+        soldTicket = 0;
         List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
         int i = 0;
         int j = 0;
