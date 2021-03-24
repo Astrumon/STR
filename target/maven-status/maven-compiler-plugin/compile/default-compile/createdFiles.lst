@@ -1,4 +1,3 @@
-com\course_project\data_access\tests\TestPlace.class
 com\course_project\data_access\dao\train_dao\TrainDao.class
 com\course_project\support\manager\WagonManager$NumberGenerator.class
 com\course_project\controllers\ControllerUserTrucking.class
@@ -45,9 +44,7 @@ module-info.class
 com\course_project\support\creator\TrainCreator.class
 com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.class
 com\course_project\controllers\ControllerUpdateOperator.class
-com\course_project\data_access\tests\TestWarehouse.class
 com\course_project\controllers\ControllerTableTrain$1.class
-com\course_project\data_access\tests\TownTest.class
 com\course_project\controllers\ControllerTableCar.class
 com\course_project\controllers\ControllerTableTicket$1.class
 com\course_project\controllers\ControllerTableCar$1.class
@@ -69,11 +66,9 @@ com\course_project\controllers\ControllerUserTableTicket$2.class
 com\course_project\data_access\model\wagon\Place.class
 com\course_project\controllers\ControllerCreateTrain.class
 com\course_project\data_access\model\Operator.class
-com\course_project\data_access\tests\TestTrain.class
 com\course_project\data_access\model\route\RouteSet.class
 com\course_project\support\manager\WarehouseManager.class
 com\course_project\data_access\dao\impl\OperatorDaoImpl.class
-com\course_project\data_access\tests\TestWagon.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class
 com\course_project\data_access\dao\route_dao\RouteDao.class

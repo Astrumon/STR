@@ -57,10 +57,10 @@
                 <version>0.0.5</version>
                 <configuration>
                     <mainClass>com.course_project.Main</mainClass>
-                    <launcher>launch.sh</launcher>
+                    <launcher>SPRT.sh</launcher>
                     <compress>2</compress>
-                    <jlinkZipName>course-project</jlinkZipName>
-                    <jlinkImageName>course-project</jlinkImageName>
+                    <jlinkZipName>SPRT</jlinkZipName>
+                    <jlinkImageName>SPRT</jlinkImageName>
                     <noManPages>true</noManPages>
                     <noHeaderFiles>true</noHeaderFiles>
                 </configuration>
