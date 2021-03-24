@@ -1,5 +1,6 @@
 package com.course_project.controllers;
 
+import com.course_project.data_access.dao.wagon_dao.PlaceDao;
 import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
@@ -8,6 +9,7 @@ import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
+import com.course_project.support.UserTicket;
 import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
@@ -50,13 +52,15 @@ public class ControllerUserBuyTicket {
 
     private boolean linen = false;
 
+    private String typeFromBox;
+
     private WagonManager wagonManager;
     private TicketManager ticketManager = new TicketManager();
     private RouteManager routeManager = new RouteManager();
-    private int countSoldTicket = 0;
-    private String number;
-    private String email;
-    private RouteCreator routeCreator = new RouteCreator();
+
+    UserTicket userTicket = new UserTicket();
+
+    private String contact;
     int freeTicket = 0;
     int soldTicket = 0;
 
@@ -82,14 +86,14 @@ public class ControllerUserBuyTicket {
         String firstLetter = textFieldEmailOrPhoneNumber.getText().substring(0, 1);
         if (firstLetter.equals("+")) {
             if (Checker.checkValidNumber(textFieldEmailOrPhoneNumber.getText())) {
-                number = textFieldEmailOrPhoneNumber.getText();
+                contact = textFieldEmailOrPhoneNumber.getText();
                 return true;
             } else {
                 AlertGenerator.error("Некоректний номер");
             }
         } else {
             if (Checker.checkValidEmail(textFieldEmailOrPhoneNumber.getText())) {
-                email = textFieldEmailOrPhoneNumber.getText();
+                contact = textFieldEmailOrPhoneNumber.getText();
                 return true;
             } else {
                 AlertGenerator.error("Некоректна пошта");
@@ -102,30 +106,27 @@ public class ControllerUserBuyTicket {
     private void buyPlace() throws InterruptedException {
         soldTicket = 0;
         List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
-        int i = 0;
-        int j = 0;
 
         System.out.println(wagons.size()-1);
         for (Wagon wagon : wagons) {
-            ++i;
+
             for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
-                ++j;
-
-
                 if (place.getStatus() == Place.FREE && place.getType() == type) {
-                    System.out.println("index place " + j + "index wagon " + i);
                         place.setStatus(Place.TAKEN);
                         wagonManager.setStatusPlace(place);
-                        AlertGenerator.info("Номер місця: " + place.getNumber()
-                                + " Номер вагону: " + place.getIdWagon() + " Назва потягу: "
-                                + wagon.getTrainName() + " Вартість квитка = "
-                                + routeSet.getPrice() + " Час відправки: " + routeSet.getSendTime());
-//                        ++countSoldTicket;
-//                    Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
-//                    route.setSoldTickets(countSoldTicket);
-//                    routeManager.updateRoute(route);
-
-                    //wait(2000);
+                        userTicket.setTrainName(wagon.getTrainName());
+                        userTicket.setContact(contact);
+                        userTicket.setType(typeFromBox);
+                        userTicket.setPlace(place.getNumber());
+                        userTicket.setDateSend(routeSet.getDateSend());
+                        userTicket.setDateArrive(routeSet.getDateArrive());
+                        userTicket.setTimeSend(routeSet.getSendTime());
+                        userTicket.setTimeArrive(routeSet.getArriveTime());
+                        userTicket.setFrom(routeSet.getFromTown());
+                        userTicket.setTo(routeSet.getToTown());
+                        userTicket.setNumberWagon(wagon.getIdWagon());
+                        userTicket.setPrice(routeSet.getPrice());
+                        AlertGenerator.showTicket(userTicket);
                     return;
                 }
                 if (place.getStatus() == Place.FREE) {
@@ -147,11 +148,11 @@ public class ControllerUserBuyTicket {
         wagonManager = new WagonManager();
         fillChoiceBox();
         getInfoFromBox();
-        System.out.println(type);
 
     }
 
     private void setType(String value) {
+        typeFromBox = value;
         switch (value) {
             case "Сидяче місце":
                 type = TypePlace.SEATS;
@@ -178,7 +179,6 @@ public class ControllerUserBuyTicket {
     private void getInfoFromBox() {
         choiceBoxTypePlace.valueProperty().addListener((obc, oldItem, newItem) -> {
             setType(newItem);
-            System.out.println(type);
         });
     }
 }

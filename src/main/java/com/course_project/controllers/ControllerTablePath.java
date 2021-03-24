@@ -59,7 +59,7 @@ public class ControllerTablePath {
     @FXML
     private TableColumn tblAllTickets;
 
-    private RouteManager routeManager = new RouteManager();
+    private RouteManager routeManager;
 
     private ObservableList<Route> routes;
 
@@ -72,7 +72,7 @@ public class ControllerTablePath {
     }
 
     public void fillTable() {
-
+         routeManager = new RouteManager();
 
           routes = tablePath.getItems();
           routes.addAll(routeManager.getRoutes());
@@ -91,16 +91,6 @@ public class ControllerTablePath {
           tblAllTickets.setCellValueFactory(new PropertyValueFactory<Route, String>("allTickets"));
 
 
-        //tblName.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("name"));
-
-//        .setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
-//            @Override
-//            public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
-//                String name = ((Warehouse) cellDataFeatures.getValue()).getName();
-//
-//                return new SimpleStringProperty(name);
-//            }
-//        });
 //
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override

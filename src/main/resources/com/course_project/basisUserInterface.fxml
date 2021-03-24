@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane fx:id="mainStackPane" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerBasisUserInterface">
+<StackPane fx:id="mainStackPane" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.course_project.controllers.ControllerBasisUserInterface">
     <children>
         <AnchorPane fx:id="anchorPaneBasisUserInterface" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #FFFFFF;;">
             <children>
@@ -26,6 +21,8 @@
                                                 <Image url="@/logotype.png" />
                                             </image>
                                         </ImageView>
+                              <Label layoutX="110.0" layoutY="32.0" />
+                              <Label layoutX="99.0" layoutY="41.0" text="v. 2.5.7" />
                                     </children>
                                 </Pane>
                                 <Button fx:id="buttonTicket" mnemonicParsing="false" onAction="#buttonTicketAc" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Квитки">

@@ -213,7 +213,6 @@ public class ControllerUpdatePath {
        List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
 
         int index = count;
-        System.out.println("BEFORE" + routeSets.get(index));
         if (routeUpdater.isValidPrice(textFieldPrice.getText())) {
             routeSets.get(index).setPrice(Integer.parseInt(textFieldPrice.getText()));
         }else {

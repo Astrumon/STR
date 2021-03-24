@@ -119,7 +119,6 @@ public class ControllerCreateTrain {
 
     private void showWagons(int type) {
         WagonManager wagonManager = new WagonManager();
-        System.out.println("TYPE WAGON: " + type);
         listViewTrain.getItems().clear();
         typeTrain = type;
         for (Wagon wagon : wagonManager.getWagons()) {

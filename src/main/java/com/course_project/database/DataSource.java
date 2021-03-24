@@ -31,7 +31,7 @@ public class DataSource {
     public DataSource() {
 
         url = PATH;
-        //url = "jdbc:sqlite:C:\\Users\\Xiaomi\\IdeaProjects\\Course_project\\src\\main\\resources\\rail_way.db";
+        url = "jdbc:sqlite:C:\\Users\\Xiaomi\\IdeaProjects\\Course_project\\src\\main\\resources\\railways.db";
         //url = "jdbc:sqlite:" + getClass().getResource("/resources/railway.db");
 
         config = new SQLiteConfig();

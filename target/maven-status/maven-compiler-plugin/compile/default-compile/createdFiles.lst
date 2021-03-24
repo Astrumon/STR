@@ -56,6 +56,7 @@ com\course_project\support\manager\Manager.class
 com\course_project\data_access\model\wagon\Wagon.class
 com\course_project\data_access\model\warehouse\Warehouse.class
 com\course_project\data_access\dao\route_dao\RouteSetDao.class
+com\course_project\support\UserTicket.class
 com\course_project\data_access\dao\wagon_dao\PlaceDao.class
 com\course_project\support\ParseId.class
 com\course_project\FxmlLoader.class

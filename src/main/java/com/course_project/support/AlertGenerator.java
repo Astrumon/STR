@@ -1,5 +1,6 @@
 package com.course_project.support;
 
+import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import javafx.collections.FXCollections;
@@ -44,6 +45,19 @@ public class AlertGenerator {
         alert.showAndWait();
     }
 
+    public static void showTicket(UserTicket userTicket) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        VBox dialogPaneContent = new VBox();
+        alert.setTitle("Квиток: " + userTicket.getContact());
+        Label label = new Label("Інформація про квиток");
+        alert.setContentText("Інформація про ваш квиток була віддіслана на вашу пошту/квиток");
+
+        dialogPaneContent.getChildren().addAll(label, getInformationToUser(userTicket));
+
+        alert.getDialogPane().setContent(dialogPaneContent);
+        alert.showAndWait();
+    }
+
     private static TableView getTableWithRouteSet(List<RouteSet> routeSets) {
         ObservableList<RouteSet> routeSets1 = FXCollections.observableArrayList(routeSets);
         TableView<RouteSet> tableView = new TableView<RouteSet>(routeSets1);
@@ -79,6 +93,25 @@ public class AlertGenerator {
         tableView.getColumns().add(price);
 
         return tableView;
+    }
+
+    private static ListView<String> getInformationToUser(UserTicket userTicket) {
+        ListView<String> listView = new ListView<String>();
+        listView.setPrefHeight(250);
+        listView.setPrefWidth(300);
+
+        listView.getItems().add("Назва потяга: " + userTicket.getTrainName());
+        listView.getItems().add("Номер вагону: " + userTicket.getNumberWagon());
+        listView.getItems().add("Номер місця: " + userTicket.getPlace());
+        listView.getItems().add("Тип місця: " + userTicket.getType());
+        listView.getItems().add("Дата відправки потяга: " + userTicket.getDateSend());
+        listView.getItems().add("Дата прибуття потяга: " + userTicket.getDateArrive());
+        listView.getItems().add("Час відправки потяга: " + userTicket.getTimeSend());
+        listView.getItems().add("Час прибуття потяга: " + userTicket.getTimeArrive());
+        listView.getItems().add("Маршрут потяга: " + userTicket.getFrom() + " - " + userTicket.getTo());
+        listView.getItems().add("Ціна квитка: " + userTicket.getPrice() + " грн.");
+
+        return listView;
     }
 }
 

@@ -76,6 +76,7 @@ public class ControllerCreateCar implements Checkable {
             AlertGenerator.error("Коректно заповніть всі поля");
         }
 
+
     }
 
     private boolean isCargo() {
