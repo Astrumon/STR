@@ -33,9 +33,6 @@ public class ControllerUserBuyTicket {
     private URL location;
 
     @FXML
-    private ChoiceBox<?> choiceBoxTypeCar;
-
-    @FXML
     private ChoiceBox<String> choiceBoxTypePlace;
 
     @FXML
@@ -142,7 +139,6 @@ public class ControllerUserBuyTicket {
 
     @FXML
     void initialize() {
-        assert choiceBoxTypeCar != null : "fx:id=\"choiceBoxTypeCar\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert choiceBoxTypePlace != null : "fx:id=\"choiceBoxTypePlace\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert checkBoxBedLinen != null : "fx:id=\"checkBoxBedLinen\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert textFieldEmailOrPhoneNumber != null : "fx:id=\"textFieldEmailOrPhoneNumber\" was not injected: check your FXML file 'userBuyTicket.fxml'.";

@@ -65,6 +65,11 @@
                   <Insets left="200.0" />
                </GridPane.margin>
             </PasswordField>
+            <Button fx:id="buttonBack" mnemonicParsing="false" onAction="#buttonBackAc" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Назад" GridPane.rowIndex="7">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>

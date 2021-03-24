@@ -40,6 +40,9 @@ public class ControllerLoginAccount {
     private Button buttonLogIn;
 
     @FXML
+    private Button buttonBack;
+
+    @FXML
     private PasswordField passwordField;
 
     private OperatorManager operatorManager;
@@ -73,6 +76,16 @@ public class ControllerLoginAccount {
         FxmlLoader object = new FxmlLoader();
         Parent root = object.getPage("basisOperatorInterface");
         Scene scene = buttonLogIn.getScene();
+        StackPane mainStackPane = (StackPane) scene.getRoot();
+        mainStackPane.getChildren().remove(anchorPaneLoginAccount);
+        mainStackPane.getChildren().add(root);
+    }
+
+    @FXML
+    void buttonBackAc(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Parent root = object.getPage("basisUserInterface");
+        Scene scene = buttonBack.getScene();
         StackPane mainStackPane = (StackPane) scene.getRoot();
         mainStackPane.getChildren().remove(anchorPaneLoginAccount);
         mainStackPane.getChildren().add(root);
