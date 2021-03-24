@@ -23,12 +23,12 @@ public class RouteCreator {
 
 
     private RouteSet routeSet;
-    private TicketCreator ticketCreator;
+
 
     public RouteCreator() {
         routeManager = new RouteManager();
         trainManager = new TrainManager();
-        ticketCreator = new TicketCreator();
+
         wagonManager = new WagonManager();
         routeSet = new RouteSet();
     }
@@ -78,7 +78,6 @@ public class RouteCreator {
 
     public void create(Route route) {
         if (routeManager.createRoute(route)) {
-            ticketCreator.createTicket(ticketCreator.fillTicket(route));
             AlertGenerator.info("Маршрут успішно створено");
         } else {
             AlertGenerator.error("Виникла помилка при створені маршрута");

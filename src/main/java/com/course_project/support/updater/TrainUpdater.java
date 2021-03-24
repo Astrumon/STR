@@ -1,11 +1,13 @@
 package com.course_project.support.updater;
 
 import com.course_project.controllers.ControllerTableCar;
+import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.data_access.model.train.TrainSet;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.ParseId;
+import com.course_project.support.manager.TicketManager;
 import com.course_project.support.manager.TrainManager;
 import com.course_project.support.manager.WagonManager;
 
@@ -14,6 +16,7 @@ import java.util.List;
 public class TrainUpdater extends Updater{
 
     private TrainManager trainManager;
+    private TicketManager ticketManager;
 
     public TrainManager getTrainManager() {
         return trainManager;
@@ -23,6 +26,7 @@ public class TrainUpdater extends Updater{
     public TrainUpdater() {
         trainManager = new TrainManager();
         wagonManager = new WagonManager();
+        ticketManager = new TicketManager();
     }
 
     public void updateCountWagons(String trainName, int count) {
@@ -63,7 +67,8 @@ public class TrainUpdater extends Updater{
     }
 
     public boolean delete(String trainName) {
-        return trainManager.deleteTrain(trainName);
+        wagonManager.setStatusFree(trainName);
+        return trainManager.deleteTrain(trainName) && ticketManager.deleteTicketByTrainName(trainName) ;
     }
 
 

@@ -98,17 +98,20 @@ public class ControllerUpdatePath {
         } else if (countClickAddButton == 1){
             buttonNextPoint.setDisable(false);
             buttonPreviousPoint.setDisable(false);
-            buttonSavePath.setVisible(true);
+
             RouteCreator routeCreator = new RouteCreator();
 
             RouteSet routeSet = getFilledRouteSetForAddBtn();
+            System.out.println("TEST CLICK" + routeSet);
             if (routeSet != null) {
                 routeCreator.create(routeSet);
                 routeUpdater.updateRouteSet(routeSet);
 
                 countClickAddButton = 0;
-                buttonAddNewPoint.setText("Додати нову точку");
+
             }
+            buttonSavePath.setVisible(false);
+            buttonAddNewPoint.setText("Додати нову точку");
         }
     }
 

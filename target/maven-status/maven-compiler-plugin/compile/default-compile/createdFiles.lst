@@ -3,6 +3,7 @@ com\course_project\support\manager\WagonManager$NumberGenerator.class
 com\course_project\controllers\ControllerUserTrucking.class
 com\course_project\support\Checker.class
 com\course_project\data_access\dao\CargoDao.class
+com\course_project\controllers\ControllerTableTicket$2.class
 com\course_project\data_access\model\route\Town.class
 com\course_project\support\updater\WagonUpdater.class
 com\course_project\data_access\dao\ticket_dao\TicketDao.class
@@ -71,6 +72,7 @@ com\course_project\data_access\model\route\RouteSet.class
 com\course_project\support\manager\WarehouseManager.class
 com\course_project\data_access\dao\impl\OperatorDaoImpl.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\PlaceDaoImpl.class
+com\course_project\controllers\ControllerTableTicket$3.class
 com\course_project\data_access\dao\impl\wagon_dao_impl\TypePlaceDaoImpl.class
 com\course_project\data_access\dao\route_dao\RouteDao.class
 com\course_project\data_access\dao\impl\CargoDaoImpl.class

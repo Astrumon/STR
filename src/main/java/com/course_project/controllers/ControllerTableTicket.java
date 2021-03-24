@@ -6,10 +6,12 @@ import java.util.ResourceBundle;
 import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
+import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.support.NumberIDGenerator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,13 +28,13 @@ public class ControllerTableTicket {
     public TableView<Ticket> tableTicket;
 
     @FXML
-    public TableColumn tblFirstPoint;
+    public TableColumn tblRoute;
 
     @FXML
     public TableColumn tblNumber;
 
     @FXML
-    public TableColumn tblLastPoint;
+    public TableColumn tblBuyer;
 
     @FXML
     public TableColumn tblPrice;
@@ -45,6 +47,18 @@ public class ControllerTableTicket {
 
     @FXML
     public TableColumn tblArriveTime;
+
+    @FXML
+    public TableColumn tblTrainName;
+
+    @FXML
+    public TableColumn tblWagon;
+
+    @FXML
+    public TableColumn tblPlace;
+
+    @FXML
+    public TableColumn tblTypePlace;
 
     @FXML
     private ResourceBundle resources;
@@ -70,9 +84,23 @@ public class ControllerTableTicket {
         tickets.addAll(ticketManager.getTickets());
 
 
-        tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
+        tblBuyer.setCellValueFactory(new PropertyValueFactory<Route, String>("contact"));
 
-        tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
+        tblRoute.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
+            @Override
+            public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
+                Ticket ticket = (Ticket) cellDataFeatures.getValue();
+                return new SimpleStringProperty(ticket.getFromTown() + " - " + ticket.getToTown());
+            }
+        });
+
+        tblTypePlace.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
+            @Override
+            public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
+                Ticket ticket = (Ticket) cellDataFeatures.getValue();
+                return new SimpleStringProperty(TypePlace.getNameType(ticket.getTypePlace()));
+            }
+        });
 
         tblSendTime.setCellValueFactory(new PropertyValueFactory<Route, String>("timeStart"));
 
@@ -82,6 +110,15 @@ public class ControllerTableTicket {
 
         tblPrice.setCellValueFactory(new PropertyValueFactory<Route, String>("price"));
 
+        tblTrainName.setCellValueFactory(new PropertyValueFactory<Route, String>("trainName"));
+
+        tblWagon.setCellValueFactory(new PropertyValueFactory<Route, String>("idWagon"));
+
+        tblPlace.setCellValueFactory(new PropertyValueFactory<Route, String>("placeNumber"));
+
+
+
+
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
             public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
@@ -90,21 +127,4 @@ public class ControllerTableTicket {
         });
     }
 
-//    public void clickToEdit() {
-//        tableTicket.setRowFactory(tv -> {
-//            TableRow<Ticket> row = new TableRow<>();
-//            row.setOnMouseClicked(event -> {
-//                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-//                    TicketManager.transfer = row.getItem();
-//
-//                    FxmlLoader object = new FxmlLoader();
-//                    Pane view = object.getPage("updateStorage");
-//
-//                    stackPaneStorage.getChildren().remove();
-//                    stackPaneStorage.getChildren().add(view);
-//                }
-//            });
-//            return row;
-//        });
-//    }
 }

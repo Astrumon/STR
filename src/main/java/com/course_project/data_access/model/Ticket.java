@@ -14,14 +14,60 @@ public class Ticket {
     public static final String ID_ROUTE_COLUMN = "id_route";
     public static final String DATE_SEND_COLUMN = "date_send";
     public static final String DATE_ARRIVE_COLUMN = "date_arrive";
+    public static final String TYPE_PLACE_COLUMN = "type_place";
+    public static final String PLACE_COLUMN = "place";
+    public static final String ID_WAGON_COLUMN = "id_wagon";
+    public static final String TRAIN_NAME_COLUMN = "train_name";
+    public static final String CONTACT_COLUMN = "contact";
+
 
     public static final int STATUS_FREE = 0;
     public static final int STATUS_SOLD = 1;
 
-    private Long id, idTicket, idRoute;
-    private String toTown, fromTown, timeStart, timeEnd, dateSend, dateArrive;
-    private int price, status;
+    private Long id, idTicket, idRoute, idWagon;
+    private String toTown, fromTown, timeStart, timeEnd, dateSend, dateArrive, trainName, contact;
+    private int price, status, placeNumber, typePlace;
     private boolean linen;
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public Long getIdWagon() {
+        return idWagon;
+    }
+
+    public void setIdWagon(Long idWagon) {
+        this.idWagon = idWagon;
+    }
+
+    public String getTrainName() {
+        return trainName;
+    }
+
+    public void setTrainName(String trainName) {
+        this.trainName = trainName;
+    }
+
+    public int getPlaceNumber() {
+        return placeNumber;
+    }
+
+    public void setPlaceNumber(int placeNumber) {
+        this.placeNumber = placeNumber;
+    }
+
+    public int getTypePlace() {
+        return typePlace;
+    }
+
+    public void setTypePlace(int typePlace) {
+        this.typePlace = typePlace;
+    }
 
     public String getDateSend() {
         return dateSend;
@@ -131,6 +177,11 @@ public class Ticket {
                 + ", idRoute= " + this.idRoute
                 + ", dateSend= " + this.dateSend
                 + ", dateArrive= " + this.dateArrive
+                + ", idWagon= " + this.idWagon
+                + ", placeNumber= " + this.placeNumber
+                + ", typePlace= " + this.typePlace
+                + ", trainName= " + this.trainName
+                + ", contact= " + this.contact
                 + "]";
     }
 }

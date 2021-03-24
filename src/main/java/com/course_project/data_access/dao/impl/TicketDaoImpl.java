@@ -40,6 +40,11 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
                 ticket.setDateSend(resultSet.getString(Ticket.DATE_SEND_COLUMN));
                 ticket.setDateArrive(resultSet.getString(Ticket.DATE_ARRIVE_COLUMN));
+                ticket.setTrainName(resultSet.getString(Ticket.TRAIN_NAME_COLUMN));
+                ticket.setIdWagon(resultSet.getLong(Ticket.ID_WAGON_COLUMN));
+                ticket.setPlaceNumber(resultSet.getInt(Ticket.PLACE_COLUMN));
+                ticket.setTypePlace(resultSet.getInt(Ticket.TYPE_PLACE_COLUMN));
+                ticket.setContact(resultSet.getString(Ticket.CONTACT_COLUMN));
                 tickets.add(ticket);
             }
         } catch (SQLException exc) {
@@ -77,6 +82,11 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
                 ticket.setDateSend(resultSet.getString(Ticket.DATE_SEND_COLUMN));
                 ticket.setDateArrive(resultSet.getString(Ticket.DATE_ARRIVE_COLUMN));
+                ticket.setTrainName(resultSet.getString(Ticket.TRAIN_NAME_COLUMN));
+                ticket.setIdWagon(resultSet.getLong(Ticket.ID_WAGON_COLUMN));
+                ticket.setPlaceNumber(resultSet.getInt(Ticket.PLACE_COLUMN));
+                ticket.setTypePlace(resultSet.getInt(Ticket.TYPE_PLACE_COLUMN));
+                ticket.setContact(resultSet.getString(Ticket.CONTACT_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -113,6 +123,11 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
                 ticket.setDateSend(resultSet.getString(Ticket.DATE_SEND_COLUMN));
                 ticket.setDateArrive(resultSet.getString(Ticket.DATE_ARRIVE_COLUMN));
+                ticket.setTrainName(resultSet.getString(Ticket.TRAIN_NAME_COLUMN));
+                ticket.setIdWagon(resultSet.getLong(Ticket.ID_WAGON_COLUMN));
+                ticket.setPlaceNumber(resultSet.getInt(Ticket.PLACE_COLUMN));
+                ticket.setTypePlace(resultSet.getInt(Ticket.TYPE_PLACE_COLUMN));
+                ticket.setContact(resultSet.getString(Ticket.CONTACT_COLUMN));
             }
         } catch (SQLException exc) {
             System.out.println(exc);
@@ -164,6 +179,12 @@ public class TicketDaoImpl implements TicketDao {
             preparedStatement.setLong(8, ticket.getIdRoute());
             preparedStatement.setString(9, ticket.getDateSend());
             preparedStatement.setString(10, ticket.getDateArrive());
+            preparedStatement.setString(11, ticket.getTrainName());
+            preparedStatement.setLong(12, ticket.getIdWagon());
+            preparedStatement.setInt(13, ticket.getPlaceNumber());
+            preparedStatement.setInt(14, ticket.getTypePlace());
+            preparedStatement.setString(15, ticket.getContact());
+
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {
@@ -199,7 +220,12 @@ public class TicketDaoImpl implements TicketDao {
             preparedStatement.setLong(8, ticket.getIdRoute());
             preparedStatement.setString(9, ticket.getDateSend());
             preparedStatement.setString(10, ticket.getDateArrive());
-            preparedStatement.setLong(11, ticket.getId());
+            preparedStatement.setString(11, ticket.getTrainName());
+            preparedStatement.setLong(12, ticket.getIdWagon());
+            preparedStatement.setInt(13, ticket.getPlaceNumber());
+            preparedStatement.setInt(14, ticket.getTypePlace());
+            preparedStatement.setString(15, ticket.getContact());
+            preparedStatement.setLong(16, ticket.getId());
             preparedStatement.execute();
             return true;
         } catch (SQLException exc) {
@@ -236,6 +262,11 @@ public class TicketDaoImpl implements TicketDao {
                 ticket.setIdRoute(resultSet.getLong(Ticket.ID_ROUTE_COLUMN));
                 ticket.setDateSend(resultSet.getString(Ticket.DATE_SEND_COLUMN));
                 ticket.setDateArrive(resultSet.getString(Ticket.DATE_ARRIVE_COLUMN));
+                ticket.setTrainName(resultSet.getString(Ticket.TRAIN_NAME_COLUMN));
+                ticket.setIdWagon(resultSet.getLong(Ticket.ID_WAGON_COLUMN));
+                ticket.setPlaceNumber(resultSet.getInt(Ticket.PLACE_COLUMN));
+                ticket.setTypePlace(resultSet.getInt(Ticket.TYPE_PLACE_COLUMN));
+                ticket.setContact(resultSet.getString(Ticket.CONTACT_COLUMN));
                 tickets.add(ticket);
             }
         } catch (SQLException exc) {
@@ -248,5 +279,26 @@ public class TicketDaoImpl implements TicketDao {
             }
         }
         return tickets;
+    }
+
+    @Override
+    public boolean deletByTrainName(String trainName) {
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE_BY_TRAIN_NAME);
+            preparedStatement.setString(1, trainName);
+            preparedStatement.execute();
+            return true;
+        } catch (SQLException exc) {
+            System.out.println(exc);
+            return false;
+        } finally {
+            try {
+                connection.close();
+            }catch (SQLException exc) {
+                System.out.println(exc);
+            }
+        }
     }
 }

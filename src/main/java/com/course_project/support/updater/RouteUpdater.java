@@ -13,7 +13,6 @@ public class RouteUpdater {
     private TicketManager ticketManager;
     private Route route;
     private RouteSet routeSet;
-    private TicketUpdater ticketUpdater;
 
 
     public RouteUpdater() {
@@ -21,7 +20,7 @@ public class RouteUpdater {
         ticketManager = new TicketManager();
         route = new Route();
         routeSet = new RouteSet();
-        ticketUpdater = new TicketUpdater();
+
     }
 
     public RouteManager getRouteManager() {
@@ -29,7 +28,7 @@ public class RouteUpdater {
     }
 
     public void delete(Route route) {
-        if (routeManager.deleteRoute(route) & deleteRouteSet(route.getIdRoute()) & deleteRouteFromTrain(route.getTrainName(), route.getIdRoute()) & deleteTicket(route.getIdRoute())) {
+        if (routeManager.deleteRoute(route) & deleteRouteSet(route.getIdRoute()) & deleteRouteFromTrain(route.getTrainName(), route.getIdRoute()) & ticketManager.deleteTicketByTrainName(route.getTrainName())) {
             AlertGenerator.info("Шлях успішно видалений");
         } else {
             AlertGenerator.error("Виникла помилка при видаленні шляху");
@@ -45,9 +44,6 @@ public class RouteUpdater {
         return routeManager.deleteRouteFromTrain(nameTrain, idRoute);
     }
 
-    private boolean deleteTicket(Long idRoute) {
-        return ticketUpdater.delete(idRoute);
-    }
 
     public void setRoute(Route route) {
         this.route = route;
@@ -101,18 +97,8 @@ public class RouteUpdater {
 
             Route route = getUpdatedRoute(routeSet);
             if (routeManager.updateRoute(route)) {
-                Ticket ticket = ticketManager.getTicketByIdRoute(routeSet.getIdRoute()-1);
-                ticket.setFromTown(route.getFromTown());
-                ticket.setToTown(route.getToTown());
-                ticket.setPrice(route.getPrice());
-                ticket.setTimeStart(route.getTimeStart());
-                ticket.setTimeEnd(route.getTimeEnd());
-                ticket.setDateSend(routeSet.getDateSend());
-                ticket.setDateArrive(routeSet.getDateArrive());
-                System.out.println("TICKET " + ticket);
-                if (ticketManager.updateTicket(ticket)) {
+
                     AlertGenerator.info("Зміни успішно внесені");
-                }
             }
         }
 //            AlertGenerator.info("Зміни в маршруті успішно внесені");
@@ -125,6 +111,7 @@ public class RouteUpdater {
         Route route = new Route();
         route.setTrainName(routeSet.getTrainName());
         route.setIdRoute(routeSet.getIdRoute() - 1);
+        route.setFromTown(routeSet.getFromTown());
         int count = 0;
 
         int price = 0;

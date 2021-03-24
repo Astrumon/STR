@@ -140,4 +140,17 @@ public class WagonManager extends Manager {
     public boolean setStatusPlace(Place place) {
        return placeDao.update(place);
     }
+
+    public boolean setStatusFree(String trainName) {
+        boolean result = false;
+        for (Wagon wagon : wagonDao.findByTrainName(trainName)) {
+           for (Place place : placeDao.findByIdWagon(wagon.getIdWagon())) {
+               place.setStatus(Place.FREE);
+               result = placeDao.update(place);
+           }
+
+        }
+
+        return result;
+    }
 }

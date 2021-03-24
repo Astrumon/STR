@@ -1,6 +1,5 @@
 package com.course_project.controllers;
 
-import com.course_project.data_access.dao.wagon_dao.PlaceDao;
 import com.course_project.data_access.model.Ticket;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
@@ -9,8 +8,7 @@ import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
-import com.course_project.support.UserTicket;
-import com.course_project.support.creator.RouteCreator;
+import com.course_project.support.creator.TicketCreator;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
 import com.course_project.support.manager.WagonManager;
@@ -24,7 +22,6 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class ControllerUserBuyTicket {
 
@@ -52,13 +49,14 @@ public class ControllerUserBuyTicket {
 
     private boolean linen = false;
 
-    private String typeFromBox;
+    private TicketCreator ticketCreator = new TicketCreator();
+
 
     private WagonManager wagonManager;
     private TicketManager ticketManager = new TicketManager();
     private RouteManager routeManager = new RouteManager();
 
-    UserTicket userTicket = new UserTicket();
+    Ticket ticket = new Ticket();
 
     private String contact;
     int freeTicket = 0;
@@ -68,16 +66,15 @@ public class ControllerUserBuyTicket {
     void buttonBuyTicketAc(ActionEvent event) throws InterruptedException {
         if (checkBoxBedLinen.isSelected()) {
             System.out.println("idRoute: " + (routeSet.getIdRoute()-1));
-          Ticket ticket = ticketManager.getTicketByIdRoute(routeSet.getIdRoute()-1);
-          ticket.setLinen(true);
-          ticketManager.updateTicket(ticket);
+            ticket.setLinen(true);
         }
 
 
         if (checkFieldEmailNumber()) {
             buyPlace();
+            System.out.println("SoldTIcket: " + soldTicket);
             Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
-            route.setSoldTickets(soldTicket);
+            route.setSoldTickets(soldTicket+1);
             routeManager.updateRoute(route);
         }
     }
@@ -114,19 +111,21 @@ public class ControllerUserBuyTicket {
                 if (place.getStatus() == Place.FREE && place.getType() == type) {
                         place.setStatus(Place.TAKEN);
                         wagonManager.setStatusPlace(place);
-                        userTicket.setTrainName(wagon.getTrainName());
-                        userTicket.setContact(contact);
-                        userTicket.setType(typeFromBox);
-                        userTicket.setPlace(place.getNumber());
-                        userTicket.setDateSend(routeSet.getDateSend());
-                        userTicket.setDateArrive(routeSet.getDateArrive());
-                        userTicket.setTimeSend(routeSet.getSendTime());
-                        userTicket.setTimeArrive(routeSet.getArriveTime());
-                        userTicket.setFrom(routeSet.getFromTown());
-                        userTicket.setTo(routeSet.getToTown());
-                        userTicket.setNumberWagon(wagon.getIdWagon());
-                        userTicket.setPrice(routeSet.getPrice());
-                        AlertGenerator.showTicket(userTicket);
+                        ticket.setTrainName(wagon.getTrainName());
+                        ticket.setContact(contact);
+                        ticket.setTypePlace(type);
+                        ticket.setPlaceNumber(place.getNumber());
+                        ticket.setDateSend(routeSet.getDateSend());
+                        ticket.setDateArrive(routeSet.getDateArrive());
+                        ticket.setTimeStart(routeSet.getSendTime());
+                        ticket.setTimeEnd(routeSet.getArriveTime());
+                        ticket.setFromTown(routeSet.getFromTown());
+                        ticket.setToTown(routeSet.getToTown());
+                        ticket.setIdWagon(wagon.getIdWagon());
+                        ticket.setPrice(routeSet.getPrice());
+                        ticket.setIdRoute(routeSet.getIdRoute());
+                        ticketCreator.createTicket(ticket);
+                        AlertGenerator.showTicket(ticket);
                     return;
                 }
                 if (place.getStatus() == Place.FREE) {
@@ -152,7 +151,7 @@ public class ControllerUserBuyTicket {
     }
 
     private void setType(String value) {
-        typeFromBox = value;
+
         switch (value) {
             case "Сидяче місце":
                 type = TypePlace.SEATS;

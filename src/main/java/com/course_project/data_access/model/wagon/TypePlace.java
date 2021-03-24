@@ -32,6 +32,24 @@ public class TypePlace {
         this.idWagon = idWagon;
     }
 
+    public static String getNameType(int type) {
+        switch (type) {
+            case VIP:
+                return "VIP";
+
+            case SEATS:
+                return "сидяче";
+
+            case LOW:
+                return "нижнє";
+
+            case MIDDLE:
+                return "верхнє";
+
+        }
+        return "";
+    }
+
     public int defineType(int type) {
         switch (type) {
 

@@ -115,7 +115,7 @@ public class ControllerUserTableTicket {
             public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
                 RouteSet routeSet = (RouteSet) cellDataFeatures.getValue();
                 List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
-                int freePlace = 0;
+                int freePlace = 1;
                 for (Wagon wagon : wagons) {
                     for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
                         if (place.getStatus() == Place.FREE) {

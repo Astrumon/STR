@@ -10,12 +10,16 @@
                 <TableView fx:id="tableTicket" prefHeight="520.0" prefWidth="930.0">
                     <columns>
                         <TableColumn fx:id="tblNumber" prefWidth="48.79995822906494" text="№" />
-                        <TableColumn fx:id="tblFirstPoint" prefWidth="212.00007247924805" text="Початкова точка" />
-                        <TableColumn fx:id="tblLastPoint" minWidth="0.0" prefWidth="221.5999755859375" text="Кінцева точка" />
-                        <TableColumn fx:id="tblPrice" minWidth="0.0" prefWidth="84.80001831054688" text="Ціна" />
-                        <TableColumn fx:id="tblLinen" minWidth="0.0" prefWidth="98.4000244140625" text="Білизна" />
+                        <TableColumn fx:id="tblBuyer" minWidth="0.0" prefWidth="221.5999755859375" text="Покупець" />
+                  <TableColumn fx:id="tblTrainName" prefWidth="75.0" text="Потяг" />
+                  <TableColumn fx:id="tblWagon" prefWidth="75.0" text="Вагон" />
+                  <TableColumn fx:id="tblPlace" prefWidth="75.0" text="Місце" />
+                  <TableColumn fx:id="tblTypePlace" prefWidth="75.0" text="Тип місця" />
+                        <TableColumn fx:id="tblRoute" prefWidth="212.00007247924805" text="Маршрут" />
                         <TableColumn fx:id="tblSendTime" minWidth="0.0" prefWidth="133.60003662109375" text="Час відправлення" />
                         <TableColumn fx:id="tblArriveTime" minWidth="0.0" prefWidth="127.19992675781248" text="Час прибуття" />
+                        <TableColumn fx:id="tblPrice" minWidth="0.0" prefWidth="84.80001831054688" text="Ціна" />
+                        <TableColumn fx:id="tblLinen" minWidth="0.0" prefWidth="98.4000244140625" text="Білизна" />
                     </columns>
                 </TableView>
             </children>
