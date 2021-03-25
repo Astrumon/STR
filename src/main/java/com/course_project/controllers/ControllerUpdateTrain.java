@@ -17,6 +17,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретного поезда
+ * Содержит обработку нажатий на кнопки "Зберегти", "Приєднати до потягу", "Від'єднати від потягу", "Видалити"
+ * С помощью класса TrainUpdater вызывается логика изменения информации про поезд
+ */
 public class ControllerUpdateTrain {
 
     @FXML
@@ -48,7 +53,7 @@ public class ControllerUpdateTrain {
 
     private String trainName;
 
-    private TrainUpdater trainUpdater = new TrainUpdater();
+    private TrainUpdater trainUpdater;
 
     @FXML
     void buttonAddToTrainAc(ActionEvent event) {
@@ -85,6 +90,7 @@ public class ControllerUpdateTrain {
         assert lstViewCarConnectedToTheTrain != null : "fx:id=\"lstViewCarConnectedToTheTrain\" was not injected: check your FXML file 'updateTrain.fxml'.";
         assert buttonAddToTrain != null : "fx:id=\"buttonAddToTrain\" was not injected: check your FXML file 'updateTrain.fxml'.";
         assert buttonRemoveFromTrain != null : "fx:id=\"buttonRemoveFromTrain\" was not injected: check your FXML file 'updateTrain.fxml'.";
+        trainUpdater = new TrainUpdater();
 
         loadWagonsInfoToLstView();
         setTrainName();

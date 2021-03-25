@@ -4,6 +4,9 @@ import com.course_project.data_access.model.wagon.TypePlace;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы count_type_place
+ */
 public interface TypePlaceDao {
     String SQL_FIND_ALL = "SELECT * FROM " + TypePlace.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + TypePlace.ID_TYPE_PLACE_COLUMN + " = ?";

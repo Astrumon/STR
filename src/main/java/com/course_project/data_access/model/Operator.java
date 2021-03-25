@@ -1,5 +1,8 @@
 package com.course_project.data_access.model;
 
+/**
+ * POJO класс для операторов
+ */
 public class Operator {
     public static final String TABLE_NAME = "operator";
     public static final String ID_COLUMN = "id";

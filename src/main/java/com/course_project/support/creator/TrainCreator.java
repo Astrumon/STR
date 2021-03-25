@@ -11,6 +11,10 @@ import com.course_project.support.manager.WagonManager;
 
 import java.util.List;
 
+/**
+ * Класс который реализует всю логику создания поездов, составов поезда
+ *
+ */
 public class TrainCreator {
 
     private int typeTrain;

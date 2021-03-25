@@ -9,6 +9,9 @@ import com.course_project.data_access.model.warehouse.WarehouseSet;
 
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO складов и их позиций
+ */
 public class WarehouseManager extends Manager {
 
     public static final int WAREHOUSE_CAPACITY = 100;

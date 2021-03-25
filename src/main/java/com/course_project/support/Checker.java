@@ -7,6 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+/**
+ * Класс который содержит логику проверки входный данных от пользователя
+ */
 public class Checker {
 
     public static boolean checkPositiveIntValue(String value) {
@@ -52,9 +55,6 @@ public class Checker {
     }
 
     public static boolean checkValidNumber(String number) {
-//        Pattern pattern = Pattern.compile("^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$");
-//        Matcher matcher = pattern.matcher(number);
-
         Pattern pattern = Pattern.compile("^\\+38\\d{10}$");
         Matcher matcher = pattern.matcher(number);
 

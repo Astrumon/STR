@@ -1,5 +1,8 @@
 package com.course_project.data_access.model.route;
 
+/**
+ * POJO класс для маршрутов
+ */
 public class Route {
     public static final String TABLE_NAME = "route";
     public static final String FROM_TOWN_COLUMN = "from_town";

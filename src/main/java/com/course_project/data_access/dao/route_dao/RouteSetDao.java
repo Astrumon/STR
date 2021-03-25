@@ -6,6 +6,9 @@ import com.course_project.data_access.model.route.RouteSet;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы route_set
+ */
 public interface RouteSetDao {
 
     String SQL_FIND_ALL = "SELECT * FROM " + RouteSet.TABLE_NAME;

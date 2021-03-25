@@ -1,11 +1,8 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
+import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.route.Route;
 import com.course_project.support.NumberIDGenerator;
-import com.course_project.support.creator.RouteCreator;
 import com.course_project.support.manager.RouteManager;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -16,11 +13,18 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
-import com.course_project.FxmlLoader;
-import javafx.scene.layout.Pane;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы маршрутов
+ * Создает таблицу в которой перечислены созданные маршруты, данные предоставляет класс RouteManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateRoute
+ */
 public class ControllerTablePath {
 
     @FXML
@@ -59,10 +63,7 @@ public class ControllerTablePath {
     @FXML
     private TableColumn tblAllTickets;
 
-    private RouteManager routeManager;
-
     private ObservableList<Route> routes;
-
 
 
     @FXML
@@ -72,38 +73,29 @@ public class ControllerTablePath {
     }
 
     public void fillTable() {
-         routeManager = new RouteManager();
+        RouteManager routeManager = new RouteManager();
 
-          routes = tablePath.getItems();
-          routes.addAll(routeManager.getRoutes());
+        routes = tablePath.getItems();
+        routes.addAll(routeManager.getRoutes());
 
+        tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
 
-          tblFirstPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("fromTown"));
+        tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
 
-          tblLastPoint.setCellValueFactory(new PropertyValueFactory<Route, String>("toTown"));
+        tblTimeSend.setCellValueFactory(new PropertyValueFactory<Route, String>("timeStart"));
 
-          tblTimeSend.setCellValueFactory(new PropertyValueFactory<Route, String>("timeStart"));
+        tblTimeArrive.setCellValueFactory(new PropertyValueFactory<Route, String>("timeEnd"));
 
-          tblTimeArrive.setCellValueFactory(new PropertyValueFactory<Route, String>("timeEnd"));
+        tblSoldTickets.setCellValueFactory(new PropertyValueFactory<Route, String>("soldTickets"));
 
-          tblSoldTickets.setCellValueFactory(new PropertyValueFactory<Route, String>("soldTickets"));
+        tblAllTickets.setCellValueFactory(new PropertyValueFactory<Route, String>("allTickets"));
 
-          tblAllTickets.setCellValueFactory(new PropertyValueFactory<Route, String>("allTickets"));
-
-
-//
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
             public ObservableValue call(TableColumn.CellDataFeatures cellDataFeatures) {
                 return new SimpleIntegerProperty(NumberIDGenerator.generate(routes, cellDataFeatures));
             }
         });
-//
-//        tblCountCars.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("countWagons"));
-
-       // tableWarehouse.setItems(warehouses);
-
-
     }
 
     public void clickToEdit() {

@@ -9,6 +9,9 @@ import com.course_project.data_access.model.train.Train;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO маршрутов и точек маршрута
+ */
 public class RouteManager extends Manager {
     public static Route transfer;
     public static RouteSet transferRouteSet;
@@ -87,7 +90,6 @@ public class RouteManager extends Manager {
     }
 
     public boolean updateRoute(Route route) {
-        System.out.println("ROUT: " + route);
        return routeDao.update(route);
     }
 

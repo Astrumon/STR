@@ -23,6 +23,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы операторов
+ * Создает таблицу в которой перечислены созданные записи операторов, данные предоставляет класс OperatorManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateOperator
+ */
 public class ControllerTableOperator {
 
     @FXML
@@ -49,8 +54,6 @@ public class ControllerTableOperator {
     @FXML
     private TableColumn tblPassword;
 
-    private OperatorManager operatorManager;
-
     private ObservableList<Operator> operators;
 
     @FXML
@@ -67,19 +70,14 @@ public class ControllerTableOperator {
     }
 
     public void fillTable() {
-        operatorManager = new OperatorManager();
-
-
+        OperatorManager operatorManager = new OperatorManager();
 
         operators = tableOperator.getItems();
         operators.addAll(operatorManager.getOperators());
 
-
         tblLogin.setCellValueFactory(new PropertyValueFactory<Route, String>("login"));
 
         tblPassword.setCellValueFactory(new PropertyValueFactory<Route, String>("password"));
-
-
 
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override
@@ -106,11 +104,4 @@ public class ControllerTableOperator {
             return row;
         });
     }
-
-    //TODO переход на создание/редактирование
-    /*FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("updateOperator");
-
-    stackPaneOperator.getChildren().remove(anchorPaneTableOperator);
-    stackPaneOperator.getChildren().add(view);*/
 }

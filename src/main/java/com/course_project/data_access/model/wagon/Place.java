@@ -1,5 +1,8 @@
 package com.course_project.data_access.model.wagon;
 
+/**
+ * POJO класс для мест
+ */
 public class Place {
     public static final String TABLE_NAME = "place";
     public static final String ID_PLACE_COLUMN = "id_place";

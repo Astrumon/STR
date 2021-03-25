@@ -5,6 +5,10 @@ import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
 import com.course_project.support.manager.CargoManager;
 
+/**
+ * Класс который реализует всю логику создания грузоперевозок
+ *
+ */
 public class CargoCreator {
     private CargoManager cargoManager;
 

@@ -2,6 +2,9 @@ package com.course_project.data_access.model.wagon;
 
 import javafx.beans.property.SimpleLongProperty;
 
+/**
+ * POJO класс для вагонов
+ */
 public class Wagon {
     public static final String TABLE_NAME = "wagon";
     public static final String ID_COLUMN = "id";

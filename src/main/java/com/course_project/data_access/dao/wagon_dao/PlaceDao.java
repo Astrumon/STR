@@ -4,6 +4,9 @@ import com.course_project.data_access.model.wagon.Place;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы place
+ */
 public interface PlaceDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Place.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Place.ID_PLACE_COLUMN + " = ?";

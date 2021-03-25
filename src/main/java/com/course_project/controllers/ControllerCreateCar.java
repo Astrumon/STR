@@ -1,22 +1,25 @@
 package com.course_project.controllers;
 
-import com.course_project.data_access.model.wagon.TypePlace;
-import com.course_project.data_access.model.wagon.Wagon;
-import com.course_project.database.DataSource;
-import com.course_project.support.*;
-import com.course_project.support.creator.WagonCreator;
-import com.course_project.support.manager.WagonManager;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+        import com.course_project.data_access.model.wagon.TypePlace;
+        import com.course_project.data_access.model.wagon.Wagon;
+        import com.course_project.support.*;
+        import com.course_project.support.creator.WagonCreator;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.scene.control.Button;
+        import javafx.scene.control.ChoiceBox;
+        import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.regex.Pattern;
+        import java.net.URL;
+        import java.util.ResourceBundle;
+        import java.util.regex.Pattern;
 
-public class ControllerCreateCar implements Checkable {
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана для создания вагонов
+ * Содержит обработку нажатия на кнопку: "Зберегти"
+ * С помощью класса WagonCreator вызывается логика создания вагонов
+ */
+public class ControllerCreateCar {
 
     @FXML
     private ResourceBundle resources;
@@ -44,10 +47,6 @@ public class ControllerCreateCar implements Checkable {
 
     @FXML
     private ChoiceBox<String> choiceBoxTypeCar;
-
-    private DataSource dataSource = new DataSource();
-
-    private WagonManager wagonManager = new WagonManager();
 
     private Long idWagon;
 

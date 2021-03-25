@@ -7,7 +7,6 @@ module com.course_project {
     requires java.sql;
 
 
-
     opens com.course_project to javafx.fxml;
     opens com.course_project.controllers  to javafx.fxml;
     opens com.course_project.data_access.model.train to javafx.base;
@@ -15,8 +14,6 @@ module com.course_project {
     opens com.course_project.data_access.model.wagon to javafx.base;
     opens com.course_project.data_access.model.route to javafx.base;
     opens com.course_project.data_access.model to javafx.base;
-
-
 
 
    exports com.course_project.controllers to javafx.fxml;

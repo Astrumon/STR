@@ -15,6 +15,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретной записи про грузоперевозки
+ * Содержит обработку нажатий на кнопки "Зберегти", "Видалити"
+ * С помощью класса TruckingUpdater вызывается логика изменения информации про грузоперевозки
+ */
 public class ControllerUpdateTrucking {
 
     @FXML
@@ -99,7 +104,6 @@ public class ControllerUpdateTrucking {
 
         cargo.setText(textAreaCargoDescription.getText());
         cargo.setId(this.cargo.getId());
-
 
         return cargo;
     }

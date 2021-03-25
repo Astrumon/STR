@@ -7,7 +7,10 @@ import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.TicketManager;
-
+/**
+ * Класс который реализует всю логику обновления(изменения, удаления, добавления) маршрутов и точек маршрутов
+ *
+ */
 public class RouteUpdater {
     private RouteManager routeManager;
     private TicketManager ticketManager;
@@ -54,7 +57,7 @@ public class RouteUpdater {
                 && Checker.checkPositiveIntValue(currentPrice)) {
             return true;
         } else {
-            AlertGenerator.error("Ціна вказана невірно");
+            AlertGenerator.error("Сума вказана невірно");
             return false;
         }
 

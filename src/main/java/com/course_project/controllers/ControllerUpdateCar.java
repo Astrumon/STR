@@ -1,23 +1,27 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.regex.Pattern;
-
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
-import com.course_project.support.*;
+import com.course_project.support.AlertGenerator;
+import com.course_project.support.Checker;
 import com.course_project.support.manager.WagonManager;
 import com.course_project.support.updater.WagonUpdater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import javafx.scene.control.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
-
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретного вагона
+ * Содержит обработку нажатий на кнопки "Зберегти", "Видалити".
+ * С помощью класса CarUpdater вызывается логика изменения информации про вагон
+ */
 public class ControllerUpdateCar {
 
     @FXML
@@ -53,7 +57,7 @@ public class ControllerUpdateCar {
     @FXML
     private Label labelTypeCar;
 
-    private WagonUpdater wagonUpdater = new WagonUpdater();
+    private WagonUpdater wagonUpdater;
 
     private Long idWagon;
 
@@ -108,7 +112,6 @@ public class ControllerUpdateCar {
     }
 
 
-
     @FXML
     void initialize() {
         assert textFieldNameCar != null : "fx:id=\"textFieldNameCar\" was not injected: check your FXML file 'updateCar.fxml'.";
@@ -124,14 +127,14 @@ public class ControllerUpdateCar {
         inputRestriction(textFieldNumberLowerSeats);
         inputRestriction(textFieldNumberSittingSeats);
 
-
+        wagonUpdater = new WagonUpdater();
         idWagon = WagonManager.transfer.getIdWagon();
         textFieldNameCar.setText(idWagon.toString());
         TypeCarAc();
     }
 
-    public void TypeCarAc(){
-        if (WagonManager.transfer.getType() == Wagon.LYING_TYPE){
+    public void TypeCarAc() {
+        if (WagonManager.transfer.getType() == Wagon.LYING_TYPE) {
             labelTypeCar.setText("Тип вагона: Лежачий");
             textFieldNumberVipSeats.setEditable(true);
             textFieldNumberTopSeats.setEditable(true);
@@ -141,8 +144,7 @@ public class ControllerUpdateCar {
             textFieldNumberTopSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
-        }
-        else if (WagonManager.transfer.getType() == Wagon.SEATING_TYPE){
+        } else if (WagonManager.transfer.getType() == Wagon.SEATING_TYPE) {
             labelTypeCar.setText("Тип вагона: Сидячий");
             textFieldNumberVipSeats.setEditable(false);
             textFieldNumberTopSeats.setEditable(false);
@@ -152,8 +154,7 @@ public class ControllerUpdateCar {
             textFieldNumberTopSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
             textFieldNumberLowerSeats.setStyle("-fx-background-color: #DCDCDC; -fx-background-radius: 0");
             textFieldNumberSittingSeats.setStyle("-fx-background-color: #C4C4C4; -fx-background-radius: 0");
-        }
-        else if (WagonManager.transfer.getType() == Wagon.CARGO_TYPE){
+        } else if (WagonManager.transfer.getType() == Wagon.CARGO_TYPE) {
             labelTypeCar.setText("Тип вагона: Вантажний");
             textFieldNumberVipSeats.setEditable(false);
             textFieldNumberTopSeats.setEditable(false);

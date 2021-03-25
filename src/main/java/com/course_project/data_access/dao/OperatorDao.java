@@ -5,6 +5,9 @@ import com.course_project.data_access.model.route.Route;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы operator
+ */
 public interface OperatorDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Operator.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Operator.ID_COLUMN + " = ?";

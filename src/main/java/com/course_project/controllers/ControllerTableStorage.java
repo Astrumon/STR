@@ -22,6 +22,11 @@ import com.course_project.support.manager.WarehouseManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы складов
+ * Создает таблицу в которой перечислены созданные склады, данные предоставляет класс WarehouseManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateWarehouse
+ */
 public class ControllerTableStorage {
 
     @FXML
@@ -49,7 +54,6 @@ public class ControllerTableStorage {
     private TableColumn tblCountCars;
 
     private ObservableList<Warehouse> warehouses;
-
 
     @FXML
     void initialize() {

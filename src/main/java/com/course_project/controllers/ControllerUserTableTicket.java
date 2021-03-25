@@ -1,20 +1,12 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import com.course_project.FxmlLoader;
-import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.wagon.Place;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.NumberIDGenerator;
 import com.course_project.support.creator.RouteCreator;
-import com.course_project.support.manager.CargoManager;
 import com.course_project.support.manager.RouteManager;
 import com.course_project.support.manager.WagonManager;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -29,6 +21,16 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы билетов
+ * Создает таблицу в которой перечислены расписания маршрутов, данные предоставляет класс RouteCreator, WagonManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUserBuyTicket
+ */
 public class ControllerUserTableTicket {
 
     @FXML
@@ -76,15 +78,11 @@ public class ControllerUserTableTicket {
     @FXML
     private TableColumn tblArriveTime;
 
-    private RouteCreator routeCreator = new RouteCreator();
-
-    private WagonManager wagonManager = new WagonManager();
+    private RouteCreator routeCreator;
+    private WagonManager wagonManager;
 
     private ObservableList<RouteSet> routeSets;
     private List<RouteSet> listRouteSets = new ArrayList<>();
-    private List<Place> places = new ArrayList<>();
-
-
 
     @FXML
     void buttonFindTicketAc(ActionEvent event) {
@@ -98,7 +96,6 @@ public class ControllerUserTableTicket {
     }
 
     public void fillTable() {
-
         routeSets = tableUserTicket.getItems();
         routeSets.addAll(listRouteSets);
 
@@ -125,7 +122,6 @@ public class ControllerUserTableTicket {
                 }
                 return new SimpleIntegerProperty(freePlace);
             }
-
         });
 
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
@@ -174,6 +170,8 @@ public class ControllerUserTableTicket {
         assert tblFreePlaces != null : "fx:id=\"tblFreePlaces\" was not injected: check your FXML file 'userTableTicket.fxml'.";
         assert tblSendTime != null : "fx:id=\"tblSendTime\" was not injected: check your FXML file 'userTableTicket.fxml'.";
         assert tblArriveTime != null : "fx:id=\"tblArriveTime\" was not injected: check your FXML file 'userTableTicket.fxml'.";
+        wagonManager = new WagonManager();
+        routeCreator = new RouteCreator();
         clickToEdit();
     }
 

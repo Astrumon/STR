@@ -13,27 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс WagonDaoImpl служит для создания вагонов
- * взаимодействует с таблицей wagon, count_type_place, place, train_set, warehouse_set
+ * Класс WagonDaoImpl служит для добавления/обновления/удаление информации про вагоны
+ *
  */
 public class WagonDaoImpl implements WagonDao {
     private DataSource dataSource;
 
-    /**
-     * Конструктор служит для установки подключения к базе данных
-     *
-     * @param dataSource
-     */
     public WagonDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-
-    /**
-     * Выборка всей информации из таблицы wagon
-     *
-     * @return
-     */
     @Override
     public List<Wagon> findAll() {
         Connection connection = null;
@@ -71,12 +60,6 @@ public class WagonDaoImpl implements WagonDao {
         return wagons;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому id из таблицы wagon
-     *
-     * @param id
-     * @return
-     */
     @Override
     public Wagon findById(Long id) {
         Connection connection = null;
@@ -110,12 +93,6 @@ public class WagonDaoImpl implements WagonDao {
         return wagon;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому Wagon.id из таблицы wagon
-     *
-     * @param id
-     * @return
-     */
     @Override
     public Wagon findByIdWagon(Long id) {
         Connection connection = null;
@@ -150,12 +127,6 @@ public class WagonDaoImpl implements WagonDao {
         return wagon;
     }
 
-    /**
-     * Обновляет записи из таблицы wagon информацией про warehouset
-     *
-     * @param warehouseSet
-     * @param idWarehouseSet
-     */
     @Override
     public void updateWarehouseSet(WarehouseSet warehouseSet, Long idWarehouseSet) {
         Connection connection = null;
@@ -182,12 +153,6 @@ public class WagonDaoImpl implements WagonDao {
         }
     }
 
-    /**
-     * Обновляет записи из таблицы wagon информацией про trainset
-     *
-     * @param trainSet
-     * @param idTrainSet
-     */
     @Override
     public void updateTrainSet(TrainSet trainSet, Long idTrainSet) {
         Connection connection = null;
@@ -237,11 +202,6 @@ public class WagonDaoImpl implements WagonDao {
         }
     }
 
-    /**
-     * Удаление записи с таблицы train по wagon.id
-     *
-     * @param wagon
-     */
     @Override
     public void delete(Wagon wagon) {
         Connection connection = null;
@@ -285,11 +245,7 @@ public class WagonDaoImpl implements WagonDao {
             }
         }
     }
-    /**
-     * Добавляет пассажирскому вагону доступное количество созданных мест определенного типа
-     * @param wagon
-     * @param typePlace
-     */
+
     @Override
     public boolean setTypePlace(Wagon wagon, TypePlace typePlace) {
         Connection connection = null;
@@ -353,12 +309,6 @@ public class WagonDaoImpl implements WagonDao {
         return wagons;
     }
 
-
-    /**
-     * Вставка записи информации про вагон в таблицу wagon.
-     *
-     * @param wagon
-     */
     @Override
     public Long insert(Wagon wagon) {
         Connection connection = null;
@@ -390,10 +340,6 @@ public class WagonDaoImpl implements WagonDao {
 
     }
 
-    /**
-     * Обновляет запись в таблице wagon информацией об объекте wagon
-     * @param wagon
-     */
     @Override
     public void update(Wagon wagon) {
         Connection connection = null;

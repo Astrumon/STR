@@ -1,8 +1,5 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.course_project.data_access.model.Operator;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
@@ -12,6 +9,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретной записи оператора
+ * Содержит обработку нажатий на кнопки "Зберегти", "Видалити".
+ * С помощью класса OperatorUpdater вызывается логика изменения информации про запись оператора
+ */
 public class ControllerUpdateOperator {
 
     @FXML
@@ -36,25 +41,23 @@ public class ControllerUpdateOperator {
 
     private String login;
 
-    private Operator operator;
-
     @FXML
     void buttonDeleteOperatorAc(ActionEvent event) {
 
-            Operator operator = new Operator();
-            operator.setLogin(textFieldLogin.getText());
-            if (operatorManager.delete(operator)) {
-                AlertGenerator.info("Запис оператора видалено успішно");
-            } else {
-                AlertGenerator.error("Виникла помилка при видалені оператора");
-            }
+        Operator operator = new Operator();
+        operator.setLogin(textFieldLogin.getText());
+        if (operatorManager.delete(operator)) {
+            AlertGenerator.info("Запис оператора видалено успішно");
+        } else {
+            AlertGenerator.error("Виникла помилка при видалені оператора");
+        }
     }
 
     @FXML
     void buttonSaveOperatorAc(ActionEvent event) {
         if (isEmptyField()) {
             AlertGenerator.error("Заповніть усі поля");
-        } else if(!isCorrectData()) {
+        } else if (!isCorrectData()) {
             AlertGenerator.error("Некорректно ведені дані");
         } else {
             Operator operator = new Operator();
@@ -67,7 +70,6 @@ public class ControllerUpdateOperator {
             }
         }
     }
-
 
     private boolean isEmptyField() {
         return Checker.checkEmptyValue(textFieldLogin.getText())

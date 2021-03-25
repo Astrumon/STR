@@ -5,6 +5,9 @@ import com.course_project.data_access.model.wagon.Wagon;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * POJO класс для состава поезда
+ */
 public class TrainSet {
     public static final String TABLE_NAME = "train_set";
     public static final String NAME_COLUMN = "name";

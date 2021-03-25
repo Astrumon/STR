@@ -6,6 +6,9 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 
+/**
+ * Класс который позволяет подгружать конкретные xml файлы
+ */
 public class FxmlLoader {
     private Pane view;
 

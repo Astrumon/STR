@@ -10,27 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс TypePlaceDaoImpl служит для создания количества определенных типов мест в вагоне
- * взаимодействует с таблицей wagon
+ * Класс TypePlaceDaoImpl служит для добавления/обновления/удаления информации про типы мест вагона
+ *
  */
 public class TypePlaceDaoImpl implements TypePlaceDao {
 
     private DataSource dataSource;
 
-    /**
-     * Конструктор служит для установки подключения к базе данных
-     *
-     * @param dataSource
-     */
     public TypePlaceDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    /**
-     * Выборка всей информации из таблицы count_type_place
-     *
-     * @return
-     */
     @Override
     public List<TypePlace> findAll() {
         Connection connection = null;
@@ -63,12 +53,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
         return typePlaces;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому id из таблицы count_type_place
-     *
-     * @param id
-     * @return
-     */
     @Override
     public TypePlace findById(Long id) {
         Connection connection = null;
@@ -99,11 +83,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
         return typePlace;
     }
 
-    /**
-     * Удаление записи с таблицы count_type_place по typePlace.id
-     *
-     * @param typePlace
-     */
     @Override
     public void delete(TypePlace typePlace) {
         Connection connection = null;
@@ -147,13 +126,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
         return true;
     }
 
-
-
-    /**
-     * Вставка записи информации о typePlace в таблицу count_type_place.
-     *
-     * @param typePlace
-     */
     @Override
     public Long insert(TypePlace typePlace) {
         Connection connection = null;
@@ -187,10 +159,6 @@ public class TypePlaceDaoImpl implements TypePlaceDao {
 
     }
 
-    /**
-     * Обновляет запись в таблице count_type_place информацией об объекте typePlace
-     * @param typePlace
-     */
     @Override
     public boolean update(TypePlace typePlace) {
         Connection connection = null;

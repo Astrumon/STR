@@ -6,7 +6,10 @@ import com.course_project.support.AlertGenerator;
 import com.course_project.support.manager.TrainManager;
 import com.course_project.support.manager.WagonManager;
 import com.course_project.support.manager.WarehouseManager;
-
+/**
+ * Класс который реализует всю логику обновления(изменения, удаления) вагонов
+ *
+ */
 public class WagonUpdater {
 
     private WagonManager wagonManager;

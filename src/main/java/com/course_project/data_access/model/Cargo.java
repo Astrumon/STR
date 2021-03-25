@@ -1,5 +1,8 @@
 package com.course_project.data_access.model;
 
+/**
+ * POJO класс для грузоперевозок
+ */
 public class Cargo {
     public static final String TABLE_NAME = "cargo";
     public static final String ID_COLUMN = "id";

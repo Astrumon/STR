@@ -20,12 +20,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана входа пользователя
+ * Содержит обработку нажатия на кнопку: "Увійти", "Назад"
+ * С помощью класса OperatorManager вызывается список зарегистрированных операторов
+ * Позволяет в зависимости от введенных данных перейти на главную сцену программы(сцены для админа и для оператора отличаются).
+ */
 public class ControllerLoginAccount {
 
     @FXML
     private ResourceBundle resources;
-
-
 
     @FXML
     private URL location;
@@ -46,7 +50,6 @@ public class ControllerLoginAccount {
     private PasswordField passwordField;
 
     private OperatorManager operatorManager;
-    private Admin admin;
 
     @FXML
     void buttonLogInAc(ActionEvent event) {
@@ -97,8 +100,6 @@ public class ControllerLoginAccount {
         assert buttonLogIn != null : "fx:id=\"buttonLogIn\" was not injected: check your FXML file 'loginAccount.fxml'.";
         assert passwordField != null : "fx:id=\"passwordField\" was not injected: check your FXML file 'loginAccount.fxml'.";
         operatorManager = new OperatorManager();
-
-
 
     }
 }

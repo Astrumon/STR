@@ -10,6 +10,10 @@ import com.course_project.support.manager.WarehouseManager;
 
 import java.util.List;
 
+/**
+ * Класс который реализует всю логику создания складов, позиции склада
+ *
+ */
 public class WarehouseCreator {
 
     private WarehouseManager warehouseManager;

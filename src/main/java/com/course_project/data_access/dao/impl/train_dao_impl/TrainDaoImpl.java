@@ -10,26 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс TrainDaoImpl служит для создания наименований поездов
- * взаимодействует с таблицами train, train_set.
+ * Класс TrainDaoImpl служит для добавления/обновления/удаления информации про поезда
  *
  */
 public class TrainDaoImpl implements TrainDao {
     private DataSource dataSource;
 
-    /**
-     * Конструктор служит для установки подключения к базе данных
-     * @param dataSource
-     */
     public TrainDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-
-    /**
-     * Выборка всей информации из таблицы train
-     * @return
-     */
     @Override
     public List<Train> findAll() {
         Connection connection = null;
@@ -63,11 +53,6 @@ public class TrainDaoImpl implements TrainDao {
         return trains;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому id из таблицы train
-     * @param id
-     * @return
-     */
     @Override
     public Train findById(Long id) {
         Connection connection = null;
@@ -128,10 +113,6 @@ public class TrainDaoImpl implements TrainDao {
         return train;
     }
 
-    /**
-     * Удаление записи с таблицы train по train.id
-     * @param train
-     */
     @Override
     public boolean delete(Train train) {
         Connection connection = null;
@@ -154,10 +135,6 @@ public class TrainDaoImpl implements TrainDao {
         }
     }
 
-    /**
-     * Удаление записи с таблицы train по train.name
-     * @param train
-     */
     @Override
     public boolean deleteByName(Train train) {
         Connection connection = null;
@@ -180,10 +157,6 @@ public class TrainDaoImpl implements TrainDao {
         }
     }
 
-    /**
-     * Вставка записи информации про поезд в таблицу train.
-     * @param train
-     */
     @Override
     public boolean insert(Train train) {
         Connection connection = null;
@@ -215,10 +188,6 @@ public class TrainDaoImpl implements TrainDao {
         }
     }
 
-    /**
-     * Обновляет запись в таблице train информацией об объекте train
-     * @param train
-     */
     @Override
     public boolean update(Train train) {
         Connection connection = null;
@@ -248,12 +217,6 @@ public class TrainDaoImpl implements TrainDao {
         }
     }
 
-    /**
-     * Обновляет записи из таблицы wagon информацией про trainset
-     *
-     * @param trainSet
-     * @param idWarehouseSet
-     */
     @Override
     public void updateTrainSet(TrainSet trainSet, Long idWarehouseSet) {
         Connection connection = null;

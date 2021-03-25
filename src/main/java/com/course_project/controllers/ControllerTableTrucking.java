@@ -1,14 +1,9 @@
 package com.course_project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.Cargo;
-import com.course_project.data_access.model.train.Train;
 import com.course_project.support.NumberIDGenerator;
 import com.course_project.support.manager.CargoManager;
-import com.course_project.support.manager.TrainManager;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -23,6 +18,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы грузоперевозок
+ * Создает таблицу в которой перечислены созданные записи грузоперевозок, данные предоставляет класс CargoManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateCargo
+ */
 public class ControllerTableTrucking {
 
     @FXML
@@ -86,7 +89,6 @@ public class ControllerTableTrucking {
                 return new SimpleStringProperty(cargo.getFromTown() + " - " + cargo.getToTown());
             }
         });
-
 
 
         tableTrucking.setItems(cargos);

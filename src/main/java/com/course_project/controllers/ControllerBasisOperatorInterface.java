@@ -19,6 +19,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
 import com.course_project.data_access.model.wagon.Wagon;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса главного экрана программы
+ * Содержит обработку нажатий кнопок: "Квитки", "Вантаж", "Увійти"
+ * Каждая кнопка содержит переход на конкретную сцену
+ */
 public class ControllerBasisOperatorInterface {
 
     @FXML
@@ -229,8 +234,6 @@ public class ControllerBasisOperatorInterface {
         requiredNode.toFront();
 
     }
-
-
 
     @FXML
     void buttonCreatePathAc(ActionEvent event) {

@@ -10,7 +10,6 @@ import com.course_project.support.AlertGenerator;
 import com.course_project.support.Checker;
 import com.course_project.support.creator.TicketCreator;
 import com.course_project.support.manager.RouteManager;
-import com.course_project.support.manager.TicketManager;
 import com.course_project.support.manager.WagonManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,58 +22,48 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана покупки билета
+ * Содержит обработку нажатий на кнопки "Купити"
+ * С помощью класса WagonManager берется вся информация поездки
+ * С помощью класса RouteManager обновляется количество купленных билетов
+ * С помоью класса TicketCreator вызывается логика создания билетов
+ */
 public class ControllerUserBuyTicket {
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private ChoiceBox<String> choiceBoxTypePlace;
-
     @FXML
     private CheckBox checkBoxBedLinen;
-
     @FXML
     private TextField textFieldEmailOrPhoneNumber;
-
     @FXML
     private Button buttonBuyTicket;
-
     private RouteSet routeSet;
-
-    private int type;
-
-    private boolean linen = false;
-
-    private TicketCreator ticketCreator = new TicketCreator();
-
-
+    private Ticket ticket = new Ticket();
+    private TicketCreator ticketCreator;
     private WagonManager wagonManager;
-    private TicketManager ticketManager = new TicketManager();
-    private RouteManager routeManager = new RouteManager();
-
-    Ticket ticket = new Ticket();
+    private RouteManager routeManager;
 
     private String contact;
-    int freeTicket = 0;
-    int soldTicket = 0;
+    private int type;
+    private int freeTicket = 0;
+    private int soldTicket = 0;
 
     @FXML
-    void buttonBuyTicketAc(ActionEvent event) throws InterruptedException {
+    void buttonBuyTicketAc(ActionEvent event) {
         if (checkBoxBedLinen.isSelected()) {
-            System.out.println("idRoute: " + (routeSet.getIdRoute()-1));
             ticket.setLinen(true);
         }
 
-
         if (checkFieldEmailNumber()) {
             buyPlace();
-            System.out.println("SoldTIcket: " + soldTicket);
-            Route route = routeManager.getRoute(routeSet.getIdRoute()-1);
-            route.setSoldTickets(soldTicket+1);
+            Route route = routeManager.getRoute(routeSet.getIdRoute() - 1);
+            route.setSoldTickets(soldTicket + 1);
             routeManager.updateRoute(route);
         }
     }
@@ -100,32 +89,30 @@ public class ControllerUserBuyTicket {
         return false;
     }
 
-    private void buyPlace() throws InterruptedException {
+    private void buyPlace() {
         soldTicket = 0;
         List<Wagon> wagons = wagonManager.getWagonsByTrainName(routeSet.getTrainName());
 
-        System.out.println(wagons.size()-1);
         for (Wagon wagon : wagons) {
-
             for (Place place : wagonManager.getPlacesByIdWagon(wagon.getIdWagon())) {
                 if (place.getStatus() == Place.FREE && place.getType() == type) {
-                        place.setStatus(Place.TAKEN);
-                        wagonManager.setStatusPlace(place);
-                        ticket.setTrainName(wagon.getTrainName());
-                        ticket.setContact(contact);
-                        ticket.setTypePlace(type);
-                        ticket.setPlaceNumber(place.getNumber());
-                        ticket.setDateSend(routeSet.getDateSend());
-                        ticket.setDateArrive(routeSet.getDateArrive());
-                        ticket.setTimeStart(routeSet.getSendTime());
-                        ticket.setTimeEnd(routeSet.getArriveTime());
-                        ticket.setFromTown(routeSet.getFromTown());
-                        ticket.setToTown(routeSet.getToTown());
-                        ticket.setIdWagon(wagon.getIdWagon());
-                        ticket.setPrice(routeSet.getPrice());
-                        ticket.setIdRoute(routeSet.getIdRoute());
-                        ticketCreator.createTicket(ticket);
-                        AlertGenerator.showTicket(ticket);
+                    place.setStatus(Place.TAKEN);
+                    wagonManager.setStatusPlace(place);
+                    ticket.setTrainName(wagon.getTrainName());
+                    ticket.setContact(contact);
+                    ticket.setTypePlace(type);
+                    ticket.setPlaceNumber(place.getNumber());
+                    ticket.setDateSend(routeSet.getDateSend());
+                    ticket.setDateArrive(routeSet.getDateArrive());
+                    ticket.setTimeStart(routeSet.getSendTime());
+                    ticket.setTimeEnd(routeSet.getArriveTime());
+                    ticket.setFromTown(routeSet.getFromTown());
+                    ticket.setToTown(routeSet.getToTown());
+                    ticket.setIdWagon(wagon.getIdWagon());
+                    ticket.setPrice(routeSet.getPrice());
+                    ticket.setIdRoute(routeSet.getIdRoute());
+                    ticketCreator.createTicket(ticket);
+                    AlertGenerator.showTicket(ticket);
                     return;
                 }
                 if (place.getStatus() == Place.FREE) {
@@ -144,14 +131,14 @@ public class ControllerUserBuyTicket {
         assert textFieldEmailOrPhoneNumber != null : "fx:id=\"textFieldEmailOrPhoneNumber\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         assert buttonBuyTicket != null : "fx:id=\"buttonBuyTicket\" was not injected: check your FXML file 'userBuyTicket.fxml'.";
         routeSet = RouteManager.transferRouteSet;
+        routeManager = new RouteManager();
+        ticketCreator = new TicketCreator();
         wagonManager = new WagonManager();
         fillChoiceBox();
         getInfoFromBox();
-
     }
 
     private void setType(String value) {
-
         switch (value) {
             case "Сидяче місце":
                 type = TypePlace.SEATS;

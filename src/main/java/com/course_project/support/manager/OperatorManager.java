@@ -5,6 +5,9 @@ import com.course_project.data_access.model.Operator;
 
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO операторов
+ */
 public class OperatorManager extends Manager {
     public static Operator transfer;
     private OperatorDaoImpl operatorDao;

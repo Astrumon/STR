@@ -6,6 +6,9 @@ import com.course_project.data_access.model.wagon.Wagon;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы train
+ */
 public interface TrainDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Train.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Train.ID_COLUMN + "= ?";

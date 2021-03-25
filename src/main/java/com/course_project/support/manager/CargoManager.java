@@ -5,6 +5,9 @@ import com.course_project.data_access.model.Cargo;
 
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO грузоперевозок
+ */
 public class CargoManager extends Manager {
     public static Cargo transfer;
     private CargoDaoImpl cargoDao;

@@ -12,6 +12,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана для создания операторов
+ * Содержит обработку нажатия на кнопку: "Зберегти"
+ * С помощью класса OperatorManager вызывается логика создания операторов
+ */
 public class ControllerCreateOperator {
 
     @FXML

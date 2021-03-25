@@ -9,6 +9,10 @@ import com.course_project.support.manager.WarehouseManager;
 
 import java.util.List;
 
+/**
+ * Класс который реализует всю логику обновления(изменения, удаления) склада, позиций склада
+ * Содержит логику добавления, удаления вагонов со склада
+ */
 public class WarehouseUpdater extends Updater {
 
     private WarehouseManager warehouseManager;

@@ -5,6 +5,10 @@ import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.manager.WagonManager;
 
+/**
+ * Класс который реализует всю логику создания вагонов
+ *
+ */
 public class WagonCreator {
     private WagonManager wagonManager;
 

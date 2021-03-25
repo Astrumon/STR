@@ -15,30 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс TrainSetDaoImpl служит для создания состава определенного поезда
- * Взаимодействует с таблицами train, train_set, wagon
+ * Класс RouteSetDaoImpl служит для добавления/обновления/удаления информации про  состав поезда
+ *
  */
 public class TrainSetDaoImpl implements TrainSetDao {
 
     private DataSource dataSource;
 
-    /**
-     * Конструктор для подключения к базе данных
-     * @param dataSource
-     */
-    //TODO
+
     public TrainSetDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    /**
-     * Метод который служит для добавления информации о вагоне в таблицу train_set
-     * Информация о поезде так же записывается в таблицу wagon
-     * @param trainName
-     * @param wagon
-     * @param position
-     * @return
-     */
     @Override
     public boolean addWagon(String trainName, Wagon wagon, int position) {
         Connection connection = null;
@@ -68,10 +56,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
             }
         }
 
-    /**
-     * Выборка всей информации из таблицы train_set
-     * @return
-     */
     @Override
     public List<TrainSet> findAll() {
         Connection connection = null;
@@ -104,11 +88,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
         return trainSets;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому id из таблицы train_set
-     * @param id
-     * @return
-     */
     @Override
     public TrainSet findById(Long id) {
         Connection connection = null;
@@ -137,11 +116,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
         return trainSet;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому имени поезда из таблицы train_set
-     * @param name
-     * @return
-     */
     @Override
     public TrainSet findByName(String name) {
         Connection connection = null;
@@ -171,10 +145,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
         return trainSet;
     }
 
-    /**
-     * Удаление записи с таблицы train_set по train_set.id
-     * @param trainSet
-     */
     @Override
     public void delete(TrainSet trainSet) {
         Connection connection = null;
@@ -197,10 +167,7 @@ public class TrainSetDaoImpl implements TrainSetDao {
 
     }
 
-    /**
-     * Удаление записи с таблицы train_set по train.name
-     * @param train
-     */
+
     @Override
     public void deleteByTrainName(Train train) {
         Connection connection = null;
@@ -221,10 +188,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
         }
     }
 
-    /**
-     * Вставка записи информации про поезд в таблицу train_set.
-     * @param trainSet
-     */
     @Override
     public void insert(TrainSet trainSet) {
         Connection connection = null;
@@ -252,10 +215,6 @@ public class TrainSetDaoImpl implements TrainSetDao {
         }
     }
 
-    /**
-     * Обновляет запись в таблице train_set информацией об объекте trainSet
-     * @param trainSet
-     */
     @Override
     public void update(TrainSet trainSet) {
         Connection connection = null;

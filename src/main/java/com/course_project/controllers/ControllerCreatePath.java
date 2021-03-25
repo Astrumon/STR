@@ -5,7 +5,6 @@ import com.course_project.FxmlLoader;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.train.Train;
 import com.course_project.support.AlertGenerator;
-import com.course_project.support.Checker;
 import com.course_project.support.creator.RouteCreator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +20,11 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана для создания маршрутов
+ * Содержит обработку нажатия на кнопку: "Зберегти", "Додати точку"
+ * С помощью класса RouteCreator вызывается логика создания маршрутов
+ */
 public class ControllerCreatePath {
 
     @FXML
@@ -36,7 +40,6 @@ public class ControllerCreatePath {
 
     @FXML
     private AnchorPane anchorPaneCreatePath;
-
 
     @FXML
     private TextField textFieldPoint1;
@@ -130,18 +133,18 @@ public class ControllerCreatePath {
 
     @FXML
     void buttonSavePathAc(ActionEvent event) {
-            if (checkFields()) {
-                if (counterClicker == 0) {
-                    firstTime();
-                } else if (!textFieldTime2.getText().isEmpty() && !textFieldPoint2.getText().isEmpty() && !datePicker2.getEditor().getText().isEmpty()) {
-                    nextTime();
-                }
-
-                routeCreator.create(routeCreator.getFillRoute(train.getName()));
-                clearFields();
-                choiceBoxNameTrain.setValue(null);
-                getBackScene();
+        if (checkFields()) {
+            if (counterClicker == 0) {
+                firstTime();
+            } else if (!textFieldTime2.getText().isEmpty() && !textFieldPoint2.getText().isEmpty() && !datePicker2.getEditor().getText().isEmpty()) {
+                nextTime();
             }
+
+            routeCreator.create(routeCreator.getFillRoute(train.getName()));
+            clearFields();
+            choiceBoxNameTrain.setValue(null);
+            getBackScene();
+        }
     }
 
     private void getBackScene() {
@@ -173,9 +176,9 @@ public class ControllerCreatePath {
 
         routeCreator = new RouteCreator();
         routeCreator.generateIdRoute();
-
-        train = new Train();
         routeSet = new RouteSet();
+        train = new Train();
+
         choiceBoxInit();
         getInfoFromBox();
 
@@ -188,7 +191,6 @@ public class ControllerCreatePath {
     }
 
     private void setTrainFromBox(String name) {
-
         clearFields();
 
         counterClicker = 0;
@@ -204,60 +206,57 @@ public class ControllerCreatePath {
     }
 
     private void firstCreateTownRoute() {
-            routeSet.setFromTown(textFieldPoint1.getText());
-            previousValueOfToTown = textFieldPoint2.getText();
-            routeSet.setToTown(textFieldPoint2.getText());
-            textFieldPoint2.clear();
-            textFieldPoint1.setText(previousValueOfToTown);
+        routeSet.setFromTown(textFieldPoint1.getText());
+        previousValueOfToTown = textFieldPoint2.getText();
+        routeSet.setToTown(textFieldPoint2.getText());
+        textFieldPoint2.clear();
+        textFieldPoint1.setText(previousValueOfToTown);
     }
 
     private void nextCreateTownRoute() {
-            routeSet.setFromTown(previousValueOfToTown);
-            routeSet.setToTown(textFieldPoint2.getText());
-            previousValueOfToTown = textFieldPoint2.getText();
-            textFieldPoint1.setText(previousValueOfToTown);
-            textFieldPoint2.clear();
+        routeSet.setFromTown(previousValueOfToTown);
+        routeSet.setToTown(textFieldPoint2.getText());
+        previousValueOfToTown = textFieldPoint2.getText();
+        textFieldPoint1.setText(previousValueOfToTown);
+        textFieldPoint2.clear();
     }
 
     private void firstCreateTimeRoute() {
-            routeSet.setSendTime(textFieldTime1.getText());
-            previousValueOfToTime = textFieldTime2.getText();
-            routeSet.setArriveTime(textFieldTime2.getText());
-            textFieldTime2.setText("00:00");
-            textFieldTime1.setText(previousValueOfToTime);
+        routeSet.setSendTime(textFieldTime1.getText());
+        previousValueOfToTime = textFieldTime2.getText();
+        routeSet.setArriveTime(textFieldTime2.getText());
+        textFieldTime2.setText("00:00");
+        textFieldTime1.setText(previousValueOfToTime);
     }
 
     private void nextCreateTimeRoute() {
-
-            routeSet.setSendTime(previousValueOfToTime);
-            routeSet.setArriveTime(textFieldTime2.getText());
-            previousValueOfToTime = textFieldTime2.getText();
-            textFieldTime1.setText(previousValueOfToTime);
-            textFieldTime2.setText("00:00");
+        routeSet.setSendTime(previousValueOfToTime);
+        routeSet.setArriveTime(textFieldTime2.getText());
+        previousValueOfToTime = textFieldTime2.getText();
+        textFieldTime1.setText(previousValueOfToTime);
+        textFieldTime2.setText("00:00");
     }
 
     private void firstCreateDate() {
-
-            routeSet.setDateSend(datePicker1.getValue().toString());
-            previouesValueOfDate = datePicker2.getValue().toString();
-            routeSet.setDateArrive(datePicker2.getValue().toString());
-            LocalDate date = LocalDate.parse(previouesValueOfDate);
-            datePicker1.setValue(date);
-            datePicker2.setValue(null);
+        routeSet.setDateSend(datePicker1.getValue().toString());
+        previouesValueOfDate = datePicker2.getValue().toString();
+        routeSet.setDateArrive(datePicker2.getValue().toString());
+        LocalDate date = LocalDate.parse(previouesValueOfDate);
+        datePicker1.setValue(date);
+        datePicker2.setValue(null);
 
     }
 
     private void nextCreateDate() {
-            routeSet.setDateSend(previouesValueOfDate);
-            routeSet.setDateArrive(datePicker2.getValue().toString());
-            previouesValueOfDate = datePicker2.getValue().toString();
-            LocalDate date = LocalDate.parse(previouesValueOfDate);
-            datePicker1.setValue(date);
-            datePicker2.setValue(null);
+        routeSet.setDateSend(previouesValueOfDate);
+        routeSet.setDateArrive(datePicker2.getValue().toString());
+        previouesValueOfDate = datePicker2.getValue().toString();
+        LocalDate date = LocalDate.parse(previouesValueOfDate);
+        datePicker1.setValue(date);
+        datePicker2.setValue(null);
     }
 
     public boolean checkFields() {
-
         return routeCreator.isValidPoint(textFieldPoint1.getText())
                 && routeCreator.isValidPoint(textFieldPoint1.getText())
                 && routeCreator.isValidPoint(textFieldPoint2.getText())

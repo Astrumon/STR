@@ -13,7 +13,9 @@ import java.util.Properties;
 
 import org.sqlite.SQLiteConfig;
 import org.sqlite.SQLiteOpenMode;
-
+/**
+ *  Класс для подключения к базе данных
+ */
 public class DataSource {
     public final static String PATH = "jdbc:sqlite::resource:railway.db";
 
@@ -31,9 +33,7 @@ public class DataSource {
     public DataSource() {
 
         url = PATH;
-        //url = "jdbc:sqlite:C:\\Users\\Xiaomi\\IdeaProjects\\Course_project\\src\\main\\resources\\railways.db";
-        //url = "jdbc:sqlite:" + getClass().getResource("/resources/railway.db");
-
+        //url = "jdbc:sqlite:C:\\Users\\Xiaomi\\IdeaProjects\\Course_project\\src\\main\\resources\\railway.db";
         config = new SQLiteConfig();
         config.setOpenMode(SQLiteOpenMode.READWRITE);
         config.enforceForeignKeys(true);

@@ -4,6 +4,10 @@ import com.course_project.data_access.model.Cargo;
 import com.course_project.support.AlertGenerator;
 import com.course_project.support.manager.CargoManager;
 
+/**
+ * Класс который реализует всю логику обновления(изменения, удаления) грузоперевозок
+ *
+ */
 public class CargoUpdater {
     private CargoManager cargoManager;
     private Cargo cargo;

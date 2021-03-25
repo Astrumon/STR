@@ -2,6 +2,9 @@ package com.course_project.data_access.model.train;
 
 import com.course_project.data_access.model.wagon.Wagon;
 
+/**
+ * POJO класс для наименований поездов
+ */
 public class Train {
     public static final String TABLE_NAME = "train";
     public static final String ID_COLUMN = "id";

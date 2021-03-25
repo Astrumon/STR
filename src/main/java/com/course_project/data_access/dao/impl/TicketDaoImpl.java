@@ -11,6 +11,10 @@ import java.util.List;
 
 import static com.course_project.data_access.dao.route_dao.RouteSetDao.SQL_FIND_BY_ID_ROUTE;
 
+/**
+ * Класс TicketDaoImpl служит для добавления/обновления/удаления информации про билеты
+ *
+ */
 public class TicketDaoImpl implements TicketDao {
     private DataSource dataSource;
 

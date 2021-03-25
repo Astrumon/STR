@@ -1,20 +1,17 @@
 package com.course_project.support;
 
+/**
+ * Класс который служит для парсинга "Вагон№", позволяет выбирать со строки таблицы только номер вагона
+ */
 public class ParseId {
 
     private static String text;
 
-
-    public ParseId() {
-
-    }
     public ParseId(String text) {
         ParseId.text = text;
     }
 
     public static Long getLongId(String text,String key) {
-        System.out.println(text);
-        System.out.println(key);
         return Long.parseLong(text.substring(key.length()));
     }
 

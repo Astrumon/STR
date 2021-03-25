@@ -14,14 +14,15 @@ import com.course_project.support.manager.WagonManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс который реализует всю логику создания маршрутов и точек маршрута
+ *
+ */
 public class RouteCreator {
     public static Long idRoute;
     private RouteManager routeManager;
     private TrainManager trainManager;
     private WagonManager wagonManager;
-
-
-
     private RouteSet routeSet;
 
 

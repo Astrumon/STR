@@ -11,8 +11,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс RouteSetDaoImpl служит для добавления/обновления/удаления информации про точки маршрута
+ *
+ */
 public class RouteSetDaoImpl implements RouteSetDao {
-
 
     private DataSource dataSource;
 

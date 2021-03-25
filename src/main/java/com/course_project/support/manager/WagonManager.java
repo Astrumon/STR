@@ -9,7 +9,9 @@ import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 
 import java.util.List;
-
+/**
+ * Класс который взаимодействует с DAO вагонов, мест, типом мест
+ */
 public class WagonManager extends Manager {
 
     public static Wagon transfer;

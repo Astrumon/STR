@@ -4,6 +4,9 @@ import com.course_project.data_access.model.route.Route;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы route
+ */
 public interface RouteDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Route.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Route.ID_ROUTE_COLUMN + " = ?";

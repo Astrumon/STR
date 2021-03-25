@@ -13,6 +13,9 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс который позволяет генерировать сообщения пользователю
+ */
 public class AlertGenerator {
 
     private static Alert alert = new Alert(Alert.AlertType.NONE);

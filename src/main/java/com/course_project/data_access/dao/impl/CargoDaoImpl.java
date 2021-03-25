@@ -9,6 +9,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс CargoDaoImpl служит для добавления/обновления/удаления информации про грузоперевозки
+ *
+ */
 public class CargoDaoImpl implements CargoDao {
     private DataSource dataSource;
 

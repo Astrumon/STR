@@ -12,7 +12,11 @@ import com.course_project.support.manager.TrainManager;
 import com.course_project.support.manager.WagonManager;
 
 import java.util.List;
-
+/**
+ * Класс который реализует всю логику обновления(изменения, удаления) поездов
+ * Содержит логику добавления, удаления вагонов с состава поезда
+ *
+ */
 public class TrainUpdater extends Updater{
 
     private TrainManager trainManager;

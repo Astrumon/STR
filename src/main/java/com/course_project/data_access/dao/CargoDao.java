@@ -4,6 +4,9 @@ import com.course_project.data_access.model.Cargo;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы cargo
+ */
 public interface CargoDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Cargo.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Cargo.ID_COLUMN + " = ?";

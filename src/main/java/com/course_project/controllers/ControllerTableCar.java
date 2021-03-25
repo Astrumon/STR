@@ -22,6 +22,11 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы вагонов
+ * Создает таблицу в которой перечислены созданные вагоны, данные про вагоны предоставляет класс WagonManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateCar
+ */
 public class ControllerTableCar {
 
     public static final String WAGON_PREFIX_NAME = "Вагон№ ";
@@ -43,7 +48,6 @@ public class ControllerTableCar {
     private TableColumn tblNumber;
     @FXML
     private TableColumn tblCount;
-
 
     private ObservableList<Wagon> wagons;
 

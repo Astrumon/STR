@@ -21,7 +21,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
-
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы купленных билетов
+ * Создает таблицу в которой перечислены купленные билеты, данные предоставляет класс TicketManager
+ */
 public class ControllerTableTicket {
 
     @FXML
@@ -66,8 +69,6 @@ public class ControllerTableTicket {
     @FXML
     private URL location;
 
-    private TicketManager ticketManager;
-
     private ObservableList<Ticket> tickets;
 
     @FXML
@@ -76,13 +77,10 @@ public class ControllerTableTicket {
     }
 
     public void fillTable() {
-        ticketManager = new TicketManager();
-
-
+        TicketManager ticketManager = new TicketManager();
 
         tickets = tableTicket.getItems();
         tickets.addAll(ticketManager.getTickets());
-
 
         tblBuyer.setCellValueFactory(new PropertyValueFactory<Route, String>("contact"));
 
@@ -115,9 +113,6 @@ public class ControllerTableTicket {
         tblWagon.setCellValueFactory(new PropertyValueFactory<Route, String>("idWagon"));
 
         tblPlace.setCellValueFactory(new PropertyValueFactory<Route, String>("placeNumber"));
-
-
-
 
         tblNumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
             @Override

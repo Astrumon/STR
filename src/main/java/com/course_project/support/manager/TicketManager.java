@@ -5,6 +5,9 @@ import com.course_project.data_access.model.Ticket;
 
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO билетов
+ */
 public class TicketManager extends Manager {
     private TicketDaoImpl ticketDao;
     public static Ticket transfer;

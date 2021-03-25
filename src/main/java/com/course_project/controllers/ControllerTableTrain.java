@@ -20,6 +20,11 @@ import com.course_project.support.manager.TrainManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана таблицы поездов
+ * Создает таблицу в которой перечислены созданные поезда, данные предоставляет класс TrainManager
+ * Содержит обработку двойного нажатия на строку таблицы, передает нужные данные контроллеру ControllerUpdateTrain
+ */
 public class ControllerTableTrain {
 
     @FXML
@@ -33,7 +38,6 @@ public class ControllerTableTrain {
 
     @FXML
     private AnchorPane anchorPaneTableTrain;
-
 
     @FXML
     private TableView tableTrain;

@@ -7,6 +7,9 @@ import com.course_project.data_access.model.warehouse.WarehouseSet;
 
 import java.util.List;
 
+/**
+ * Интерфейс который содержит основные SQL-запросы таблицы wagon
+ */
 public interface WagonDao {
     String SQL_FIND_ALL = "SELECT * FROM " + Wagon.TABLE_NAME;
     String SQL_FIND_BY_ID = SQL_FIND_ALL + " WHERE " + Wagon.ID_COLUMN + "= ?";

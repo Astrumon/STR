@@ -1,5 +1,8 @@
 package com.course_project.data_access.model;
 
+/**
+ * POJO класс для билетов
+ */
 public class Ticket {
     public static final String TABLE_NAME = "ticket";
     public static final String ID_COLUMN = "id";

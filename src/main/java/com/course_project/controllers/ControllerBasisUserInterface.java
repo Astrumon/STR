@@ -15,6 +15,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса начального экрана программы
+ * Содержит обработку нажатий кнопок: "Склади", "Вагони", "Потяги", "Шляхи", "Квитки", "Вантаж", "Оператори", "Вихід"
+ * Каждая кнопка содержит переход на конкретную сцену
+ */
 public class ControllerBasisUserInterface {
 
     @FXML

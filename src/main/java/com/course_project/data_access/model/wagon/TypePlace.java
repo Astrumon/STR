@@ -1,5 +1,8 @@
 package com.course_project.data_access.model.wagon;
 
+/**
+ * POJO класс для типа мест
+ */
 public class TypePlace {
 
     public static final String TABLE_NAME = "count_type_place";

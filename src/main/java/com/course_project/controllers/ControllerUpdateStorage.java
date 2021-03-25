@@ -19,6 +19,11 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретного склада
+ * Содержит обработку нажатий на кнопки "Зберегти", "Додати на склад", "Видалити з складу"
+ * С помощью класса WarehouseUpdater вызывается логика изменения информации про склад
+ */
 public class ControllerUpdateStorage {
 
     @FXML
@@ -50,7 +55,7 @@ public class ControllerUpdateStorage {
 
     private String warehouseName;
 
-    private WarehouseUpdater warehouseUpdater = new WarehouseUpdater();
+    private WarehouseUpdater warehouseUpdater;
 
     @FXML
     void buttonDeleteStorageAc(ActionEvent event) {
@@ -92,6 +97,7 @@ public class ControllerUpdateStorage {
         assert lstViewCarInTheStorage != null : "fx:id=\"lstViewCarInTheStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
         assert buttonAddToStorage != null : "fx:id=\"buttonAddToStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
         assert buttonRemoveFromStorage != null : "fx:id=\"buttonRemoveFromStorage\" was not injected: check your FXML file 'updateStorage.fxml'.";
+        warehouseUpdater = new WarehouseUpdater();
 
         loadWagonsInfoToLstView();
         setWarehouseName();

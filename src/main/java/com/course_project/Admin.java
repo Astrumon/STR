@@ -1,5 +1,8 @@
 package com.course_project;
 
+/**
+ * POJO класс администратора
+ */
 public class Admin {
 
     public static boolean status = false;

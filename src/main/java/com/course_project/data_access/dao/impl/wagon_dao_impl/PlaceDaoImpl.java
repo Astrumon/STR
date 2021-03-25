@@ -9,27 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс PlaceDaoImpl служит для создания мест в вагоне
- * взаимодействует с таблицей wagon, count_type_place
+ * Класс PlaceDaoImpl служит для добавления/обновления/удаления информации про  места вагона
+ *
  */
 public class PlaceDaoImpl implements PlaceDao {
 
     private DataSource dataSource;
 
-    /**
-     * Конструктор служит для установки подключения к базе данных
-     *
-     * @param dataSource
-     */
     public PlaceDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    /**
-     * Выборка всей информации из таблицы place
-     *
-     * @return
-     */
     @Override
     public List<Place> findAll() {
         Connection connection = null;
@@ -61,12 +51,6 @@ public class PlaceDaoImpl implements PlaceDao {
         return places;
     }
 
-    /**
-     * Выборка всей информации одной записи по заданому id из таблицы cplace
-     *
-     * @param id
-     * @return
-     */
     @Override
     public Place findById(Long id) {
         Connection connection = null;
@@ -98,11 +82,6 @@ public class PlaceDaoImpl implements PlaceDao {
         return place;
     }
 
-    /**
-     * Удаление записи с таблицы place по place.id
-     *
-     * @param place
-     */
     @Override
     public void delete(Place place) {
         Connection connection = null;
@@ -122,11 +101,6 @@ public class PlaceDaoImpl implements PlaceDao {
         }
     }
 
-    /**
-     * Обновляет запись в таблице place информацией об объекте place
-     *
-     * @param place
-     */
     @Override
     public boolean update(Place place) {
         Connection connection = null;
@@ -154,11 +128,6 @@ public class PlaceDaoImpl implements PlaceDao {
         }
     }
 
-    /**
-     * Вставка записи информации о place в таблицу place.
-     *
-     * @param place
-     */
     @Override
     public void insert(Place place) {
         Connection connection = null;
@@ -194,11 +163,6 @@ public class PlaceDaoImpl implements PlaceDao {
         return (number > 0);
     }
 
-    /**
-     * Обновляет статус места в вагоне (0 - свободно, 1 - занято)
-     * @param number
-     * @param status
-     */
     @Override
     public void updateStatus(int number, int status) {
         Connection connection = null;

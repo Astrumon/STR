@@ -19,51 +19,42 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана изменения конкретного маршрута
+ * Содержит обработку нажатий на кнопки "Зберегти", "Видалити", "Наступна точка", "Попередня точка", "Додати нову точку", "Переглянути весь шлях"
+ * С помощью класса RouteUpdater вызывается логика изменения информации про маршрут
+ * Обработчик нажатия на кнопку "Додати нову точку" использует класс RouteCreator для добавления нового пути в конец маршрута
+ */
 public class ControllerUpdatePath {
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
-
     @FXML
     private TextField textFieldPoint1;
-
     @FXML
     private TextField textFieldPrice;
-
     @FXML
     private TextField textFieldPoint2;
-
     @FXML
     private Button buttonNextPoint;
-
     @FXML
     private Button buttonPreviousPoint;
-
     @FXML
     private Button buttonAddNewPoint;
-
     @FXML
     private Button buttonReviewPath;
-
     @FXML
     private ChoiceBox<String> choiceBoxNameTrain;
-
     @FXML
     private Button buttonSavePath;
-
     @FXML
     private Button buttonDeletePath;
-
     @FXML
     private DatePicker datePicker1;
-
     @FXML
     private DatePicker datePicker2;
-
     @FXML
     private TextField textFieldTime1;
     @FXML
@@ -74,14 +65,12 @@ public class ControllerUpdatePath {
 
     private Route route;
     private RouteUpdater routeUpdater;
-    int countClickAddButton = 0;
-
+    private int countClickAddButton = 0;
 
     @FXML
     void buttonAddNewPointAc(ActionEvent event) {
 
         if (countClickAddButton == 0) {
-
             buttonSavePath.setDisable(true);
             buttonNextPoint.setDisable(true);
             buttonPreviousPoint.setDisable(true);
@@ -95,20 +84,17 @@ public class ControllerUpdatePath {
 
             buttonAddNewPoint.setText("Зберегти нову точку");
             ++countClickAddButton;
-        } else if (countClickAddButton == 1){
+        } else if (countClickAddButton == 1) {
             buttonNextPoint.setDisable(false);
             buttonPreviousPoint.setDisable(false);
 
             RouteCreator routeCreator = new RouteCreator();
-
             RouteSet routeSet = getFilledRouteSetForAddBtn();
-            System.out.println("TEST CLICK" + routeSet);
             if (routeSet != null) {
                 routeCreator.create(routeSet);
                 routeUpdater.updateRouteSet(routeSet);
 
                 countClickAddButton = 0;
-
             }
             buttonSavePath.setDisable(false);
             buttonAddNewPoint.setText("Додати нову точку");
@@ -136,7 +122,6 @@ public class ControllerUpdatePath {
             return null;
         }
 
-
         if (routeUpdater.isValidDate(datePicker1.getValue().toString())) {
             routeSet.setDateSend(datePicker1.getValue().toString());
         } else {
@@ -158,19 +143,19 @@ public class ControllerUpdatePath {
 
         if (routeUpdater.isValidTime(textFieldTime2.getText())) {
             routeSet.setArriveTime(textFieldTime2.getText());
-        }else {
+        } else {
             return null;
         }
 
         routeSet.setTrainName(this.route.getTrainName());
-        routeSet.setIdRoute(this.route.getIdRoute()+1);
+        routeSet.setIdRoute(this.route.getIdRoute() + 1);
 
         return routeSet;
     }
 
     @FXML
     void buttonReviewPathAc(ActionEvent event) {
-        AlertGenerator.tableRoute(routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1));
+        AlertGenerator.tableRoute(routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute() + 1));
     }
 
     @FXML
@@ -204,60 +189,59 @@ public class ControllerUpdatePath {
 
     @FXML
     void buttonSavePathAc(ActionEvent event) {
-       RouteSet routeSet = getUpdatedRouteSet();
+        RouteSet routeSet = getUpdatedRouteSet();
 
-       if (routeSet != null) {
-           routeUpdater.updateRouteSet(routeSet);
-       }
+        if (routeSet != null) {
+            routeUpdater.updateRouteSet(routeSet);
+        }
     }
 
 
     private RouteSet getUpdatedRouteSet() {
-       List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
+        List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute() + 1);
 
         int index = count;
         if (routeUpdater.isValidPrice(textFieldPrice.getText())) {
             routeSets.get(index).setPrice(Integer.parseInt(textFieldPrice.getText()));
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidPoint(textFieldPoint1.getText())) {
             routeSets.get(index).setFromTown(textFieldPoint1.getText());
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidPoint(textFieldPoint2.getText())) {
             routeSets.get(index).setToTown(textFieldPoint2.getText());
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidDate(datePicker1.getValue().toString())) {
             routeSets.get(index).setDateSend(datePicker1.getValue().toString());
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidDate(datePicker2.getValue().toString())) {
             routeSets.get(index).setDateArrive(datePicker2.getValue().toString());
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidTime(textFieldTime1.getText())) {
             routeSets.get(index).setSendTime(textFieldTime1.getText());
-        }else {
+        } else {
             return null;
         }
 
         if (routeUpdater.isValidTime(textFieldTime2.getText())) {
             routeSets.get(index).setArriveTime(textFieldTime2.getText());
-        }else {
+        } else {
             return null;
         }
-
 
         return routeSets.get(index);
     }
@@ -276,30 +260,23 @@ public class ControllerUpdatePath {
         count = 0;
         route = RouteManager.transfer;
         routeUpdater = new RouteUpdater();
-        routeSetSize  = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1;
+        routeSetSize = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute() + 1).size() - 1;
         if (count != routeSetSize) {
             buttonAddNewPoint.setDisable(true);
         }
 
-
-         initData(count);
+        initData(count);
     }
 
     private void initData(int count) {
-
-        List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1);
+        List<RouteSet> routeSets = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute() + 1);
         choiceBoxNameTrain.setValue(route.getTrainName());
         textFieldPoint1.setText(routeSets.get(count).getFromTown());
         textFieldPoint2.setText(routeSets.get(count).getToTown());
         textFieldPrice.setText(String.valueOf(routeSets.get(count).getPrice()));
         textFieldTime1.setText(routeSets.get(count).getSendTime());
         textFieldTime2.setText(routeSets.get(count).getArriveTime());
-        LocalDate date1 = LocalDate.parse(routeSets.get(count).getDateSend());
-        LocalDate date2 = LocalDate.parse(routeSets.get(count).getDateArrive());
-
-        datePicker1.setValue(date1);
-        datePicker2.setValue(date2);
+        datePicker1.setValue(LocalDate.parse(routeSets.get(count).getDateSend()));
+        datePicker2.setValue(LocalDate.parse(routeSets.get(count).getDateArrive()));
     }
-
-
 }

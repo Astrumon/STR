@@ -14,6 +14,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс реализует логику контроллера графического интерфейса экрана для создания поездов, добавления вагонов к поезду.
+ * Содержит обработку нажатия на кнопку: "Зберегти"
+ * С помощью класса TrainCreator вызывается логика создания поездов
+ */
 public class ControllerCreateTrain {
 
     @FXML

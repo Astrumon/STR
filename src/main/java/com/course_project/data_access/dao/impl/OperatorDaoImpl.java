@@ -9,6 +9,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс OperatorDaoImpl служит для добавления/обновления/удаления информации про операторов
+ *
+ */
 public class OperatorDaoImpl implements OperatorDao {
     private DataSource dataSource;
 

@@ -1,5 +1,7 @@
 package com.course_project.data_access.model.route;
-
+/**
+ * POJO класс для точек маршрута
+ */
 public class RouteSet {
     public static final String TABLE_NAME = "route_set";
     public static final String FROM_TOWN_COLUMN = "from_point";

@@ -9,6 +9,9 @@ import com.course_project.data_access.model.wagon.Wagon;
 
 import java.util.List;
 
+/**
+ * Класс который взаимодействует с DAO поездов и их составов
+ */
 public class TrainManager extends Manager {
 
     public static final int TRAIN_CAPACITY = 30;
