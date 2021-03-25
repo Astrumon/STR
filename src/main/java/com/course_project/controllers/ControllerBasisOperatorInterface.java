@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.course_project.Admin;
 import com.course_project.FxmlLoader;
+import com.course_project.data_access.model.Operator;
 import com.course_project.database.DataSource;
 import com.course_project.support.manager.OperatorManager;
 import javafx.collections.ObservableList;
@@ -295,6 +296,7 @@ public class ControllerBasisOperatorInterface {
         if (OperatorManager.login != null) {
             buttonOperators.setVisible(false);
             lableUserName.setText("Оператор: " + OperatorManager.login);
+            OperatorManager.login = null;
         }  else if (Admin.status){
             buttonOperators.setVisible(true);
         }

@@ -17,7 +17,7 @@ import org.sqlite.SQLiteOpenMode;
  *  Класс для подключения к базе данных
  */
 public class DataSource {
-    public final static String PATH = "jdbc:sqlite::resource:railway.db";
+    public final static String PATH = "jdbc:sqlite::resource:data.db";
 
     private String url;
     private SQLiteConfig config;

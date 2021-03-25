@@ -1,4 +1,3 @@
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\route_dao\TownDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUserBuyTicket.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainSetDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\AlertGenerator.java
@@ -6,7 +5,6 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\sup
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\train\Train.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableOperator.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\TypePlace.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\route\Town.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\wagon\Place.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\WarehouseUpdater.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\warehouse\Warehouse.java
@@ -36,13 +34,11 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\sup
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\RouteSetDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\TrainManager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\OperatorManager.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\Checkable.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerBasisOperatorInterface.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\FxmlLoader.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\train_dao_impl\TrainDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\TrainUpdater.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\train\TrainSet.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\UserTicket.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerLoginAccount.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUserTrucking.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUserTableTicket.java
@@ -84,9 +80,7 @@ C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\module-info.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerTableTrucking.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\train_dao\TrainSetDao.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\wagon_dao\TypePlaceDao.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\dao\impl\route_dao_impl\TownDaoImpl.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\data_access\model\Ticket.java
-C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\updater\TicketUpdater.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerCreateOperator.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\support\manager\Manager.java
 C:\Users\Xiaomi\IdeaProjects\Course_project\src\main\java\com\course_project\controllers\ControllerUpdateStorage.java

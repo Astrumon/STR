@@ -1,6 +1,7 @@
 package com.course_project.controllers;
 
 import com.course_project.FxmlLoader;
+import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.wagon.Place;
 import com.course_project.data_access.model.wagon.Wagon;
@@ -22,9 +23,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Данный класс реализует логику контроллера графического интерфейса экрана таблицы билетов
@@ -80,8 +79,8 @@ public class ControllerUserTableTicket {
 
     private RouteCreator routeCreator;
     private WagonManager wagonManager;
-
     private ObservableList<RouteSet> routeSets;
+   // private HashSet<RouteSet> listRouteSets = new LinkedHashSet<RouteSet>();
     private List<RouteSet> listRouteSets = new ArrayList<>();
 
     @FXML
@@ -89,11 +88,11 @@ public class ControllerUserTableTicket {
         tableUserTicket.getItems().clear();
         RouteSet routeSet = getFilledRouteSet();
         if (routeSet != null) {
-            listRouteSets = routeCreator.getRouteManager().getRouteSetsByFromToDate(routeSet);
+           listRouteSets = routeCreator.getRouteManager().getRouteSetsByFromToDate(routeSet);
         }
         fillTable();
-
     }
+
 
     public void fillTable() {
         routeSets = tableUserTicket.getItems();
@@ -181,7 +180,6 @@ public class ControllerUserTableTicket {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     RouteManager.transferRouteSet = row.getItem();
-
                     FxmlLoader object = new FxmlLoader();
                     Pane view = object.getPage("userBuyTicket");
 
