@@ -22,7 +22,7 @@
                                             </image>
                                         </ImageView>
                               <Label layoutX="110.0" layoutY="32.0" />
-                              <Label layoutX="99.0" layoutY="41.0" text="v. 2.5.7" />
+                              <Label layoutX="99.0" layoutY="41.0" text="v. 2.5.8" />
                                     </children>
                                 </Pane>
                                 <Button fx:id="buttonTicket" mnemonicParsing="false" onAction="#buttonTicketAc" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 0;" text="Квитки">

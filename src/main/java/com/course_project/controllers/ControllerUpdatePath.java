@@ -82,7 +82,7 @@ public class ControllerUpdatePath {
 
         if (countClickAddButton == 0) {
 
-            buttonSavePath.setVisible(false);
+            buttonSavePath.setDisable(true);
             buttonNextPoint.setDisable(true);
             buttonPreviousPoint.setDisable(true);
             textFieldPoint1.setText(textFieldPoint2.getText());
@@ -110,7 +110,7 @@ public class ControllerUpdatePath {
                 countClickAddButton = 0;
 
             }
-            buttonSavePath.setVisible(false);
+            buttonSavePath.setDisable(false);
             buttonAddNewPoint.setText("Додати нову точку");
         }
     }
@@ -185,7 +185,7 @@ public class ControllerUpdatePath {
             initData(count);
         }
         if (count == routeSetSize) {
-            buttonAddNewPoint.setVisible(true);
+            buttonAddNewPoint.setDisable(false);
         }
     }
 
@@ -197,7 +197,7 @@ public class ControllerUpdatePath {
         }
 
         if (count != routeSetSize) {
-            buttonAddNewPoint.setVisible(false);
+            buttonAddNewPoint.setDisable(true);
         }
 
     }
@@ -278,7 +278,7 @@ public class ControllerUpdatePath {
         routeUpdater = new RouteUpdater();
         routeSetSize  = routeUpdater.getRouteManager().getRouteSetsByRouteId(route.getIdRoute()+1).size()-1;
         if (count != routeSetSize) {
-            buttonAddNewPoint.setVisible(false);
+            buttonAddNewPoint.setDisable(true);
         }
 
 

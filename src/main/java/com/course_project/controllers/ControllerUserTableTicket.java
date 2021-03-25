@@ -88,7 +88,7 @@ public class ControllerUserTableTicket {
 
     @FXML
     void buttonFindTicketAc(ActionEvent event) {
-
+        tableUserTicket.getItems().clear();
         RouteSet routeSet = getFilledRouteSet();
         if (routeSet != null) {
             listRouteSets = routeCreator.getRouteManager().getRouteSetsByFromToDate(routeSet);

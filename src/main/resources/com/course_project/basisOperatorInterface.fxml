@@ -148,7 +148,7 @@
                         <AnchorPane fx:id="anchorPaneInStackPane" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;" />
                      </children>
                   </StackPane>
-                  <Label prefHeight="18.0" prefWidth="43.0" text="v. 2.5.7">
+                  <Label prefHeight="18.0" prefWidth="43.0" text="v. 2.5.8">
                      <GridPane.margin>
                         <Insets left="100.0"/>
                      </GridPane.margin>
