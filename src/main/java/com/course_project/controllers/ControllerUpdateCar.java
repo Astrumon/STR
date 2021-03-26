@@ -1,5 +1,6 @@
 package com.course_project.controllers;
 
+import com.course_project.data_access.dao.impl.wagon_dao_impl.TypePlaceDaoImpl;
 import com.course_project.data_access.model.wagon.TypePlace;
 import com.course_project.data_access.model.wagon.Wagon;
 import com.course_project.support.AlertGenerator;
@@ -130,6 +131,13 @@ public class ControllerUpdateCar {
         wagonUpdater = new WagonUpdater();
         idWagon = WagonManager.transfer.getIdWagon();
         textFieldNameCar.setText(idWagon.toString());
+        TypePlace typePlace = wagonUpdater.getTypePlace(idWagon);
+        if (WagonManager.transfer.getType() != Wagon.CARGO_TYPE) {
+            textFieldNumberVipSeats.setText(String.valueOf(typePlace.getCountVip()));
+            textFieldNumberTopSeats.setText(String.valueOf(typePlace.getCountMiddle()));
+            textFieldNumberLowerSeats.setText(String.valueOf(typePlace.getCountLow()));
+            textFieldNumberSittingSeats.setText(String.valueOf(typePlace.getCountSeats()));
+        }
         TypeCarAc();
     }
 
