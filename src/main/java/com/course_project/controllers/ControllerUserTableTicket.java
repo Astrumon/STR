@@ -1,7 +1,6 @@
 package com.course_project.controllers;
 
 import com.course_project.FxmlLoader;
-import com.course_project.data_access.model.route.Route;
 import com.course_project.data_access.model.route.RouteSet;
 import com.course_project.data_access.model.wagon.Place;
 import com.course_project.data_access.model.wagon.Wagon;
@@ -23,7 +22,9 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Данный класс реализует логику контроллера графического интерфейса экрана таблицы билетов
@@ -80,7 +81,6 @@ public class ControllerUserTableTicket {
     private RouteCreator routeCreator;
     private WagonManager wagonManager;
     private ObservableList<RouteSet> routeSets;
-   // private HashSet<RouteSet> listRouteSets = new LinkedHashSet<RouteSet>();
     private List<RouteSet> listRouteSets = new ArrayList<>();
 
     @FXML
@@ -88,9 +88,72 @@ public class ControllerUserTableTicket {
         tableUserTicket.getItems().clear();
         RouteSet routeSet = getFilledRouteSet();
         if (routeSet != null) {
-           listRouteSets = routeCreator.getRouteManager().getRouteSetsByFromToDate(routeSet);
+            //listRouteSets = routeCreator.getRouteManager().getRouteSetsByFromToDate(routeSet);
+            listRouteSets = findRoutes();
         }
         fillTable();
+    }
+
+    private List<RouteSet> findRoutes() {
+        List<RouteSet> routeSets = new ArrayList<>();
+        List<RouteSet> routeWithFromTownAndData = new ArrayList<>();
+        List<RouteSet> routeWithToTown = new ArrayList<>();
+        int sum = 0;
+        for (RouteSet routeSet : routeCreator.getRouteManager().getRouteSets()) {
+
+            if (routeSet.getFromTown().equals(textFieldFirstPoint.getText())
+                    && routeSet.getDateSend().equals(datePicker.getValue().toString())) {
+                routeWithFromTownAndData.add(routeSet);
+            }
+
+            if (routeSet.getToTown().equals(textFieldLastPoint.getText())) {
+                routeWithToTown.add(routeSet);
+            }
+        }
+
+        int count = 0;
+        System.out.println(routeWithToTown);
+        for (RouteSet routeSet : routeWithFromTownAndData) {
+            for (RouteSet routeSet1 : routeWithToTown) {
+                if (routeSet.getTrainName().equals(routeSet1.getTrainName())) {
+                    System.out.println(routeSet.getTrainName());
+                    System.out.println(routeSet1.getTrainName());
+                    for (RouteSet routeSet11 : routeCreator.getRouteManager().getRouteSets()) {
+                        if (routeSet11.getTrainName().equals(routeSet1.getTrainName())) {
+                            System.out.println(routeSet11);
+
+                            if (routeSet11.getFromTown().equals(textFieldFirstPoint.getText())
+                                    && routeSet11.getToTown().equals(textFieldLastPoint.getText())) {
+                                sum = routeSet11.getPrice();
+                                break;
+                            }
+                            if (!routeSet11.getToTown().equals(routeSet1.getToTown())) {
+                                count++;
+                                sum += routeSet11.getPrice();
+                            } else {
+                                if (count == 0) {
+                                    sum = routeSet11.getPrice();
+                                    break;
+                                }
+                                sum += routeSet11.getPrice();
+                                break;
+                            }
+                        }
+                    }
+
+                    System.out.println("SUM " + sum);
+                    routeSet.setArriveTime(routeSet1.getArriveTime());
+                    routeSet.setDateArrive(routeSet1.getDateArrive());
+                    routeSet.setToTown(routeSet1.getToTown());
+                    routeSet.setPrice(sum);
+                    routeSets.add(routeSet);
+                    sum = 0;
+                }
+            }
+        }
+
+
+        return routeSets;
     }
 
 
